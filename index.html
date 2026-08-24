@@ -1,0 +1,2141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>🌟 Sanav & Sanha's 3rd Grade Learning Hub 🌟</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600;700&family=Nunito:wght@600;700;800;900&family=Lora:ital,wght@0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #4F46E5;
+      --primary-hover: #4338CA;
+      --secondary: #06B6D4;
+      --accent: #F59E0B;
+      --success: #10B981;
+      --danger: #EF4444;
+      --bg-gradient: linear-gradient(135deg, #EEF2FF 0%, #E0E7FF 100%);
+      --card-bg: #FFFFFF;
+      --text-main: #1F2937;
+      --text-muted: #6B7280;
+      --border-radius: 20px;
+      --shadow: 0 10px 25px -5px rgba(79, 70, 229, 0.1), 0 8px 10px -6px rgba(79, 70, 229, 0.1);
+      --profile-color: #2563EB;
+      --profile-light: #DBEAFE;
+    }
+
+    body.sanha-theme {
+      --primary: #9333EA;
+      --primary-hover: #7E22CE;
+      --secondary: #EC4899;
+      --accent: #F59E0B;
+      --bg-gradient: linear-gradient(135deg, #FAF5FF 0%, #F3E8FF 100%);
+      --shadow: 0 10px 25px -5px rgba(147, 51, 234, 0.12), 0 8px 10px -6px rgba(147, 51, 234, 0.1);
+      --profile-color: #A855F7;
+      --profile-light: #F3E8FF;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: 'Fredoka', 'Nunito', system-ui, sans-serif;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      background: var(--bg-gradient);
+      color: var(--text-main);
+      min-height: 100vh;
+      padding-bottom: 60px;
+      transition: background 0.4s ease;
+    }
+
+    /* Top Navigation / Header */
+    header {
+      background: white;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06);
+      padding: 16px 24px;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 16px;
+    }
+
+    .brand-section {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-icon {
+      font-size: 2.2rem;
+      background: var(--profile-light);
+      width: 50px;
+      height: 50px;
+      display: grid;
+      place-items: center;
+      border-radius: 16px;
+      animation: floatIcon 3s ease-in-out infinite;
+    }
+
+    @keyframes floatIcon {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-5px); }
+    }
+
+    .brand-text h1 {
+      font-size: 1.4rem;
+      font-weight: 700;
+      color: var(--primary);
+      line-height: 1.2;
+    }
+
+    .brand-text p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      font-weight: 500;
+    }
+
+    /* Profile Switcher */
+    .profile-switch-container {
+      display: flex;
+      align-items: center;
+      background: #F3F4F6;
+      border-radius: 30px;
+      padding: 4px;
+      gap: 4px;
+    }
+
+    .profile-btn {
+      border: none;
+      padding: 8px 18px;
+      border-radius: 25px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      background: transparent;
+      color: #4B5563;
+      transition: all 0.25s ease;
+    }
+
+    .profile-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+      transform: scale(1.02);
+    }
+
+    /* Stats Bar */
+    .header-stats {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .stat-badge {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: #FEF3C7;
+      color: #92400E;
+      padding: 6px 14px;
+      border-radius: 20px;
+      font-weight: 700;
+      font-size: 0.95rem;
+      box-shadow: inset 0 0 0 1px #FDE68A;
+    }
+
+    .audio-toggle-btn {
+      background: #F3F4F6;
+      border: 1px solid #E5E7EB;
+      width: 40px;
+      height: 40px;
+      border-radius: 50%;
+      cursor: pointer;
+      font-size: 1.1rem;
+      display: grid;
+      place-items: center;
+      transition: all 0.2s ease;
+    }
+
+    .audio-toggle-btn:hover {
+      background: #E5E7EB;
+      transform: scale(1.05);
+    }
+
+    /* Navigation Tabs */
+    .main-tabs {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 24px auto;
+      max-width: 1050px;
+      padding: 0 16px;
+    }
+
+    .tab-btn {
+      flex: 1;
+      padding: 14px 16px;
+      border: none;
+      background: white;
+      color: var(--text-muted);
+      border-radius: 16px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+      transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+    }
+
+    .tab-btn:hover {
+      transform: translateY(-2px);
+      box-shadow: 0 6px 15px rgba(0,0,0,0.06);
+    }
+
+    .tab-btn.active {
+      background: var(--primary);
+      color: white;
+      box-shadow: 0 8px 20px rgba(79, 70, 229, 0.3);
+      transform: translateY(-2px);
+    }
+
+    /* Container */
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 16px;
+    }
+
+    .tab-pane {
+      display: none;
+      animation: fadeIn 0.3s ease;
+    }
+
+    .tab-pane.active {
+      display: block;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(8px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Profile Welcome Banner */
+    .welcome-banner {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 20px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-left: 6px solid var(--primary);
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .welcome-banner h2 {
+      font-size: 1.3rem;
+      color: var(--primary);
+      margin-bottom: 4px;
+    }
+
+    .welcome-banner p {
+      color: var(--text-muted);
+      font-size: 0.95rem;
+    }
+
+    .target-boost-tags {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .boost-pill {
+      background: var(--profile-light);
+      color: var(--primary);
+      padding: 6px 12px;
+      border-radius: 12px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
+
+    /* ==========================================================================
+       BUILT-IN E-READER & MISSION WORKSPACE UI
+       ========================================================================== */
+    .mission-workspace {
+      background: white;
+      border-radius: var(--border-radius);
+      padding: 28px;
+      box-shadow: var(--shadow);
+      margin-bottom: 30px;
+      border: 3px solid var(--primary);
+      animation: fadeIn 0.3s ease;
+    }
+
+    .reader-mode-switch {
+      display: flex;
+      gap: 8px;
+      background: #F3F4F6;
+      padding: 4px;
+      border-radius: 14px;
+      margin-bottom: 18px;
+    }
+
+    .reader-mode-btn {
+      flex: 1;
+      border: none;
+      padding: 10px 14px;
+      border-radius: 10px;
+      font-weight: 700;
+      font-size: 0.9rem;
+      cursor: pointer;
+      background: transparent;
+      color: var(--text-muted);
+      transition: all 0.2s;
+    }
+
+    .reader-mode-btn.active {
+      background: white;
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    /* In-App Book Reader Box */
+    .book-reader-box {
+      background: #FFFDF9;
+      border: 2px solid #FDE68A;
+      border-radius: 18px;
+      padding: 26px;
+      margin-bottom: 22px;
+      box-shadow: inset 0 2px 10px rgba(0,0,0,0.02);
+      position: relative;
+    }
+
+    .book-reader-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 14px;
+      border-bottom: 2px dashed #FDE68A;
+      padding-bottom: 10px;
+    }
+
+    .book-page-text {
+      font-family: 'Lora', Georgia, serif;
+      font-size: 1.25rem;
+      line-height: 1.75;
+      color: #1F2937;
+      min-height: 140px;
+      margin: 16px 0;
+    }
+
+    .book-page-controls {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-top: 18px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .page-nav-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 12px;
+      font-weight: 800;
+      font-size: 0.95rem;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s;
+    }
+
+    .page-nav-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+    }
+
+    .page-nav-btn:disabled {
+      background: #E5E7EB;
+      color: #9CA3AF;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Video Player Box */
+    .video-player-container {
+      position: relative;
+      padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+      height: 0;
+      overflow: hidden;
+      border-radius: 16px;
+      margin-bottom: 20px;
+      background: #000;
+      box-shadow: 0 6px 20px rgba(0,0,0,0.15);
+    }
+
+    .video-player-container iframe {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      border: 0;
+    }
+
+    /* Book Cards Shelf */
+    .book-shelf-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 20px;
+      margin-bottom: 28px;
+    }
+
+    .book-card {
+      background: white;
+      border-radius: 18px;
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 3px solid transparent;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: all 0.25s ease;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .book-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--primary);
+      box-shadow: 0 12px 28px rgba(79, 70, 229, 0.15);
+    }
+
+    .book-card.active-mission {
+      border-color: #F59E0B;
+      background: #FFFDF8;
+    }
+
+    .book-app-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 10px;
+      border-radius: 20px;
+      font-size: 0.75rem;
+      font-weight: 800;
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      width: fit-content;
+    }
+
+    .badge-storyline { background: #FEF3C7; color: #92400E; }
+    .badge-raz { background: #DCFCE7; color: #166534; }
+    .badge-epic { background: #E0E7FF; color: #3730A3; }
+
+    .book-title {
+      font-size: 1.2rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 6px;
+    }
+
+    .book-meta {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+      font-weight: 600;
+    }
+
+    .book-status-pill {
+      font-size: 0.8rem;
+      font-weight: 700;
+      padding: 6px 12px;
+      border-radius: 12px;
+      text-align: center;
+      background: #F3F4F6;
+      color: var(--text-muted);
+    }
+
+    .book-status-pill.completed {
+      background: #D1FAE5;
+      color: #065F46;
+    }
+
+    /* Quiz Panel */
+    .quiz-question-box {
+      background: #EEF2FF;
+      border-radius: 16px;
+      padding: 20px;
+      margin: 16px 0;
+    }
+
+    .quiz-q-text {
+      font-size: 1.15rem;
+      font-weight: 800;
+      color: var(--text-main);
+      margin-bottom: 14px;
+    }
+
+    .quiz-options-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .quiz-opt-btn {
+      background: white;
+      border: 2px solid #E5E7EB;
+      border-radius: 14px;
+      padding: 12px 18px;
+      font-size: 1rem;
+      font-weight: 700;
+      text-align: left;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    .quiz-opt-btn:hover {
+      border-color: var(--primary);
+      background: var(--profile-light);
+      transform: translateX(4px);
+    }
+
+    .quiz-opt-btn.selected-correct {
+      background: #D1FAE5 !important;
+      border-color: #10B981 !important;
+      color: #065F46 !important;
+    }
+
+    .quiz-opt-btn.selected-wrong {
+      background: #FEE2E2 !important;
+      border-color: #EF4444 !important;
+      color: #991B1B !important;
+    }
+
+    /* Action Buttons */
+    .action-btn {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 12px 24px;
+      border-radius: 14px;
+      font-size: 1rem;
+      font-weight: 700;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      transition: all 0.2s ease;
+      width: 100%;
+      margin-top: 10px;
+    }
+
+    .action-btn:hover {
+      background: var(--primary-hover);
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.3);
+    }
+
+    .action-btn.secondary {
+      background: #F3F4F6;
+      color: var(--text-main);
+    }
+
+    .action-btn.secondary:hover {
+      background: #E5E7EB;
+      box-shadow: none;
+    }
+
+    .action-btn.green-btn {
+      background: #10B981;
+    }
+    .action-btn.green-btn:hover {
+      background: #059669;
+      box-shadow: 0 6px 16px rgba(16, 185, 129, 0.3);
+    }
+
+    /* Grid Layout */
+    .module-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 24px;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: var(--card-bg);
+      border-radius: var(--border-radius);
+      padding: 24px;
+      box-shadow: var(--shadow);
+      position: relative;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border: 2px solid transparent;
+      transition: all 0.25s ease;
+    }
+
+    .card:hover {
+      border-color: rgba(79, 70, 229, 0.15);
+      transform: translateY(-4px);
+    }
+
+    .card-header {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 16px;
+    }
+
+    .card-icon {
+      width: 48px;
+      height: 48px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      font-size: 1.5rem;
+      background: #EEF2FF;
+      color: var(--primary);
+    }
+
+    .card-title h3 {
+      font-size: 1.15rem;
+      font-weight: 700;
+      color: var(--text-main);
+    }
+
+    .card-title span {
+      font-size: 0.8rem;
+      color: var(--text-muted);
+      font-weight: 600;
+    }
+
+    .game-box {
+      background: #F9FAFB;
+      border-radius: 16px;
+      padding: 20px;
+      text-align: center;
+      margin: 14px 0;
+      border: 2px dashed #E5E7EB;
+      position: relative;
+    }
+
+    .option-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      margin: 16px 0;
+    }
+
+    .option-btn {
+      padding: 12px 14px;
+      background: white;
+      border: 2px solid #E5E7EB;
+      border-radius: 12px;
+      font-size: 0.95rem;
+      font-weight: 700;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s ease;
+      text-align: center;
+    }
+
+    .option-btn:hover {
+      border-color: var(--primary);
+      background: var(--profile-light);
+    }
+
+    .option-btn.correct {
+      background: #D1FAE5 !important;
+      border-color: #10B981 !important;
+      color: #065F46 !important;
+    }
+
+    .option-btn.wrong {
+      background: #FEE2E2 !important;
+      border-color: #EF4444 !important;
+      color: #991B1B !important;
+    }
+
+    /* Math UI */
+    .number-display-large {
+      font-size: 2.2rem;
+      font-weight: 900;
+      letter-spacing: 4px;
+      color: var(--primary);
+      margin: 10px 0;
+      font-family: 'Nunito', sans-serif;
+    }
+
+    .swat-digits-container {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      margin: 16px 0;
+      flex-wrap: wrap;
+    }
+
+    .swat-digit-btn {
+      width: 52px;
+      height: 60px;
+      border: 3px solid #E5E7EB;
+      background: white;
+      border-radius: 14px;
+      font-size: 1.8rem;
+      font-weight: 800;
+      color: var(--text-main);
+      cursor: pointer;
+      transition: all 0.2s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .swat-digit-btn:hover {
+      transform: scale(1.15) translateY(-5px);
+      border-color: var(--primary);
+      background: var(--profile-light);
+    }
+
+    .ladder-track {
+      display: flex;
+      justify-content: space-between;
+      background: #EEF2FF;
+      border-radius: 16px;
+      padding: 12px 8px;
+      margin: 14px 0;
+    }
+
+    .ladder-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 4px;
+      flex: 1;
+      padding: 6px 2px;
+      border-radius: 10px;
+    }
+
+    .ladder-step.active-step {
+      background: white;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+    }
+
+    .ladder-step .step-val {
+      font-weight: 800;
+      font-size: 0.95rem;
+      color: var(--primary);
+    }
+
+    .ladder-step .step-label {
+      font-size: 0.65rem;
+      color: var(--text-muted);
+      text-transform: uppercase;
+      font-weight: 700;
+    }
+
+    .blocks-arena {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 12px;
+      min-height: 120px;
+      align-items: center;
+      padding: 10px;
+    }
+
+    .block-unit {
+      width: 14px;
+      height: 14px;
+      background: #3B82F6;
+      border: 1px solid #1D4ED8;
+      border-radius: 2px;
+      display: inline-block;
+    }
+
+    .block-rod {
+      width: 14px;
+      height: 80px;
+      background: repeating-linear-gradient(0deg, #10B981, #10B981 7px, #047857 7px, #047857 8px);
+      border: 1px solid #047857;
+      border-radius: 3px;
+    }
+
+    .block-flat {
+      width: 70px;
+      height: 70px;
+      background: repeating-linear-gradient(0deg, #F59E0B, #F59E0B 6px, #D97706 6px, #D97706 7px);
+      border: 1px solid #D97706;
+      border-radius: 4px;
+    }
+
+    .block-cube {
+      width: 80px;
+      height: 80px;
+      background: #8B5CF6;
+      border: 2px solid #6D28D9;
+      border-radius: 6px;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-weight: 900;
+      font-size: 0.8rem;
+    }
+
+    #confettiCanvas {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    .feedback-msg {
+      font-weight: 700;
+      font-size: 1rem;
+      margin-top: 8px;
+      min-height: 24px;
+    }
+
+    @media (max-width: 768px) {
+      header { flex-direction: column; align-items: stretch; }
+      .main-tabs { flex-direction: column; }
+      .option-grid { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body class="sanav-theme">
+  <canvas id="confettiCanvas"></canvas>
+
+  <!-- Header -->
+  <header>
+    <div class="brand-section">
+      <div class="brand-icon" id="profileEmoji">🚀</div>
+      <div class="brand-text">
+        <h1 id="hubTitle">Sanav's 3rd Grade Hub</h1>
+        <p>Somtherman Elementary • Prosper ISD</p>
+      </div>
+    </div>
+
+    <!-- Child Selector -->
+    <div class="profile-switch-container">
+      <button class="profile-btn active" id="btnSanav" onclick="switchProfile('sanav')">
+        <span>👦</span> Sanav
+      </button>
+      <button class="profile-btn" id="btnSanha" onclick="switchProfile('sanha')">
+        <span>👧</span> Sanha
+      </button>
+    </div>
+
+    <!-- Stats & Audio -->
+    <div class="header-stats">
+      <div class="stat-badge">
+        <span>⭐</span>
+        <span id="starCounter">0 Stars</span>
+      </div>
+      <button class="audio-toggle-btn" id="audioToggleBtn" title="Toggle Sound Effects" onclick="toggleAudio()">
+        🔊
+      </button>
+    </div>
+  </header>
+
+  <!-- Main Navigation Tabs -->
+  <div class="main-tabs">
+    <button class="tab-btn active" id="tabBtnMissions" onclick="switchTab('missions')">
+      <span>📖</span> Interactive Book Reader & Quests
+    </button>
+    <button class="tab-btn" id="tabBtnMath" onclick="switchTab('math')">
+      <span>🔢</span> Math Power-Ups (Place Value)
+    </button>
+    <button class="tab-btn" id="tabBtnReading" onclick="switchTab('reading')">
+      <span>✍️</span> Weekly Literacy Tools
+    </button>
+  </div>
+
+  <main class="container">
+    <!-- Profile Welcome Banner -->
+    <section class="welcome-banner">
+      <div>
+        <h2 id="welcomeHeading">Welcome back, Super Sanav! 🌟</h2>
+        <p id="welcomeSubtext">Read interactive stories right here, watch read-alouds, and take your quizzes!</p>
+      </div>
+      <div class="target-boost-tags" id="profilePills">
+        <div class="boost-pill">📖 Built-in e-Reader</div>
+        <div class="boost-pill">⚡ 10x Relationships</div>
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 1: IN-APP BOOK READER & COMPREHENSION QUESTS
+         ========================================================================= -->
+    <section id="missionsPane" class="tab-pane active">
+      
+      <!-- ACTIVE MISSION WORKSPACE -->
+      <div class="mission-workspace" id="activeMissionWorkspace">
+        
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:10px; margin-bottom:14px;">
+          <div>
+            <span class="book-app-badge badge-storyline" id="activeMissionAppBadge">Interactive Story</span>
+            <h2 style="font-size:1.7rem; color:var(--text-main); margin-top:4px;" id="activeMissionTitle">The Empty Pot</h2>
+            <p style="font-size:0.95rem; color:var(--text-muted);" id="activeMissionAuthor">By Demi • 3rd Grade Honesty Fable</p>
+          </div>
+          <div style="display:flex; gap:8px;">
+            <button class="action-btn secondary" style="width:auto; margin:0; padding:8px 16px;" onclick="speakCurrentPageText()">
+              🔊 Read Page Aloud
+            </button>
+          </div>
+        </div>
+
+        <!-- READER / WATCH SWITCHER -->
+        <div class="reader-mode-switch">
+          <button class="reader-mode-btn active" id="btnModeRead" onclick="setReaderMode('read')">
+            📖 Read Built-in Book Pages
+          </button>
+          <button class="reader-mode-btn" id="btnModeWatch" onclick="setReaderMode('watch')">
+            🎬 Watch Animated Read-Aloud
+          </button>
+        </div>
+
+        <!-- MODE 1: BUILT-IN E-READER SLIDES -->
+        <div class="book-reader-box" id="bookReaderBox">
+          <div class="book-reader-header">
+            <span style="font-weight:800; font-size:0.9rem; color:var(--accent);" id="readerPageIndicator">
+              PAGE 1 OF 4
+            </span>
+            <span style="font-size:0.85rem; font-weight:700; color:var(--text-muted);" id="readerVocabPill">
+              🔍 Secret Clue Word: Emperor
+            </span>
+          </div>
+
+          <div class="book-page-text" id="readerPageContent">
+            <!-- Injected via JS -->
+          </div>
+
+          <div class="book-page-controls">
+            <button class="page-nav-btn secondary" id="btnPrevPage" onclick="prevBookPage()">
+              ← Previous Page
+            </button>
+            <span style="font-weight:700; color:var(--text-muted); font-size:0.9rem;" id="readingTimeEstimate">
+              ⏱️ 1 min read
+            </span>
+            <button class="page-nav-btn" id="btnNextPage" onclick="nextBookPage()">
+              Next Page →
+            </button>
+          </div>
+        </div>
+
+        <!-- MODE 2: EMBEDDED VIDEO WATCHER -->
+        <div class="video-player-container" id="videoWatcherBox" style="display:none;">
+          <iframe id="videoIframe" src="https://www.youtube-nocookie.com/embed/a64K3BwN9Z0" title="Book Read Aloud" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+        </div>
+
+        <!-- STEP 2: EVALUATION QUIZ -->
+        <div id="quizContainer" style="border-top:2px dashed #E5E7EB; padding-top:20px; margin-top:20px;">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+            <div style="font-size:1.15rem; font-weight:800; color:var(--primary);">
+              📝 COMPREHENSION QUIZ (<span id="currentQIndexLabel">Question 1 of 3</span>)
+            </div>
+            <button class="action-btn secondary" style="width:auto; margin:0; padding:6px 12px;" onclick="speakCurrentQuizQuestion()">
+              🔊 Read Question
+            </button>
+          </div>
+
+          <div class="quiz-question-box">
+            <div class="quiz-q-text" id="quizQuestionText">
+              Why did Ping's seed fail to grow into a flower?
+            </div>
+            <div class="quiz-options-list" id="quizOptionsList"></div>
+            <div class="feedback-msg" id="quizFeedback"></div>
+          </div>
+
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-top:14px;">
+            <button class="action-btn secondary" style="width:auto; padding:10px 20px;" onclick="prevQuizQuestion()" id="btnPrevQ">
+              ← Previous Question
+            </button>
+            <button class="action-btn green-btn" style="width:auto; padding:10px 24px;" onclick="nextOrFinishQuiz()" id="btnNextQ">
+              Next Question →
+            </button>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- BOOK MISSION LIBRARY SHELF -->
+      <h3 style="font-size:1.3rem; margin-bottom:14px;">📚 Choose a Story to Read:</h3>
+      <div class="book-shelf-grid" id="bookShelfGrid"></div>
+
+    </section>
+
+    <!-- =========================================================================
+         TAB 2: MATH POWER-UPS
+         ========================================================================= -->
+    <section id="mathPane" class="tab-pane">
+      <div class="module-grid">
+        
+        <!-- CARD 1: 10x Relationship Shifter -->
+        <div class="card" id="card10x">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#FEF3C7; color:#D97706;">⚡</div>
+              <div class="card-title">
+                <h3>10× Power Relationship</h3>
+                <span>Multiplicative Place Value Rules</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Every jump left makes a number <strong>10× greater</strong>! Every jump right makes it <strong>10× less</strong>.
+            </p>
+
+            <div class="ladder-track">
+              <div class="ladder-step" id="step100k"><span class="step-val">100K</span><span class="step-label">100,000s</span></div>
+              <div class="ladder-step" id="step10k"><span class="step-val">10K</span><span class="step-label">10,000s</span></div>
+              <div class="ladder-step active-step" id="step1k"><span class="step-val">1K</span><span class="step-label">1,000s</span></div>
+              <div class="ladder-step" id="step100"><span class="step-val">100</span><span class="step-label">100s</span></div>
+              <div class="ladder-step" id="step10"><span class="step-val">10</span><span class="step-label">10s</span></div>
+              <div class="ladder-step" id="step1"><span class="step-val">1</span><span class="step-label">1s</span></div>
+            </div>
+
+            <div class="game-box">
+              <div id="tenXQuestion" style="font-weight:700; font-size:1.1rem; color:var(--text-main); min-height:48px;">
+                10 hundreds equal one ____________?
+              </div>
+              <div class="option-grid" id="tenXOptions"></div>
+              <div class="feedback-msg" id="tenXFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generate10xQuestion()">Next 10× Challenge 🚀</button>
+        </div>
+
+        <!-- CARD 2: Regrouping Booster -->
+        <div class="card" id="cardRegroup">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#D1FAE5; color:#059669;">🔄</div>
+              <div class="card-title">
+                <h3>Regrouping Rocket</h3>
+                <span>Trading 10s for 100s & 1,000s</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Practice trading blocks: <strong>20 tens = 2 hundreds</strong>!
+            </p>
+
+            <div class="game-box">
+              <div style="font-size:0.85rem; color:var(--text-muted); font-weight:700;">EQUIVALENCE PUZZLE</div>
+              <div id="regroupQuestion" style="font-size:1.25rem; font-weight:800; color:var(--primary); margin:12px 0;">
+                20 Tens = how many Hundreds?
+              </div>
+              <div class="option-grid" id="regroupOptions"></div>
+              <div class="feedback-msg" id="regroupFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generateRegroupQuestion()">Next Regroup Quest 🌟</button>
+        </div>
+
+        <!-- CARD 3: Visual Base-10 Blocks -->
+        <div class="card" id="cardBlocks">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#FCE7F3; color:#DB2777;">🧱</div>
+              <div class="card-title">
+                <h3>Visual Block Matcher</h3>
+                <span>Count Flats, Rods, & Cubes</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Cubes ($1000$), Flats ($100$), Rods ($10$), Units ($1$).
+            </p>
+
+            <div class="game-box">
+              <div class="blocks-arena" id="blocksArena"></div>
+              <div id="blocksPrompt" style="font-weight:700; margin-top:8px; font-size:1rem;">
+                What number do these blocks show?
+              </div>
+              <div class="option-grid" id="blocksOptions"></div>
+              <div class="feedback-msg" id="blocksFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generateBlocksChallenge()">New Block Puzzle 🧩</button>
+        </div>
+
+        <!-- CARD 4: Number Swat -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#EDE9FE; color:#7C3AED;">🎯</div>
+              <div class="card-title">
+                <h3>Flyswatter Number Zap!</h3>
+                <span>Find & Swat the Place Value Digit</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Listen/read the target place value and SWAT the correct digit!
+            </p>
+
+            <div class="game-box">
+              <div style="font-size:1.1rem; font-weight:800; color:#EF4444;" id="swatInstruction">
+                🎯 SWAT the digit in the <span style="text-decoration:underline;">THOUSANDS</span> place!
+              </div>
+              <div class="swat-digits-container" id="swatDigitsArea"></div>
+              <div class="feedback-msg" id="swatFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generateSwatChallenge()">New Number to Swat! 🪰</button>
+        </div>
+
+        <!-- CARD 5: 5-Digit "Roll It" & Expanded Sandbox -->
+        <div class="card" style="grid-column: 1 / -1;">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#E0F2FE; color:#0284C7;">🎲</div>
+              <div class="card-title">
+                <h3>"Roll-It" 5-Digit Number Lab</h3>
+                <span>Roll virtual dice to build Standard, Expanded Form & Expanded Notation</span>
+              </div>
+            </div>
+            
+            <div style="display:flex; justify-content:center; gap:12px; margin:16px 0; flex-wrap:wrap;">
+              <button class="action-btn" style="width:auto; padding:10px 24px;" onclick="rollFiveDice()">🎲 Roll 5 Dice!</button>
+              <button class="action-btn secondary" style="width:auto; padding:10px 20px;" onclick="speakCurrentNumber()">🔊 Read Number</button>
+            </div>
+
+            <div class="number-display-large" id="rolledNumberDisplay">68,453</div>
+
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(240px, 1fr)); gap:14px; text-align:left; margin-top:16px;">
+              <div style="background:#F9FAFB; padding:14px; border-radius:12px; border-left:4px solid #3B82F6;">
+                <div style="font-size:0.75rem; font-weight:800; color:#3B82F6; text-transform:uppercase;">Standard Form</div>
+                <div style="font-size:1.1rem; font-weight:800;" id="rollStandard">68,453</div>
+              </div>
+              <div style="background:#F9FAFB; padding:14px; border-radius:12px; border-left:4px solid #10B981;">
+                <div style="font-size:0.75rem; font-weight:800; color:#10B981; text-transform:uppercase;">Expanded Form</div>
+                <div style="font-size:1rem; font-weight:700;" id="rollExpanded">60,000 + 8,000 + 400 + 50 + 3</div>
+              </div>
+              <div style="background:#F9FAFB; padding:14px; border-radius:12px; border-left:4px solid #8B5CF6;">
+                <div style="font-size:0.75rem; font-weight:800; color:#8B5CF6; text-transform:uppercase;">Expanded Notation</div>
+                <div style="font-size:0.88rem; font-weight:700;" id="rollNotation">(6 × 10,000) + (8 × 1,000) + (4 × 100) + (5 × 10) + (3 × 1)</div>
+              </div>
+              <div style="background:#F9FAFB; padding:14px; border-radius:12px; border-left:4px solid #F59E0B;">
+                <div style="font-size:0.75rem; font-weight:800; color:#F59E0B; text-transform:uppercase;">Word Form</div>
+                <div style="font-size:0.95rem; font-weight:700;" id="rollWord">6 ten thousands, 8 thousands, 4 hundreds, 5 tens, 3 ones</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- =========================================================================
+         TAB 3: WEEKLY LITERACY TOOLS
+         ========================================================================= -->
+    <section id="readingPane" class="tab-pane">
+      <div class="module-grid">
+        
+        <!-- Tuesday Vocabulary Detective -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#FEF3C7; color:#D97706;">🔍</div>
+              <div class="card-title">
+                <h3>Vocabulary Detective Pad</h3>
+                <span>Tuesday School Template</span>
+              </div>
+            </div>
+            
+            <form id="vocabForm" onsubmit="saveVocabWord(event)">
+              <div style="margin-bottom:10px;">
+                <label style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">NEW WORD FOUND:</label>
+                <div style="display:flex; gap:8px;">
+                  <input type="text" id="vocabWord" placeholder="e.g. Magnificent" required style="width:100%; padding:8px 12px; border-radius:10px; border:2px solid #E5E7EB;" />
+                  <button type="button" class="action-btn secondary" style="width:auto; margin:0; padding:8px 14px;" onclick="speakVocabWord()">🔊</button>
+                </div>
+              </div>
+              <div style="margin-bottom:10px;">
+                <label style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">WHAT IT MEANS:</label>
+                <input type="text" id="vocabMeaning" placeholder="e.g. Extremely beautiful or grand" required style="width:100%; padding:8px 12px; border-radius:10px; border:2px solid #E5E7EB;" />
+              </div>
+              <div style="margin-bottom:10px;">
+                <label style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">USE IT IN A SENTENCE:</label>
+                <textarea id="vocabSentence" rows="2" placeholder="e.g. We saw a magnificent rainbow!" style="width:100%; padding:8px 12px; border-radius:10px; border:2px solid #E5E7EB;"></textarea>
+              </div>
+              <button type="submit" class="action-btn">🌟 Save to My Word Vault</button>
+            </form>
+
+            <div style="margin-top:16px;">
+              <div style="font-size:0.8rem; font-weight:800; color:var(--text-muted);">MY SAVED WORD VAULT (<span id="savedWordCount">0</span>)</div>
+              <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;" id="savedWordList"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Wednesday Phonics & Blending Lines -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#EDE9FE; color:#7C3AED;">🧩</div>
+              <div class="card-title">
+                <h3>Blending Lines Decoder</h3>
+                <span>Wednesday Phonics & Syllables</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Tap each syllable chunk to hear it sounded out, then blend the word!
+            </p>
+
+            <div class="game-box">
+              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:800;">DECODING CHALLENGE</div>
+              <div style="display:flex; justify-content:center; gap:8px; margin:14px 0; flex-wrap:wrap;" id="syllableChunkArea"></div>
+
+              <div style="font-size:1.4rem; font-weight:800; color:var(--primary); margin-top:10px;" id="blendedWordDisplay">
+                dis · cov · er · y
+              </div>
+              <div style="font-size:0.85rem; color:var(--text-muted);" id="phonicsPatternLabel">
+                Pattern: Prefix 'dis-' + Root + Suffix '-y'
+              </div>
+            </div>
+          </div>
+          <div style="display:flex; gap:10px;">
+            <button class="action-btn secondary" onclick="blendCurrentWord()">🔊 Blend & Read</button>
+            <button class="action-btn" onclick="nextBlendingWord()">Next Word 🚀</button>
+          </div>
+        </div>
+
+        <!-- Thursday Dictation & Spelling Pattern -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#DCFCE7; color:#15803D;">✍️</div>
+              <div class="card-title">
+                <h3>Dictation Arena</h3>
+                <span>Thursday Spelling Patterns</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Listen to the word and type it in with the correct spelling pattern!
+            </p>
+
+            <div class="game-box">
+              <button class="action-btn secondary" style="width:auto; padding:10px 20px; margin-bottom:12px;" onclick="speakDictationWord()">
+                🔊 Listen to Word
+              </button>
+
+              <div style="margin-top:10px;">
+                <input type="text" id="dictationInput" placeholder="Type what you hear..." style="text-align:center; font-size:1.2rem; font-weight:800; width:100%; padding:10px; border-radius:12px; border:2px solid #E5E7EB;" />
+              </div>
+              <div id="spellingHint" style="font-size:0.8rem; color:#92400E; background:#FEF3C7; padding:4px 8px; border-radius:8px; display:inline-block; margin:8px 0;">
+                Hint: Long 'igh' vowel sound
+              </div>
+              <div class="feedback-msg" id="dictationFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="checkDictationAnswer()">Check Spelling ✨</button>
+        </div>
+
+      </div>
+    </section>
+  </main>
+
+  <script>
+    /* ==========================================================================
+       1. STATE & AUDIO SYNTHESIZER
+       ========================================================================== */
+    let currentChild = 'sanav';
+    let soundEnabled = true;
+
+    let stars = {
+      sanav: parseInt(localStorage.getItem('stars_sanav') || '14'),
+      sanha: parseInt(localStorage.getItem('stars_sanha') || '18')
+    };
+
+    let completedMissions = {
+      sanav: JSON.parse(localStorage.getItem('missions_sanav') || '[]'),
+      sanha: JSON.parse(localStorage.getItem('missions_sanha') || '[]')
+    };
+
+    let vocabVault = {
+      sanav: JSON.parse(localStorage.getItem('vocab_sanav') || '["Magnificent", "Emperor", "Decompose"]'),
+      sanha: JSON.parse(localStorage.getItem('vocab_sanha') || '["Wonder", "Courage", "Thousands"]')
+    };
+
+    const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+    function playSound(type) {
+      if (!soundEnabled) return;
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+      const now = audioCtx.currentTime;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+
+      if (type === 'correct') {
+        osc.type = 'triangle';
+        osc.frequency.setValueAtTime(523.25, now);
+        osc.frequency.setValueAtTime(659.25, now + 0.1);
+        osc.frequency.setValueAtTime(783.99, now + 0.2);
+        osc.frequency.setValueAtTime(1046.50, now + 0.3);
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.5);
+        osc.start(now);
+        osc.stop(now + 0.5);
+      } else if (type === 'wrong') {
+        osc.type = 'sawtooth';
+        osc.frequency.setValueAtTime(220, now);
+        osc.frequency.setValueAtTime(196, now + 0.15);
+        gain.gain.setValueAtTime(0.3, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.35);
+        osc.start(now);
+        osc.stop(now + 0.35);
+      } else if (type === 'pop') {
+        osc.type = 'sine';
+        osc.frequency.setValueAtTime(400, now);
+        osc.frequency.exponentialRampToValueAtTime(800, now + 0.1);
+        gain.gain.setValueAtTime(0.2, now);
+        gain.gain.exponentialRampToValueAtTime(0.01, now + 0.1);
+        osc.start(now);
+        osc.stop(now + 0.1);
+      }
+    }
+
+    function toggleAudio() {
+      soundEnabled = !soundEnabled;
+      document.getElementById('audioToggleBtn').textContent = soundEnabled ? '🔊' : '🔇';
+    }
+
+    function speakText(text) {
+      if ('speechSynthesis' in window) {
+        window.speechSynthesis.cancel();
+        const utterance = new SpeechSynthesisUtterance(text);
+        utterance.rate = 0.90;
+        utterance.pitch = 1.05;
+        window.speechSynthesis.speak(utterance);
+      }
+    }
+
+    function addStars(amount = 1) {
+      stars[currentChild] += amount;
+      localStorage.setItem(`stars_${currentChild}`, stars[currentChild]);
+      updateUI();
+      triggerConfetti();
+      playSound('correct');
+    }
+
+    /* ==========================================================================
+       2. IN-APP BOOK DATABASE (WITH FULL READABLE PAGES & EMBEDDED READ-ALOUDS)
+       ========================================================================== */
+    const inAppBooks = [
+      {
+        id: "book_empty_pot",
+        title: "The Empty Pot",
+        author: "Demi",
+        type: "Grade 3 Fiction • Honesty Fable",
+        badge: "Storyline Online",
+        badgeClass: "badge-storyline",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/a64K3BwN9Z0",
+        vocab: ["Emperor", "Sprout", "Courage"],
+        pages: [
+          {
+            page: 1,
+            clue: "Emperor",
+            text: "Long ago in China, there lived a boy named Ping who had a great gift for flowers. Everything he planted in the rich soil burst into colorful blossoms! The Emperor of China loved flowers too. But the Emperor was growing very old, and he had no children of his own. He needed to find someone honest and wise to succeed him on the throne."
+          },
+          {
+            page: 2,
+            clue: "Sprout",
+            text: "The Emperor announced a proclamation: 'All the children in the kingdom shall receive a special flower seed from my palace! Whoever can show me their best plant in a year's time shall become the next Emperor.' Ping was thrilled! He planted his seed in a beautiful ceramic pot and watered it with fresh spring water every single day. But weeks passed, and not a single green sprout appeared."
+          },
+          {
+            page: 3,
+            clue: "Empty Pot",
+            text: "A whole year passed. Spring arrived, and children from across the kingdom carried magnificent, blooming flowers in gold and jade pots to the palace. Ping had only an empty pot with brown dirt. He was ashamed and wept. But his father told him: 'Ping, you gave it your very best effort and cared for it every day. Your best is all that anyone can ask. Bring your pot to the Emperor with pride.'"
+          },
+          {
+            page: 4,
+            clue: "Courage",
+            text: "The Emperor walked past the glowing blossoms with a frown. When he reached Ping's empty pot, he asked, 'Why did you bring an empty pot?' Ping bowed and replied, 'I watered the seed and kept it in the sunlight, but it would not grow. This empty pot is the best I could bring.' The Emperor smiled broadly and proclaimed: 'I have found the next Emperor! I cooked all the seeds in boiling water before handing them out—none of them could ever grow! Ping alone had the courage to bring the honest truth.'"
+          }
+        ],
+        questions: [
+          {
+            q: "Why did Ping's seed fail to grow into a flower?",
+            opts: [
+              "He forgot to water it",
+              "The Emperor had boiled the seeds so they could not grow",
+              "A bird stole the seed",
+              "The pot was too small"
+            ],
+            ans: 1,
+            hint: "The Emperor boiled all the seeds to test the children's honesty!"
+          },
+          {
+            q: "What special quality did Ping show that made him the next Emperor?",
+            opts: [
+              "He was the fastest runner",
+              "He had the greatest courage to be honest with his empty pot",
+              "He bought the biggest flowers",
+              "He told funny stories"
+            ],
+            ans: 1,
+            hint: "Ping did not cheat or buy fake flowers—he brought the true empty pot."
+          },
+          {
+            q: "What is the central lesson the author wants 3rd graders to learn?",
+            opts: [
+              "Winning by cheating is okay",
+              "Honesty and doing your true best is worth more than pretending",
+              "Only emperors should plant flowers",
+              "Never listen to your parents"
+            ],
+            ans: 1,
+            hint: "Honesty and integrity always shine brightest."
+          }
+        ]
+      },
+      {
+        id: "book_enemy_pie",
+        title: "Enemy Pie",
+        author: "Derek Munson",
+        type: "Grade 3 Fiction • Friendship",
+        badge: "Storyline Online",
+        badgeClass: "badge-storyline",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/b_UfYc-X4g8",
+        vocab: ["Recipe", "Enemy", "Disguise"],
+        pages: [
+          {
+            page: 1,
+            clue: "Enemy",
+            text: "It was supposed to be the greatest summer of my life until Jeremy Ross moved in right down the street. Jeremy made fun of my baseball throw and didn't invite me to his trampoline party! Right then, he became my Number One Enemy. I drew up an Enemy List, and his name was at the very top."
+          },
+          {
+            page: 2,
+            clue: "Recipe",
+            text: "I told my dad about my enemy. Luckily, my dad was an expert at getting rid of enemies! He pulled out an old, secret cookbook and said, 'It's time to bake Enemy Pie.' I asked what was in it—earthworms? Rocks? Chewed bubblegum? Dad said the recipe was a family secret. But there was one catch: to make Enemy Pie work, I had to spend one full day with Jeremy Ross and be nice to him!"
+          },
+          {
+            page: 3,
+            clue: "Disguise",
+            text: "I was terrified, but I wanted to get rid of my enemy. I went to Jeremy's house, and we played catch, shot hoops, and jumped on his trampoline. Then we climbed up into my treehouse to share secret snacks. As the day went on, I realized something crazy: Jeremy was actually really fun to hang out with! He wasn't mean at all."
+          },
+          {
+            page: 4,
+            clue: "Friendship",
+            text: "At dinner, dad brought out a warm, delicious-smelling pie with ice cream. Suddenly I panicked! 'Jeremy, stop! Don't eat it!' I yelled. 'It's Enemy Pie!' Dad laughed and said, 'It's just warm apple pie. The real recipe was spending the day together.' By the time we finished dessert, my enemy was gone—because he was now my best friend!"
+          }
+        ],
+        questions: [
+          {
+            q: "What was the dad's real secret to making Enemy Pie work?",
+            opts: [
+              "Adding spicy peppers and salt",
+              "Spending the whole day being nice to your enemy",
+              "Hiding the pie in the treehouse",
+              "Never speaking to your neighbor again"
+            ],
+            ans: 1,
+            hint: "Spending quality time together helped the boys see they could be friends."
+          },
+          {
+            q: "Why did the boy try to stop Jeremy from eating the pie at dinner?",
+            opts: [
+              "He wanted to eat all the slices himself",
+              "He cared about Jeremy now and was afraid the pie would harm him",
+              "The pie was too hot",
+              "He dropped his fork"
+            ],
+            ans: 1,
+            hint: "The boy thought the pie was poisonous and didn't want his new friend hurt!"
+          },
+          {
+            q: "What is the lesson of 'Enemy Pie'?",
+            opts: [
+              "Keep your enemies far away",
+              "Giving someone a chance and being kind can turn enemies into friends",
+              "Never bake pies in the summer",
+              "Always win every game"
+            ],
+            ans: 1,
+            hint: "Kindness and empathy transform relationships."
+          }
+        ]
+      },
+      {
+        id: "book_earthquakes",
+        title: "Earthquakes & Volcanoes",
+        author: "Learning A-Z",
+        type: "Level P Non-Fiction • Earth Science",
+        badge: "Kids A-Z (RAZ-Kids)",
+        badgeClass: "badge-raz",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/e7ho6z32yyo",
+        vocab: ["Tectonic", "Magma", "Vibration"],
+        pages: [
+          {
+            page: 1,
+            clue: "Tectonic Plates",
+            text: "Earth's surface looks solid, but it is actually broken into huge pieces called tectonic plates. These giant jigsaw puzzle pieces float slowly on hot, melted rock deep beneath the continents and oceans. Where two plates meet is called a fault line."
+          },
+          {
+            page: 2,
+            clue: "Vibration & Earthquakes",
+            text: "As tectonic plates grind and push against each other, pressure builds up. When the rocks suddenly slip and snap, energy is released in powerful shockwaves! These vibrations travel through the ground, causing the shaking we feel as an earthquake."
+          },
+          {
+            page: 3,
+            clue: "Magma vs. Lava",
+            text: "Volcanoes are openings in Earth's crust. Deep beneath the surface, melted liquid rock is called magma. When pressure builds, magma bursts out through the volcano. Once it erupts onto Earth's surface, scientists call it lava!"
+          }
+        ],
+        questions: [
+          {
+            q: "What causes most earthquakes on Earth?",
+            opts: [
+              "Heavy rainstorms and lightning",
+              "Tectonic plates sliding, grinding, or slipping past each other",
+              "Ocean tides getting too high",
+              "High winds"
+            ],
+            ans: 1,
+            hint: "Tectonic plates build up pressure along fault lines."
+          },
+          {
+            q: "What is the difference between Magma and Lava?",
+            opts: [
+              "Magma is inside Earth; Lava is when it reaches the surface",
+              "Magma is cold; Lava is hot",
+              "They are completely different elements",
+              "Magma only occurs in rivers"
+            ],
+            ans: 0,
+            hint: "Underground = magma. Above ground = lava."
+          }
+        ]
+      }
+    ];
+
+    let currentBookIndex = 0;
+    let currentBookPage = 0;
+    let currentQuizIndex = 0;
+
+    function renderBookShelf() {
+      const grid = document.getElementById('bookShelfGrid');
+      grid.innerHTML = '';
+      const userCompleted = completedMissions[currentChild] || [];
+
+      inAppBooks.forEach((book, idx) => {
+        const isDone = userCompleted.includes(book.id);
+        const isActive = idx === currentBookIndex;
+
+        const card = document.createElement('div');
+        card.className = `book-card ${isActive ? 'active-mission' : ''}`;
+        card.onclick = () => selectBook(idx);
+
+        card.innerHTML = `
+          <div>
+            <span class="book-app-badge ${book.badgeClass}">${book.badge}</span>
+            <div class="book-title">${book.title}</div>
+            <div class="book-meta">${book.author} • ${book.type}</div>
+          </div>
+          <div class="book-status-pill ${isDone ? 'completed' : ''}">
+            ${isDone ? '⭐ Completed (100%)' : (isActive ? '👉 Currently Reading' : '📖 Click to Read')}
+          </div>
+        `;
+        grid.appendChild(card);
+      });
+    }
+
+    function selectBook(idx) {
+      currentBookIndex = idx;
+      currentBookPage = 0;
+      currentQuizIndex = 0;
+
+      const book = inAppBooks[currentBookIndex];
+      document.getElementById('activeMissionTitle').textContent = book.title;
+      document.getElementById('activeMissionAuthor').textContent = `${book.author} • ${book.type}`;
+      document.getElementById('activeMissionAppBadge').textContent = book.badge;
+      document.getElementById('activeMissionAppBadge').className = `book-app-badge ${book.badgeClass}`;
+      document.getElementById('videoIframe').src = book.youtubeEmbed;
+
+      renderBookPage();
+      renderQuizQuestion();
+      renderBookShelf();
+      playSound('pop');
+    }
+
+    function setReaderMode(mode) {
+      const isRead = mode === 'read';
+      document.getElementById('btnModeRead').classList.toggle('active', isRead);
+      document.getElementById('btnModeWatch').classList.toggle('active', !isRead);
+      document.getElementById('bookReaderBox').style.display = isRead ? 'block' : 'none';
+      document.getElementById('videoWatcherBox').style.display = isRead ? 'none' : 'block';
+      playSound('pop');
+    }
+
+    function renderBookPage() {
+      const book = inAppBooks[currentBookIndex];
+      const pageObj = book.pages[currentBookPage];
+
+      document.getElementById('readerPageIndicator').textContent = `PAGE ${pageObj.page} OF ${book.pages.length}`;
+      document.getElementById('readerVocabPill').textContent = `🔍 Secret Clue: ${pageObj.clue}`;
+      document.getElementById('readerPageContent').textContent = pageObj.text;
+
+      document.getElementById('btnPrevPage').disabled = currentBookPage === 0;
+      document.getElementById('btnNextPage').textContent = (currentBookPage === book.pages.length - 1) ? 'Start Quiz ↓' : 'Next Page →';
+    }
+
+    function nextBookPage() {
+      const book = inAppBooks[currentBookIndex];
+      if (currentBookPage < book.pages.length - 1) {
+        currentBookPage++;
+        renderBookPage();
+        playSound('pop');
+      } else {
+        document.getElementById('quizContainer').scrollIntoView({ behavior: 'smooth' });
+      }
+    }
+
+    function prevBookPage() {
+      if (currentBookPage > 0) {
+        currentBookPage--;
+        renderBookPage();
+        playSound('pop');
+      }
+    }
+
+    function speakCurrentPageText() {
+      const book = inAppBooks[currentBookIndex];
+      const pageObj = book.pages[currentBookPage];
+      speakText(pageObj.text);
+    }
+
+    function renderQuizQuestion() {
+      const book = inAppBooks[currentBookIndex];
+      const qObj = book.questions[currentQuizIndex];
+
+      document.getElementById('currentQIndexLabel').textContent = `Question ${currentQuizIndex + 1} of ${book.questions.length}`;
+      document.getElementById('quizQuestionText').textContent = qObj.q;
+      document.getElementById('quizFeedback').textContent = '';
+
+      const optsContainer = document.getElementById('quizOptionsList');
+      optsContainer.innerHTML = '';
+
+      qObj.opts.forEach((optText, optIdx) => {
+        const btn = document.createElement('button');
+        btn.className = 'quiz-opt-btn';
+        btn.innerHTML = `<span style="font-weight:900; color:var(--primary);">${String.fromCharCode(65 + optIdx)}.</span> ${optText}`;
+        btn.onclick = () => handleQuizOptionClick(optIdx, qObj.ans, btn);
+        optsContainer.appendChild(btn);
+      });
+
+      document.getElementById('btnPrevQ').style.display = currentQuizIndex > 0 ? 'inline-flex' : 'none';
+      document.getElementById('btnNextQ').textContent = (currentQuizIndex === book.questions.length - 1) ? 'Finish & Claim Stars 🏆' : 'Next Question →';
+    }
+
+    function handleQuizOptionClick(chosenIdx, correctIdx, btn) {
+      const feedback = document.getElementById('quizFeedback');
+      const allBtns = document.querySelectorAll('.quiz-opt-btn');
+      allBtns.forEach(b => b.onclick = null);
+
+      if (chosenIdx === correctIdx) {
+        btn.classList.add('selected-correct');
+        feedback.textContent = '🌟 Spot on! Excellent comprehension!';
+        feedback.style.color = '#10B981';
+        playSound('correct');
+      } else {
+        btn.classList.add('selected-wrong');
+        allBtns[correctIdx].classList.add('selected-correct');
+        feedback.textContent = `Hint: ${inAppBooks[currentBookIndex].questions[currentQuizIndex].hint}`;
+        feedback.style.color = '#EF4444';
+        playSound('wrong');
+      }
+    }
+
+    function nextOrFinishQuiz() {
+      const book = inAppBooks[currentBookIndex];
+      if (currentQuizIndex < book.questions.length - 1) {
+        currentQuizIndex++;
+        renderQuizQuestion();
+        playSound('pop');
+      } else {
+        if (!completedMissions[currentChild].includes(book.id)) {
+          completedMissions[currentChild].push(book.id);
+          localStorage.setItem(`missions_${currentChild}`, JSON.stringify(completedMissions[currentChild]));
+        }
+        addStars(3);
+        renderBookShelf();
+        alert(`🎉 Awesome reading ${currentChild === 'sanav' ? 'Sanav' : 'Sanha'}!\n\nYou completed "${book.title}" and earned 3 Stars! ⭐⭐⭐`);
+      }
+    }
+
+    function prevQuizQuestion() {
+      if (currentQuizIndex > 0) {
+        currentQuizIndex--;
+        renderQuizQuestion();
+        playSound('pop');
+      }
+    }
+
+    function speakCurrentQuizQuestion() {
+      const book = inAppBooks[currentBookIndex];
+      const qObj = book.questions[currentQuizIndex];
+      speakText(`${qObj.q}. Option A: ${qObj.opts[0]}. Option B: ${qObj.opts[1]}. Option C: ${qObj.opts[2] || ''}.`);
+    }
+
+    /* ==========================================================================
+       3. PROFILE & TAB SWITCHING
+       ========================================================================== */
+    function switchProfile(child) {
+      currentChild = child;
+      const isSanav = child === 'sanav';
+      
+      document.body.className = isSanav ? 'sanav-theme' : 'sanha-theme';
+      document.getElementById('btnSanav').classList.toggle('active', isSanav);
+      document.getElementById('btnSanha').classList.toggle('active', !isSanav);
+      
+      document.getElementById('profileEmoji').textContent = isSanav ? '🚀' : '✨';
+      document.getElementById('hubTitle').textContent = isSanav ? "Sanav's 3rd Grade Hub" : "Sanha's 3rd Grade Hub";
+      document.getElementById('welcomeHeading').textContent = isSanav ? "Welcome back, Super Sanav! 🌟" : "Welcome back, Star Sanha! 💖";
+      
+      updateUI();
+      renderSavedWords();
+      renderBookShelf();
+      playSound('pop');
+    }
+
+    function switchTab(tab) {
+      document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
+      document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
+
+      if (tab === 'missions') {
+        document.getElementById('tabBtnMissions').classList.add('active');
+        document.getElementById('missionsPane').classList.add('active');
+      } else if (tab === 'math') {
+        document.getElementById('tabBtnMath').classList.add('active');
+        document.getElementById('mathPane').classList.add('active');
+      } else if (tab === 'reading') {
+        document.getElementById('tabBtnReading').classList.add('active');
+        document.getElementById('readingPane').classList.add('active');
+      }
+      playSound('pop');
+    }
+
+    function updateUI() {
+      document.getElementById('starCounter').textContent = `${stars[currentChild]} Stars`;
+    }
+
+    /* ==========================================================================
+       4. MATH LOGIC (10x, REGROUPING, BLOCKS, SWAT, ROLL-IT)
+       ========================================================================== */
+    const tenXQuestions = [
+      { q: "10 ones equal one ____________?", options: ["Ten", "Hundred", "Thousand", "Ten Thousand"], ans: "Ten", step: "step10" },
+      { q: "10 tens equal one ____________?", options: ["Ten", "Hundred", "Thousand", "Ten Thousand"], ans: "Hundred", step: "step100" },
+      { q: "10 hundreds equal one ____________?", options: ["Hundred", "Thousand", "Ten Thousand", "Hundred Thousand"], ans: "Thousand", step: "step1k" },
+      { q: "10 thousands equal one ____________?", options: ["Hundred", "Thousand", "Ten Thousand", "Hundred Thousand"], ans: "Ten Thousand", step: "step10k" },
+      { q: "In the number 5,441, the 4 in hundreds is ________ times greater than the 4 in tens.", options: ["10", "100", "1,000", "Equal"], ans: "10", step: "step100" }
+    ];
+    let current10xIndex = 0;
+
+    function generate10xQuestion() {
+      current10xIndex = (current10xIndex + 1) % tenXQuestions.length;
+      const item = tenXQuestions[current10xIndex];
+      document.getElementById('tenXQuestion').textContent = item.q;
+      document.getElementById('tenXFeedback').textContent = '';
+      
+      document.querySelectorAll('.ladder-step').forEach(el => el.classList.remove('active-step'));
+      const stepEl = document.getElementById(item.step);
+      if (stepEl) stepEl.classList.add('active-step');
+
+      const optsContainer = document.getElementById('tenXOptions');
+      optsContainer.innerHTML = '';
+      item.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (opt === item.ans) {
+            btn.classList.add('correct');
+            document.getElementById('tenXFeedback').textContent = '🎉 Awesome! You mastered the 10x rule! (+1 Star)';
+            document.getElementById('tenXFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.classList.add('wrong');
+            document.getElementById('tenXFeedback').textContent = 'Remember: Every jump left is 10× greater!';
+            document.getElementById('tenXFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    const regroupQuestions = [
+      { q: "20 Tens = how many Hundreds?", opts: ["2 Hundreds (200)", "20 Hundreds (2,000)", "2 Tens (20)", "200 Hundreds"], ans: "2 Hundreds (200)" },
+      { q: "30 Hundreds = how many Thousands?", opts: ["3 Thousands (3,000)", "30 Thousands", "300 Thousands", "3 Tens"], ans: "3 Thousands (3,000)" },
+      { q: "15 Tens = 1 Hundred + how many Tens?", opts: ["5 Tens", "15 Tens", "10 Tens", "50 Tens"], ans: "5 Tens" }
+    ];
+    let currentRegroupIdx = 0;
+
+    function generateRegroupQuestion() {
+      currentRegroupIdx = (currentRegroupIdx + 1) % regroupQuestions.length;
+      const item = regroupQuestions[currentRegroupIdx];
+      document.getElementById('regroupQuestion').textContent = item.q;
+      document.getElementById('regroupFeedback').textContent = '';
+      
+      const optsContainer = document.getElementById('regroupOptions');
+      optsContainer.innerHTML = '';
+      item.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (opt === item.ans) {
+            btn.classList.add('correct');
+            document.getElementById('regroupFeedback').textContent = '🚀 Excellent regrouping! (+1 Star)';
+            document.getElementById('regroupFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.classList.add('wrong');
+            document.getElementById('regroupFeedback').textContent = 'Count carefully: 10 tens make 1 hundred!';
+            document.getElementById('regroupFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    let currentBlocksAnswer = 0;
+    function generateBlocksChallenge() {
+      const thousands = Math.floor(Math.random() * 2) + 1;
+      const hundreds = Math.floor(Math.random() * 3) + 1;
+      const tens = Math.floor(Math.random() * 4) + 1;
+      const ones = Math.floor(Math.random() * 5) + 1;
+
+      currentBlocksAnswer = (thousands * 1000) + (hundreds * 100) + (tens * 10) + ones;
+      const arena = document.getElementById('blocksArena');
+      arena.innerHTML = '';
+
+      for (let i = 0; i < thousands; i++) {
+        const c = document.createElement('div');
+        c.className = 'block-cube';
+        c.textContent = '1,000';
+        arena.appendChild(c);
+      }
+      for (let i = 0; i < hundreds; i++) {
+        const f = document.createElement('div');
+        f.className = 'block-flat';
+        arena.appendChild(f);
+      }
+      for (let i = 0; i < tens; i++) {
+        const r = document.createElement('div');
+        r.className = 'block-rod';
+        arena.appendChild(r);
+      }
+      for (let i = 0; i < ones; i++) {
+        const u = document.createElement('div');
+        u.className = 'block-unit';
+        arena.appendChild(u);
+      }
+
+      document.getElementById('blocksFeedback').textContent = '';
+      const choices = [currentBlocksAnswer, currentBlocksAnswer + 100, currentBlocksAnswer - 10, currentBlocksAnswer + 10].sort(() => Math.random() - 0.5);
+
+      const optsContainer = document.getElementById('blocksOptions');
+      optsContainer.innerHTML = '';
+      choices.forEach(val => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = val.toLocaleString();
+        btn.onclick = () => {
+          if (val === currentBlocksAnswer) {
+            btn.classList.add('correct');
+            document.getElementById('blocksFeedback').textContent = '🧱 Perfect block count! (+1 Star)';
+            document.getElementById('blocksFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.classList.add('wrong');
+            document.getElementById('blocksFeedback').textContent = 'Count the cubes, flats, rods and units!';
+            document.getElementById('blocksFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    const placeValues = [
+      { name: "ONES", index: 4 },
+      { name: "TENS", index: 3 },
+      { name: "HUNDREDS", index: 2 },
+      { name: "THOUSANDS", index: 1 },
+      { name: "TEN THOUSANDS", index: 0 }
+    ];
+    let currentSwatTarget = placeValues[1];
+    let currentSwatNumber = "48219";
+
+    function generateSwatChallenge() {
+      currentSwatNumber = Math.floor(10000 + Math.random() * 90000).toString();
+      currentSwatTarget = placeValues[Math.floor(Math.random() * placeValues.length)];
+
+      document.getElementById('swatInstruction').innerHTML = `🎯 SWAT the digit in the <span style="text-decoration:underline;">${currentSwatTarget.name}</span> place!`;
+      document.getElementById('swatFeedback').textContent = '';
+
+      const container = document.getElementById('swatDigitsArea');
+      container.innerHTML = '';
+
+      for (let i = 0; i < currentSwatNumber.length; i++) {
+        const digit = currentSwatNumber[i];
+        const btn = document.createElement('button');
+        btn.className = 'swat-digit-btn';
+        btn.textContent = digit;
+        btn.onclick = () => {
+          playSound('swat');
+          if (i === currentSwatTarget.index) {
+            btn.style.borderColor = '#10B981';
+            btn.style.background = '#D1FAE5';
+            document.getElementById('swatFeedback').textContent = `💥 ZAP! You swatted ${currentSwatTarget.name}! (+1 Star)`;
+            document.getElementById('swatFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.style.borderColor = '#EF4444';
+            btn.style.background = '#FEE2E2';
+            document.getElementById('swatFeedback').textContent = 'Not quite! Try another digit!';
+            document.getElementById('swatFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        container.appendChild(btn);
+      }
+      speakText(`Swat the digit in the ${currentSwatTarget.name.toLowerCase()} place!`);
+    }
+
+    let rolledNumber = 68453;
+    function rollFiveDice() {
+      const d1 = Math.floor(Math.random() * 9) + 1;
+      const d2 = Math.floor(Math.random() * 10);
+      const d3 = Math.floor(Math.random() * 10);
+      const d4 = Math.floor(Math.random() * 10);
+      const d5 = Math.floor(Math.random() * 10);
+
+      rolledNumber = (d1 * 10000) + (d2 * 1000) + (d3 * 100) + (d4 * 10) + d5;
+
+      document.getElementById('rolledNumberDisplay').textContent = rolledNumber.toLocaleString();
+      document.getElementById('rollStandard').textContent = rolledNumber.toLocaleString();
+      document.getElementById('rollExpanded').textContent = 
+        `${(d1*10000).toLocaleString()} + ${(d2*1000).toLocaleString()} + ${(d3*100).toLocaleString()} + ${(d4*10).toLocaleString()} + ${d5}`;
+      document.getElementById('rollNotation').textContent = 
+        `(${d1} × 10,000) + (${d2} × 1,000) + (${d3} × 100) + (${d4} × 10) + (${d5} × 1)`;
+      document.getElementById('rollWord').textContent = 
+        `${d1} ten thousands, ${d2} thousands, ${d3} hundreds, ${d4} tens, and ${d5} ones`;
+
+      playSound('pop');
+    }
+
+    function speakCurrentNumber() {
+      speakText(`${rolledNumber}`);
+    }
+
+    /* ==========================================================================
+       5. VOCABULARY, PHONICS & DICTATION
+       ========================================================================== */
+    function saveVocabWord(e) {
+      e.preventDefault();
+      const word = document.getElementById('vocabWord').value.trim();
+      if (!word) return;
+
+      if (!vocabVault[currentChild].includes(word)) {
+        vocabVault[currentChild].unshift(word);
+        localStorage.setItem(`vocab_${currentChild}`, JSON.stringify(vocabVault[currentChild]));
+      }
+
+      renderSavedWords();
+      document.getElementById('vocabForm').reset();
+      addStars(1);
+    }
+
+    function renderSavedWords() {
+      const list = vocabVault[currentChild];
+      document.getElementById('savedWordCount').textContent = list.length;
+      const container = document.getElementById('savedWordList');
+      container.innerHTML = '';
+
+      list.forEach(w => {
+        const chip = document.createElement('div');
+        chip.style.cssText = "background:#EEF2FF; color:var(--primary); padding:6px 12px; border-radius:14px; font-weight:700; font-size:0.85rem; cursor:pointer;";
+        chip.innerHTML = `<span>📖</span> ${w}`;
+        chip.onclick = () => speakText(w);
+        container.appendChild(chip);
+      });
+    }
+
+    function speakVocabWord() {
+      const word = document.getElementById('vocabWord').value.trim();
+      if (word) speakText(word);
+    }
+
+    const blendingBank = [
+      { full: "discovery", chunks: ["dis", "cov", "er", "y"], pattern: "Prefix 'dis-' + Root + Suffix '-y'" },
+      { full: "thousands", chunks: ["thou", "sands"], pattern: "Base 'thousand' + Plural '-s'" },
+      { full: "relationships", chunks: ["re", "la", "tion", "ships"], pattern: "Multi-syllable chunking" }
+    ];
+    let currentBlendIndex = 0;
+
+    function renderBlendingWord() {
+      const item = blendingBank[currentBlendIndex];
+      document.getElementById('blendedWordDisplay').textContent = item.chunks.join(' · ');
+      document.getElementById('phonicsPatternLabel').textContent = `Pattern: ${item.pattern}`;
+
+      const area = document.getElementById('syllableChunkArea');
+      area.innerHTML = '';
+      item.chunks.forEach(chunk => {
+        const pill = document.createElement('button');
+        pill.style.cssText = "background:white; border:2px solid var(--primary); color:var(--primary); padding:8px 16px; border-radius:12px; font-size:1.2rem; font-weight:800; cursor:pointer;";
+        pill.textContent = chunk;
+        pill.onclick = () => { playSound('pop'); speakText(chunk); };
+        area.appendChild(pill);
+      });
+    }
+
+    function nextBlendingWord() {
+      currentBlendIndex = (currentBlendIndex + 1) % blendingBank.length;
+      renderBlendingWord();
+      playSound('pop');
+    }
+
+    function blendCurrentWord() {
+      speakText(blendingBank[currentBlendIndex].full);
+    }
+
+    const dictationBank = [
+      { word: "bright", hint: "Long 'igh' vowel pattern" },
+      { word: "thousand", hint: "'ou' diphthong" },
+      { word: "hundred", hint: "Compound base ten word" }
+    ];
+    let currentDictationIndex = 0;
+
+    function renderDictationWord() {
+      const item = dictationBank[currentDictationIndex];
+      document.getElementById('spellingHint').textContent = `Hint: ${item.hint}`;
+      document.getElementById('dictationInput').value = '';
+      document.getElementById('dictationFeedback').textContent = '';
+    }
+
+    function speakDictationWord() {
+      speakText(`Please spell the word: ${dictationBank[currentDictationIndex].word}`);
+    }
+
+    function checkDictationAnswer() {
+      const input = document.getElementById('dictationInput').value.trim().toLowerCase();
+      const target = dictationBank[currentDictationIndex].word.toLowerCase();
+      const feedback = document.getElementById('dictationFeedback');
+
+      if (input === target) {
+        feedback.textContent = `🌟 Spot-on spelling! ${target.toUpperCase()} is correct! (+1 Star)`;
+        feedback.style.color = '#10B981';
+        addStars(1);
+        setTimeout(() => {
+          currentDictationIndex = (currentDictationIndex + 1) % dictationBank.length;
+          renderDictationWord();
+        }, 1800);
+      } else {
+        feedback.textContent = `Sound it out chunk by chunk and try again!`;
+        feedback.style.color = '#EF4444';
+        playSound('wrong');
+      }
+    }
+
+    /* ==========================================================================
+       6. CONFETTI CELEBRATION
+       ========================================================================== */
+    const canvas = document.getElementById('confettiCanvas');
+    const ctx = canvas.getContext('2d');
+    let confettiPieces = [];
+
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    function triggerConfetti() {
+      confettiPieces = [];
+      const colors = ['#4F46E5', '#10B981', '#F59E0B', '#EC4899', '#3B82F6', '#8B5CF6'];
+      for (let i = 0; i < 70; i++) {
+        confettiPieces.push({
+          x: canvas.width / 2,
+          y: canvas.height / 2,
+          vx: (Math.random() - 0.5) * 14,
+          vy: (Math.random() - 0.7) * 16,
+          size: Math.random() * 8 + 6,
+          color: colors[Math.floor(Math.random() * colors.length)],
+          rotation: Math.random() * 360,
+          rotationSpeed: (Math.random() - 0.5) * 10
+        });
+      }
+      animateConfetti();
+    }
+
+    function animateConfetti() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      confettiPieces.forEach((p, idx) => {
+        p.x += p.vx;
+        p.y += p.vy;
+        p.vy += 0.35;
+        p.rotation += p.rotationSpeed;
+        
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.rotation * Math.PI) / 180);
+        ctx.fillStyle = p.color;
+        ctx.fillRect(-p.size / 2, -p.size / 2, p.size, p.size);
+        ctx.restore();
+
+        if (p.y > canvas.height) confettiPieces.splice(idx, 1);
+      });
+
+      if (confettiPieces.length > 0) requestAnimationFrame(animateConfetti);
+    }
+
+    /* ==========================================================================
+       7. ON LOAD INITIALIZATION
+       ========================================================================== */
+    window.addEventListener('DOMContentLoaded', () => {
+      switchProfile('sanav');
+      renderBookShelf();
+      selectBook(0);
+      generate10xQuestion();
+      generateRegroupQuestion();
+      generateBlocksChallenge();
+      generateSwatChallenge();
+      rollFiveDice();
+      renderBlendingWord();
+      renderDictationWord();
+    });
+  </script>
+</body>
+</html>
