@@ -1081,6 +1081,148 @@
       animation: fadeIn 0.25s ease;
     }
 
+    /* ==========================================================================
+       WEEKLY PHONICS, BLENDING LINES & DICTATION STYLES
+       ========================================================================== */
+    .phonics-hero-card {
+      background: linear-gradient(135deg, #F5F3FF 0%, #EDE9FE 60%, #E0E7FF 100%);
+      border: 3px solid #DDD6FE;
+      border-radius: var(--border-radius);
+      padding: 22px 24px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+
+    .phonics-unit-btn {
+      background: white;
+      border: 2px solid #C7D2FE;
+      color: #4F46E5;
+      padding: 6px 14px;
+      border-radius: 12px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phonics-unit-btn:hover {
+      border-color: #4F46E5;
+      background: #EEF2FF;
+      transform: translateY(-2px);
+    }
+
+    .phonics-unit-btn.active {
+      background: #4F46E5;
+      color: white;
+      border-color: #4F46E5;
+      box-shadow: 0 4px 12px rgba(79, 70, 229, 0.25);
+    }
+
+    .category-chip-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .phonics-cat-btn {
+      background: white;
+      border: 2px solid #DDD6FE;
+      color: #6D28D9;
+      padding: 8px 14px;
+      border-radius: 14px;
+      font-size: 0.85rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .phonics-cat-btn:hover {
+      background: #7C3AED;
+      color: white;
+      border-color: #7C3AED;
+      transform: translateY(-2px);
+    }
+
+    .phonics-cat-btn.active {
+      background: #7C3AED;
+      color: white;
+      border-color: #6D28D9;
+      box-shadow: 0 4px 12px rgba(124, 58, 237, 0.25);
+    }
+
+    .syllable-chunk-btn {
+      background: white;
+      border: 3px solid var(--primary);
+      color: var(--primary);
+      padding: 10px 20px;
+      border-radius: 14px;
+      font-size: 1.4rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+    }
+
+    .syllable-chunk-btn:hover {
+      background: var(--primary);
+      color: white;
+      transform: translateY(-3px) scale(1.05);
+      box-shadow: 0 6px 16px rgba(79, 70, 229, 0.25);
+    }
+
+    .syllable-chunk-btn:active {
+      transform: scale(0.96);
+    }
+
+    .decodable-sentence-box {
+      background: #FFFDF9;
+      border: 2px solid #FDE68A;
+      border-radius: 18px;
+      padding: 22px;
+      margin: 14px 0;
+      line-height: 2.2;
+    }
+
+    .sentence-word-token {
+      display: inline-block;
+      padding: 4px 10px;
+      margin: 3px 4px;
+      border-radius: 10px;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      background: #F3F4F6;
+      color: var(--text-main);
+      transition: all 0.2s ease;
+      border: 1px solid #E5E7EB;
+    }
+
+    .sentence-word-token:hover {
+      background: #FEF3C7;
+      color: #92400E;
+      transform: translateY(-2px);
+      border-color: #F59E0B;
+    }
+
+    .sentence-word-token.target-highlight {
+      background: #EDE9FE;
+      color: #6D28D9;
+      border: 2px solid #8B5CF6;
+      font-weight: 800;
+    }
+
+    .sentence-word-token.target-highlight:hover {
+      background: #7C3AED;
+      color: white;
+    }
+
     @media (max-width: 768px) {
       header { flex-direction: column; align-items: stretch; }
       .main-tabs { flex-direction: column; }
@@ -1420,16 +1562,180 @@
          TAB 3: WEEKLY LITERACY TOOLS
          ========================================================================= -->
     <section id="readingPane" class="tab-pane">
-      <div class="module-grid">
+      
+      <!-- HERO BANNER FOR WEEKLY PHONICS & DICTATION -->
+      <div class="phonics-hero-card">
         
-        <!-- Tuesday Vocabulary Detective -->
+        <!-- Unit Selector Switcher -->
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; border-bottom:2px dashed #DDD6FE; padding-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:0.8rem; font-weight:800; color:#5B21B6; text-transform:uppercase;">📅 Choose Week:</span>
+            <div id="phonicsUnitSelector" style="display:flex; gap:6px; flex-wrap:wrap;">
+              <!-- Populated by JS -->
+            </div>
+          </div>
+          <div style="color:var(--text-muted); font-size:0.85rem; font-weight:700;">
+            🏫 Somtherman Elementary (Prosper ISD)
+          </div>
+        </div>
+
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;">
+              <span id="phonicsUnitBadge" style="background:#7C3AED; color:white; font-size:0.75rem; font-weight:800; padding:4px 10px; border-radius:20px; text-transform:uppercase;">Unit 1 • Week 3</span>
+              <span style="color:var(--text-muted); font-size:0.85rem; font-weight:700;">Ms. Cortez's Phonics Practice</span>
+            </div>
+            <h2 id="phonicsHubTitle" style="color:#5B21B6; font-size:1.4rem; margin-bottom:4px;">Weekly Blending Lines & Dictation Hub 📚</h2>
+            <p id="phonicsTargetSkillLabel" style="color:#6D28D9; font-size:0.95rem; font-weight:600;">
+              <strong>New Target Skills:</strong> Short /e/ • Short /o/ • Blends & Digraphs
+            </p>
+          </div>
+          <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <div style="background:white; color:#7C3AED; font-weight:800; font-size:0.85rem; padding:6px 14px; border-radius:14px; border:2px solid #DDD6FE;">
+              ⚡ <span id="phonicsTotalWordCount">56</span> Target Words
+            </div>
+          </div>
+        </div>
+
+        <!-- Category Selector Chips -->
+        <div class="category-chip-container" id="phonicsCategoryChips">
+          <!-- Populated by JavaScript -->
+        </div>
+      </div>
+
+      <div class="module-grid">
+
+        <!-- Wednesday Phonics & Blending Lines Decoder -->
         <div class="card">
           <div>
             <div class="card-header">
-              <div class="card-icon" style="background:#FEF3C7; color:#D97706;">🔍</div>
+              <div class="card-icon" style="background:#EDE9FE; color:#7C3AED;">🧩</div>
+              <div class="card-title">
+                <h3>Blending Lines Decoder</h3>
+                <span id="blendingCategorySubtitle">Wednesday Phonics • All Words</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;" id="blendingCategoryRule">
+              Tap each syllable chunk to hear it sounded out, then blend the word together!
+            </p>
+
+            <div class="game-box" style="padding:20px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:8px;">
+                <span style="font-size:0.75rem; color:#7C3AED; font-weight:800; background:#F5F3FF; padding:4px 10px; border-radius:10px;" id="blendingCategoryBadge">FOUNDATIONAL</span>
+                <span style="font-size:0.8rem; color:var(--text-muted); font-weight:800;" id="blendingWordCounter">Word 1 of 56</span>
+              </div>
+
+              <!-- Syllable Chunks Area -->
+              <div style="display:flex; justify-content:center; gap:10px; margin:16px 0; flex-wrap:wrap;" id="syllableChunkArea"></div>
+
+              <div style="font-size:1.6rem; font-weight:800; color:var(--primary); margin-top:8px;" id="blendedWordDisplay">
+                step
+              </div>
+              <div style="font-size:0.85rem; color:var(--text-muted); margin-top:4px;" id="phonicsPatternLabel">
+                Pattern: Short /e/ + blend 'st-'
+              </div>
+            </div>
+          </div>
+          
+          <div style="display:grid; grid-template-columns:1fr 1.4fr 1fr; gap:8px; margin-top:14px;">
+            <button class="action-btn secondary" style="margin:0; padding:10px;" onclick="prevBlendingWord()">⬅️ Prev</button>
+            <button class="action-btn secondary" style="margin:0; padding:10px;" onclick="blendCurrentWord()">🔊 Blend</button>
+            <button class="action-btn" style="margin:0; padding:10px;" onclick="nextBlendingWord()">Next 🚀</button>
+          </div>
+          <button class="action-btn secondary" style="margin-top:8px; padding:8px; font-size:0.85rem;" onclick="randomBlendingWord()">🎲 Random Word</button>
+        </div>
+
+        <!-- Thursday Dictation Arena -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#DCFCE7; color:#15803D;">✍️</div>
+              <div class="card-title">
+                <h3>Dictation Arena</h3>
+                <span>Thursday Spelling • Friday Test Prep</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">
+              Listen to Ms. Cortez's target word, sound it out, and type the spelling!
+            </p>
+
+            <div class="game-box" style="padding:20px;">
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span style="font-size:0.75rem; color:#15803D; font-weight:800; background:#DCFCE7; padding:4px 10px; border-radius:10px;" id="dictationCategoryBadge">ALL WORDS</span>
+                <span style="font-size:0.8rem; color:var(--text-muted); font-weight:800;" id="dictationWordCounter">Word 1 of 56</span>
+              </div>
+
+              <button class="action-btn secondary" style="width:auto; padding:10px 24px; margin-bottom:12px; font-size:1.05rem; font-weight:800;" onclick="speakDictationWord()">
+                🔊 Listen to Word
+              </button>
+
+              <div style="margin-top:6px;">
+                <input type="text" id="dictationInput" placeholder="Type the spelling here..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="text-align:center; font-size:1.3rem; font-weight:800; width:100%; padding:12px; border-radius:14px; border:2px solid #CBD5E1;" onkeydown="if(event.key==='Enter') checkDictationAnswer();" />
+              </div>
+
+              <div style="display:flex; justify-content:center; align-items:center; gap:8px; margin-top:10px;">
+                <button type="button" style="background:none; border:none; color:#92400E; font-size:0.8rem; font-weight:800; cursor:pointer; text-decoration:underline;" onclick="toggleDictationHint()">
+                  💡 Toggle Spelling Hint
+                </button>
+              </div>
+
+              <div id="spellingHint" style="font-size:0.85rem; color:#92400E; background:#FEF3C7; padding:6px 12px; border-radius:10px; display:none; margin-top:8px; border:1px solid #FDE68A;">
+                Hint: Short /e/ with blend 'st-'
+              </div>
+              <div class="feedback-msg" id="dictationFeedback"></div>
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:14px;">
+            <button class="action-btn green-btn" style="flex:2; margin:0;" onclick="checkDictationAnswer()">Check Spelling ✨</button>
+            <button class="action-btn secondary" style="flex:1; margin:0;" onclick="nextDictationWord()">Skip ⏩</button>
+          </div>
+        </div>
+
+        <!-- Friday Reading in Context (Decodable Sentences) -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#FEF3C7; color:#D97706;">📖</div>
+              <div class="card-title">
+                <h3>Reading in Context</h3>
+                <span>Decodable Sentences Practice</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted); margin-bottom:12px;">
+              Read decodable sentences with this week's target words. Tap any word to hear it sounded out!
+            </p>
+
+            <!-- Sentence Tabs -->
+            <div style="display:flex; gap:8px; margin-bottom:12px;">
+              <button class="action-btn secondary active" id="sentenceTab0" style="margin:0; padding:8px 14px; font-size:0.85rem; flex:1;" onclick="selectSentence(0)">Sentence 1</button>
+              <button class="action-btn secondary" id="sentenceTab1" style="margin:0; padding:8px 14px; font-size:0.85rem; flex:1;" onclick="selectSentence(1)">Sentence 2</button>
+            </div>
+
+            <!-- Interactive Decodable Sentence Box -->
+            <div class="decodable-sentence-box" id="sentenceDisplayArea">
+              <!-- Rendered by JS -->
+            </div>
+
+            <div style="background:#F3F4F6; padding:10px 14px; border-radius:12px; margin-top:10px; font-size:0.82rem; color:var(--text-muted);" id="sentencePhonicsSpotlight">
+              <!-- Spotlight tip -->
+            </div>
+          </div>
+
+          <div style="display:flex; gap:10px; margin-top:14px; flex-wrap:wrap;">
+            <button class="action-btn secondary" style="flex:1; min-width:140px; margin:0;" onclick="speakCurrentSentence()">🔊 Read Sentence</button>
+            <button class="action-btn" style="flex:1.2; min-width:160px; margin:0;" onclick="recordSentenceReadAloud()">⭐ I Read It Out Loud!</button>
+          </div>
+        </div>
+
+        <!-- Tuesday Vocabulary Detective Pad -->
+        <div class="card">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#DBEAFE; color:#1D4ED8;">🔍</div>
               <div class="card-title">
                 <h3>Vocabulary Detective Pad</h3>
-                <span>Tuesday School Template</span>
+                <span>Tuesday Word Explorer</span>
               </div>
             </div>
             
@@ -1457,69 +1763,6 @@
               <div style="display:flex; flex-wrap:wrap; gap:8px; margin-top:8px;" id="savedWordList"></div>
             </div>
           </div>
-        </div>
-
-        <!-- Wednesday Phonics & Blending Lines -->
-        <div class="card">
-          <div>
-            <div class="card-header">
-              <div class="card-icon" style="background:#EDE9FE; color:#7C3AED;">🧩</div>
-              <div class="card-title">
-                <h3>Blending Lines Decoder</h3>
-                <span>Wednesday Phonics & Syllables</span>
-              </div>
-            </div>
-            <p style="font-size:0.9rem; color:var(--text-muted);">
-              Tap each syllable chunk to hear it sounded out, then blend the word!
-            </p>
-
-            <div class="game-box">
-              <div style="font-size:0.8rem; color:var(--text-muted); font-weight:800;">DECODING CHALLENGE</div>
-              <div style="display:flex; justify-content:center; gap:8px; margin:14px 0; flex-wrap:wrap;" id="syllableChunkArea"></div>
-
-              <div style="font-size:1.4rem; font-weight:800; color:var(--primary); margin-top:10px;" id="blendedWordDisplay">
-                dis · cov · er · y
-              </div>
-              <div style="font-size:0.85rem; color:var(--text-muted);" id="phonicsPatternLabel">
-                Pattern: Prefix 'dis-' + Root + Suffix '-y'
-              </div>
-            </div>
-          </div>
-          <div style="display:flex; gap:10px;">
-            <button class="action-btn secondary" onclick="blendCurrentWord()">🔊 Blend & Read</button>
-            <button class="action-btn" onclick="nextBlendingWord()">Next Word 🚀</button>
-          </div>
-        </div>
-
-        <!-- Thursday Dictation & Spelling Pattern -->
-        <div class="card">
-          <div>
-            <div class="card-header">
-              <div class="card-icon" style="background:#DCFCE7; color:#15803D;">✍️</div>
-              <div class="card-title">
-                <h3>Dictation Arena</h3>
-                <span>Thursday Spelling Patterns</span>
-              </div>
-            </div>
-            <p style="font-size:0.9rem; color:var(--text-muted);">
-              Listen to the word and type it in with the correct spelling pattern!
-            </p>
-
-            <div class="game-box">
-              <button class="action-btn secondary" style="width:auto; padding:10px 20px; margin-bottom:12px;" onclick="speakDictationWord()">
-                🔊 Listen to Word
-              </button>
-
-              <div style="margin-top:10px;">
-                <input type="text" id="dictationInput" placeholder="Type what you hear..." style="text-align:center; font-size:1.2rem; font-weight:800; width:100%; padding:10px; border-radius:12px; border:2px solid #E5E7EB;" />
-              </div>
-              <div id="spellingHint" style="font-size:0.8rem; color:#92400E; background:#FEF3C7; padding:4px 8px; border-radius:8px; display:inline-block; margin:8px 0;">
-                Hint: Long 'igh' vowel sound
-              </div>
-              <div class="feedback-msg" id="dictationFeedback"></div>
-            </div>
-          </div>
-          <button class="action-btn" onclick="checkDictationAnswer()">Check Spelling ✨</button>
         </div>
 
       </div>
@@ -2476,60 +2719,532 @@
       if (word) speakText(word);
     }
 
-    const blendingBank = [
-      { full: "discovery", chunks: ["dis", "cov", "er", "y"], pattern: "Prefix 'dis-' + Root + Suffix '-y'" },
-      { full: "thousands", chunks: ["thou", "sands"], pattern: "Base 'thousand' + Plural '-s'" },
-      { full: "relationships", chunks: ["re", "la", "tion", "ships"], pattern: "Multi-syllable chunking" }
+    /* ==========================================================================
+       5. WEEKLY PHONICS, BLENDING LINES, DICTATION & READING IN CONTEXT
+       ========================================================================== */
+    const weeklyPhonicsUnits = [
+      {
+        id: "u1w3",
+        unitTitle: "Unit 1 • Week 3",
+        targetSkills: "Short /e/ • Short /o/ • Blends & Digraphs",
+        categories: [
+          {
+            id: "all",
+            name: "🌟 All Words",
+            rule: "Master all 56 decoding and encoding words for Unit 1 Week 3!",
+            badge: "ALL 56 WORDS",
+            words: [] // Populated dynamically
+          },
+          {
+            id: "foundational_init_final",
+            name: "🔤 Initial / Final",
+            rule: "Check foundational skills: Vary initial or final consonant sounds with Short /e/ and Short /o/.",
+            badge: "FOUNDATIONAL",
+            words: [
+              { word: "step", chunks: ["step"], pattern: "Short /e/ with blend 'st-'", hint: "Short /e/ with blend 'st-'" },
+              { word: "prep", chunks: ["prep"], pattern: "Short /e/ with blend 'pr-'", hint: "Short /e/ with blend 'pr-'" },
+              { word: "best", chunks: ["best"], pattern: "Short /e/ with ending blend '-st'", hint: "Short /e/ with ending blend '-st'" },
+              { word: "test", chunks: ["test"], pattern: "Short /e/ with ending blend '-st'", hint: "Short /e/ with ending blend '-st'" },
+              { word: "shop", chunks: ["shop"], pattern: "Short /o/ with digraph 'sh-'", hint: "Short /o/ with digraph 'sh-'" },
+              { word: "shot", chunks: ["shot"], pattern: "Short /o/ with digraph 'sh-'", hint: "Short /o/ with digraph 'sh-'" },
+              { word: "blob", chunks: ["blob"], pattern: "Short /o/ with blend 'bl-'", hint: "Short /o/ with blend 'bl-'" },
+              { word: "slob", chunks: ["slob"], pattern: "Short /o/ with blend 'sl-'", hint: "Short /o/ with blend 'sl-'" }
+            ]
+          },
+          {
+            id: "foundational_medial",
+            name: "🔄 Medial Vowels",
+            rule: "Check foundational skills: Vary medial vowel sound between short /e/ and short /o/.",
+            badge: "VARY MEDIAL",
+            words: [
+              { word: "stop", chunks: ["stop"], pattern: "Short /o/ with blend 'st-'", hint: "Short /o/ with blend 'st-'" },
+              { word: "step", chunks: ["step"], pattern: "Short /e/ with blend 'st-'", hint: "Short /e/ with blend 'st-'" },
+              { word: "let", chunks: ["let"], pattern: "Short /e/ CVC pattern", hint: "Short /e/ CVC word" },
+              { word: "lot", chunks: ["lot"], pattern: "Short /o/ CVC pattern", hint: "Short /o/ CVC word" },
+              { word: "jet", chunks: ["jet"], pattern: "Short /e/ CVC pattern", hint: "Short /e/ CVC word" },
+              { word: "jot", chunks: ["jot"], pattern: "Short /o/ CVC pattern", hint: "Short /o/ CVC word" },
+              { word: "prep", chunks: ["prep"], pattern: "Short /e/ with blend 'pr-'", hint: "Short /e/ with blend 'pr-'" },
+              { word: "prop", chunks: ["prop"], pattern: "Short /o/ with blend 'pr-'", hint: "Short /o/ with blend 'pr-'" },
+              { word: "plop", chunks: ["plop"], pattern: "Short /o/ with blend 'pl-'", hint: "Short /o/ with blend 'pl-'" }
+            ]
+          },
+          {
+            id: "plurals_endings",
+            name: "🏷️ Plurals & Endings",
+            rule: "Transition to longer words: Plurals and inflectional ending '-s'.",
+            badge: "PLURALS",
+            words: [
+              { word: "hens", chunks: ["hen", "s"], pattern: "Base 'hen' (short /e/) + plural '-s'", hint: "Base 'hen' + plural '-s'" },
+              { word: "pots", chunks: ["pot", "s"], pattern: "Base 'pot' (short /o/) + plural '-s'", hint: "Base 'pot' + plural '-s'" },
+              { word: "shops", chunks: ["shop", "s"], pattern: "Base 'shop' (digraph 'sh-') + plural '-s'", hint: "Base 'shop' + plural '-s'" },
+              { word: "frogs", chunks: ["frog", "s"], pattern: "Base 'frog' (blend 'fr-') + plural '-s'", hint: "Base 'frog' + plural '-s'" },
+              { word: "chops", chunks: ["chop", "s"], pattern: "Base 'chop' (digraph 'ch-') + plural '-s'", hint: "Base 'chop' + plural '-s'" },
+              { word: "trots", chunks: ["trot", "s"], pattern: "Base 'trot' (blend 'tr-') + plural '-s'", hint: "Base 'trot' + plural '-s'" },
+              { word: "stops", chunks: ["stop", "s"], pattern: "Base 'stop' (blend 'st-') + plural '-s'", hint: "Base 'stop' + plural '-s'" },
+              { word: "rests", chunks: ["rest", "s"], pattern: "Base 'rest' (short /e/ + '-st') + plural '-s'", hint: "Base 'rest' + plural '-s'" }
+            ]
+          },
+          {
+            id: "multisyllabic",
+            name: "🧩 Multisyllabic",
+            rule: "Transition to longer words: 2-syllable chunked closed syllables.",
+            badge: "MULTISYLLABIC",
+            words: [
+              { word: "pocket", chunks: ["pock", "et"], pattern: "2 Syllables: 'pock' (short /o/) + 'et' (short /e/)", hint: "2 syllables: pock + et" },
+              { word: "contest", chunks: ["con", "test"], pattern: "2 Syllables: 'con' (short /o/) + 'test' (short /e/)", hint: "2 syllables: con + test" },
+              { word: "tennis", chunks: ["ten", "nis"], pattern: "2 Syllables: 'ten' (short /e/) + 'nis' (short /i/)", hint: "2 syllables: ten + nis (double 'n')" },
+              { word: "bonnet", chunks: ["bon", "net"], pattern: "2 Syllables: 'bon' (short /o/) + 'net' (short /e/)", hint: "2 syllables: bon + net (double 'n')" },
+              { word: "content", chunks: ["con", "tent"], pattern: "2 Syllables: 'con' (short /o/) + 'tent' (short /e/)", hint: "2 syllables: con + tent" },
+              { word: "goblin", chunks: ["gob", "lin"], pattern: "2 Syllables: 'gob' (short /o/) + 'lin' (short /i/)", hint: "2 syllables: gob + lin" },
+              { word: "denim", chunks: ["den", "im"], pattern: "2 Syllables: 'den' (short /e/) + 'im' (short /i/)", hint: "2 syllables: den + im" }
+            ]
+          },
+          {
+            id: "heart_words",
+            name: "❤️ Heart Words",
+            rule: "High Frequency Words: Practice sight words using the Heart Word Strategy.",
+            badge: "HEART WORDS",
+            words: [
+              { word: "been", chunks: ["been"], pattern: "Heart Word: Irregular double 'ee' sounding like short /i/", hint: "Heart Word: b - e - e - n" },
+              { word: "next", chunks: ["next"], pattern: "Short /e/ with final 'xt' blend", hint: "Short /e/ + 'xt'" },
+              { word: "second", chunks: ["sec", "ond"], pattern: "2 Syllables: 'sec' (short /e/) + 'ond' (short /o/ sound)", hint: "2 syllables: sec + ond" },
+              { word: "body", chunks: ["bod", "y"], pattern: "2 Syllables: 'bod' (short /o/) + 'y' (long /e/ sound)", hint: "2 syllables: bod + y" },
+              { word: "often", chunks: ["of", "ten"], pattern: "Heart Word: Silent 't' / 2 syllables: 'of' + 'ten'", hint: "Remember silent 't': of + ten" },
+              { word: "upon", chunks: ["up", "on"], pattern: "2 Syllables: 'up' (short /u/) + 'on' (short /o/)", hint: "2 syllables: up + on" },
+              { word: "along", chunks: ["a", "long"], pattern: "2 Syllables: 'a' (schwa) + 'long' (short /o/ + 'ng')", hint: "2 syllables: a + long" }
+            ]
+          },
+          {
+            id: "review_words",
+            name: "⭐ Review Blends",
+            rule: "Review beginning 2-letter and 3-letter consonant blends.",
+            badge: "REVIEW BLENDS",
+            words: [
+              { word: "strap", chunks: ["strap"], pattern: "3-letter blend 'str-' + short /a/", hint: "3-letter blend 'str-' + short /a/" },
+              { word: "strip", chunks: ["strip"], pattern: "3-letter blend 'str-' + short /i/", hint: "3-letter blend 'str-' + short /i/" },
+              { word: "clap", chunks: ["clap"], pattern: "2-letter blend 'cl-' + short /a/", hint: "2-letter blend 'cl-' + short /a/" },
+              { word: "clip", chunks: ["clip"], pattern: "2-letter blend 'cl-' + short /i/", hint: "2-letter blend 'cl-' + short /i/" },
+              { word: "trap", chunks: ["trap"], pattern: "2-letter blend 'tr-' + short /a/", hint: "2-letter blend 'tr-' + short /a/" },
+              { word: "trip", chunks: ["trip"], pattern: "2-letter blend 'tr-' + short /i/", hint: "2-letter blend 'tr-' + short /i/" },
+              { word: "slam", chunks: ["slam"], pattern: "2-letter blend 'sl-' + short /a/", hint: "2-letter blend 'sl-' + short /a/" },
+              { word: "slim", chunks: ["slim"], pattern: "2-letter blend 'sl-' + short /i/", hint: "2-letter blend 'sl-' + short /i/" }
+            ]
+          },
+          {
+            id: "compound_words",
+            name: "🧱 Compound Words",
+            rule: "Join two or more smaller base words together into a compound word.",
+            badge: "COMPOUND",
+            words: [
+              { word: "bullfrog", chunks: ["bull", "frog"], pattern: "Compound Word: 'bull' + 'frog'", hint: "Compound word: bull + frog" },
+              { word: "teardrop", chunks: ["tear", "drop"], pattern: "Compound Word: 'tear' + 'drop'", hint: "Compound word: tear + drop" },
+              { word: "barbershop", chunks: ["bar", "ber", "shop"], pattern: "Compound Word (3 syllables): 'bar' + 'ber' + 'shop'", hint: "Compound: bar + ber + shop" },
+              { word: "chickenpox", chunks: ["chick", "en", "pox"], pattern: "Compound Word (3 syllables): 'chick' + 'en' + 'pox'", hint: "Compound: chick + en + pox" },
+              { word: "hopscotch", chunks: ["hop", "scotch"], pattern: "Compound Word: 'hop' + 'scotch' ('sc-' + 'tch')", hint: "Compound: hop + scotch" }
+            ]
+          },
+          {
+            id: "challenge_words",
+            name: "🏆 Challenge Words",
+            rule: "Advanced prefixes, multisyllabic roots, and doubled consonant patterns.",
+            badge: "CHALLENGE",
+            words: [
+              { word: "metal", chunks: ["met", "al"], pattern: "2 Syllables: 'met' + 'al'", hint: "2 syllables: met + al" },
+              { word: "impress", chunks: ["im", "press"], pattern: "Prefix 'im-' + root 'press' (double 'ss')", hint: "Prefix 'im-' + 'press'" },
+              { word: "request", chunks: ["re", "quest"], pattern: "Prefix 're-' + root 'quest' ('qu' + short /e/ + '-st')", hint: "Prefix 're-' + 'quest'" },
+              { word: "confess", chunks: ["con", "fess"], pattern: "Prefix 'con-' + root 'fess' (double 'ss')", hint: "Prefix 'con-' + 'fess'" },
+              { word: "express", chunks: ["ex", "press"], pattern: "Prefix 'ex-' + root 'press' (double 'ss')", hint: "Prefix 'ex-' + 'press'" },
+              { word: "evident", chunks: ["ev", "i", "dent"], pattern: "3 Syllables: 'ev' + 'i' + 'dent'", hint: "3 syllables: ev + i + dent" },
+              { word: "present", chunks: ["pres", "ent"], pattern: "2 Syllables: 'pres' + 'ent'", hint: "2 syllables: pres + ent" }
+            ]
+          }
+        ],
+        sentences: [
+          {
+            id: 0,
+            text: "It was evident Tom could gobble the chops in seconds.",
+            targetWords: ["evident", "Tom", "gobble", "chops", "seconds"],
+            tip: "💡 Spotlight: 'evident' (3 syllables), 'Tom' (short /o/), 'chops' (digraph 'ch-' + plural '-s'), and 'seconds' (heart word)!"
+          },
+          {
+            id: 1,
+            text: "She will request the best rocks are used as steps in her garden.",
+            targetWords: ["request", "best", "rocks", "steps"],
+            tip: "💡 Spotlight: 'request' (prefix 're-'), 'best' (short /e/ + '-st'), 'rocks' (short /o/ + '-ck' + '-s'), and 'steps' (blend 'st-' + '-s')!"
+          }
+        ]
+      },
+      {
+        id: "u1w2",
+        unitTitle: "Unit 1 • Week 2",
+        targetSkills: "Short /a/ • Short /i/ • Plural -s & Endings",
+        categories: [
+          {
+            id: "all",
+            name: "🌟 All Words",
+            rule: "Master all 48 decoding and encoding words for Unit 1 Week 2!",
+            badge: "ALL 48 WORDS",
+            words: [] // Populated dynamically
+          },
+          {
+            id: "foundational_init_final",
+            name: "🔤 Initial / Final",
+            rule: "Check foundational skills: Vary initial or final consonant sounds with Short /a/ and Short /i/.",
+            badge: "FOUNDATIONAL",
+            words: [
+              { word: "slap", chunks: ["slap"], pattern: "Short /a/ with blend 'sl-'", hint: "Short /a/ with blend 'sl-'" },
+              { word: "slam", chunks: ["slam"], pattern: "Short /a/ with blend 'sl-'", hint: "Short /a/ with blend 'sl-'" },
+              { word: "clap", chunks: ["clap"], pattern: "Short /a/ with blend 'cl-'", hint: "Short /a/ with blend 'cl-'" },
+              { word: "clam", chunks: ["clam"], pattern: "Short /a/ with blend 'cl-'", hint: "Short /a/ with blend 'cl-'" },
+              { word: "ship", chunks: ["ship"], pattern: "Short /i/ with digraph 'sh-'", hint: "Short /i/ with digraph 'sh-'" },
+              { word: "trip", chunks: ["trip"], pattern: "Short /i/ with blend 'tr-'", hint: "Short /i/ with blend 'tr-'" },
+              { word: "trim", chunks: ["trim"], pattern: "Short /i/ with blend 'tr-'", hint: "Short /i/ with blend 'tr-'" },
+              { word: "brim", chunks: ["brim"], pattern: "Short /i/ with blend 'br-'", hint: "Short /i/ with blend 'br-'" }
+            ]
+          },
+          {
+            id: "foundational_medial",
+            name: "🔄 Medial Vowels",
+            rule: "Check foundational skills: Vary medial vowel between short /a/ and short /i/ with blends.",
+            badge: "VARY MEDIAL",
+            words: [
+              { word: "strap", chunks: ["strap"], pattern: "Short /a/ with 3-letter blend 'str-'", hint: "3-letter blend 'str-' + short /a/" },
+              { word: "strip", chunks: ["strip"], pattern: "Short /i/ with 3-letter blend 'str-'", hint: "3-letter blend 'str-' + short /i/" },
+              { word: "clap", chunks: ["clap"], pattern: "Short /a/ with blend 'cl-'", hint: "Blend 'cl-' + short /a/" },
+              { word: "clip", chunks: ["clip"], pattern: "Short /i/ with blend 'cl-'", hint: "Blend 'cl-' + short /i/" },
+              { word: "trap", chunks: ["trap"], pattern: "Short /a/ with blend 'tr-'", hint: "Blend 'tr-' + short /a/" },
+              { word: "trip", chunks: ["trip"], pattern: "Short /i/ with blend 'tr-'", hint: "Blend 'tr-' + short /i/" },
+              { word: "slam", chunks: ["slam"], pattern: "Short /a/ with blend 'sl-'", hint: "Blend 'sl-' + short /a/" },
+              { word: "slim", chunks: ["slim"], pattern: "Short /i/ with blend 'sl-'", hint: "Blend 'sl-' + short /i/" }
+            ]
+          },
+          {
+            id: "plurals_endings",
+            name: "🏷️ Plurals & Endings",
+            rule: "Transition to longer words: Plurals and inflectional endings ('-s', '-ed', '-ing').",
+            badge: "ENDINGS",
+            words: [
+              { word: "flaps", chunks: ["flap", "s"], pattern: "Base 'flap' (blend 'fl-') + plural '-s'", hint: "Base 'flap' + '-s'" },
+              { word: "prams", chunks: ["pram", "s"], pattern: "Base 'pram' (blend 'pr-') + plural '-s'", hint: "Base 'pram' + '-s'" },
+              { word: "ships", chunks: ["ship", "s"], pattern: "Base 'ship' (digraph 'sh-') + plural '-s'", hint: "Base 'ship' + '-s'" },
+              { word: "wished", chunks: ["wish", "ed"], pattern: "Base 'wish' (digraph 'sh-') + past tense '-ed'", hint: "Base 'wish' + '-ed'" },
+              { word: "winded", chunks: ["wind", "ed"], pattern: "Base 'wind' (short /i/) + past tense '-ed'", hint: "Base 'wind' + '-ed'" },
+              { word: "handed", chunks: ["hand", "ed"], pattern: "Base 'hand' (short /a/) + past tense '-ed'", hint: "Base 'hand' + '-ed'" },
+              { word: "handing", chunks: ["hand", "ing"], pattern: "Base 'hand' (short /a/) + suffix '-ing'", hint: "Base 'hand' + '-ing'" },
+              { word: "ringing", chunks: ["ring", "ing"], pattern: "Base 'ring' (short /i/ + '-ng') + suffix '-ing'", hint: "Base 'ring' + '-ing'" }
+            ]
+          },
+          {
+            id: "multisyllabic",
+            name: "🧩 Multisyllabic",
+            rule: "Transition to longer words: 2-syllable compound or closed syllable words.",
+            badge: "MULTISYLLABIC",
+            words: [
+              { word: "backpack", chunks: ["back", "pack"], pattern: "2 Syllables: 'back' (short /a/) + 'pack' (short /a/)", hint: "2 syllables: back + pack" },
+              { word: "picnic", chunks: ["pic", "nic"], pattern: "2 Syllables: 'pic' (short /i/) + 'nic' (short /i/)", hint: "2 syllables: pic + nic" },
+              { word: "dishpan", chunks: ["dish", "pan"], pattern: "2 Syllables: 'dish' (short /i/) + 'pan' (short /a/)", hint: "2 syllables: dish + pan" },
+              { word: "standstill", chunks: ["stand", "still"], pattern: "2 Syllables: 'stand' (short /a/) + 'still' (short /i/ + double 'l')", hint: "2 syllables: stand + still" },
+              { word: "lipstick", chunks: ["lip", "stick"], pattern: "2 Syllables: 'lip' (short /i/) + 'stick' (short /i/ + '-ck')", hint: "2 syllables: lip + stick" },
+              { word: "implant", chunks: ["im", "plant"], pattern: "2 Syllables: 'im' (prefix) + 'plant' (blend 'pl-')", hint: "2 syllables: im + plant" }
+            ]
+          },
+          {
+            id: "heart_words",
+            name: "❤️ Heart Words",
+            rule: "High Frequency Words: Sight words using the Heart Word Strategy.",
+            badge: "HEART WORDS",
+            words: [
+              { word: "again", chunks: ["a", "gain"], pattern: "Heart Word: 'a' (schwa) + 'gain' ('ai' sounding like short /e/)", hint: "Heart Word: a - g - a - i - n" },
+              { word: "some", chunks: ["some"], pattern: "Heart Word: 'o_e' sounding like short /u/ with silent 'e'", hint: "Heart Word: s - o - m - e" },
+              { word: "around", chunks: ["a", "round"], pattern: "2 Syllables: 'a' + 'round' ('ou' diphthong)", hint: "2 syllables: a + round" },
+              { word: "friend", chunks: ["friend"], pattern: "Heart Word: 'ie' sounding like short /e/", hint: "Heart Word: f - r - i - e - n - d" },
+              { word: "place", chunks: ["place"], pattern: "Long /a/ with soft 'c' and silent 'e'", hint: "Long /a/ + soft 'c': p - l - a - c - e" },
+              { word: "which", chunks: ["which"], pattern: "Digraph 'wh-' + short /i/ + digraph '-ch'", hint: "Digraph 'wh-' + '-ch': w - h - i - c - h" },
+              { word: "little", chunks: ["lit", "tle"], pattern: "2 Syllables: 'lit' (short /i/) + consonant '-le'", hint: "2 syllables: lit + tle (double 't')" }
+            ]
+          },
+          {
+            id: "compound_words",
+            name: "🧱 Compound Words",
+            rule: "Join two base words into a compound word.",
+            badge: "COMPOUND",
+            words: [
+              { word: "handshake", chunks: ["hand", "shake"], pattern: "Compound Word: 'hand' + 'shake'", hint: "Compound word: hand + shake" },
+              { word: "classmate", chunks: ["class", "mate"], pattern: "Compound Word: 'class' (double 's') + 'mate'", hint: "Compound word: class + mate" },
+              { word: "spaceship", chunks: ["space", "ship"], pattern: "Compound Word: 'space' + 'ship'", hint: "Compound word: space + ship" },
+              { word: "summertime", chunks: ["sum", "mer", "time"], pattern: "Compound Word (3 syllables): 'sum' + 'mer' + 'time'", hint: "Compound: sum + mer + time" },
+              { word: "teammate", chunks: ["team", "mate"], pattern: "Compound Word: 'team' + 'mate'", hint: "Compound word: team + mate" }
+            ]
+          },
+          {
+            id: "challenge_words",
+            name: "🏆 Challenge Words",
+            rule: "Advanced multisyllabic words and complex phonetic patterns.",
+            badge: "CHALLENGE",
+            words: [
+              { word: "between", chunks: ["be", "tween"], pattern: "2 Syllables: 'be' + 'tween' (blend 'tw-' + double 'ee')", hint: "2 syllables: be + tween" },
+              { word: "another", chunks: ["an", "oth", "er"], pattern: "3 Syllables: 'an' + 'oth' (digraph 'th') + 'er'", hint: "3 syllables: an + oth + er" },
+              { word: "different", chunks: ["dif", "fer", "ent"], pattern: "3 Syllables: 'dif' (double 'f') + 'fer' + 'ent'", hint: "3 syllables: dif + fer + ent" },
+              { word: "quickly", chunks: ["quick", "ly"], pattern: "2 Syllables: 'quick' ('qu' + short /i/ + '-ck') + suffix '-ly'", hint: "2 syllables: quick + ly" },
+              { word: "explain", chunks: ["ex", "plain"], pattern: "2 Syllables: prefix 'ex-' + 'plain' (blend 'pl-' + 'ai')", hint: "2 syllables: ex + plain" },
+              { word: "sunshine", chunks: ["sun", "shine"], pattern: "Compound Word: 'sun' (short /u/) + 'shine' (digraph 'sh-' + long /i/)", hint: "Compound: sun + shine" }
+            ]
+          }
+        ],
+        sentences: [
+          {
+            id: 0,
+            text: "The strap on my backpack ripped and made me mad.",
+            targetWords: ["strap", "backpack", "ripped", "mad"],
+            tip: "💡 Spotlight: 'strap' (3-letter blend 'str-'), 'backpack' (compound 2-syllable), 'ripped' (short /i/ + doubled 'p' + '-ed'), and 'mad' (short /a/)!"
+          },
+          {
+            id: 1,
+            text: "I took a trip on a ship to a place with sunshine, chips, and clams.",
+            targetWords: ["trip", "ship", "place", "sunshine", "chips", "clams"],
+            tip: "💡 Spotlight: 'trip' (blend 'tr-'), 'ship' (digraph 'sh-'), 'place' (heart word), 'sunshine' (compound), 'chips' (digraph 'ch-'), and 'clams' (blend 'cl-' + '-s')!"
+          }
+        ]
+      }
     ];
-    let currentBlendIndex = 0;
 
-    function renderBlendingWord() {
-      const item = blendingBank[currentBlendIndex];
-      document.getElementById('blendedWordDisplay').textContent = item.chunks.join(' · ');
-      document.getElementById('phonicsPatternLabel').textContent = `Pattern: ${item.pattern}`;
+    // Initialize the dynamic 'All Words' category for every weekly unit
+    (function initAllPhonicsWords() {
+      weeklyPhonicsUnits.forEach(unit => {
+        const allCat = unit.categories[0];
+        allCat.words = [];
+        for (let i = 1; i < unit.categories.length; i++) {
+          unit.categories[i].words.forEach(w => {
+            allCat.words.push({ ...w, categoryBadge: unit.categories[i].badge });
+          });
+        }
+      });
+    })();
 
-      const area = document.getElementById('syllableChunkArea');
-      area.innerHTML = '';
-      item.chunks.forEach(chunk => {
-        const pill = document.createElement('button');
-        pill.style.cssText = "background:white; border:2px solid var(--primary); color:var(--primary); padding:8px 16px; border-radius:12px; font-size:1.2rem; font-weight:800; cursor:pointer;";
-        pill.textContent = chunk;
-        pill.onclick = () => { playSound('pop'); speakText(chunk); };
-        area.appendChild(pill);
+    let currentPhonicsUnitIndex = 0; // Default to Unit 1 Week 3 (latest)
+    let currentPhonicsCatIndex = 0;
+    let currentBlendWordIndex = 0;
+    let currentDictationWordIndex = 0;
+    let currentSentenceIndex = 0;
+    let isDictationHintVisible = false;
+
+    function getActiveUnit() {
+      return weeklyPhonicsUnits[currentPhonicsUnitIndex];
+    }
+
+    function initPhonicsHub() {
+      renderUnitSelector();
+      updateUnitBanner();
+      renderCategoryChips();
+      renderBlendingWord();
+      renderDictationWord();
+      renderSentencePractice();
+    }
+
+    function renderUnitSelector() {
+      const container = document.getElementById('phonicsUnitSelector');
+      if (!container) return;
+      container.innerHTML = '';
+      weeklyPhonicsUnits.forEach((unit, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `phonics-unit-btn ${idx === currentPhonicsUnitIndex ? 'active' : ''}`;
+        btn.textContent = unit.unitTitle;
+        btn.onclick = () => selectPhonicsUnit(idx);
+        container.appendChild(btn);
       });
     }
 
+    function selectPhonicsUnit(idx) {
+      currentPhonicsUnitIndex = idx;
+      currentPhonicsCatIndex = 0;
+      currentBlendWordIndex = 0;
+      currentDictationWordIndex = 0;
+      currentSentenceIndex = 0;
+      updateUnitBanner();
+      renderUnitSelector();
+      renderCategoryChips();
+      renderBlendingWord();
+      renderDictationWord();
+      renderSentencePractice();
+      playSound('pop');
+    }
+
+    function updateUnitBanner() {
+      const unit = getActiveUnit();
+      const badgeEl = document.getElementById('phonicsUnitBadge');
+      if (badgeEl) badgeEl.textContent = unit.unitTitle;
+
+      const titleEl = document.getElementById('phonicsHubTitle');
+      if (titleEl) titleEl.textContent = `${unit.unitTitle} Blending Lines & Dictation 📚`;
+
+      const skillEl = document.getElementById('phonicsTargetSkillLabel');
+      if (skillEl) skillEl.innerHTML = `<strong>Target Skills:</strong> ${unit.targetSkills}`;
+
+      const totalCountEl = document.getElementById('phonicsTotalWordCount');
+      if (totalCountEl) totalCountEl.textContent = unit.categories[0].words.length;
+    }
+
+    function renderCategoryChips() {
+      const container = document.getElementById('phonicsCategoryChips');
+      if (!container) return;
+      container.innerHTML = '';
+      const unit = getActiveUnit();
+      unit.categories.forEach((cat, idx) => {
+        const btn = document.createElement('button');
+        btn.className = `phonics-cat-btn ${idx === currentPhonicsCatIndex ? 'active' : ''}`;
+        btn.innerHTML = `${cat.name} <span style="opacity:0.75; font-size:0.75rem;">(${cat.words.length})</span>`;
+        btn.onclick = () => selectPhonicsCategory(idx);
+        container.appendChild(btn);
+      });
+    }
+
+    function selectPhonicsCategory(idx) {
+      currentPhonicsCatIndex = idx;
+      currentBlendWordIndex = 0;
+      currentDictationWordIndex = 0;
+      renderCategoryChips();
+      renderBlendingWord();
+      renderDictationWord();
+      playSound('pop');
+    }
+
+    function getActiveCategory() {
+      return getActiveUnit().categories[currentPhonicsCatIndex];
+    }
+
+    function getActiveWords() {
+      return getActiveCategory().words;
+    }
+
+    // --- BLENDING LINES CONTROLLER ---
+    function renderBlendingWord() {
+      const unit = getActiveUnit();
+      const cat = getActiveCategory();
+      const words = cat.words;
+      if (!words || words.length === 0) return;
+
+      if (currentBlendWordIndex >= words.length) currentBlendWordIndex = 0;
+      const item = words[currentBlendWordIndex];
+
+      const subtitleEl = document.getElementById('blendingCategorySubtitle');
+      if (subtitleEl) subtitleEl.textContent = `${unit.unitTitle} • ${cat.name}`;
+
+      const ruleEl = document.getElementById('blendingCategoryRule');
+      if (ruleEl) ruleEl.textContent = cat.rule;
+
+      const badgeEl = document.getElementById('blendingCategoryBadge');
+      if (badgeEl) badgeEl.textContent = item.categoryBadge || cat.badge;
+
+      const counterEl = document.getElementById('blendingWordCounter');
+      if (counterEl) counterEl.textContent = `Word ${currentBlendWordIndex + 1} of ${words.length}`;
+
+      const displayEl = document.getElementById('blendedWordDisplay');
+      if (displayEl) displayEl.textContent = item.chunks.join(' · ');
+
+      const patternEl = document.getElementById('phonicsPatternLabel');
+      if (patternEl) patternEl.textContent = `Pattern: ${item.pattern}`;
+
+      const area = document.getElementById('syllableChunkArea');
+      if (area) {
+        area.innerHTML = '';
+        item.chunks.forEach(chunk => {
+          const pill = document.createElement('button');
+          pill.className = 'syllable-chunk-btn';
+          pill.textContent = chunk;
+          pill.title = `Tap to hear chunk: ${chunk}`;
+          pill.onclick = () => {
+            playSound('pop');
+            speakText(chunk);
+          };
+          area.appendChild(pill);
+        });
+      }
+    }
+
     function nextBlendingWord() {
-      currentBlendIndex = (currentBlendIndex + 1) % blendingBank.length;
+      const words = getActiveWords();
+      currentBlendWordIndex = (currentBlendWordIndex + 1) % words.length;
+      renderBlendingWord();
+      playSound('pop');
+    }
+
+    function prevBlendingWord() {
+      const words = getActiveWords();
+      currentBlendWordIndex = (currentBlendWordIndex - 1 + words.length) % words.length;
+      renderBlendingWord();
+      playSound('pop');
+    }
+
+    function randomBlendingWord() {
+      const words = getActiveWords();
+      currentBlendWordIndex = Math.floor(Math.random() * words.length);
       renderBlendingWord();
       playSound('pop');
     }
 
     function blendCurrentWord() {
-      speakText(blendingBank[currentBlendIndex].full);
+      const item = getActiveWords()[currentBlendWordIndex];
+      speakText(item.word);
     }
 
-    const dictationBank = [
-      { word: "bright", hint: "Long 'igh' vowel pattern" },
-      { word: "thousand", hint: "'ou' diphthong" },
-      { word: "hundred", hint: "Compound base ten word" }
-    ];
-    let currentDictationIndex = 0;
-
+    // --- DICTATION ARENA CONTROLLER ---
     function renderDictationWord() {
-      const item = dictationBank[currentDictationIndex];
-      document.getElementById('spellingHint').textContent = `Hint: ${item.hint}`;
-      document.getElementById('dictationInput').value = '';
-      document.getElementById('dictationFeedback').textContent = '';
+      const cat = getActiveCategory();
+      const words = cat.words;
+      if (!words || words.length === 0) return;
+
+      if (currentDictationWordIndex >= words.length) currentDictationWordIndex = 0;
+      const item = words[currentDictationWordIndex];
+
+      const badgeEl = document.getElementById('dictationCategoryBadge');
+      if (badgeEl) badgeEl.textContent = item.categoryBadge || cat.badge;
+
+      const counterEl = document.getElementById('dictationWordCounter');
+      if (counterEl) counterEl.textContent = `Word ${currentDictationWordIndex + 1} of ${words.length}`;
+
+      const hintEl = document.getElementById('spellingHint');
+      if (hintEl) {
+        hintEl.textContent = `💡 Hint: ${item.hint}`;
+        hintEl.style.display = 'none';
+      }
+
+      const inputEl = document.getElementById('dictationInput');
+      if (inputEl) inputEl.value = '';
+
+      const feedbackEl = document.getElementById('dictationFeedback');
+      if (feedbackEl) feedbackEl.textContent = '';
+
+      isDictationHintVisible = false;
+    }
+
+    function toggleDictationHint() {
+      isDictationHintVisible = !isDictationHintVisible;
+      const hintEl = document.getElementById('spellingHint');
+      if (hintEl) {
+        hintEl.style.display = isDictationHintVisible ? 'inline-block' : 'none';
+      }
+      playSound('pop');
     }
 
     function speakDictationWord() {
-      speakText(`Please spell the word: ${dictationBank[currentDictationIndex].word}`);
+      const words = getActiveWords();
+      const item = words[currentDictationWordIndex];
+      speakText(`Please spell the word: ${item.word}`);
+    }
+
+    function nextDictationWord() {
+      const words = getActiveWords();
+      currentDictationWordIndex = (currentDictationWordIndex + 1) % words.length;
+      renderDictationWord();
+      playSound('pop');
     }
 
     function checkDictationAnswer() {
-      const input = document.getElementById('dictationInput').value.trim().toLowerCase();
-      const target = dictationBank[currentDictationIndex].word.toLowerCase();
+      const words = getActiveWords();
+      const item = words[currentDictationWordIndex];
+      const inputEl = document.getElementById('dictationInput');
+      const input = inputEl ? inputEl.value.trim().toLowerCase() : '';
+      const target = item.word.toLowerCase();
       const feedback = document.getElementById('dictationFeedback');
 
       if (input === target) {
@@ -2537,14 +3252,63 @@
         feedback.style.color = '#10B981';
         addStars(1);
         setTimeout(() => {
-          currentDictationIndex = (currentDictationIndex + 1) % dictationBank.length;
-          renderDictationWord();
-        }, 1800);
+          nextDictationWord();
+        }, 1600);
       } else {
-        feedback.textContent = `Sound it out chunk by chunk and try again!`;
+        feedback.textContent = `Sound it out: ${item.chunks.join(' - ')}! Try again!`;
         feedback.style.color = '#EF4444';
         playSound('wrong');
       }
+    }
+
+    // --- READING IN CONTEXT (DECODABLE SENTENCES) CONTROLLER ---
+    function selectSentence(index) {
+      currentSentenceIndex = index;
+      const tab0 = document.getElementById('sentenceTab0');
+      const tab1 = document.getElementById('sentenceTab1');
+      if (tab0) tab0.classList.toggle('active', index === 0);
+      if (tab1) tab1.classList.toggle('active', index === 1);
+      renderSentencePractice();
+      playSound('pop');
+    }
+
+    function renderSentencePractice() {
+      const unit = getActiveUnit();
+      const sObj = unit.sentences[currentSentenceIndex];
+      const displayArea = document.getElementById('sentenceDisplayArea');
+      if (!displayArea) return;
+      displayArea.innerHTML = '';
+
+      const tokens = sObj.text.split(' ');
+      tokens.forEach(tok => {
+        const cleanTok = tok.replace(/[^a-zA-Z]/g, '');
+        const isTarget = sObj.targetWords.some(tw => tw.toLowerCase() === cleanTok.toLowerCase());
+
+        const span = document.createElement('span');
+        span.className = `sentence-word-token ${isTarget ? 'target-highlight' : ''}`;
+        span.textContent = tok;
+        span.title = isTarget ? `Target Phonics Word! Click to sound out: ${cleanTok}` : `Click to read: ${cleanTok}`;
+        span.onclick = () => {
+          playSound('pop');
+          speakText(cleanTok);
+        };
+        displayArea.appendChild(span);
+      });
+
+      const spotEl = document.getElementById('sentencePhonicsSpotlight');
+      if (spotEl) spotEl.textContent = sObj.tip;
+    }
+
+    function speakCurrentSentence() {
+      const unit = getActiveUnit();
+      const sObj = unit.sentences[currentSentenceIndex];
+      speakText(sObj.text);
+    }
+
+    function recordSentenceReadAloud() {
+      playSound('correct');
+      addStars(1);
+      alert(`🎉 Awesome reading! You mastered Sentence ${currentSentenceIndex + 1}! Keep shining! (+1 Star)`);
     }
 
     /* ==========================================================================
@@ -3013,8 +3777,7 @@
       generateBlocksChallenge();
       generateSwatChallenge();
       rollFiveDice();
-      renderBlendingWord();
-      renderDictationWord();
+      initPhonicsHub();
       
       // Initialize AI Lab
       renderTrafficScenario();

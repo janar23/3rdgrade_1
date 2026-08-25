@@ -33,10 +33,13 @@ Based on Khan Academy TX TEKS 3rd Grade assessments:
   * *Clark the Shark* by Bruce Hale (Social Skills & Self-Control)
 
 ### 3. ✍️ Weekly School Literacy Support (Monday – Friday)
+* **Weekly Phonics & Dictation Hub (Multi-Week Selector):**
+  * **Unit 1 • Week 3:** Short `/e/`, Short `/o/`, Blends & Digraphs, Multisyllabic Chunking (56 target words + 2 decodable sentences).
+  * **Unit 1 • Week 2:** Short `/a/`, Short `/i/`, Plural `-s` & Endings (`-ed`, `-ing`), Multisyllabic Chunking (48 target words + 2 decodable sentences).
+* **Wednesday Phonics & Blending Lines Decoder:** Interactive tactile syllable chunk buttons (`[back]` `[pack]`), speech synthesis blending, and phonics rule breakdowns.
+* **Thursday Dictation Arena:** Audio-prompted spelling challenge preparing for Friday's Independent Dictation with spelling hints and star rewards.
+* **Friday Reading in Context (Decodable Sentences):** Interactive sentence reader where kids can tap individual words to hear them sounded out and practice fluency.
 * **Tuesday Vocabulary Detective:** Digital word exploration and personal word vault saved in `localStorage`.
-* **Wednesday Phonics & Blending Lines:** Multi-syllable chunking and audio pronunciation.
-* **Thursday Dictation Arena:** Spelling pattern matching with audio prompts.
-* **Guided Reading Question Spinner:** Fiction and non-fiction discussion prompts.
 
 ### 4. 🤖 Antigravity AI Detective & Co-Pilot Academy
 * **Core Philosophy:** "You are the Captain, AI is your Co-Pilot!"
