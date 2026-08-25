@@ -38,10 +38,18 @@ Based on Khan Academy TX TEKS 3rd Grade assessments:
 * **Thursday Dictation Arena:** Spelling pattern matching with audio prompts.
 * **Guided Reading Question Spinner:** Fiction and non-fiction discussion prompts.
 
+### 4. 🤖 Antigravity AI Detective & Co-Pilot Academy
+* **Core Philosophy:** "You are the Captain, AI is your Co-Pilot!"
+* **Traffic Light Challenge (When to Use AI):** Interactive scenarios teaching 3rd graders when AI is great (🟢 Green Light), when to think first and verify (🟡 Yellow Light), and when to use brain-only or protect privacy (🔴 Red Light).
+* **Catch the Robot Glitch (Hallucination Detective):** Fun error-spotting cases where kids audit confident AI statements to find sneaky place-value, story, or science mistakes.
+* **The Captain's Prompt Builder:** Visual 3-part prompt engineering (`[WHO]` Persona + `[WHAT]` Creative Task + `[GUARDRAIL]` Rules) with audio read-aloud.
+* **Dual Engine Architecture:** Works 100% offline out-of-the-box with a built-in combinatorial engine, or connects to live Google Gemini 1.5 Flash via a discreet parent settings panel.
+
 ---
 
 ## 🛠️ Tech Stack & Deployment
-* **Client-Side:** Pure HTML5, CSS3, ES6 JavaScript (No frameworks, runs 100% offline).
+* **Client-Side:** Pure HTML5, CSS3, ES6 JavaScript (No backend or framework needed, runs 100% offline).
 * **Audio:** Web Audio API synthesizer for sound effects + Web SpeechSynthesis for reading text aloud.
-* **Storage:** Browser `localStorage` to persist Stars, completed book missions, and custom vocabulary words.
+* **AI Integration:** Direct browser-to-API Gemini 1.5 Flash client-side integration + fallback offline simulation engine.
+* **Storage:** Browser `localStorage` to persist Stars, caught glitches, completed book missions, and custom vocabulary words.
 * **Hosting:** GitHub Pages (`janar23/3rdgrade_1`).
