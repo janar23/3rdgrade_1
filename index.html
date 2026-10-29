@@ -1290,11 +1290,13 @@
     <section class="welcome-banner">
       <div>
         <h2 id="welcomeHeading">Welcome back, Super Sanav! 🌟</h2>
-        <p id="welcomeSubtext">Read interactive stories right here, watch read-alouds, and take your quizzes!</p>
+        <p id="welcomeSubtext"><strong>This Week's Focus (Oct 26–30):</strong> Perimeter & Data Intervals • Poetry • Magnetic Forces • Culture!</p>
       </div>
       <div class="target-boost-tags" id="profilePills">
-        <div class="boost-pill">📖 Built-in e-Reader</div>
-        <div class="boost-pill">⚡ 10x Relationships</div>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('math'); filterMathWeek('oct26');">📏 Perimeter & Data</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(0);">🎭 Poetry</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(1);">🧲 Magnetic Forces</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('reading'); selectPhonicsUnit(0);">✍️ Oct 26–30 Literacy</button>
       </div>
     </section>
 
@@ -1394,7 +1396,7 @@
       </div>
 
       <!-- BOOK MISSION LIBRARY SHELF -->
-      <h3 style="font-size:1.3rem; margin-bottom:14px;">📚 Choose a Story to Read:</h3>
+      <h3 style="font-size:1.3rem; margin-bottom:14px;">📚 Choose a Story or Weekly Topic to Read:</h3>
       <div class="book-shelf-grid" id="bookShelfGrid"></div>
 
     </section>
@@ -1403,7 +1405,93 @@
          TAB 2: MATH POWER-UPS
          ========================================================================= -->
     <section id="mathPane" class="tab-pane">
+
+      <!-- HERO BANNER FOR WEEKLY MATH FOCUS -->
+      <div class="phonics-hero-card" style="background: linear-gradient(135deg, #EFF6FF 0%, #DBEAFE 60%, #E0E7FF 100%); border-color: #BFDBFE;">
+        <div style="display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:10px; border-bottom:2px dashed #93C5FD; padding-bottom:12px;">
+          <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+            <span style="font-size:0.8rem; font-weight:800; color:#1E40AF; text-transform:uppercase;">📅 Choose Math Unit:</span>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;">
+              <button type="button" class="phonics-unit-btn active" id="mathFilterBtnAll" onclick="filterMathWeek('all')">🌟 All Math Power-Ups (7)</button>
+              <button type="button" class="phonics-unit-btn" id="mathFilterBtnOct26" onclick="filterMathWeek('oct26')">📏 Oct 26–30 • Perimeter & Data Intervals (2)</button>
+              <button type="button" class="phonics-unit-btn" id="mathFilterBtnPlaceVal" onclick="filterMathWeek('placeval')">🔢 Unit 1 • Place Value to 100,000 (5)</button>
+            </div>
+          </div>
+          <div style="color:var(--text-muted); font-size:0.85rem; font-weight:700;">
+            🏫 3rd Grade TX TEKS Math
+          </div>
+        </div>
+        <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
+          <div>
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;">
+              <span id="mathUnitBadge" style="background:#2563EB; color:white; font-size:0.75rem; font-weight:800; padding:4px 10px; border-radius:20px; text-transform:uppercase;">Oct 26–30 • This Week</span>
+              <span style="color:var(--text-muted); font-size:0.85rem; font-weight:700;">Weekly Smore Newsletter Alignment</span>
+            </div>
+            <h2 id="mathHubTitle" style="color:#1E3A8A; font-size:1.4rem; margin-bottom:4px;">Perimeter Architect & Data Intervals Lab 📐📊</h2>
+            <p id="mathTargetSkillLabel" style="color:#1D4ED8; font-size:0.95rem; font-weight:600;">
+              <strong>Target Skills:</strong> Polygon Perimeter & Missing Sides • Bar Graphs with Scaled Intervals (2s, 4s, 5s, 10s) • Place Value Mastery
+            </p>
+          </div>
+        </div>
+      </div>
+
       <div class="module-grid">
+
+        <!-- NEW CARD A: Perimeter Architect (Oct 26-30 Weekly Focus) -->
+        <div class="card" id="cardPerimeter" style="border: 2px solid var(--primary);">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#DBEAFE; color:#1D4ED8;">📏</div>
+              <div class="card-title">
+                <h3>Perimeter Architect <span style="background:#EEF2FF; color:var(--primary); font-size:0.7rem; padding:2px 8px; border-radius:10px; vertical-align:middle;">THIS WEEK</span></h3>
+                <span>Add All Outer Sides & Missing Side Mysteries</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              <strong>Perimeter</strong> is the total distance around the outside of a polygon! Opposite sides of a rectangle are equal.
+            </p>
+
+            <div class="game-box">
+              <div id="perimeterVisualBox" style="background:white; border:2px dashed #93C5FD; border-radius:14px; padding:14px; margin-bottom:10px; font-weight:800; color:#1E3A8A; font-size:0.95rem;">
+                <!-- Visual blueprint rendered by JS -->
+              </div>
+              <div id="perimeterQuestion" style="font-weight:700; font-size:1.05rem; color:var(--text-main); min-height:44px;">
+                Loading perimeter puzzle...
+              </div>
+              <div class="option-grid" id="perimeterOptions"></div>
+              <div class="feedback-msg" id="perimeterFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generatePerimeterQuestion()">Next Perimeter Blueprint 📐</button>
+        </div>
+
+        <!-- NEW CARD B: Data Intervals Detective (Oct 26-30 Weekly Focus) -->
+        <div class="card" id="cardDataIntervals" style="border: 2px solid var(--primary);">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#FCE7F3; color:#BE185D;">📊</div>
+              <div class="card-title">
+                <h3>Data Intervals Detective <span style="background:#FDF2F8; color:#BE185D; font-size:0.7rem; padding:2px 8px; border-radius:10px; vertical-align:middle;">THIS WEEK</span></h3>
+                <span>Bar Graphs, Scaled Intervals & Comparisons</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Always check the <strong>scale interval</strong> (counting by 2s, 5s, 10s, or 20s) and watch for bars halfway between lines!
+            </p>
+
+            <div class="game-box">
+              <div id="dataGraphArena" style="background:white; border:2px solid #FBCFE8; border-radius:14px; padding:12px; margin-bottom:10px; text-align:left;">
+                <!-- Scaled bar graph rendered by JS -->
+              </div>
+              <div id="dataIntervalsQuestion" style="font-weight:700; font-size:1.02rem; color:var(--text-main); min-height:44px;">
+                Loading data intervals question...
+              </div>
+              <div class="option-grid" id="dataIntervalsOptions"></div>
+              <div class="feedback-msg" id="dataIntervalsFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generateDataIntervalsQuestion()">Next Data Graph 📊</button>
+        </div>
         
         <!-- CARD 1: 10x Relationship Shifter -->
         <div class="card" id="card10x">
@@ -1492,7 +1580,7 @@
         </div>
 
         <!-- CARD 4: Number Swat -->
-        <div class="card">
+        <div class="card" id="cardSwat">
           <div>
             <div class="card-header">
               <div class="card-icon" style="background:#EDE9FE; color:#7C3AED;">🎯</div>
@@ -1517,7 +1605,7 @@
         </div>
 
         <!-- CARD 5: 5-Digit "Roll It" & Expanded Sandbox -->
-        <div class="card" style="grid-column: 1 / -1;">
+        <div class="card" id="cardRollIt" style="grid-column: 1 / -1;">
           <div>
             <div class="card-header">
               <div class="card-icon" style="background:#E0F2FE; color:#0284C7;">🎲</div>
@@ -2070,6 +2158,224 @@
        ========================================================================== */
     const inAppBooks = [
       {
+        id: "book_poetry_power",
+        title: "Poetry Power: Rhythm, Rhyme & Stanzas",
+        author: "3rd Grade ELAR • This Week's Focus",
+        type: "Grade 3 Poetry • Elements of Poetry",
+        badge: "🌟 THIS WEEK: ELAR",
+        badgeClass: "badge-storyline",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/JmkgAWDickU",
+        vocab: ["Stanza", "Rhyme Scheme", "Imagery", "Alliteration"],
+        pages: [
+          {
+            page: 1,
+            clue: "Lines & Stanzas",
+            text: "What makes a poem different from a regular story? Instead of sentences and paragraphs, poets build their writing using LINES and STANZAS! A line is a single row of words in a poem. A stanza is a group of lines grouped together, separated by a blank space—just like a paragraph in a story! Where a poet chooses to end a line is called a line break."
+          },
+          {
+            page: 2,
+            clue: "Rhyme Scheme & Rhythm",
+            text: "Read this stanza out loud and listen to the beat (rhythm):\n\nThe autumn leaves are falling down, (A)\nThey paint the yard in gold and red, (B)\nThey dance across the sleepy town, (A)\nBefore the squirrels go to bed. (B)\n\nNotice how 'down' rhymes with 'town' (A), and 'red' rhymes with 'bed' (B)! That pattern of rhyming words at the end of lines is called the RHYME SCHEME (here it is ABAB). Poems that don't rhyme at all are called FREE VERSE poems!"
+          },
+          {
+            page: 3,
+            clue: "Alliteration & Onomatopoeia",
+            text: "Poets love playing with musical sounds! ALLITERATION is when words close together start with the same beginning consonant sound: 'Six silly squirrels scampered swiftly.' ONOMATOPOEIA is when a word imitates a real-life sound—like BOOM, CRASH, SIZZLE, BUZZ, or WHOOSH! When you read sound words, you can almost hear the action happening!"
+          },
+          {
+            page: 4,
+            clue: "Imagery & Similes",
+            text: "Poets use IMAGERY—words that appeal to your five senses (sight, sound, smell, taste, touch)—to paint a vivid picture in your mind. They also use SIMILES, which compare two things using the words 'like' or 'as': 'The harvest moon glowed like a giant golden pumpkin in the crisp night sky.' Every poem has a speaker (the voice talking in the poem) and a theme or feeling!"
+          }
+        ],
+        questions: [
+          {
+            q: "In poetry, what do we call a group of lines that are grouped together (like a paragraph in a story)?",
+            opts: [
+              "A chapter",
+              "A stanza",
+              "A dictionary",
+              "An index"
+            ],
+            ans: 1,
+            hint: "Lines group together to form a stanza, separated by spaces!"
+          },
+          {
+            q: "Look at these lines: 'The bright stars shine (A) / Up in the sky (B) / So super fine (A) / Way up so high (B).' What is the rhyme scheme?",
+            opts: [
+              "AABB",
+              "ABAB",
+              "ABCD",
+              "Free Verse"
+            ],
+            ans: 1,
+            hint: "'shine' and 'fine' rhyme (A), while 'sky' and 'high' rhyme (B) -> ABAB!"
+          },
+          {
+            q: "Which poetic device is used in 'Seven silver snakes slid silently'?",
+            opts: [
+              "Alliteration (repeating beginning sounds)",
+              "Table of contents",
+              "Non-fiction caption",
+              "Glossary"
+            ],
+            ans: 0,
+            hint: "Alliteration repeats the same starting consonant sound ('s')!"
+          },
+          {
+            q: "What is a poem called when it does NOT have a set rhyme scheme?",
+            opts: [
+              "A biography",
+              "Free verse poetry",
+              "A math equation",
+              "A recipe"
+            ],
+            ans: 1,
+            hint: "Free verse poems use imagery and rhythm without needing rhyming words at the end of lines."
+          }
+        ]
+      },
+      {
+        id: "book_magnetic_forces",
+        title: "Magnetic Forces: Push, Pull & Poles",
+        author: "3rd Grade Science • This Week's Focus",
+        type: "Grade 3 Science • Forces & Magnetism",
+        badge: "🧲 THIS WEEK: SCIENCE",
+        badgeClass: "badge-raz",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/yXCeuSiTOug",
+        vocab: ["Attract", "Repel", "Magnetic Field", "Poles"],
+        pages: [
+          {
+            page: 1,
+            clue: "Non-Contact Force",
+            text: "A force is a push or a pull. Most forces need objects to touch—like kicking a soccer ball. But MAGNETISM is a special non-contact force! A magnet can push or pull certain objects from a distance without even touching them. The invisible area of magnetic force around a magnet is called its MAGNETIC FIELD."
+          },
+          {
+            page: 2,
+            clue: "North & South Poles",
+            text: "Every magnet has two ends where the magnetic pull is strongest: a NORTH POLE (N) and a SOUTH POLE (S). Here is the Golden Rule of Magnets: Opposite poles ATTRACT (pull together), while like poles REPEL (push apart)! So a North pole and a South pole snap together (N ➡️⬅️ S), while two North poles (N ⬅️➡️ N) or two South poles (S ⬅️➡️ S) push each other away!"
+          },
+          {
+            page: 3,
+            clue: "Iron, Nickel & Cobalt",
+            text: "Do magnets stick to everything? No! Magnets only attract certain metals—especially IRON, NICKEL, and COBALT (and steel, which is made from iron). Objects like steel paperclips and iron nails are magnetic. Materials like wood, plastic, glass, rubber, paper, and even aluminum foil or copper pennies are NON-MAGNETIC!"
+          },
+          {
+            page: 4,
+            clue: "Earth's Giant Magnet",
+            text: "Did you know that planet Earth itself is a giant magnet? Deep inside Earth's core is churning liquid iron and nickel, creating a huge magnetic field around our planet! That is why a COMPASS needle—which is a tiny lightweight magnet—always spins to line up with Earth's magnetic field and point North, helping explorers find their way!"
+          }
+        ],
+        questions: [
+          {
+            q: "What happens when you bring the North Pole of one magnet close to the North Pole of another magnet?",
+            opts: [
+              "They attract (pull together)",
+              "They repel (push each other apart)",
+              "They melt into liquid",
+              "Nothing happens"
+            ],
+            ans: 1,
+            hint: "Like poles (North-North or South-South) always REPEL (push apart)!"
+          },
+          {
+            q: "Which of these objects will be attracted to a magnet?",
+            opts: [
+              "A plastic ruler and a wooden pencil",
+              "An iron nail and a steel paperclip",
+              "A glass marble and a rubber eraser",
+              "A cotton shirt and a paper cup"
+            ],
+            ans: 1,
+            hint: "Magnets attract metals containing iron, nickel, or cobalt (like steel paperclips and iron nails)."
+          },
+          {
+            q: "Why is magnetism called a 'non-contact force'?",
+            opts: [
+              "Because it only works in outer space",
+              "Because a magnet can push or pull objects through its magnetic field without touching them",
+              "Because magnets have no poles",
+              "Because magnets only work underwater"
+            ],
+            ans: 1,
+            hint: "The invisible magnetic field acts across a distance, even through air, paper, or water!"
+          },
+          {
+            q: "Which two poles will ATTRACT (pull toward) each other?",
+            opts: [
+              "North Pole and South Pole (Opposite Poles)",
+              "North Pole and North Pole",
+              "South Pole and South Pole",
+              "Plastic Pole and Wood Pole"
+            ],
+            ans: 0,
+            hint: "Opposite poles (North and South) attract!"
+          }
+        ]
+      },
+      {
+        id: "book_culture_reflection",
+        title: "Reflections of Culture in Our Community",
+        author: "3rd Grade Social Studies • This Week's Focus",
+        type: "Grade 3 Social Studies • Culture & Traditions",
+        badge: "🌎 THIS WEEK: SOCIAL STUDIES",
+        badgeClass: "badge-storyline",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/RwSYrsjTiW4",
+        vocab: ["Culture", "Tradition", "Heritage", "Folktale"],
+        pages: [
+          {
+            page: 1,
+            clue: "What is Culture?",
+            text: "CULTURE is the shared way of life of a group of people. It includes the languages people speak, the foods they cook, the clothes they wear, their music, art, celebrations, and beliefs! In our Texas communities and around the world, families pass down their HERITAGE and TRADITIONS from generation to generation."
+          },
+          {
+            page: 2,
+            clue: "Art, Stories & Folktales",
+            text: "How do communities share and reflect their culture? Through stories, poems, paintings, sculptures, and music! Writers and artists share cultural values through FOLKTALES (traditional stories passed down orally), fables, and festival dances. Whether it is Diwali lamps, Día de los Muertos marigolds, Lunar New Year dragon dances, or harvest festivals, celebrations bring communities together."
+          },
+          {
+            page: 3,
+            clue: "Appreciating Diversity",
+            text: "When people from many cultural backgrounds live in a community, they share their unique traditions, languages, and ideas. Learning about different cultures helps us show respect, empathy, and kindness—making our school and neighborhood a richer, more welcoming place for everyone!"
+          }
+        ],
+        questions: [
+          {
+            q: "Which of the following is an example of how people express and reflect their culture?",
+            opts: [
+              "Through traditional foods, languages, music, art, celebrations, and stories",
+              "By only eating one kind of rock",
+              "By never talking to neighbors",
+              "By hiding all books and paintings"
+            ],
+            ans: 0,
+            hint: "Culture is reflected in language, food, art, music, stories, and celebrations!"
+          },
+          {
+            q: "What do we call a custom, celebration, or story passed down from parents to children over many generations?",
+            opts: [
+              "A tradition / cultural heritage",
+              "A magnetic pole",
+              "A perimeter",
+              "A bar graph"
+            ],
+            ans: 0,
+            hint: "Traditions and heritage are passed down across generations."
+          },
+          {
+            q: "Why do authors and artists include cultural celebrations and folktales in their work?",
+            opts: [
+              "To preserve and share the values, history, and identity of their community",
+              "To make math problems harder",
+              "To erase history",
+              "Because they ran out of paper"
+            ],
+            ans: 0,
+            hint: "Stories and art help communities share and celebrate their identity and values."
+          }
+        ]
+      },
+      {
         id: "book_empty_pot",
         title: "The Empty Pot",
         author: "Demi",
@@ -2470,8 +2776,187 @@
     }
 
     /* ==========================================================================
-       4. MATH LOGIC (10x, REGROUPING, BLOCKS, SWAT, ROLL-IT)
+       4. MATH LOGIC (PERIMETER, DATA INTERVALS, 10x, REGROUPING, BLOCKS, SWAT, ROLL-IT)
        ========================================================================== */
+    const perimeterQuestions = [
+      {
+        visual: "📐 Rectangle Garden • Top = 12 ft, Right = 8 ft, Bottom = 12 ft, Left = 8 ft",
+        q: "What is the total PERIMETER around the outside of this rectangular garden?",
+        options: ["20 ft", "40 ft", "96 ft", "32 ft"],
+        ans: "40 ft",
+        hint: "Add all 4 outer sides: 12 + 8 + 12 + 8 = 40 ft! (96 is Area, not Perimeter!)"
+      },
+      {
+        visual: "🕵️ Missing Side Mystery! • Triangle Total Perimeter = 26 cm • Side A = 9 cm, Side B = 9 cm, Side C = ? cm",
+        q: "The total perimeter of this triangle is 26 cm. What is the length of the missing Side C?",
+        options: ["8 cm", "18 cm", "17 cm", "9 cm"],
+        ans: "8 cm",
+        hint: "9 + 9 = 18 cm. Subtract from the total perimeter: 26 - 18 = 8 cm!"
+      },
+      {
+        visual: "🟦 Square Sandbox • One side = 9 meters (All 4 sides of a square are equal!)",
+        q: "A square playground sandbox has a side length of 9 meters. What is its perimeter?",
+        options: ["18 meters", "27 meters", "36 meters", "81 meters"],
+        ans: "36 meters",
+        hint: "A square has 4 equal sides: 9 + 9 + 9 + 9 = 36 meters!"
+      },
+      {
+        visual: "📐 Rectangle Dog Park • Length = 15 yd, Width = 6 yd (Remember opposite sides are equal!)",
+        q: "What is the perimeter of a rectangular dog park that is 15 yards long and 6 yards wide?",
+        options: ["21 yd", "42 yd", "90 yd", "36 yd"],
+        ans: "42 yd",
+        hint: "Don't forget the other two sides! 15 + 6 + 15 + 6 = 42 yards!"
+      },
+      {
+        visual: "⬠ Regular Pentagon Sign • 5 Equal Sides • Each side = 7 inches",
+        q: "A 5-sided pentagon sign has 5 equal sides of 7 inches each. What is the perimeter?",
+        options: ["12 inches", "28 inches", "35 inches", "42 inches"],
+        ans: "35 inches",
+        hint: "5 sides × 7 inches each = 35 inches around the outside!"
+      },
+      {
+        visual: "🕵️ Missing Width Mystery! • Rectangle Total Perimeter = 30 ft • Top = 10 ft, Bottom = 10 ft, Left = ? ft, Right = ? ft",
+        q: "A rectangle has a total perimeter of 30 ft. The top and bottom are 10 ft each. How long is each side width?",
+        options: ["5 ft", "10 ft", "20 ft", "15 ft"],
+        ans: "5 ft",
+        hint: "Top + Bottom = 10 + 10 = 20 ft. That leaves 30 - 20 = 10 ft split equally between the 2 side widths: 10 ÷ 2 = 5 ft!"
+      }
+    ];
+    let currentPerimeterIdx = -1;
+
+    function generatePerimeterQuestion() {
+      currentPerimeterIdx = (currentPerimeterIdx + 1) % perimeterQuestions.length;
+      const item = perimeterQuestions[currentPerimeterIdx];
+      document.getElementById('perimeterVisualBox').textContent = item.visual;
+      document.getElementById('perimeterQuestion').textContent = item.q;
+      document.getElementById('perimeterFeedback').textContent = '';
+
+      const optsContainer = document.getElementById('perimeterOptions');
+      optsContainer.innerHTML = '';
+      item.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (opt === item.ans) {
+            btn.classList.add('correct');
+            document.getElementById('perimeterFeedback').textContent = `📏 Spot on! ${item.hint} (+1 Star)`;
+            document.getElementById('perimeterFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.classList.add('wrong');
+            document.getElementById('perimeterFeedback').textContent = `💡 Hint: ${item.hint}`;
+            document.getElementById('perimeterFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        optsContainer.appendChild(btn);
+      });
+    }
+
+    const dataIntervalsQuestions = [
+      {
+        title: "📊 Books Read in October (Scale Interval: Counting by 5s)",
+        scaleNote: "Scale lines: 0 | 5 | 10 | 15 | 20 | 25",
+        bars: [
+          { label: "Mystery", val: 20, max: 25, color: "#4F46E5", note: "On the 20 line" },
+          { label: "Poetry", val: 15, max: 25, color: "#EC4899", note: "On the 15 line" },
+          { label: "Science", val: 12.5, displayVal: "Halfway between 10 & 15", max: 25, color: "#10B981", note: "Between 10 and 15" }
+        ],
+        q: "With a scale interval of 5, how many MORE Mystery books (20) were read than Poetry books (15)?",
+        options: ["5 more books", "1 more book", "35 books", "10 more books"],
+        ans: "5 more books",
+        hint: "Each grid line jumps by 5! 20 - 15 = 5 more Mystery books."
+      },
+      {
+        title: "🧲 Paperclips Picked Up by Magnets (Scale Interval: Counting by 2s)",
+        scaleNote: "Scale lines: 0 | 2 | 4 | 6 | 8 | 10 | 12",
+        bars: [
+          { label: "Bar Magnet", val: 6, max: 12, color: "#3B82F6", note: "On the 6 line" },
+          { label: "Horseshoe", val: 9, max: 12, color: "#F59E0B", note: "Halfway between 8 and 10!" },
+          { label: "Ring Magnet", val: 4, max: 12, color: "#8B5CF6", note: "On the 4 line" }
+        ],
+        q: "The Horseshoe Magnet bar stops HALFWAY between 8 and 10. How many paperclips did it pick up?",
+        options: ["9 paperclips", "8 paperclips", "10 paperclips", "5 paperclips"],
+        ans: "9 paperclips",
+        hint: "Halfway between 8 and 10 on a scale of 2s is 9!"
+      },
+      {
+        title: "🎃 Trunk-or-Treat Votes (Scale Interval: Counting by 10s)",
+        scaleNote: "Scale lines: 0 | 10 | 20 | 30 | 40 | 50",
+        bars: [
+          { label: "Space Ship", val: 40, max: 50, color: "#6366F1", note: "On the 40 line" },
+          { label: "Dino Park", val: 35, max: 50, color: "#10B981", note: "Halfway between 30 and 40!" },
+          { label: "Wizard Lab", val: 20, max: 50, color: "#EC4899", note: "On the 20 line" }
+        ],
+        q: "Dino Park is halfway between 30 and 40 (35). What is the TOTAL votes for Space Ship (40) and Dino Park (35) combined?",
+        options: ["75 votes", "70 votes", "5 votes", "95 votes"],
+        ans: "75 votes",
+        hint: "Space Ship (40) + Dino Park (35) = 75 total votes!"
+      },
+      {
+        title: "⚽ Recess Goals Scored (Scale Interval: Counting by 4s)",
+        scaleNote: "Scale lines: 0 | 4 | 8 | 12 | 16 | 20",
+        bars: [
+          { label: "Monday", val: 8, max: 20, color: "#0284C7", note: "2nd line (8)" },
+          { label: "Wednesday", val: 16, max: 20, color: "#7C3AED", note: "4th line (16)" },
+          { label: "Friday", val: 10, max: 20, color: "#D97706", note: "Halfway between 8 and 12!" }
+        ],
+        q: "Friday's bar is halfway between 8 and 12. How many FEWER goals were scored on Monday (8) than Wednesday (16)?",
+        options: ["8 fewer goals", "2 fewer goals", "24 goals", "6 fewer goals"],
+        ans: "8 fewer goals",
+        hint: "Don't just count 2 lines—multiply by the interval of 4! 16 - 8 = 8 fewer goals."
+      }
+    ];
+    let currentDataIntervalsIdx = -1;
+
+    function generateDataIntervalsQuestion() {
+      currentDataIntervalsIdx = (currentDataIntervalsIdx + 1) % dataIntervalsQuestions.length;
+      const item = dataIntervalsQuestions[currentDataIntervalsIdx];
+
+      const arena = document.getElementById('dataGraphArena');
+      arena.innerHTML = `
+        <div style="font-weight:800; font-size:0.88rem; color:var(--primary); margin-bottom:2px;">${item.title}</div>
+        <div style="font-size:0.75rem; font-weight:700; color:var(--text-muted); margin-bottom:8px;">📏 ${item.scaleNote}</div>
+        ${item.bars.map(b => `
+          <div style="margin-bottom:6px;">
+            <div style="display:flex; justify-content:space-between; font-size:0.8rem; font-weight:700;">
+              <span>${b.label}</span>
+              <span style="color:${b.color};">${b.note}</span>
+            </div>
+            <div style="background:#F3F4F6; border-radius:8px; height:14px; width:100%; overflow:hidden; border:1px solid #E5E7EB;">
+              <div style="background:${b.color}; width:${Math.round((b.val / b.max) * 100)}%; height:100%; border-radius:8px;"></div>
+            </div>
+          </div>
+        `).join('')}
+      `;
+
+      document.getElementById('dataIntervalsQuestion').textContent = item.q;
+      document.getElementById('dataIntervalsFeedback').textContent = '';
+
+      const optsContainer = document.getElementById('dataIntervalsOptions');
+      optsContainer.innerHTML = '';
+      item.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (opt === item.ans) {
+            btn.classList.add('correct');
+            document.getElementById('dataIntervalsFeedback').textContent = `📊 Awesome Data Detective work! ${item.hint} (+1 Star)`;
+            document.getElementById('dataIntervalsFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.classList.add('wrong');
+            document.getElementById('dataIntervalsFeedback').textContent = `💡 Hint: ${item.hint}`;
+            document.getElementById('dataIntervalsFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        optsContainer.appendChild(btn);
+      });
+    }
+
     const tenXQuestions = [
       { q: "10 ones equal one ____________?", options: ["Ten", "Hundred", "Thousand", "Ten Thousand"], ans: "Ten", step: "step10" },
       { q: "10 tens equal one ____________?", options: ["Ten", "Hundred", "Thousand", "Ten Thousand"], ans: "Hundred", step: "step100" },
@@ -2719,10 +3204,164 @@
       if (word) speakText(word);
     }
 
+    function filterMathWeek(mode) {
+      const octCards = ['cardPerimeter', 'cardDataIntervals'];
+      const placeValCards = ['card10x', 'cardRegroup', 'cardBlocks', 'cardSwat', 'cardRollIt'];
+
+      document.getElementById('mathFilterBtnAll').classList.toggle('active', mode === 'all');
+      document.getElementById('mathFilterBtnOct26').classList.toggle('active', mode === 'oct26');
+      document.getElementById('mathFilterBtnPlaceVal').classList.toggle('active', mode === 'placeval');
+
+      octCards.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = (mode === 'all' || mode === 'oct26') ? '' : 'none';
+      });
+      placeValCards.forEach(id => {
+        const el = document.getElementById(id);
+        if (el) el.style.display = (mode === 'all' || mode === 'placeval') ? '' : 'none';
+      });
+
+      const badge = document.getElementById('mathUnitBadge');
+      const title = document.getElementById('mathHubTitle');
+      const skills = document.getElementById('mathTargetSkillLabel');
+      if (mode === 'oct26') {
+        badge.textContent = 'Oct 26–30 • This Week';
+        title.textContent = 'Oct 26–30: Perimeter & Data Intervals Lab 📐📊';
+        skills.innerHTML = '<strong>Target Skills:</strong> Polygon Perimeter • Missing Side Lengths • Scaled Bar Graph Intervals (2s, 4s, 5s, 10s)';
+      } else if (mode === 'placeval') {
+        badge.textContent = 'Unit 1 • Place Value';
+        title.textContent = 'Place Value to 100,000 Power-Ups 🔢';
+        skills.innerHTML = '<strong>Target Skills:</strong> 10× Relationships • Regrouping • Base-10 Blocks • Expanded Notation';
+      } else {
+        badge.textContent = 'All Units • 7 Games';
+        title.textContent = 'Perimeter, Data Intervals & Place Value Lab 📐📊';
+        skills.innerHTML = '<strong>Target Skills:</strong> Polygon Perimeter & Missing Sides • Bar Graphs with Scaled Intervals • Place Value Mastery';
+      }
+      playSound('pop');
+    }
+
     /* ==========================================================================
        5. WEEKLY PHONICS, BLENDING LINES, DICTATION & READING IN CONTEXT
        ========================================================================== */
     const weeklyPhonicsUnits = [
+      {
+        id: "oct26_poetry",
+        unitTitle: "Oct 26–30 • Poetry & Word Study",
+        targetSkills: "Poetry Elements • Rhyming Families • Sound Words (Onomatopoeia) • Academic Vocab",
+        categories: [
+          {
+            id: "all",
+            name: "🌟 All Words",
+            rule: "Master all 42 decoding, spelling, and vocabulary words for Oct 26–30!",
+            badge: "ALL 42 WORDS",
+            words: [] // Populated dynamically
+          },
+          {
+            id: "poetry_elements",
+            name: "🎭 Poetry Words",
+            rule: "Decode and spell key 3rd-grade poetry terms by chunking each syllable.",
+            badge: "POETRY",
+            words: [
+              { word: "stanza", chunks: ["stan", "za"], pattern: "2 Syllables: 'stan' (closed) + 'za' (open/schwa) — a group of lines in a poem", hint: "2 syllables: stan + za" },
+              { word: "rhyme", chunks: ["rhyme"], pattern: "Silent 'h' ('rh-') + long /i/ ('y_e') — words with the same ending sound", hint: "Starts with 'rh-' and ends with 'y-m-e'" },
+              { word: "rhythm", chunks: ["rhyth", "m"], pattern: "Silent 'h' ('rh-') + short /i/ ('y') + digraph 'th' — the beat of a poem", hint: "Starts with 'r-h-y-t-h-m'" },
+              { word: "poem", chunks: ["po", "em"], pattern: "2 Syllables: open 'po' (long /o/) + 'em'", hint: "2 syllables: po + em" },
+              { word: "poet", chunks: ["po", "et"], pattern: "2 Syllables: open 'po' (long /o/) + 'et' — the author of a poem", hint: "2 syllables: po + et" },
+              { word: "verses", chunks: ["vers", "es"], pattern: "R-controlled 'er' + plural '-es'", hint: "2 syllables: vers + es" },
+              { word: "simile", chunks: ["sim", "i", "le"], pattern: "3 Syllables: 'sim' + 'i' + 'le' — comparing with 'like' or 'as'", hint: "3 syllables: sim + i + le" },
+              { word: "imagery", chunks: ["im", "age", "ry"], pattern: "3 Syllables: 'im' + 'age' + 'ry' — words that paint a picture for the 5 senses", hint: "3 syllables: im + age + ry" }
+            ]
+          },
+          {
+            id: "sound_words",
+            name: "🔔 Sound Words",
+            rule: "Onomatopoeia (Sound Words): Blends, digraphs, and double consonants that imitate real sounds!",
+            badge: "SOUND WORDS",
+            words: [
+              { word: "buzz", chunks: ["buzz"], pattern: "Short /u/ + doubled 'zz' (FLSZ rule)", hint: "Short /u/ + double 'zz'" },
+              { word: "crash", chunks: ["crash"], pattern: "Initial blend 'cr-' + short /a/ + ending digraph '-sh'", hint: "Blend 'cr-' + digraph '-sh'" },
+              { word: "splash", chunks: ["splash"], pattern: "3-letter blend 'spl-' + short /a/ + digraph '-sh'", hint: "3-letter blend 'spl-' + '-sh'" },
+              { word: "crunch", chunks: ["crunch"], pattern: "Blend 'cr-' + short /u/ + final blend/digraph '-nch'", hint: "Blend 'cr-' + '-nch'" },
+              { word: "thump", chunks: ["thump"], pattern: "Digraph 'th-' + short /u/ + final blend '-mp'", hint: "Digraph 'th-' + '-mp'" },
+              { word: "sizzle", chunks: ["siz", "zle"], pattern: "2 Syllables: 'siz' (short /i/) + consonant-le '-zle'", hint: "2 syllables: siz + zle (double 'z')" },
+              { word: "flutter", chunks: ["flut", "ter"], pattern: "2 Syllables: 'flut' (blend 'fl-') + r-controlled '-ter'", hint: "2 syllables: flut + ter (double 't')" },
+              { word: "whisper", chunks: ["whis", "per"], pattern: "2 Syllables: digraph 'wh-' in 'whis' + '-per'", hint: "2 syllables: whis + per" }
+            ]
+          },
+          {
+            id: "rhyme_families",
+            name: "🎶 Rhyming Patterns",
+            rule: "Foundational Vowel Teams & Long Vowel Rhyming Families used in poetry.",
+            badge: "RHYME FAMILIES",
+            words: [
+              { word: "bright", chunks: ["bright"], pattern: "Blend 'br-' + long /i/ trigraph '-igh' + 't'", hint: "Blend 'br-' + '-ight'" },
+              { word: "flight", chunks: ["flight"], pattern: "Blend 'fl-' + long /i/ trigraph '-igh' + 't'", hint: "Blend 'fl-' + '-ight'" },
+              { word: "night", chunks: ["night"], pattern: "Long /i/ trigraph '-igh' + 't'", hint: "n + ight" },
+              { word: "breeze", chunks: ["breeze"], pattern: "Blend 'br-' + vowel team 'ee' + 'ze'", hint: "Blend 'br-' + 'ee' + 'ze'" },
+              { word: "freeze", chunks: ["freeze"], pattern: "Blend 'fr-' + vowel team 'ee' + 'ze'", hint: "Blend 'fr-' + 'ee' + 'ze'" },
+              { word: "gleam", chunks: ["gleam"], pattern: "Blend 'gl-' + vowel team 'ea' (long /e/) + 'm'", hint: "Blend 'gl-' + 'ea' + 'm'" },
+              { word: "stream", chunks: ["stream"], pattern: "3-letter blend 'str-' + vowel team 'ea' + 'm'", hint: "3-letter blend 'str-' + 'eam'" },
+              { word: "dream", chunks: ["dream"], pattern: "Blend 'dr-' + vowel team 'ea' + 'm'", hint: "Blend 'dr-' + 'eam'" }
+            ]
+          },
+          {
+            id: "science_math_words",
+            name: "🧲 Science & Math",
+            rule: "Multisyllabic decoding for this week's Magnetic Forces & Perimeter/Data units!",
+            badge: "STEM WORDS",
+            words: [
+              { word: "magnet", chunks: ["mag", "net"], pattern: "2 Closed Syllables (VC/CV): 'mag' + 'net'", hint: "2 closed syllables: mag + net" },
+              { word: "attract", chunks: ["at", "tract"], pattern: "2 Syllables: 'at' + 'tract' (blend 'tr-' + '-ct') — pull together", hint: "Double 't': at + tract" },
+              { word: "repel", chunks: ["re", "pel"], pattern: "2 Syllables: open 're' + closed 'pel' — push apart", hint: "2 syllables: re + pel" },
+              { word: "compass", chunks: ["com", "pass"], pattern: "2 Syllables: 'com' + 'pass' (double 'ss')", hint: "2 syllables: com + pass" },
+              { word: "nickel", chunks: ["nick", "el"], pattern: "2 Syllables: 'nick' (digraph '-ck') + '-el'", hint: "2 syllables: nick + el" },
+              { word: "cobalt", chunks: ["co", "balt"], pattern: "2 Syllables: open 'co' (long /o/) + 'balt'", hint: "2 syllables: co + balt" },
+              { word: "interval", chunks: ["in", "ter", "val"], pattern: "3 Syllables: 'in' + 'ter' + 'val' — scale step on a graph", hint: "3 syllables: in + ter + val" },
+              { word: "perimeter", chunks: ["pe", "rim", "e", "ter"], pattern: "4 Syllables: 'pe' + 'rim' + 'e' + 'ter' — distance around the outside", hint: "4 syllables: pe + rim + e + ter" }
+            ]
+          },
+          {
+            id: "culture_multisyllabic",
+            name: "🌎 Culture & Roots",
+            rule: "Social Studies & Multisyllabic words reflecting community culture and traditions.",
+            badge: "CULTURE",
+            words: [
+              { word: "culture", chunks: ["cul", "ture"], pattern: "2 Syllables: 'cul' + suffix '-ture'", hint: "2 syllables: cul + ture" },
+              { word: "tradition", chunks: ["tra", "di", "tion"], pattern: "3 Syllables: 'tra' + 'di' + suffix '-tion' (/shun/)", hint: "3 syllables: tra + di + tion" },
+              { word: "folktale", chunks: ["folk", "tale"], pattern: "Compound Word: 'folk' (silent 'l') + 'tale' (long /a_e/)", hint: "Compound: folk + tale" },
+              { word: "festival", chunks: ["fes", "ti", "val"], pattern: "3 Syllables: 'fes' + 'ti' + 'val'", hint: "3 syllables: fes + ti + val" },
+              { word: "celebrate", chunks: ["cel", "e", "brate"], pattern: "3 Syllables: soft 'c' in 'cel' + 'e' + 'brate' (long /a_e/)", hint: "3 syllables: cel + e + brate" }
+            ]
+          },
+          {
+            id: "heart_words_oct26",
+            name: "❤️ Heart Words",
+            rule: "High-Frequency Words: Memorize irregular vowel patterns by heart!",
+            badge: "HEART WORDS",
+            words: [
+              { word: "through", chunks: ["through"], pattern: "Heart Word: 'thr-' + irregular '-ough' sounding like /oo/", hint: "Heart word: t-h-r-o-u-g-h" },
+              { word: "thought", chunks: ["thought"], pattern: "Heart Word: 'th-' + '-ought' sounding like /aw-t/", hint: "Heart word: t-h-o-u-g-h-t" },
+              { word: "enough", chunks: ["e", "nough"], pattern: "Heart Word: 'e' + '-nough' ('ough' sounds like /uf/)", hint: "Heart word: e + n-o-u-g-h" },
+              { word: "together", chunks: ["to", "geth", "er"], pattern: "3 Syllables: 'to' + 'geth' (digraph 'th') + 'er'", hint: "3 syllables: to + geth + er" },
+              { word: "beautiful", chunks: ["beau", "ti", "ful"], pattern: "3 Syllables: Heart part 'eau' + 'ti' + suffix '-ful'", hint: "3 syllables: beau + ti + ful" }
+            ]
+          }
+        ],
+        sentences: [
+          {
+            id: 0,
+            text: "The poet wrote a bright stanza about a magnet that can attract iron through the night.",
+            targetWords: ["poet", "bright", "stanza", "magnet", "attract", "through", "night"],
+            tip: "💡 Spotlight: 'stanza' & 'poet' (Poetry), 'bright' & 'night' ('-ight' rhyme family), 'magnet' & 'attract' (Science), and 'through' (Heart Word)!"
+          },
+          {
+            id: 1,
+            text: "We celebrate our culture together with beautiful music, festival dances, and folktales.",
+            targetWords: ["celebrate", "culture", "together", "beautiful", "festival", "folktales"],
+            tip: "💡 Spotlight: 'celebrate' (3 syllables), 'culture' ('-ture'), 'festival' (3 syllables), 'folktales' (compound), and 'beautiful' (Heart Word)!"
+          }
+        ]
+      },
       {
         id: "u1w3",
         unitTitle: "Unit 1 • Week 3",
@@ -3405,7 +4044,39 @@
     // --- B. ROBOT GLITCH DETECTIVE ---
     const glitchCases = [
       {
-        caseTitle: "CASE #1: 10× PLACE VALUE MYSTERY",
+        caseTitle: "CASE #1: PERIMETER BLUEPRINT MYSTERY (THIS WEEK)",
+        statements: [
+          { text: "Perimeter is the total distance around the outside of a polygon.", isGlitch: false },
+          { text: "A rectangle with length 10 ft and width 4 ft has a perimeter of 40 ft.", isGlitch: true, fix: "🤖❌ BUSTED! The robot multiplied (Area = 40) instead of adding all 4 outer sides! Perimeter = 10 + 4 + 10 + 4 = 28 ft!" },
+          { text: "All four sides of a square have the exact same length.", isGlitch: false }
+        ]
+      },
+      {
+        caseTitle: "CASE #2: MAGNETIC FORCES LAB (THIS WEEK)",
+        statements: [
+          { text: "Opposite magnetic poles (North and South) attract and pull toward each other.", isGlitch: false },
+          { text: "Two North poles brought close together will snap tightly together.", isGlitch: true, fix: "🤖❌ BUSTED! Like poles (North & North or South & South) REPEL and push each other apart!" },
+          { text: "Magnets attract iron, nickel, and steel paperclips without even touching them.", isGlitch: false }
+        ]
+      },
+      {
+        caseTitle: "CASE #3: POETRY STANZAS & RHYME (THIS WEEK)",
+        statements: [
+          { text: "A group of lines in a poem separated by a space is called a stanza.", isGlitch: false },
+          { text: "Every single poem in the world MUST have rhyming words at the end of every line.", isGlitch: true, fix: "🤖❌ BUSTED! FREE VERSE poems do not need to rhyme at all!" },
+          { text: "Words like BOOM, BUZZ, and SIZZLE are examples of sound words (onomatopoeia).", isGlitch: false }
+        ]
+      },
+      {
+        caseTitle: "CASE #4: DATA INTERVALS BAR GRAPH (THIS WEEK)",
+        statements: [
+          { text: "Always check the scale numbers on a bar graph to see what interval it counts by.", isGlitch: false },
+          { text: "If a bar stops halfway between 10 and 20, its value is 11.", isGlitch: true, fix: "🤖❌ BUSTED! Halfway between 10 and 20 is 15, not 11!" },
+          { text: "To find 'how many more', you subtract the smaller category from the larger category.", isGlitch: false }
+        ]
+      },
+      {
+        caseTitle: "CASE #5: 10× PLACE VALUE MYSTERY",
         statements: [
           { text: "In the number 5,441, the digit 5 is in the thousands place.", isGlitch: false },
           { text: "In the number 5,441, the two 4s have the exact same value.", isGlitch: true, fix: "🤖❌ BUSTED! The 4 in hundreds is 400, but the 4 in tens is 40! The hundreds digit is 10× GREATER!" },
@@ -3772,6 +4443,8 @@
       switchProfile('sanav');
       renderBookShelf();
       selectBook(0);
+      generatePerimeterQuestion();
+      generateDataIntervalsQuestion();
       generate10xQuestion();
       generateRegroupQuestion();
       generateBlocksChallenge();

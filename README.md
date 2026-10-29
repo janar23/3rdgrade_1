@@ -10,8 +10,11 @@
 
 This lightweight, zero-dependency, tablet-friendly HTML/JS/CSS application is designed for Sanav and Sanha to practice and master their 3rd-grade school curriculum at home on their Android tablets and laptops.
 
-### 1. 🔢 Targeted Math Power-Ups (Place Value to 100,000)
-Based on Khan Academy TX TEKS 3rd Grade assessments:
+### 1. 🔢 Targeted Math Power-Ups (Perimeter, Data Intervals & Place Value to 100,000)
+Based on 3rd Grade TX TEKS & Weekly Classroom Focus:
+* **This Week's Focus (Oct 26–30):**
+  * *Perimeter Architect:* Polygon outer-side addition, opposite equal sides of rectangles, and Missing Side Mysteries.
+  * *Data Intervals Detective:* Scaled bar graphs (counting by `2s`, `4s`, `5s`, and `10s`), reading half-interval bars, and "how many more/fewer" comparisons.
 * **Sanav's Booster:** Multiplicative $10\times$ Place-Value Relationships (e.g., in $5,441$, digit in hundreds is $10\times$ greater than tens) and Regrouping whole numbers ($20\text{ tens} = 2\text{ hundreds}$).
 * **Sanha's Booster:** Visual Base-10 Blocks identification ($1,000$ Cubes, $100$ Flats, $10$ Rods, $1$ Units).
 * **Interactive Games:**
@@ -22,15 +25,18 @@ Based on Khan Academy TX TEKS 3rd Grade assessments:
 * **Integrated e-Reader:** Full page-by-page readable text with paragraph chunking and browser speech synthesis.
 * **Animated Video Mode:** Embedded read-aloud players.
 * **Evaluation Quizzes:** Tailored higher-order thinking questions on:
+  * Poetry Elements (Lines, Stanzas, Rhyme Scheme, Alliteration, Onomatopoeia, Free Verse)
   * Central Lesson & Theme
   * Cause & Effect / Character Motivations
   * Vocabulary in Context
-  * Non-Fiction Text Features
-* **Curated Stories:**
+  * Non-Fiction Science & Social Studies Text Features
+* **Curated Stories & Weekly Units:**
+  * *Poetry Power: Rhythm, Rhyme & Stanzas* (3rd Grade ELAR Poetry Focus)
+  * *Magnetic Forces: Push, Pull & Poles* (3rd Grade Science Magnetism Focus)
+  * *Reflections of Culture in Our Community* (3rd Grade Social Studies Focus)
   * *The Empty Pot* by Demi (Honesty Fable)
   * *Enemy Pie* by Derek Munson (Friendship & Empathy)
   * *Earthquakes & Volcanoes* (Level P Non-Fiction Science)
-  * *Clark the Shark* by Bruce Hale (Social Skills & Self-Control)
 
 ### 3. ✍️ Weekly School Literacy Support (Monday – Friday)
 * **Weekly Phonics & Dictation Hub (Multi-Week Selector):**
