@@ -69,3 +69,50 @@ Based on 3rd Grade TX TEKS & Weekly Classroom Focus:
 * **AI Integration:** Direct browser-to-API Gemini 1.5 Flash client-side integration + fallback offline simulation engine.
 * **Storage:** Browser `localStorage` to persist Stars, caught glitches, completed book missions, and custom vocabulary words.
 * **Hosting:** GitHub Pages (`janar23/3rdgrade_1`).
+
+---
+
+## 📅 Weekly Smore Curriculum Updates & Changelog
+
+### Week of November 2–6, 2026
+* **Smore Newsletter Source:** [`https://app.smore.com/n/gsh1e`](https://app.smore.com/n/gsh1e)
+* **Important November Dates:**
+  * **Nov 6:** Veterans Day Program
+  * **Nov 13:** World Kindness Day
+  * **Nov 20:** Special Friends Day
+  * **Nov 23–27:** Thanksgiving Break
+* **Modules Added / Updated:**
+  1. **🔢 Math (`Perimeter & Elapsed Time`):**
+     * Added the `⏱️ Nov 2–6 • Perimeter & Elapsed Time (2)` filter button in `filterMathWeek()` while preserving `📊 Oct 26–30 (2)` and `🔢 Place Value (5)` for review.
+     * Added **Elapsed Time Navigator (`#cardElapsedTime`)** with visual number-line jumps and 6 TX TEKS 3.7C word problems (`generateElapsedTimeQuestion()`) alongside **Perimeter Architect (`#cardPerimeter`)**.
+  2. **📖 Reading & Quests (`inAppBooks`):**
+     * **ELAR (`Print Features`):** Added *Print Features Detective: Navigating Non-Fiction* (4 pages + 5-question quiz covering Table of Contents, Headings/Subheadings, Bold/Italics, Captions, Diagrams, and Glossary vs. Index).
+     * **Science (`Everyday Energy`):** Added *Everyday Energy: M.E.L.T.S. in Action!* (4 pages + 5-question quiz covering Mechanical, Electrical, Light, Thermal, and Sound energy).
+     * **Social Studies (`Reflection of Culture`):** Updated *Reflections of Culture in Our Community* for Nov 2–6 with a connection to the **November 6th Veterans Day Program**.
+     * Preserved last week's *Poetry Power* and *Magnetic Forces* books with `📅 OCT 26–30` review badges.
+  3. **✍️ Weekly Literacy (`weeklyPhonicsUnits`):**
+     * Added **`Nov 2–6 • Print Features & Energy`** as the default active unit with **42 words** across 6 categories (*Print Features*, *Everyday Energy*, *Time & Perimeter*, *Prefixes & Suffixes*, *Culture & Veterans Day*, and *High-Frequency Heart Words*) plus 2 decodable context sentences.
+
+### Week of October 26–30, 2026
+* **Smore Newsletter Source:** [`https://app.smore.com/n/w326z`](https://app.smore.com/n/w326z)
+* **Modules Added:**
+  * **Math:** *Perimeter Architect* (`#cardPerimeter`) & *Data Intervals Detective* (`#cardDataIntervals`).
+  * **Reading & Quests:** *Poetry Power: Rhythm, Rhyme & Stanzas*, *Magnetic Forces: Push, Pull & Poles*, and *Reflections of Culture in Our Community*.
+  * **Weekly Literacy:** *Oct 26–30 • Poetry & Word Study* (42 words + 2 decodable sentences).
+
+---
+
+## 🔄 Automated Weekly Homework Update Workflow (`3rdgrade-weekly-homework` Skill)
+
+To update the application for a new school week using the reusable agent skill (`.agents/skills/3rdgrade-weekly-homework/SKILL.md`):
+
+1. **Share the Weekly Smore Link:** Paste the new Smore newsletter URL (`https://app.smore.com/n/...`) and ask the agent to **"Update 3rd grade homework for this week"**.
+2. **Automated Execution Steps:**
+   * **Step 1 (`git pull`):** Syncs local `/Users/jnarayanassamy/personal/kids/sanav_sanha/3rdgrade/` with `origin/main`.
+   * **Step 2 (Smore Extraction):** Fetches the Smore newsletter and parses `MATH`, `ELAR`, `SCIENCE`, `SOCIAL STUDIES`, and `Important Dates`.
+   * **Step 3 (Non-Destructive Prepend):**
+     * Updates the welcome banner and quick-jump pills.
+     * Adds a new weekly Math filter pill & interactive game card while keeping prior weeks accessible.
+     * Prepends new ELAR/Science/Social Studies books & 5-question quizzes to `inAppBooks` and re-badges prior weeks as review.
+     * Prepends a new 42-word weekly Phonics, Dictation & Word Study unit at index `0` of `weeklyPhonicsUnits`.
+   * **Step 4 (Verification & Deployment):** Validates `<script>` syntax via `node`, updates `README.md`, commits, and pushes directly to `origin/main` so [https://janar23.github.io/3rdgrade_1/](https://janar23.github.io/3rdgrade_1/) updates automatically.
