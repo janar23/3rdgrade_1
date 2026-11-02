@@ -10,10 +10,12 @@
 
 This lightweight, zero-dependency, tablet-friendly HTML/JS/CSS application is designed for Sanav and Sanha to practice and master their 3rd-grade school curriculum at home on their Android tablets and laptops.
 
-### 1. 🔢 Targeted Math Power-Ups (Perimeter, Data Intervals & Place Value to 100,000)
+### 1. 🔢 Targeted Math Power-Ups (Perimeter, Elapsed Time, Data Intervals & Place Value to 100,000)
 Based on 3rd Grade TX TEKS & Weekly Classroom Focus:
-* **This Week's Focus (Oct 26–30):**
+* **This Week's Focus (Nov 2–6):**
   * *Perimeter Architect:* Polygon outer-side addition, opposite equal sides of rectangles, and Missing Side Mysteries.
+  * *Elapsed Time Navigator:* Solving start time, end time, and elapsed time interval problems using number-line jumps and clock intervals (TX TEKS 3.7C).
+* **Prior Week Review (Oct 26–30):**
   * *Data Intervals Detective:* Scaled bar graphs (counting by `2s`, `4s`, `5s`, and `10s`), reading half-interval bars, and "how many more/fewer" comparisons.
 * **Sanav's Booster:** Multiplicative $10\times$ Place-Value Relationships (e.g., in $5,441$, digit in hundreds is $10\times$ greater than tens) and Regrouping whole numbers ($20\text{ tens} = 2\text{ hundreds}$).
 * **Sanha's Booster:** Visual Base-10 Blocks identification ($1,000$ Cubes, $100$ Flats, $10$ Rods, $1$ Units).
@@ -25,21 +27,26 @@ Based on 3rd Grade TX TEKS & Weekly Classroom Focus:
 * **Integrated e-Reader:** Full page-by-page readable text with paragraph chunking and browser speech synthesis.
 * **Animated Video Mode:** Embedded read-aloud players.
 * **Evaluation Quizzes:** Tailored higher-order thinking questions on:
+  * Non-Fiction Print Features (Table of Contents, Headings, Subheadings, Bold/Italics, Captions, Diagrams, Glossary vs. Index)
+  * Everyday Energy (M.E.L.T.S. — Mechanical, Electrical, Light, Thermal, Sound)
   * Poetry Elements (Lines, Stanzas, Rhyme Scheme, Alliteration, Onomatopoeia, Free Verse)
   * Central Lesson & Theme
   * Cause & Effect / Character Motivations
   * Vocabulary in Context
-  * Non-Fiction Science & Social Studies Text Features
 * **Curated Stories & Weekly Units:**
-  * *Poetry Power: Rhythm, Rhyme & Stanzas* (3rd Grade ELAR Poetry Focus)
-  * *Magnetic Forces: Push, Pull & Poles* (3rd Grade Science Magnetism Focus)
-  * *Reflections of Culture in Our Community* (3rd Grade Social Studies Focus)
+  * *Print Features Detective: Navigating Non-Fiction* (Nov 2–6 ELAR Print Features Focus)
+  * *Everyday Energy: M.E.L.T.S. in Action!* (Nov 2–6 Science Energy Focus)
+  * *Reflections of Culture in Our Community* (Nov 2–6 Social Studies & Veterans Day Focus)
+  * *Poetry Power: Rhythm, Rhyme & Stanzas* (Oct 26–30 ELAR Poetry Review)
+  * *Magnetic Forces: Push, Pull & Poles* (Oct 26–30 Science Magnetism Review)
   * *The Empty Pot* by Demi (Honesty Fable)
   * *Enemy Pie* by Derek Munson (Friendship & Empathy)
   * *Earthquakes & Volcanoes* (Level P Non-Fiction Science)
 
 ### 3. ✍️ Weekly School Literacy Support (Monday – Friday)
 * **Weekly Phonics & Dictation Hub (Multi-Week Selector):**
+  * **Nov 2–6 • Print Features & Energy:** Print Features, Everyday Energy (M.E.L.T.S.), Elapsed Time & Perimeter, Prefixes & Suffixes, Culture & Veterans Day (42 target words + 2 decodable sentences).
+  * **Oct 26–30 • Poetry & Word Study:** Poetry Elements, Rhyming Families, Sound Words (Onomatopoeia), Academic Vocab (42 target words + 2 decodable sentences).
   * **Unit 1 • Week 3:** Short `/e/`, Short `/o/`, Blends & Digraphs, Multisyllabic Chunking (56 target words + 2 decodable sentences).
   * **Unit 1 • Week 2:** Short `/a/`, Short `/i/`, Plural `-s` & Endings (`-ed`, `-ing`), Multisyllabic Chunking (48 target words + 2 decodable sentences).
 * **Wednesday Phonics & Blending Lines Decoder:** Interactive tactile syllable chunk buttons (`[back]` `[pack]`), speech synthesis blending, and phonics rule breakdowns.

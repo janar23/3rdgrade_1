@@ -1290,13 +1290,13 @@
     <section class="welcome-banner">
       <div>
         <h2 id="welcomeHeading">Welcome back, Super Sanav! 🌟</h2>
-        <p id="welcomeSubtext"><strong>This Week's Focus (Oct 26–30):</strong> Perimeter & Data Intervals • Poetry • Magnetic Forces • Culture!</p>
+        <p id="welcomeSubtext"><strong>This Week's Focus (Nov 2–6):</strong> Perimeter & Elapsed Time • Print Features • Everyday Energy • Culture!</p>
       </div>
       <div class="target-boost-tags" id="profilePills">
-        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('math'); filterMathWeek('oct26');">📏 Perimeter & Data</button>
-        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(0);">🎭 Poetry</button>
-        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(1);">🧲 Magnetic Forces</button>
-        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('reading'); selectPhonicsUnit(0);">✍️ Oct 26–30 Literacy</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('math'); filterMathWeek('nov2');">⏱️ Perimeter & Time</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(0);">📑 Print Features</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(1);">⚡ Everyday Energy</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('reading'); selectPhonicsUnit(0);">✍️ Nov 2–6 Literacy</button>
       </div>
     </section>
 
@@ -1412,7 +1412,8 @@
           <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
             <span style="font-size:0.8rem; font-weight:800; color:#1E40AF; text-transform:uppercase;">📅 Choose Math Unit:</span>
             <div style="display:flex; gap:6px; flex-wrap:wrap;">
-              <button type="button" class="phonics-unit-btn active" id="mathFilterBtnAll" onclick="filterMathWeek('all')">🌟 All Math Power-Ups (7)</button>
+              <button type="button" class="phonics-unit-btn active" id="mathFilterBtnAll" onclick="filterMathWeek('all')">🌟 All Math Power-Ups (8)</button>
+              <button type="button" class="phonics-unit-btn" id="mathFilterBtnNov2" onclick="filterMathWeek('nov2')">⏱️ Nov 2–6 • Perimeter & Elapsed Time (2)</button>
               <button type="button" class="phonics-unit-btn" id="mathFilterBtnOct26" onclick="filterMathWeek('oct26')">📏 Oct 26–30 • Perimeter & Data Intervals (2)</button>
               <button type="button" class="phonics-unit-btn" id="mathFilterBtnPlaceVal" onclick="filterMathWeek('placeval')">🔢 Unit 1 • Place Value to 100,000 (5)</button>
             </div>
@@ -1424,12 +1425,12 @@
         <div style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:12px;">
           <div>
             <div style="display:flex; align-items:center; gap:8px; margin-bottom:6px; flex-wrap:wrap;">
-              <span id="mathUnitBadge" style="background:#2563EB; color:white; font-size:0.75rem; font-weight:800; padding:4px 10px; border-radius:20px; text-transform:uppercase;">Oct 26–30 • This Week</span>
+              <span id="mathUnitBadge" style="background:#2563EB; color:white; font-size:0.75rem; font-weight:800; padding:4px 10px; border-radius:20px; text-transform:uppercase;">Nov 2–6 • This Week</span>
               <span style="color:var(--text-muted); font-size:0.85rem; font-weight:700;">Weekly Smore Newsletter Alignment</span>
             </div>
-            <h2 id="mathHubTitle" style="color:#1E3A8A; font-size:1.4rem; margin-bottom:4px;">Perimeter Architect & Data Intervals Lab 📐📊</h2>
+            <h2 id="mathHubTitle" style="color:#1E3A8A; font-size:1.4rem; margin-bottom:4px;">Perimeter Architect & Elapsed Time Navigator 📐⏱️</h2>
             <p id="mathTargetSkillLabel" style="color:#1D4ED8; font-size:0.95rem; font-weight:600;">
-              <strong>Target Skills:</strong> Polygon Perimeter & Missing Sides • Bar Graphs with Scaled Intervals (2s, 4s, 5s, 10s) • Place Value Mastery
+              <strong>Target Skills:</strong> Polygon Perimeter & Missing Sides • Elapsed Time on Number Lines & Clocks • Data Intervals & Place Value
             </p>
           </div>
         </div>
@@ -1437,7 +1438,7 @@
 
       <div class="module-grid">
 
-        <!-- NEW CARD A: Perimeter Architect (Oct 26-30 Weekly Focus) -->
+        <!-- NEW CARD A: Perimeter Architect (Nov 2-6 & Oct 26-30 Weekly Focus) -->
         <div class="card" id="cardPerimeter" style="border: 2px solid var(--primary);">
           <div>
             <div class="card-header">
@@ -1465,13 +1466,41 @@
           <button class="action-btn" onclick="generatePerimeterQuestion()">Next Perimeter Blueprint 📐</button>
         </div>
 
-        <!-- NEW CARD B: Data Intervals Detective (Oct 26-30 Weekly Focus) -->
-        <div class="card" id="cardDataIntervals" style="border: 2px solid var(--primary);">
+        <!-- NEW CARD: Elapsed Time Navigator (Nov 2-6 Weekly Focus) -->
+        <div class="card" id="cardElapsedTime" style="border: 2px solid var(--primary);">
+          <div>
+            <div class="card-header">
+              <div class="card-icon" style="background:#FEF3C7; color:#B45309;">⏱️</div>
+              <div class="card-title">
+                <h3>Elapsed Time Navigator <span style="background:#FEF3C7; color:#B45309; font-size:0.7rem; padding:2px 8px; border-radius:10px; vertical-align:middle;">THIS WEEK</span></h3>
+                <span>Time Number Lines, Start/End Times & Intervals</span>
+              </div>
+            </div>
+            <p style="font-size:0.9rem; color:var(--text-muted);">
+              Use <strong>time jumps on a number line</strong> (make the next friendly hour first!) to solve start time, end time, and elapsed minutes.
+            </p>
+
+            <div class="game-box">
+              <div id="elapsedTimeVisualBox" style="background:white; border:2px dashed #FCD34D; border-radius:14px; padding:14px; margin-bottom:10px; font-weight:800; color:#92400E; font-size:0.93rem;">
+                <!-- Visual timeline rendered by JS -->
+              </div>
+              <div id="elapsedTimeQuestion" style="font-weight:700; font-size:1.03rem; color:var(--text-main); min-height:44px;">
+                Loading elapsed time puzzle...
+              </div>
+              <div class="option-grid" id="elapsedTimeOptions"></div>
+              <div class="feedback-msg" id="elapsedTimeFeedback"></div>
+            </div>
+          </div>
+          <button class="action-btn" onclick="generateElapsedTimeQuestion()">Next Time Challenge ⏱️</button>
+        </div>
+
+        <!-- CARD B: Data Intervals Detective (Oct 26-30 Weekly Focus) -->
+        <div class="card" id="cardDataIntervals">
           <div>
             <div class="card-header">
               <div class="card-icon" style="background:#FCE7F3; color:#BE185D;">📊</div>
               <div class="card-title">
-                <h3>Data Intervals Detective <span style="background:#FDF2F8; color:#BE185D; font-size:0.7rem; padding:2px 8px; border-radius:10px; vertical-align:middle;">THIS WEEK</span></h3>
+                <h3>Data Intervals Detective <span style="background:#FDF2F8; color:#BE185D; font-size:0.7rem; padding:2px 8px; border-radius:10px; vertical-align:middle;">OCT 26–30</span></h3>
                 <span>Bar Graphs, Scaled Intervals & Comparisons</span>
               </div>
             </div>
@@ -2158,11 +2187,229 @@
        ========================================================================== */
     const inAppBooks = [
       {
+        id: "book_print_features",
+        title: "Print Features Detective: Navigating Non-Fiction",
+        author: "3rd Grade ELAR • This Week's Focus (Nov 2–6)",
+        type: "Grade 3 Informational Text • Print & Graphic Features",
+        badge: "🌟 THIS WEEK: ELAR",
+        badgeClass: "badge-storyline",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/3mAl9QMJJTo",
+        vocab: ["Table of Contents", "Heading & Subheading", "Caption & Diagram", "Glossary & Index"],
+        pages: [
+          {
+            page: 1,
+            clue: "Table of Contents & Headings",
+            text: "When you open an informational (non-fiction) book, you don't always have to read it from page 1 to the end! Authors use PRINT FEATURES to help readers locate information quickly. At the very front of the book is the TABLE OF CONTENTS, which lists the chapters or main sections in order along with their starting page numbers. Inside each chapter, bold HEADINGS and SUBHEADINGS tell you the main idea of each section before you even start reading!"
+          },
+          {
+            page: 2,
+            clue: "Bold, Italic & Highlighted Print",
+            text: "Have you ever noticed words printed in **BOLD**, *italics*, or highlighted in color inside a science or social studies article? Authors use special print styles to signal: 'Pay attention! This word is important!' Bold words are usually key academic vocabulary words whose exact meanings can be found in the back of the book in the GLOSSARY."
+          },
+          {
+            page: 3,
+            clue: "Captions, Diagrams & Sidebars",
+            text: "Informational texts pair print features with graphic features! A CAPTION is a sentence or short paragraph right next to or underneath a photograph that explains what is happening in the picture. A DIAGRAM is a labeled drawing that shows the parts of something (like the parts of a bicycle or a flower) or how something works. A SIDEBAR or inset box shares bonus facts on the side of a page!"
+          },
+          {
+            page: 4,
+            clue: "Glossary vs. Index",
+            text: "Look at the very back of a non-fiction book and you will find two alphabetical helpers: the GLOSSARY and the INDEX! What is the difference? A GLOSSARY is like a mini-dictionary—it gives the definitions of bold vocabulary words from the book in ABC order. An INDEX is an alphabetical list of specific topics, names, and places with the exact PAGE NUMBERS where they are mentioned in the book!"
+          }
+        ],
+        questions: [
+          {
+            q: "Why does an author put certain vocabulary words in BOLD print inside a non-fiction article?",
+            opts: [
+              "Because the printer ran out of regular ink",
+              "To signal that the word is an important key term (often defined in the glossary)",
+              "To tell the reader to skip that sentence",
+              "To show that a character is whispering"
+            ],
+            ans: 1,
+            hint: "Bold print calls attention to important vocabulary words that you can look up in the glossary!"
+          },
+          {
+            q: "You are reading a 100-page book about Texas Animals and want to find every single page that mentions 'armadillos.' Which print feature at the back of the book should you check?",
+            opts: [
+              "The Index (alphabetical list of topics and exact page numbers)",
+              "The Front Cover",
+              "A Caption under a photo of a bird",
+              "The Title Page"
+            ],
+            ans: 0,
+            hint: "The Index is in the back of the book and lists specific topics in ABC order with every page number they appear on!"
+          },
+          {
+            q: "What is the main purpose of a CAPTION underneath a photograph?",
+            opts: [
+              "To list all the chapters in the book",
+              "To explain what is shown in the photograph and give extra facts about it",
+              "To define every word in the dictionary",
+              "To tell a rhyming poem"
+            ],
+            ans: 1,
+            hint: "A caption explains who, what, or where is shown in a photograph or illustration!"
+          },
+          {
+            q: "How is a GLOSSARY different from a TABLE OF CONTENTS?",
+            opts: [
+              "A Glossary gives definitions of key words in ABC order; a Table of Contents lists chapter titles in page order at the front",
+              "They are the exact same thing",
+              "A Glossary only has pictures with no words",
+              "A Table of Contents is only used in poetry"
+            ],
+            ans: 0,
+            hint: "Glossary = ABC definitions in the back; Table of Contents = chapter page numbers in the front!"
+          }
+        ]
+      },
+      {
+        id: "book_everyday_energy",
+        title: "Everyday Energy: M.E.L.T.S. in Action!",
+        author: "3rd Grade Science • This Week's Focus (Nov 2–6)",
+        type: "Grade 3 Science • Forms of Energy (TX TEKS 3.6A)",
+        badge: "⚡ THIS WEEK: SCIENCE",
+        badgeClass: "badge-raz",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/fjuvatIoSzY",
+        vocab: ["Mechanical", "Electrical", "Light & Thermal", "Sound Vibrations"],
+        pages: [
+          {
+            page: 1,
+            clue: "What is Energy? (M.E.L.T.S.)",
+            text: "Look around your home and classroom—ENERGY is everywhere! In science, energy is the ability to cause change or do work. 3rd-grade scientists remember the 5 main forms of everyday energy using the secret code word M.E.L.T.S.:\n• M = Mechanical Energy\n• E = Electrical Energy\n• L = Light Energy\n• T = Thermal (Heat) Energy\n• S = Sound Energy!"
+          },
+          {
+            page: 2,
+            clue: "Mechanical & Electrical Energy",
+            text: "MECHANICAL ENERGY is the energy of motion or position! Whenever you pedal a bicycle, kick a soccer ball, sharpen a pencil, or watch wind spin a windmill, you are observing mechanical energy in action. ELECTRICAL ENERGY is energy carried by moving electric charges through wires and circuits—powering our tablets, classroom smartboards, refrigerators, and ceiling fans!"
+          },
+          {
+            page: 3,
+            clue: "Light & Thermal (Heat) Energy",
+            text: "LIGHT ENERGY travels in straight waves and allows our eyes to see the world! The Sun is Earth's greatest source of natural light energy, while flashlights, lamps, and glowing screens give us artificial light. THERMAL ENERGY is heat energy! When tiny particles inside matter move faster, thermal energy increases. A warm campfire, a kitchen oven baking cookies, and hot cocoa warming your hands are all examples of thermal energy!"
+          },
+          {
+            page: 4,
+            clue: "Sound Energy & Everyday Combinations",
+            text: "SOUND ENERGY is produced when an object VIBRATES (moves back and forth quickly), sending sound waves through the air to our ears! Plucking a guitar string, beating a drum, or ringing a school bell creates vibrations and sound energy. Best of all, everyday objects often use MORE than one form of energy at the same time—for example, a campfire gives off both THERMAL (heat) and LIGHT energy, and a television uses ELECTRICAL energy to produce LIGHT and SOUND energy!"
+          }
+        ],
+        questions: [
+          {
+            q: "What produces SOUND energy when you pluck a guitar string or hit a drum?",
+            opts: [
+              "Freezing water into ice",
+              "Vibrations (the object moving rapidly back and forth)",
+              "Gravity pulling the drum down",
+              "Magnetic poles repelling"
+            ],
+            ans: 1,
+            hint: "All sound energy starts with VIBRATIONS!"
+          },
+          {
+            q: "When Sanav and Sanha pedal their bicycles down the street or swing on the playground, which form of energy is moving the bike and swing?",
+            opts: [
+              "Mechanical energy (energy of motion)",
+              "Light energy",
+              "Sound energy only",
+              "Solar eclipse energy"
+            ],
+            ans: 0,
+            hint: "Moving objects, gears, pedals, and swings use MECHANICAL energy!"
+          },
+          {
+            q: "A toaster plugs into the wall outlet and its glowing coils get hot enough to toast bread. Which forms of energy are observed?",
+            opts: [
+              "Electrical energy turns into Thermal (heat) energy and Light energy",
+              "Only sound energy",
+              "Water energy turns into wind energy",
+              "No energy is used"
+            ],
+            ans: 0,
+            hint: "The toaster uses electrical energy from the outlet to create thermal (heat) energy and glowing light energy!"
+          },
+          {
+            q: "What does the 'T' in the science acronym M.E.L.T.S. stand for?",
+            opts: [
+              "Telescope Energy",
+              "Thermal (Heat) Energy",
+              "Tectonic Energy",
+              "Triangle Energy"
+            ],
+            ans: 1,
+            hint: "M = Mechanical, E = Electrical, L = Light, T = Thermal (Heat), S = Sound!"
+          }
+        ]
+      },
+      {
+        id: "book_culture_reflection",
+        title: "Reflections of Culture in Our Community",
+        author: "3rd Grade Social Studies • This Week's Focus (Nov 2–6)",
+        type: "Grade 3 Social Studies • Culture & Veterans Day",
+        badge: "🌎 THIS WEEK: SOCIAL STUDIES",
+        badgeClass: "badge-storyline",
+        youtubeEmbed: "https://www.youtube-nocookie.com/embed/RwSYrsjTiW4",
+        vocab: ["Culture", "Tradition", "Heritage", "Veterans Day"],
+        pages: [
+          {
+            page: 1,
+            clue: "What is Culture?",
+            text: "CULTURE is the shared way of life of a group of people. It includes the languages people speak, the foods they cook, the clothes they wear, their music, art, celebrations, and beliefs! In our Texas communities and around the world, families pass down their HERITAGE and TRADITIONS from generation to generation."
+          },
+          {
+            page: 2,
+            clue: "Art, Stories & Folktales",
+            text: "How do communities share and reflect their culture? Through stories, poems, paintings, sculptures, and music! Writers and artists share cultural values through FOLKTALES (traditional stories passed down orally), fables, and festival dances. Whether it is Diwali lamps, Día de los Muertos marigolds, Lunar New Year dragon dances, or harvest festivals, celebrations bring communities together."
+          },
+          {
+            page: 3,
+            clue: "Community Traditions & Veterans Day (Nov 6)",
+            text: "When people from many cultural backgrounds live in a community, they share their unique traditions, languages, and civic celebrations. This Friday, November 6th, our school community also gathers for our VETERANS DAY Program to honor the brave men and women who served in the armed forces to protect our country and freedom. Showing gratitude, respect, and kindness makes our community strong!"
+          }
+        ],
+        questions: [
+          {
+            q: "Which of the following is an example of how people express and reflect their culture?",
+            opts: [
+              "Through traditional foods, languages, music, art, celebrations, and stories",
+              "By only eating one kind of rock",
+              "By never talking to neighbors",
+              "By hiding all books and paintings"
+            ],
+            ans: 0,
+            hint: "Culture is reflected in language, food, art, music, stories, and celebrations!"
+          },
+          {
+            q: "What do we call a custom, celebration, or story passed down from parents to children over many generations?",
+            opts: [
+              "A tradition / cultural heritage",
+              "A magnetic pole",
+              "A perimeter",
+              "A bar graph"
+            ],
+            ans: 0,
+            hint: "Traditions and heritage are passed down across generations."
+          },
+          {
+            q: "Why do authors and artists include cultural celebrations and folktales in their work?",
+            opts: [
+              "To preserve and share the values, history, and identity of their community",
+              "To make math problems harder",
+              "To erase history",
+              "Because they ran out of paper"
+            ],
+            ans: 0,
+            hint: "Stories and art help communities share and celebrate their identity and values."
+          }
+        ]
+      },
+      {
         id: "book_poetry_power",
         title: "Poetry Power: Rhythm, Rhyme & Stanzas",
-        author: "3rd Grade ELAR • This Week's Focus",
+        author: "3rd Grade ELAR • Oct 26–30 Review",
         type: "Grade 3 Poetry • Elements of Poetry",
-        badge: "🌟 THIS WEEK: ELAR",
+        badge: "📅 OCT 26–30: ELAR",
         badgeClass: "badge-storyline",
         youtubeEmbed: "https://www.youtube-nocookie.com/embed/JmkgAWDickU",
         vocab: ["Stanza", "Rhyme Scheme", "Imagery", "Alliteration"],
@@ -2238,9 +2485,9 @@
       {
         id: "book_magnetic_forces",
         title: "Magnetic Forces: Push, Pull & Poles",
-        author: "3rd Grade Science • This Week's Focus",
+        author: "3rd Grade Science • Oct 26–30 Review",
         type: "Grade 3 Science • Forces & Magnetism",
-        badge: "🧲 THIS WEEK: SCIENCE",
+        badge: "📅 OCT 26–30: SCIENCE",
         badgeClass: "badge-raz",
         youtubeEmbed: "https://www.youtube-nocookie.com/embed/yXCeuSiTOug",
         vocab: ["Attract", "Repel", "Magnetic Field", "Poles"],
@@ -2310,68 +2557,6 @@
             ],
             ans: 0,
             hint: "Opposite poles (North and South) attract!"
-          }
-        ]
-      },
-      {
-        id: "book_culture_reflection",
-        title: "Reflections of Culture in Our Community",
-        author: "3rd Grade Social Studies • This Week's Focus",
-        type: "Grade 3 Social Studies • Culture & Traditions",
-        badge: "🌎 THIS WEEK: SOCIAL STUDIES",
-        badgeClass: "badge-storyline",
-        youtubeEmbed: "https://www.youtube-nocookie.com/embed/RwSYrsjTiW4",
-        vocab: ["Culture", "Tradition", "Heritage", "Folktale"],
-        pages: [
-          {
-            page: 1,
-            clue: "What is Culture?",
-            text: "CULTURE is the shared way of life of a group of people. It includes the languages people speak, the foods they cook, the clothes they wear, their music, art, celebrations, and beliefs! In our Texas communities and around the world, families pass down their HERITAGE and TRADITIONS from generation to generation."
-          },
-          {
-            page: 2,
-            clue: "Art, Stories & Folktales",
-            text: "How do communities share and reflect their culture? Through stories, poems, paintings, sculptures, and music! Writers and artists share cultural values through FOLKTALES (traditional stories passed down orally), fables, and festival dances. Whether it is Diwali lamps, Día de los Muertos marigolds, Lunar New Year dragon dances, or harvest festivals, celebrations bring communities together."
-          },
-          {
-            page: 3,
-            clue: "Appreciating Diversity",
-            text: "When people from many cultural backgrounds live in a community, they share their unique traditions, languages, and ideas. Learning about different cultures helps us show respect, empathy, and kindness—making our school and neighborhood a richer, more welcoming place for everyone!"
-          }
-        ],
-        questions: [
-          {
-            q: "Which of the following is an example of how people express and reflect their culture?",
-            opts: [
-              "Through traditional foods, languages, music, art, celebrations, and stories",
-              "By only eating one kind of rock",
-              "By never talking to neighbors",
-              "By hiding all books and paintings"
-            ],
-            ans: 0,
-            hint: "Culture is reflected in language, food, art, music, stories, and celebrations!"
-          },
-          {
-            q: "What do we call a custom, celebration, or story passed down from parents to children over many generations?",
-            opts: [
-              "A tradition / cultural heritage",
-              "A magnetic pole",
-              "A perimeter",
-              "A bar graph"
-            ],
-            ans: 0,
-            hint: "Traditions and heritage are passed down across generations."
-          },
-          {
-            q: "Why do authors and artists include cultural celebrations and folktales in their work?",
-            opts: [
-              "To preserve and share the values, history, and identity of their community",
-              "To make math problems harder",
-              "To erase history",
-              "Because they ran out of paper"
-            ],
-            ans: 0,
-            hint: "Stories and art help communities share and celebrate their identity and values."
           }
         ]
       },
@@ -2854,6 +3039,82 @@
       });
     }
 
+    const elapsedTimeQuestions = [
+      {
+        visual: "🕒 Start: 2:15 PM ──[ +30 min ]──▶ 2:45 PM ──[ +15 min ]──▶ 🏁 End: 3:00 PM",
+        q: "Sanav and Sanha start their Science Energy Lab at 2:15 PM. They spend 30 minutes testing circuits and 15 minutes recording notes in their glossary. What time do they finish?",
+        options: ["3:00 PM", "2:45 PM", "3:15 PM", "2:55 PM"],
+        ans: "3:00 PM",
+        hint: "Jump on a number line! 2:15 PM + 30 min = 2:45 PM. Then 2:45 PM + 15 min = 3:00 PM (45 minutes total)."
+      },
+      {
+        visual: "🕗 Start: 8:20 AM ──────[ ? Elapsed Time ? ]──────▶ 🏁 End: 9:05 AM",
+        q: "The Smotherman Elementary Veterans Day assembly starts at 8:20 AM and ends at 9:05 AM. How many minutes long is the assembly?",
+        options: ["45 minutes", "85 minutes", "35 minutes", "55 minutes"],
+        ans: "45 minutes",
+        hint: "Jump to the next hour first! From 8:20 AM to 9:00 AM is 40 minutes. From 9:00 AM to 9:05 AM is 5 more minutes. 40 + 5 = 45 minutes!"
+      },
+      {
+        visual: "🕓 Start: ? : ? ──[ +20 min ]──▶ 4:10 PM ──[ +25 min ]──▶ 🏁 End: 4:35 PM",
+        q: "Sanha finished her Perimeter Architect homework at 4:35 PM after working for 45 minutes (20 min on polygons + 25 min on word problems). What time did she START?",
+        options: ["3:50 PM", "3:45 PM", "4:00 PM", "3:55 PM"],
+        ans: "3:50 PM",
+        hint: "Hop BACKWARD on the number line! 4:35 PM - 35 minutes = 4:00 PM. Subtract the remaining 10 minutes: 4:00 PM - 10 min = 3:50 PM!"
+      },
+      {
+        visual: "🕚 Start: 11:30 AM ──[ +30 min ]──▶ 12:00 PM ──[ +20 min ]──▶ 🏁 End: 12:20 PM",
+        q: "3rd Grade lunch and recess start at 11:30 AM and end at 12:20 PM. What is the total elapsed time?",
+        options: ["50 minutes", "90 minutes", "40 minutes", "1 hour 10 minutes"],
+        ans: "50 minutes",
+        hint: "From 11:30 AM to 12:00 PM (noon) is 30 minutes. From 12:00 PM to 12:20 PM is 20 minutes. 30 + 20 = 50 minutes!"
+      },
+      {
+        visual: "🕔 Start: 5:10 PM ──[ +1 hr ]──▶ 6:10 PM ──[ +25 min ]──▶ 🏁 End: ? : ?",
+        q: "Soccer practice starts at 5:10 PM and lasts for 1 hour and 25 minutes. What time does soccer practice end?",
+        options: ["6:35 PM", "6:25 PM", "6:45 PM", "7:35 PM"],
+        ans: "6:35 PM",
+        hint: "Add the hour first: 5:10 PM + 1 hour = 6:10 PM. Then add the minutes: 6:10 PM + 25 minutes = 6:35 PM!"
+      },
+      {
+        visual: "🕘 Start: 9:40 AM ──[ +20 min ]──▶ 10:00 AM ──[ +35 min ]──▶ 🏁 End: 10:35 AM",
+        q: "During ELAR, the class reads nonfiction Print Features from 9:40 AM to 10:35 AM. How many minutes did they read?",
+        options: ["55 minutes", "65 minutes", "45 minutes", "95 minutes"],
+        ans: "55 minutes",
+        hint: "Jump to 10:00 AM first: 9:40 AM to 10:00 AM = 20 minutes. Then 10:00 AM to 10:35 AM = 35 minutes. 20 + 35 = 55 minutes!"
+      }
+    ];
+    let currentElapsedTimeIdx = 0;
+
+    function generateElapsedTimeQuestion() {
+      const item = elapsedTimeQuestions[currentElapsedTimeIdx % elapsedTimeQuestions.length];
+      currentElapsedTimeIdx++;
+      document.getElementById('elapsedTimeVisual').textContent = item.visual;
+      document.getElementById('elapsedTimePrompt').textContent = item.q;
+      document.getElementById('elapsedTimeFeedback').textContent = '';
+      
+      const optsContainer = document.getElementById('elapsedTimeOptions');
+      optsContainer.innerHTML = '';
+      item.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.className = 'option-btn';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          if (opt === item.ans) {
+            btn.classList.add('correct');
+            document.getElementById('elapsedTimeFeedback').textContent = `⏱️ Time Master! ${item.hint} (+1 Star)`;
+            document.getElementById('elapsedTimeFeedback').style.color = '#10B981';
+            addStars(1);
+          } else {
+            btn.classList.add('wrong');
+            document.getElementById('elapsedTimeFeedback').textContent = `💡 Hint: ${item.hint}`;
+            document.getElementById('elapsedTimeFeedback').style.color = '#EF4444';
+            playSound('wrong');
+          }
+        };
+        optsContainer.appendChild(btn);
+      });
+    }
+
     const dataIntervalsQuestions = [
       {
         title: "📊 Books Read in October (Scale Interval: Counting by 5s)",
@@ -3205,27 +3466,39 @@
     }
 
     function filterMathWeek(mode) {
-      const octCards = ['cardPerimeter', 'cardDataIntervals'];
+      const nov2Cards = ['cardPerimeter', 'cardElapsedTime'];
+      const oct26Cards = ['cardPerimeter', 'cardDataIntervals'];
       const placeValCards = ['card10x', 'cardRegroup', 'cardBlocks', 'cardSwat', 'cardRollIt'];
+      const allCards = ['cardPerimeter', 'cardElapsedTime', 'cardDataIntervals', ...placeValCards];
 
-      document.getElementById('mathFilterBtnAll').classList.toggle('active', mode === 'all');
-      document.getElementById('mathFilterBtnOct26').classList.toggle('active', mode === 'oct26');
-      document.getElementById('mathFilterBtnPlaceVal').classList.toggle('active', mode === 'placeval');
+      const btnAll = document.getElementById('mathFilterBtnAll');
+      const btnNov2 = document.getElementById('mathFilterBtnNov2');
+      const btnOct26 = document.getElementById('mathFilterBtnOct26');
+      const btnPlaceVal = document.getElementById('mathFilterBtnPlaceVal');
+      if (btnAll) btnAll.classList.toggle('active', mode === 'all');
+      if (btnNov2) btnNov2.classList.toggle('active', mode === 'nov2');
+      if (btnOct26) btnOct26.classList.toggle('active', mode === 'oct26');
+      if (btnPlaceVal) btnPlaceVal.classList.toggle('active', mode === 'placeval');
 
-      octCards.forEach(id => {
+      allCards.forEach(id => {
         const el = document.getElementById(id);
-        if (el) el.style.display = (mode === 'all' || mode === 'oct26') ? '' : 'none';
-      });
-      placeValCards.forEach(id => {
-        const el = document.getElementById(id);
-        if (el) el.style.display = (mode === 'all' || mode === 'placeval') ? '' : 'none';
+        if (!el) return;
+        let show = (mode === 'all');
+        if (mode === 'nov2' && nov2Cards.includes(id)) show = true;
+        if (mode === 'oct26' && oct26Cards.includes(id)) show = true;
+        if (mode === 'placeval' && placeValCards.includes(id)) show = true;
+        el.style.display = show ? '' : 'none';
       });
 
       const badge = document.getElementById('mathUnitBadge');
       const title = document.getElementById('mathHubTitle');
       const skills = document.getElementById('mathTargetSkillLabel');
-      if (mode === 'oct26') {
-        badge.textContent = 'Oct 26–30 • This Week';
+      if (mode === 'nov2') {
+        badge.textContent = 'Nov 2–6 • This Week';
+        title.textContent = 'Nov 2–6: Perimeter & Elapsed Time Lab 📐⏱️';
+        skills.innerHTML = '<strong>Target Skills:</strong> Polygon Perimeter • Missing Side Lengths • Elapsed Time on a Number Line (Start, End & Duration)';
+      } else if (mode === 'oct26') {
+        badge.textContent = 'Oct 26–30 • Review';
         title.textContent = 'Oct 26–30: Perimeter & Data Intervals Lab 📐📊';
         skills.innerHTML = '<strong>Target Skills:</strong> Polygon Perimeter • Missing Side Lengths • Scaled Bar Graph Intervals (2s, 4s, 5s, 10s)';
       } else if (mode === 'placeval') {
@@ -3233,9 +3506,9 @@
         title.textContent = 'Place Value to 100,000 Power-Ups 🔢';
         skills.innerHTML = '<strong>Target Skills:</strong> 10× Relationships • Regrouping • Base-10 Blocks • Expanded Notation';
       } else {
-        badge.textContent = 'All Units • 7 Games';
-        title.textContent = 'Perimeter, Data Intervals & Place Value Lab 📐📊';
-        skills.innerHTML = '<strong>Target Skills:</strong> Polygon Perimeter & Missing Sides • Bar Graphs with Scaled Intervals • Place Value Mastery';
+        badge.textContent = 'All Units • 8 Games';
+        title.textContent = 'Perimeter, Elapsed Time, Data & Place Value Lab 📐⏱️📊';
+        skills.innerHTML = '<strong>Target Skills:</strong> Polygon Perimeter • Elapsed Time Number Lines • Bar Graph Intervals • Place Value Mastery';
       }
       playSound('pop');
     }
@@ -3244,6 +3517,120 @@
        5. WEEKLY PHONICS, BLENDING LINES, DICTATION & READING IN CONTEXT
        ========================================================================== */
     const weeklyPhonicsUnits = [
+      {
+        id: "nov2_print_energy",
+        unitTitle: "Nov 2–6 • Print Features & Energy",
+        targetSkills: "Print Features • Everyday Energy (M.E.L.T.S.) • Elapsed Time & Perimeter • Prefixes & Suffixes",
+        categories: [
+          {
+            id: "all",
+            name: "🌟 All Words",
+            rule: "Master all 42 decoding, spelling, and academic vocabulary words for Nov 2–6!",
+            badge: "ALL 42 WORDS",
+            words: [] // Populated dynamically
+          },
+          {
+            id: "print_features",
+            name: "🔍 Print Features",
+            rule: "Nonfiction text and print features help readers locate information quickly without reading every single page.",
+            badge: "ELAR • PRINT FEATURES",
+            words: [
+              { word: "heading", chunks: ["head", "ing"], pattern: "Vowel team 'ea' (short /e/) + suffix '-ing' — a title at the top of a section", hint: "2 syllables: head + ing" },
+              { word: "subheading", chunks: ["sub", "head", "ing"], pattern: "Prefix 'sub-' (under) + 'head' + '-ing' — a smaller title under a main heading", hint: "3 syllables: sub + head + ing" },
+              { word: "caption", chunks: ["cap", "tion"], pattern: "Closed syllable 'cap' + suffix '-tion' (/shun/) — words explaining a photo", hint: "2 syllables: cap + tion" },
+              { word: "glossary", chunks: ["glos", "sa", "ry"], pattern: "3 Syllables: 'glos' + 'sa' + 'ry' — mini-dictionary at the back of a book", hint: "Double 's': glos-sa-ry" },
+              { word: "index", chunks: ["in", "dex"], pattern: "2 Closed Syllables (VC/CV): 'in' + 'dex' — alphabetical topic list with page numbers", hint: "2 syllables: in + dex" },
+              { word: "italics", chunks: ["i", "tal", "ics"], pattern: "3 Syllables: open 'i' + 'tal' + 'ics' — slanted letters that show emphasis", hint: "3 syllables: i + tal + ics" },
+              { word: "diagram", chunks: ["di", "a", "gram"], pattern: "3 Syllables: long /i/ open 'di' + 'a' + 'gram' — a labeled science drawing", hint: "3 syllables: di + a + gram" },
+              { word: "sidebar", chunks: ["side", "bar"], pattern: "Compound word: 'side' (V-e) + 'bar' (r-controlled 'ar') — extra info box on the side", hint: "Compound word: side + bar" }
+            ]
+          },
+          {
+            id: "everyday_energy",
+            name: "⚡ Everyday Energy",
+            rule: "M.E.L.T.S. stands for Mechanical, Electrical, Light, Thermal, and Sound energy in action!",
+            badge: "SCIENCE • M.E.L.T.S.",
+            words: [
+              { word: "energy", chunks: ["en", "er", "gy"], pattern: "3 Syllables: 'en' + r-controlled 'er' + soft 'gy' (/jee/) — the ability to cause change", hint: "3 syllables: en + er + gy" },
+              { word: "thermal", chunks: ["ther", "mal"], pattern: "Digraph 'th' + r-controlled 'er' + '-mal' — heat energy from moving particles", hint: "Starts with 'th-e-r': ther + mal" },
+              { word: "mechanical", chunks: ["me", "chan", "i", "cal"], pattern: "4 Syllables with 'ch' making /k/ sound — energy of motion and position", hint: "4 syllables: me-chan-i-cal ('ch' sounds like /k/)" },
+              { word: "electrical", chunks: ["e", "lec", "tri", "cal"], pattern: "4 Syllables: 'e' + 'lec' + 'tri' + 'cal' — energy flowing through a circuit", hint: "4 syllables: e + lec + tri + cal" },
+              { word: "circuit", chunks: ["cir", "cuit"], pattern: "Soft 'c' (/s/) + r-controlled 'ir' + 'cuit' (/kit/) — a complete closed loop for electricity", hint: "Starts with 'c-i-r' and ends with 'c-u-i-t'" },
+              { word: "vibrate", chunks: ["vi", "brate"], pattern: "Open syllable 'vi' (long /i/) + V-e syllable 'brate' — to move back and forth rapidly to make sound", hint: "2 syllables: vi + brate" },
+              { word: "reflect", chunks: ["re", "flect"], pattern: "Prefix 're-' (back) + closed syllable 'flect' — when light bounces off a smooth surface", hint: "2 syllables: re + flect" },
+              { word: "refract", chunks: ["re", "fract"], pattern: "Prefix 're-' + closed syllable 'fract' — when light bends passing through water or glass", hint: "2 syllables: re + fract" }
+            ]
+          },
+          {
+            id: "time_perimeter",
+            name: "⏱️ Time & Perimeter",
+            rule: "Math vocabulary for measuring elapsed time on a number line and finding polygon perimeter.",
+            badge: "MATH • NOV 2–6",
+            words: [
+              { word: "elapsed", chunks: ["e", "lapsed"], pattern: "Open 'e' + 'lapsed' (past tense '-ed' sounds like /t/) — time that has passed", hint: "2 syllables: e + lapsed" },
+              { word: "duration", chunks: ["du", "ra", "tion"], pattern: "3 Syllables: 'du' + open long /a/ 'ra' + '-tion' (/shun/) — how long an event lasts", hint: "3 syllables: du + ra + tion" },
+              { word: "schedule", chunks: ["sched", "ule"], pattern: "'sch-' blend + 'ed' + V-e 'ule' — a plan of times and events", hint: "Starts with 's-c-h-e-d-u-l-e'" },
+              { word: "minute", chunks: ["min", "ute"], pattern: "2 Syllables: closed 'min' + 'ute' (/it/) — 60 seconds on a clock", hint: "Spelled m-i-n-u-t-e" },
+              { word: "timeline", chunks: ["time", "line"], pattern: "Compound V-e word: 'time' + 'line' — a number line that tracks time", hint: "Compound word: time + line" },
+              { word: "perimeter", chunks: ["pe", "rim", "e", "ter"], pattern: "4 Syllables: 'pe' + 'rim' + 'e' + 'ter' — total distance around the outside boundary", hint: "Contains 'rim' inside: pe-rim-e-ter" },
+              { word: "polygon", chunks: ["pol", "y", "gon"], pattern: "3 Syllables: 'pol' + 'y' + 'gon' — a closed 2D shape with straight sides", hint: "3 syllables: pol + y + gon" }
+            ]
+          },
+          {
+            id: "prefixes_suffixes",
+            name: "🧩 Prefixes & Suffixes",
+            rule: "Chunk prefixes (re-, un-, pre-, sub-, non-) and suffixes (-ful, -less, -tion) to decode big words!",
+            badge: "WORD STUDY",
+            words: [
+              { word: "nonfiction", chunks: ["non", "fic", "tion"], pattern: "Prefix 'non-' (not) + 'fic' + '-tion' — true informational text with print features", hint: "3 syllables: non + fic + tion" },
+              { word: "subtitle", chunks: ["sub", "ti", "tle"], pattern: "Prefix 'sub-' (under) + open 'ti' + '-tle' — a secondary title", hint: "3 syllables: sub + ti + tle" },
+              { word: "recharge", chunks: ["re", "charge"], pattern: "Prefix 're-' (again) + 'charge' (r-controlled 'ar' + soft 'ge') — to fill a battery with energy again", hint: "2 syllables: re + charge" },
+              { word: "preheat", chunks: ["pre", "heat"], pattern: "Prefix 'pre-' (before) + 'heat' (vowel team 'ea') — to warm up an oven using thermal energy", hint: "2 syllables: pre + heat" },
+              { word: "powerful", chunks: ["pow", "er", "ful"], pattern: "Diphthong 'ow' + '-er' + suffix '-ful' (full of) — full of energy or strength", hint: "Single 'l' at the end of suffix '-ful'" },
+              { word: "motionless", chunks: ["mo", "tion", "less"], pattern: "Open 'mo' + '-tion' + suffix '-less' (without) — having zero mechanical motion energy", hint: "3 syllables: mo + tion + less" },
+              { word: "information", chunks: ["in", "for", "ma", "tion"], pattern: "4 Syllables: 'in' + 'for' + 'ma' + '-tion' — facts learned from nonfiction text", hint: "4 syllables: in + for + ma + tion" }
+            ]
+          },
+          {
+            id: "culture_veterans",
+            name: "🌍 Culture & Veterans Day",
+            rule: "Social Studies vocabulary for Reflection of Culture and our November 6th Veterans Day Program!",
+            badge: "SOCIAL STUDIES",
+            words: [
+              { word: "culture", chunks: ["cul", "ture"], pattern: "Closed 'cul' + suffix '-ture' (/chur/) — shared customs, arts, food, and beliefs", hint: "2 syllables: cul + ture" },
+              { word: "tradition", chunks: ["tra", "di", "tion"], pattern: "3 Syllables: 'tra' + 'di' + '-tion' (/shun/) — a custom passed down through generations", hint: "3 syllables: tra + di + tion" },
+              { word: "heritage", chunks: ["her", "i", "tage"], pattern: "3 Syllables: 'her' + 'i' + 'tage' — family history and cultural background", hint: "3 syllables: her + i + tage" },
+              { word: "veteran", chunks: ["vet", "er", "an"], pattern: "3 Syllables: 'vet' + 'er' + 'an' — a hero who served in the armed forces (Nov 6!)", hint: "3 syllables: vet + er + an" },
+              { word: "festival", chunks: ["fes", "ti", "val"], pattern: "3 Syllables: 'fes' + 'ti' + 'val' — a joyful community cultural celebration", hint: "3 syllables: fes + ti + val" },
+              { word: "customs", chunks: ["cus", "toms"], pattern: "2 Closed Syllables (VC/CV): 'cus' + 'toms' — traditional ways of acting or celebrating", hint: "2 syllables: cus + toms" }
+            ]
+          },
+          {
+            id: "heart_words_nov2",
+            name: "❤️ High-Frequency Words",
+            rule: "Tricky 3rd-grade academic words with silent letters or irregular vowel patterns.",
+            badge: "HEART WORDS",
+            words: [
+              { word: "measure", chunks: ["meas", "ure"], pattern: "Short /e/ spelled 'ea' + '-sure' (/zhur/) — to find size, length, or elapsed time", hint: "Spelled m-e-a-s-u-r-e" },
+              { word: "complete", chunks: ["com", "plete"], pattern: "Schwa 'com' + V-e 'plete' (long /e/) — having all parts, like a closed electrical circuit", hint: "2 syllables: com + plete" },
+              { word: "notice", chunks: ["no", "tice"], pattern: "Open 'no' (long /o/) + soft 'c' in '-tice' (/tis/) — to spot a print feature or detail", hint: "2 syllables: no + tice" },
+              { word: "minute", chunks: ["min", "ute"], pattern: "Closed 'min' + irregular '-ute' (/it/) — 60 seconds of elapsed time", hint: "Spelled m-i-n-u-t-e" },
+              { word: "special", chunks: ["spe", "cial"], pattern: "Short /e/ 'spe' + '-cial' (/shul/) — important or unique (like Special Friends Day!)", hint: "Spelled s-p-e-c-i-a-l" },
+              { word: "calendar", chunks: ["cal", "en", "dar"], pattern: "3 Syllables ending in '-dar' (ar) — chart showing days, weeks, and months", hint: "Ends with '-d-a-r': cal-en-dar" }
+            ]
+          }
+        ],
+        contextSentences: [
+          {
+            text: "Use the bold heading, the labeled diagram, and the glossary to learn how a closed electrical circuit makes thermal and light energy.",
+            focusWords: ["heading", "diagram", "glossary", "electrical", "circuit", "thermal"]
+          },
+          {
+            text: "On our timeline schedule, forty-five minutes of elapsed time passed during our cultural heritage and Veterans Day assembly.",
+            focusWords: ["timeline", "schedule", "elapsed", "heritage", "veteran"]
+          }
+        ]
+      },
       {
         id: "oct26_poetry",
         unitTitle: "Oct 26–30 • Poetry & Word Study",
@@ -4444,6 +4831,7 @@
       renderBookShelf();
       selectBook(0);
       generatePerimeterQuestion();
+      generateElapsedTimeQuestion();
       generateDataIntervalsQuestion();
       generate10xQuestion();
       generateRegroupQuestion();
