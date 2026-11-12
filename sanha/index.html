@@ -1,0 +1,1893 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanha Math Studio — 3rd Grade Mastery</title>
+  <style>
+    :root {
+      --bg-canvas: #F5F5F7;
+      --bg-surface: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.78);
+      --bg-subtle: #F2F2F7;
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary: #86868B;
+      --accent-blue: #0071E3;
+      --accent-blue-soft: rgba(0, 113, 227, 0.1);
+      --accent-indigo: #5856D6;
+      --accent-indigo-soft: rgba(88, 86, 214, 0.1);
+      --accent-teal: #00C7BE;
+      --accent-teal-soft: rgba(0, 199, 190, 0.12);
+      --accent-green: #34C759;
+      --accent-green-soft: rgba(52, 199, 89, 0.12);
+      --accent-amber: #FF9500;
+      --accent-amber-soft: rgba(255, 149, 0, 0.14);
+      --accent-pink: #FF2D55;
+      --accent-pink-soft: rgba(255, 45, 85, 0.1);
+      --border-hairline: rgba(0, 0, 0, 0.07);
+      --shadow-card: 0 10px 36px -10px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
+      --shadow-float: 0 20px 48px -12px rgba(0, 0, 0, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Sleek Frosted Apple Top Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 14px 32px;
+    }
+
+    .top-nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0071E3 0%, #5856D6 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 17px;
+      box-shadow: 0 4px 12px rgba(0, 113, 227, 0.25);
+    }
+
+    .brand-text h1 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    /* Segmented Pill Navigation */
+    .segmented-nav {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+      gap: 2px;
+    }
+
+    .seg-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .seg-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .seg-btn.active {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .badge-metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Main Spacious Container */
+    main {
+      flex: 1;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 44px 28px 80px;
+    }
+
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: fadeSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hero Typography */
+    .hero-header {
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 680px;
+      font-weight: 400;
+    }
+
+    /* Sleek Apple Cards Grid (Overview) */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .apple-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .apple-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-float);
+      }
+    }
+
+    .card-top {
+      margin-bottom: 28px;
+    }
+
+    .card-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .pill-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .pill-tag.pink { background: var(--accent-pink-soft); color: var(--accent-pink); }
+    .pill-tag.indigo { background: var(--accent-indigo-soft); color: var(--accent-indigo); }
+    .pill-tag.blue { background: var(--accent-blue-soft); color: var(--accent-blue); }
+    .pill-tag.green { background: var(--accent-green-soft); color: #1D8338; }
+    .pill-tag.amber { background: var(--accent-amber-soft); color: #B26200; }
+
+    .score-ring-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .score-ring-badge strong {
+      color: var(--text-primary);
+      font-size: 15px;
+    }
+
+    .apple-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .apple-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .progress-mini {
+      display: flex;
+       flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      margin-right: 16px;
+    }
+
+    .progress-mini-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    .progress-track {
+      height: 6px;
+      background: var(--bg-subtle);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--accent-blue);
+      transition: width 0.4s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.2s ease, opacity 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: #0077ED;
+    }
+
+    .btn-secondary {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      border: 1px solid var(--border-hairline);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary:hover {
+      background: #E5E5EA;
+    }
+
+    /* Teacher Insight Banner */
+    .insight-banner {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 28px 34px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .insight-col {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .insight-col h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .insight-col p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+    }
+
+    .habits-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .habit-chip {
+      background: var(--bg-subtle);
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Single-Problem Focused Studio Canvas */
+    .studio-shell {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .studio-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .studio-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .q-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-surface);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .q-dot.current {
+      background: var(--text-primary);
+      color: #fff;
+      border-color: var(--text-primary);
+    }
+
+    .q-dot.solved {
+      background: var(--accent-green-soft);
+      color: #1D8338;
+      border-color: rgba(52, 199, 89, 0.35);
+    }
+
+    .q-dot.starred {
+      background: var(--accent-amber-soft);
+      color: #B26200;
+      border-color: rgba(255, 149, 0, 0.4);
+    }
+
+    .studio-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+    }
+
+    @media (max-width: 640px) {
+      .studio-card {
+        padding: 26px 20px;
+      }
+    }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 12px;
+    }
+
+    .question-prompt {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.45;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+    }
+
+    /* Visual Stage inside Studio Card */
+    .visual-stage {
+      background: var(--bg-canvas);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .stage-helper-caption {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+      margin-top: 14px;
+      text-align: center;
+    }
+
+    /* Strip Diagram Interactive Component */
+    .strip-diagram-box {
+      width: 100%;
+      max-width: 520px;
+      margin-top: 20px;
+      background: var(--bg-surface);
+      padding: 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .strip-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .strip-total-bar {
+      background: var(--accent-blue-soft);
+      border: 1.5px solid var(--accent-blue);
+      color: var(--accent-blue);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .strip-parts-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .strip-part {
+      flex: 1;
+      background: var(--bg-subtle);
+      border: 1.5px solid rgba(0, 0, 0, 0.12);
+      padding: 10px 6px;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-primary);
+    }
+
+    .strip-part.unknown {
+      background: var(--accent-pink-soft);
+      border: 1.5px dashed var(--accent-pink);
+      color: var(--accent-pink);
+      font-weight: 700;
+    }
+
+    /* Interactive Stepper / Productive Struggle Coach */
+    .struggle-coach {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .coach-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .coach-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .coach-steps-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    .chip-btn.revealed {
+      background: var(--accent-blue-soft);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .coach-drawer {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 14.5px;
+      color: var(--text-primary);
+      display: none;
+    }
+
+    .coach-drawer.open {
+      display: block;
+    }
+
+    /* Answer Choices & Input Area */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-btn {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--accent-blue);
+      background: rgba(0, 113, 227, 0.02);
+    }
+
+    .option-btn.selected-correct {
+      background: var(--accent-green-soft);
+      border-color: var(--accent-green);
+      color: #156F2C;
+    }
+
+    .option-btn.selected-try-again {
+      background: var(--accent-amber-soft);
+      border-color: var(--accent-amber);
+      color: #945000;
+    }
+
+    .feedback-box {
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      font-size: 15px;
+      margin-bottom: 24px;
+      display: none;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.positive {
+      background: var(--accent-green-soft);
+      color: #145925;
+      border: 1px solid rgba(52, 199, 89, 0.3);
+    }
+
+    .feedback-box.nudge {
+      background: var(--accent-amber-soft);
+      color: #7A4100;
+      border: 1px solid rgba(255, 149, 0, 0.35);
+    }
+
+    /* Interactive Bar Graph & Pictograph Styles */
+    .graph-container {
+      width: 100%;
+      max-width: 580px;
+      background: var(--bg-surface);
+      border-radius: var(--radius-md);
+      padding: 24px;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .graph-title {
+      font-size: 16px;
+      font-weight: 700;
+      text-align: center;
+      margin-bottom: 6px;
+    }
+
+    .graph-subtitle {
+      font-size: 12.5px;
+      color: var(--text-secondary);
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .pictograph-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 14px;
+    }
+
+    .pictograph-table tr {
+      border-bottom: 1px solid var(--border-hairline);
+    }
+
+    .pictograph-table td {
+      padding: 12px 10px;
+      font-size: 15px;
+      vertical-align: middle;
+    }
+
+    .picto-label {
+      font-weight: 600;
+      width: 130px;
+    }
+
+    .picto-icons {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .picto-half {
+      display: inline-block;
+      width: 0.55em;
+      overflow: hidden;
+      white-space: nowrap;
+    }
+
+    .bar-count-pill {
+      background: var(--bg-subtle);
+      border: 1px dashed rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-pill);
+      padding: 4px 11px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .bar-count-pill.locked {
+      background: var(--accent-blue);
+      color: #fff;
+      border-style: solid;
+      border-color: var(--accent-blue);
+    }
+
+    .picto-key-box {
+      background: var(--bg-subtle);
+      padding: 10px 16px;
+      border-radius: 10px;
+      font-size: 13.5px;
+      font-weight: 600;
+      text-align: center;
+      color: var(--text-primary);
+    }
+
+    /* Scratchpad Equation Input for Step-by-Step */
+    .scratchpad-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .scratch-input {
+      width: 96px;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-hairline);
+      background: var(--bg-surface);
+      text-align: center;
+    }
+
+    .scratch-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .studio-bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sleek Frosted Apple Top Bar -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="#overview" class="brand" onclick="switchTab('overview'); return false;">
+        <div class="brand-icon">S</div>
+        <div class="brand-text">
+          <h1>Sanha Math Studio</h1>
+          <span>3rd Grade Target Mastery &bull; Smotherman Elementary</span>
+        </div>
+      </a>
+
+      <nav class="segmented-nav" aria-label="Study Modules">
+        <button class="seg-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+        <button class="seg-btn" data-tab="missing" onclick="switchTab('missing')">Missing Sides</button>
+        <button class="seg-btn" data-tab="graphs" onclick="switchTab('graphs')">Scaled Graphs</button>
+        <button class="seg-btn" data-tab="stamina" onclick="switchTab('stamina')">STAAR Stamina</button>
+      </nav>
+
+      <div class="status-pill">
+        <a href="../index.html" class="btn-secondary" style="text-decoration:none; padding:6px 14px; font-size:13px;">&larr; Main Hub</a>
+        <div class="badge-metric" title="Productive Struggle Perseverance Stars">
+          <span>★</span>
+          <span id="perseveranceCount">0</span>
+          <span style="font-weight:400; color:var(--text-secondary);">Effort Stars</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. OVERVIEW TAB -->
+    <section id="view-overview" class="view-section active">
+      <div class="hero-header">
+        <span class="eyebrow">Personalized for Sanha Janarthanan</span>
+        <h2 class="hero-title">Turn Every 70 &amp; 80 into a 100.</h2>
+        <p class="hero-subtitle">
+          Sanha already scored <strong>100</strong> in Addition, <strong>100</strong> in Subtraction, and <strong>92</strong> on the Unit 2 Summative! This distraction-free studio focuses only on her three growth areas plus Ms. Otankis's <em>Productive Struggle</em> habits.
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        <!-- Card 1: Missing Sides -->
+        <article class="apple-card" onclick="switchTab('missing')">
+          <div class="card-top">
+            <div class="card-tag-row">
+              <span class="pill-tag pink">Priority #1 &bull; TEKS 3.7B</span>
+              <span class="score-ring-badge">Skyward: <strong>70</strong> &rarr; <strong>100</strong></span>
+            </div>
+            <h2>Missing Sides Detective</h2>
+            <p>
+              When the <strong>Total Perimeter</strong> is already given, learn how to label opposite sides, add the known sides first, and subtract from the total using a Part-Part-Whole bar.
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="progress-mini">
+              <span class="progress-mini-label" id="prog-label-missing">0 of 6 Mastered</span>
+              <div class="progress-track">
+                <div class="progress-fill" id="prog-bar-missing" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-primary">Practice &rarr;</button>
+          </div>
+        </article>
+
+        <!-- Card 2: Scaled Graphs -->
+        <article class="apple-card" onclick="switchTab('graphs')">
+          <div class="card-top">
+            <div class="card-tag-row">
+              <span class="pill-tag indigo">Priority #2 &bull; TEKS 3.8A/B</span>
+              <span class="score-ring-badge">Skyward: <strong>83</strong> &rarr; <strong>100</strong></span>
+            </div>
+            <h2>Scaled Graphs &amp; Keys</h2>
+            <p>
+              Master bar graphs that count by 2s, 4s, 5s, or 10s (including halfway bars) and pictographs with half-symbols by locking in the bar numbers before solving.
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="progress-mini">
+              <span class="progress-mini-label" id="prog-label-graphs">0 of 6 Mastered</span>
+              <div class="progress-track">
+                <div class="progress-fill" id="prog-bar-graphs" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-primary">Practice &rarr;</button>
+          </div>
+        </article>
+
+        <!-- Card 3: STAAR Stamina & Perimeter -->
+        <article class="apple-card" onclick="switchTab('stamina')">
+          <div class="card-top">
+            <div class="card-tag-row">
+              <span class="pill-tag blue">Priority #3 &bull; Ms. Otankis Goal</span>
+              <span class="score-ring-badge">Perimeter: <strong>87</strong> &rarr; <strong>100</strong></span>
+            </div>
+            <h2>Productive Struggle &amp; Stamina</h2>
+            <p>
+              Build confident problem-solving stamina on multi-step Perimeter and Word Problems using the 3-step strategy coach, "Star &amp; Return" pacing, and self-checking.
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="progress-mini">
+              <span class="progress-mini-label" id="prog-label-stamina">0 of 6 Mastered</span>
+              <div class="progress-track">
+                <div class="progress-fill" id="prog-bar-stamina" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-primary">Start Workout &rarr;</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Teacher's Productive Struggle Guide -->
+      <div class="insight-banner">
+        <div class="insight-col">
+          <span class="eyebrow" style="color: var(--accent-indigo);">Ms. Otankis's Classroom Focus</span>
+          <h3>How Sanha Earns Effort Stars (Productive Struggle)</h3>
+          <p>
+            Instead of guessing or giving up after one try, every problem in this studio includes a calm <strong>3-Step Strategy Coach</strong>. Sanha earns stars for testing a strategy, labeling the diagram first, and checking her work!
+          </p>
+          <div class="habits-row">
+            <span class="habit-chip">1. Label Unmarked Sides First</span>
+            <span class="habit-chip">2. Tap Bar Totals Before Reading Choices</span>
+            <span class="habit-chip">3. Part-Part-Whole for Missing Sides</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. MISSING SIDES STUDIO -->
+    <section id="view-missing" class="view-section">
+      <div class="studio-shell">
+        <div class="studio-topbar">
+          <div>
+            <span class="eyebrow">Priority #1 &bull; Turning 70 into 100</span>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Missing Sides Detective</h2>
+          </div>
+          <div class="studio-dots" id="dots-missing"></div>
+        </div>
+
+        <div class="studio-card" id="card-missing"></div>
+      </div>
+    </section>
+
+    <!-- 3. SCALED GRAPHS STUDIO -->
+    <section id="view-graphs" class="view-section">
+      <div class="studio-shell">
+        <div class="studio-topbar">
+          <div>
+            <span class="eyebrow">Priority #2 &bull; Turning 83 into 100</span>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Scaled Graphs &amp; Pictographs</h2>
+          </div>
+          <div class="studio-dots" id="dots-graphs"></div>
+        </div>
+
+        <div class="studio-card" id="card-graphs"></div>
+      </div>
+    </section>
+
+    <!-- 4. STAAR STAMINA & PERIMETER STUDIO -->
+    <section id="view-stamina" class="view-section">
+      <div class="studio-shell">
+        <div class="studio-topbar">
+          <div>
+            <span class="eyebrow">Ms. Otankis Goal &bull; Productive Struggle &amp; Pacing</span>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Perimeter &amp; Multi-Step Stamina</h2>
+          </div>
+          <div style="display:flex; align-items:center; gap:12px;">
+            <span class="badge-metric" id="staminaTimerBadge">⏱ 00:00</span>
+            <div class="studio-dots" id="dots-stamina"></div>
+          </div>
+        </div>
+
+        <div class="studio-card" id="card-stamina"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // =========================================================================
+    // DATA BANK: TAILORED TO SANHA'S SKYWARD BREAKDOWN
+    // =========================================================================
+
+    const MISSING_SIDES_QUESTIONS = [
+      {
+        id: 'ms-1',
+        tag: 'Triangle • Given Total Perimeter',
+        prompt: 'The total perimeter of this triangle is 28 cm. Two of the sides measure 10 cm and 11 cm. What is the length of the missing side (m)?',
+        totalPerimeter: 28,
+        knownSides: [10, 11],
+        knownSum: 21,
+        missingValue: 7,
+        unit: 'cm',
+        shapeType: 'triangle',
+        svgLabels: { left: '10 cm', right: '11 cm', bottom: 'm = ? cm' },
+        step1Hint: 'We know the WHOLE perimeter is 28 cm (that goes in the top bar!). We know two parts: 10 cm and 11 cm.',
+        step2Hint: 'First add the known sides: 10 + 11 = 21 cm. Next, subtract from the Total Perimeter: 28 - 21 = ?',
+        options: ['7 cm', '17 cm', '21 cm', '49 cm'],
+        correctIndex: 0,
+        trapExplanation: 'Remember: 28 cm is already the TOTAL perimeter, so don\'t add 28 + 10 + 11! Add the known sides (10 + 11 = 21) and subtract from 28.'
+      },
+      {
+        id: 'ms-2',
+        tag: 'Rectangle • Opposite Equal Sides',
+        prompt: 'Sanha is putting a ribbon border around a rectangular poster. The total perimeter is 30 inches. The top side is 9 inches. What is the length of the short side (w)?',
+        totalPerimeter: 30,
+        knownSides: [9, 9],
+        knownSum: 18,
+        missingValue: 6,
+        unit: 'in',
+        shapeType: 'rectangle-split',
+        svgLabels: { top: '9 in', bottom: 'Tap to label bottom!', left: 'w = ?', right: 'w = ?' },
+        oppositeSideValue: '9 in',
+        step1Hint: 'Trap Alert! A rectangle has 4 sides, not 2. Since the top is 9 in, the bottom side is ALSO 9 in!',
+        step2Hint: 'Add the top and bottom first: 9 + 9 = 18 in. Subtract from total perimeter: 30 - 18 = 12 in left for the two short sides. Split 12 in half: 12 ÷ 2 = 6 in!',
+        options: ['6 inches', '12 inches', '21 inches', '15 inches'],
+        correctIndex: 0,
+        trapExplanation: '12 inches is the sum of BOTH short sides together! Since the left side and right side are equal, split 12 in half (6 + 6 = 12).'
+      },
+      {
+        id: 'ms-3',
+        tag: 'Four-Sided Garden • Missing Side',
+        prompt: 'A four-sided garden has a total perimeter of 42 feet. Three of its sides measure 12 feet, 10 feet, and 11 feet. What is the length of the fourth side?',
+        totalPerimeter: 42,
+        knownSides: [12, 10, 11],
+        knownSum: 33,
+        missingValue: 9,
+        unit: 'ft',
+        shapeType: 'trapezoid',
+        svgLabels: { top: '10 ft', left: '12 ft', right: '11 ft', bottom: '? ft' },
+        step1Hint: 'Total Perimeter = 42 ft. The 3 known parts are 12 ft, 10 ft, and 11 ft.',
+        step2Hint: 'Step 1: Add the 3 known sides: 12 + 10 + 11 = 33 ft. Step 2: Subtract from total perimeter: 42 - 33 = ?',
+        options: ['9 feet', '19 feet', '33 feet', '75 feet'],
+        correctIndex: 0,
+        trapExplanation: '33 feet is the sum of the three known sides (Step 1). Now finish Step 2: subtract 33 from the total perimeter (42 - 33).'
+      },
+      {
+        id: 'ms-4',
+        tag: 'Pentagon • 5 Sides Detective',
+        prompt: 'The perimeter of this 5-sided sign is 50 cm. Four of the sides are 8 cm, 8 cm, 12 cm, and 12 cm. What is the length of the bottom side (s)?',
+        totalPerimeter: 50,
+        knownSides: [8, 8, 12, 12],
+        knownSum: 40,
+        missingValue: 10,
+        unit: 'cm',
+        shapeType: 'pentagon',
+        svgLabels: { tl: '8 cm', tr: '8 cm', bl: '12 cm', br: '12 cm', bottom: 's = ? cm' },
+        step1Hint: 'Group friendly numbers to add the 4 known sides quickly: (8 + 12) + (8 + 12)!',
+        step2Hint: '(8 + 12) = 20, and (8 + 12) = 20. So the 4 known sides equal 40 cm! Now subtract: 50 - 40 = ?',
+        options: ['10 cm', '14 cm', '30 cm', '40 cm'],
+        correctIndex: 0,
+        trapExplanation: '40 cm is the sum of the four known sides. Subtract 40 from the total perimeter of 50 cm!'
+      },
+      {
+        id: 'ms-5',
+        tag: 'Square • Equal Sides Rule',
+        prompt: 'A square picture frame has a total perimeter of 36 centimeters. Because it is a square, all 4 sides are equal. How long is each side?',
+        totalPerimeter: 36,
+        knownSides: ['s', 's', 's'],
+        knownSum: 27,
+        missingValue: 9,
+        unit: 'cm',
+        shapeType: 'square',
+        svgLabels: { top: '? cm', right: '? cm', bottom: '? cm', left: '? cm' },
+        step1Hint: 'A square has 4 equal sides: ? + ? + ? + ? = 36 cm.',
+        step2Hint: 'Think: 4 × ? = 36, or split 36 into 4 equal parts (half of 36 is 18, half of 18 is 9)!',
+        options: ['9 cm', '6 cm', '8 cm', '18 cm'],
+        correctIndex: 0,
+        trapExplanation: 'Check by adding all 4 sides: 9 + 9 + 9 + 9 = 36 cm!'
+      },
+      {
+        id: 'ms-6',
+        tag: 'Rectangle • Find Missing Top & Bottom',
+        prompt: 'A rectangular rug has a total perimeter of 40 feet. The left side is 6 feet and the right side is 6 feet. What is the length of the top side?',
+        totalPerimeter: 40,
+        knownSides: [6, 6],
+        knownSum: 12,
+        missingValue: 14,
+        unit: 'ft',
+        shapeType: 'rectangle-top',
+        svgLabels: { top: '? ft', bottom: '? ft', left: '6 ft', right: '6 ft' },
+        step1Hint: 'First add the left and right sides: 6 + 6 = 12 ft. Subtract that from 40 ft: 40 - 12 = 28 ft.',
+        step2Hint: '28 ft is the combined length of BOTH the top and bottom sides! Split 28 in half (28 ÷ 2) to find just the top side.',
+        options: ['14 feet', '28 feet', '34 feet', '12 feet'],
+        correctIndex: 0,
+        trapExplanation: '28 feet is the top AND bottom combined! Always divide by 2 at the end to get just one side: 28 ÷ 2 = 14 feet.'
+      }
+    ];
+
+    const SCALED_GRAPHS_QUESTIONS = [
+      {
+        id: 'sg-1',
+        tag: 'Scaled Bar Graph • Halfway Lines (Scale of 4)',
+        prompt: 'The bar graph shows how many books four students read. Look closely at the scale (counting by 4s). How many MORE books did Sanha and Mia read combined than Leo?',
+        graphType: 'bar',
+        title: 'Books Read in October',
+        subtitle: 'Tap each bar below to write its exact number first!',
+        scaleStep: 4,
+        maxScale: 20,
+        bars: [
+          { label: 'Sanha', value: 14, color: '#0071E3' },
+          { label: 'Leo', value: 10, color: '#5856D6' },
+          { label: 'Mia', value: 8, color: '#00C7BE' },
+          { label: 'Noah', value: 16, color: '#FF9500' }
+        ],
+        step1Hint: 'Look at the grid lines: 0, 4, 8, 12, 16, 20. Sanha\'s bar stops halfway between 12 and 16 (that is 14!). Leo\'s bar stops halfway between 8 and 12 (that is 10!).',
+        step2Hint: 'Step 1 (Combine Sanha + Mia): 14 + 8 = 22 books. Step 2 ("How many MORE than Leo"): 22 - 10 = ?',
+        options: ['12 books', '14 books', '22 books', '4 books'],
+        correctIndex: 0,
+        trapExplanation: '22 is Step 1 (Sanha 14 + Mia 8). Don\'t forget Step 2: subtract Leo\'s 10 books (22 - 10 = 12)!'
+      },
+      {
+        id: 'sg-2',
+        tag: 'Pictograph • Half-Symbol Key (1 Star = 6)',
+        prompt: 'Each full star (★) represents 6 stickers. A half star represents 3 stickers. How many stickers did Table 1 and Table 3 earn in all?',
+        graphType: 'pictograph',
+        title: 'Classroom Sticker Champions',
+        subtitle: 'Tap each row\'s badge to lock in the row total before answering!',
+        keyText: 'Key: Each ★ = 6 stickers  |  Half ★ = 3 stickers',
+        rows: [
+          { label: 'Table 1', fullIcons: 3, halfIcon: true, icon: '★', value: 21 },
+          { label: 'Table 2', fullIcons: 2, halfIcon: false, icon: '★', value: 12 },
+          { label: 'Table 3', fullIcons: 4, halfIcon: false, icon: '★', value: 24 },
+          { label: 'Table 4', fullIcons: 2, halfIcon: true, icon: '★', value: 15 }
+        ],
+        step1Hint: 'Table 1 has 3 full stars (3 × 6 = 18) plus a half star (+ 3) = 21 stickers! Table 3 has 4 full stars (4 × 6 = 24 stickers).',
+        step2Hint: 'Now add Table 1 and Table 3 together: 21 + 24 = ?',
+        options: ['45 stickers', '42 stickers', '21 stickers', '36 stickers'],
+        correctIndex: 0,
+        trapExplanation: 'Did you count the half-star for Table 1? 3 full stars (18) + half star (3) = 21. Then 21 + 24 = 45!'
+      },
+      {
+        id: 'sg-3',
+        tag: 'Scaled Bar Graph • Scale of 10 (Halfway = 5)',
+        prompt: 'The bar graph shows recycling points earned by each grade. How many FEWER points did 2nd Grade earn than 3rd Grade and 4th Grade combined?',
+        graphType: 'bar',
+        title: 'School Recycling Points',
+        subtitle: 'Tap each bar to reveal and lock its number first!',
+        scaleStep: 10,
+        maxScale: 50,
+        bars: [
+          { label: '1st Grade', value: 20, color: '#5856D6' },
+          { label: '2nd Grade', value: 25, color: '#FF9500' },
+          { label: '3rd Grade', value: 35, color: '#0071E3' },
+          { label: '4th Grade', value: 30, color: '#34C759' }
+        ],
+        step1Hint: 'Halfway between 20 and 30 is 25 (2nd Grade). Halfway between 30 and 40 is 35 (3rd Grade). 4th Grade is 30.',
+        step2Hint: 'Step 1 (Combine 3rd + 4th Grade): 35 + 30 = 65 points. Step 2 (Subtract 2nd Grade): 65 - 25 = ?',
+        options: ['40 points', '65 points', '10 points', '35 points'],
+        correctIndex: 0,
+        trapExplanation: '65 points is 3rd + 4th combined. Now subtract 2nd Grade\'s 25 points: 65 - 25 = 40 points!'
+      },
+      {
+        id: 'sg-4',
+        tag: 'Pictograph • Comparison (1 Cupcake = 4)',
+        prompt: 'A bakery sold cupcakes on four days. Each ● represents 4 cupcakes. How many MORE cupcakes were sold on Friday and Saturday combined than on Thursday?',
+        graphType: 'pictograph',
+        title: 'Bakery Cupcakes Sold',
+        subtitle: 'Tap each row\'s total badge first so you never misread the key!',
+        keyText: 'Key: Each ● = 4 cupcakes  |  Half ● = 2 cupcakes',
+        rows: [
+          { label: 'Thursday', fullIcons: 4, halfIcon: false, icon: '●', value: 16 },
+          { label: 'Friday', fullIcons: 3, halfIcon: true, icon: '●', value: 14 },
+          { label: 'Saturday', fullIcons: 5, halfIcon: false, icon: '●', value: 20 },
+          { label: 'Sunday', fullIcons: 2, halfIcon: true, icon: '●', value: 10 }
+        ],
+        step1Hint: 'Thursday = 4 × 4 = 16. Friday = (3 × 4) + 2 = 14. Saturday = 5 × 4 = 20.',
+        step2Hint: 'Step 1 (Friday + Saturday): 14 + 20 = 34 cupcakes. Step 2 (Subtract Thursday): 34 - 16 = ?',
+        options: ['18 cupcakes', '34 cupcakes', '16 cupcakes', '20 cupcakes'],
+        correctIndex: 0,
+        trapExplanation: 'Friday (14) + Saturday (20) = 34. Subtract Thursday (16): 34 - 16 = 18 cupcakes!'
+      },
+      {
+        id: 'sg-5',
+        tag: 'Scaled Bar Graph • Total of All Bars (Scale of 6)',
+        prompt: 'The bar graph shows seashells collected at the beach. What is the TOTAL number of seashells collected by all four children?',
+        graphType: 'bar',
+        title: 'Seashell Collection',
+        subtitle: 'Tap every bar to lock its number, then group friendly numbers to add!',
+        scaleStep: 6,
+        maxScale: 30,
+        bars: [
+          { label: 'Sanha', value: 18, color: '#0071E3' },
+          { label: 'Sanav', value: 15, color: '#5856D6' },
+          { label: 'Priya', value: 12, color: '#00C7BE' },
+          { label: 'Riya', value: 9, color: '#FF2D55' }
+        ],
+        step1Hint: 'Scale counts by 6s: 0, 6, 12, 18, 24, 30. Halfway between 12 and 18 is 15 (Sanav). Halfway between 6 and 12 is 9 (Riya).',
+        step2Hint: 'Add all 4 bars using friendly pairs: (18 + 12 = 30) and (15 + 9 = 24). Now add 30 + 24!',
+        options: ['54 seashells', '48 seashells', '51 seashells', '30 seashells'],
+        correctIndex: 0,
+        trapExplanation: 'Pair 18 + 12 = 30, and 15 + 9 = 24. Together, 30 + 24 = 54 seashells!'
+      },
+      {
+        id: 'sg-6',
+        tag: 'Pictograph • Finding the Missing Row',
+        prompt: 'In the pictograph below, each ♦ = 8 points. In total, all 3 teams scored 84 points. Looking at Team A and Team B, how many points did Team C score?',
+        graphType: 'pictograph',
+        title: 'Math Trivia Tournament (Total = 84 Points)',
+        subtitle: 'Lock in Team A and Team B first, then find Team C!',
+        keyText: 'Key: Each ♦ = 8 points  |  Half ♦ = 4 points',
+        rows: [
+          { label: 'Team A', fullIcons: 4, halfIcon: false, icon: '♦', value: 32 },
+          { label: 'Team B', fullIcons: 3, halfIcon: true, icon: '♦', value: 28 },
+          { label: 'Team C', fullIcons: 3, halfIcon: false, icon: '♦', value: 24 }
+        ],
+        step1Hint: 'Team A = 4 × 8 = 32 points. Team B = (3 × 8) + 4 = 28 points.',
+        step2Hint: 'Add Team A + Team B: 32 + 28 = 60 points. Subtract from the 84 total: 84 - 60 = 24 points (which is 3 diamonds)!',
+        options: ['24 points', '60 points', '28 points', '32 points'],
+        correctIndex: 0,
+        trapExplanation: 'Team A (32) + Team B (28) = 60 points. Subtract from total (84 - 60) = 24 points!'
+      }
+    ];
+
+    const STAMINA_QUESTIONS = [
+      {
+        id: 'st-1',
+        tag: 'Perimeter of 6-Sided Shape • TEKS 3.7B',
+        prompt: 'An L-shaped patio has 6 sides measuring: 10 ft, 8 ft, 4 ft, 3 ft, 6 ft, and 5 ft. What is the total perimeter of the patio?',
+        totalPerimeter: '?',
+        knownSides: [10, 8, 4, 3, 6, 5],
+        knownSum: 36,
+        missingValue: 36,
+        unit: 'ft',
+        shapeType: 'l-shape',
+        svgLabels: { top: '10 ft', right: '8 ft', inH: '6 ft', inV: '3 ft', bot: '4 ft', left: '5 ft' },
+        step1Hint: 'Count the sides: there are 6 sides! Make sure you add all 6 numbers and don\'t leave a small side out.',
+        step2Hint: 'Make friendly 10s! (4 + 6 = 10), plus 10 = 20. Then (8 + 3 + 5 = 16). Finally: 20 + 16 = 36 ft!',
+        options: ['36 feet', '31 feet', '33 feet', '40 feet'],
+        correctIndex: 0,
+        trapExplanation: 'If you got 31 or 33, you accidentally skipped the 5 ft or 3 ft inner side! Group friendly 10s: 10 + (6+4) + 8 + 3 + 5 = 36 ft.'
+      },
+      {
+        id: 'st-2',
+        tag: '2-Step Perimeter Comparison • STAAR Style',
+        prompt: 'Garden A is a square with each side measuring 8 meters. Garden B is a rectangle that is 10 meters long and 5 meters wide. Which garden has a greater perimeter, and by how many meters?',
+        totalPerimeter: 'Compare',
+        knownSides: [32, 30],
+        knownSum: 32,
+        missingValue: 2,
+        unit: 'm',
+        shapeType: 'compare-boxes',
+        svgLabels: {},
+        step1Hint: 'Find both perimeters first! Garden A (Square) = 8 + 8 + 8 + 8 = 32 m. Garden B (Rectangle) = 10 + 10 + 5 + 5 = 30 m.',
+        step2Hint: 'Compare 32 m and 30 m: Garden A is greater by 32 - 30 = 2 meters!',
+        options: ['Garden A by 2 meters', 'Garden B by 2 meters', 'Garden A by 17 meters', 'They have the same perimeter'],
+        correctIndex: 0,
+        trapExplanation: 'Remember to add ALL 4 sides of each shape: Square = 8×4 = 32 m; Rectangle = 10+10+5+5 = 30 m. Difference = 2 m!'
+      },
+      {
+        id: 'st-3',
+        tag: 'Missing Side Word Problem • TEKS 3.7B',
+        prompt: 'Mr. Janar used 48 feet of fencing to enclose a 4-sided dog run. Three of the sides are 15 feet, 12 feet, and 10 feet. How long is the 4th side?',
+        totalPerimeter: 48,
+        knownSides: [15, 12, 10],
+        knownSum: 37,
+        missingValue: 11,
+        unit: 'ft',
+        shapeType: 'trapezoid',
+        svgLabels: { top: '10 ft', left: '12 ft', right: '15 ft', bottom: '? ft' },
+        step1Hint: '48 feet is the TOTAL perimeter! The three known sides are 15, 12, and 10.',
+        step2Hint: 'Step 1: 15 + 12 + 10 = 37 feet. Step 2: 48 - 37 = 11 feet!',
+        options: ['11 feet', '37 feet', '21 feet', '85 feet'],
+        correctIndex: 0,
+        trapExplanation: '37 feet is the sum of the 3 known sides (Step 1). Subtract 37 from 48 to find the missing 4th side: 48 - 37 = 11 feet!'
+      },
+      {
+        id: 'st-4',
+        tag: 'Subtracting Across Zeros • 2-Step STAAR Stamina',
+        prompt: 'Smotherman Elementary has a goal to collect 800 cans for the food drive. On Monday they collected 245 cans, and on Tuesday they collected 318 cans. How many MORE cans do they need to reach 800?',
+        totalPerimeter: 800,
+        knownSides: [245, 318],
+        knownSum: 563,
+        missingValue: 237,
+        unit: 'cans',
+        shapeType: 'word-strip',
+        svgLabels: {},
+        step1Hint: 'Step 1: Add Monday and Tuesday together first: 245 + 318 = 563 cans.',
+        step2Hint: 'Step 2: Subtract from 800 across zeros: 800 - 563. (Pro Trick: Subtract 1 from both numbers! 799 - 562 = 237!)',
+        options: ['237 cans', '563 cans', '347 cans', '247 cans'],
+        correctIndex: 0,
+        trapExplanation: '563 is Step 1 (245 + 318). For Step 2 (800 - 563), use the "Minus 1 Trick" (799 - 562 = 237) so you never make a regrouping mistake across zeros!'
+      },
+      {
+        id: 'st-5',
+        tag: 'Hexagon Perimeter • Equal Sides',
+        prompt: 'A stop-sign shaped tile is a regular hexagon with 6 equal sides. Each side is 7 centimeters long. What is the perimeter of the tile?',
+        totalPerimeter: 42,
+        knownSides: [7, 7, 7, 7, 7, 7],
+        knownSum: 42,
+        missingValue: 42,
+        unit: 'cm',
+        shapeType: 'hexagon',
+        svgLabels: { s: '7 cm' },
+        step1Hint: 'A hexagon has 6 sides, and every side is 7 cm.',
+        step2Hint: 'Add 7 six times or multiply 6 × 7: (3 × 7 = 21, and 21 + 21 = 42 cm)!',
+        options: ['42 cm', '35 cm', '49 cm', '36 cm'],
+        correctIndex: 0,
+        trapExplanation: 'Hexagon = 6 sides (both "six" and "hexagon" have an X!). 6 sides × 7 cm = 42 cm.'
+      },
+      {
+        id: 'st-6',
+        tag: 'Rectangle Perimeter • Double Check Opposite Sides',
+        prompt: 'A rectangular swimming pool is 18 meters long and 12 meters wide. Sanha swam all the way around the outside edge of the pool one time. How many meters did she swim?',
+        totalPerimeter: 60,
+        knownSides: [18, 18, 12, 12],
+        knownSum: 60,
+        missingValue: 60,
+        unit: 'm',
+        shapeType: 'rectangle-pool',
+        svgLabels: { top: '18 m', bottom: '18 m', left: '12 m', right: '12 m' },
+        step1Hint: 'Trap Alert! Don\'t just add 18 + 12 = 30! A rectangle has 4 sides: TWO long sides (18 and 18) and TWO wide sides (12 and 12).',
+        step2Hint: 'Add length + width = 18 + 12 = 30 m (that\'s halfway around). Now double it for all 4 sides: 30 + 30 = 60 meters!',
+        options: ['60 meters', '30 meters', '48 meters', '42 meters'],
+        correctIndex: 0,
+        trapExplanation: '30 meters is only 2 sides (halfway around the pool)! Always add all 4 sides: 18 + 12 + 18 + 12 = 60 meters.'
+      }
+    ];
+
+    // =========================================================================
+    // STATE MANAGEMENT & PERSISTENCE
+    // =========================================================================
+    const state = {
+      activeTab: 'overview',
+      index: { missing: 0, graphs: 0, stamina: 0 },
+      solved: JSON.parse(localStorage.getItem('sanha_solved_v1') || '{"missing":[],"graphs":[],"stamina":[]}'),
+      starred: JSON.parse(localStorage.getItem('sanha_starred_v1') || '{"missing":[],"graphs":[],"stamina":[]}'),
+      perseveranceStars: parseInt(localStorage.getItem('sanha_stars_v1') || '0', 10),
+      lockedBars: {},
+      oppositeLabeled: {},
+      staminaSeconds: 0,
+      timerInterval: null
+    };
+
+    function saveState() {
+      localStorage.setItem('sanha_solved_v1', JSON.stringify(state.solved));
+      localStorage.setItem('sanha_starred_v1', JSON.stringify(state.starred));
+      localStorage.setItem('sanha_stars_v1', String(state.perseveranceStars));
+      updateOverviewProgress();
+    }
+
+    function addPerseveranceStar(amount = 1) {
+      state.perseveranceStars += amount;
+      document.getElementById('perseveranceCount').textContent = state.perseveranceStars;
+      saveState();
+    }
+
+    function updateOverviewProgress() {
+      document.getElementById('perseveranceCount').textContent = state.perseveranceStars;
+      ['missing', 'graphs', 'stamina'].forEach(mod => {
+        const count = state.solved[mod].length;
+        const pct = Math.round((count / 6) * 100);
+        const labelEl = document.getElementById(`prog-label-${mod}`);
+        const barEl = document.getElementById(`prog-bar-${mod}`);
+        if (labelEl) labelEl.textContent = `${count} of 6 Mastered`;
+        if (barEl) barEl.style.width = `${pct}%`;
+      });
+    }
+
+    // Smooth View Transition Tab Switcher
+    function switchTab(tabName) {
+      const updateDOM = () => {
+        state.activeTab = tabName;
+        document.querySelectorAll('.seg-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.tab === tabName);
+        });
+        document.querySelectorAll('.view-section').forEach(sec => {
+          sec.classList.toggle('active', sec.id === `view-${tabName}`);
+        });
+
+        if (tabName === 'stamina') {
+          startStaminaTimer();
+        } else {
+          stopStaminaTimer();
+        }
+
+        if (tabName !== 'overview') {
+          renderModule(tabName);
+        } else {
+          updateOverviewProgress();
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      if (document.startViewTransition) {
+        document.startViewTransition(updateDOM);
+      } else {
+        updateDOM();
+      }
+    }
+
+    function startStaminaTimer() {
+      if (state.timerInterval) return;
+      state.timerInterval = setInterval(() => {
+        state.staminaSeconds++;
+        const mins = String(Math.floor(state.staminaSeconds / 60)).padStart(2, '0');
+        const secs = String(state.staminaSeconds % 60).padStart(2, '0');
+        const badge = document.getElementById('staminaTimerBadge');
+        if (badge) badge.textContent = `⏱ ${mins}:${secs}`;
+      }, 1000);
+    }
+
+    function stopStaminaTimer() {
+      if (state.timerInterval) {
+        clearInterval(state.timerInterval);
+        state.timerInterval = null;
+      }
+    }
+
+    // =========================================================================
+    // SVG GEOMETRY & GRAPH RENDERERS
+    // =========================================================================
+
+    function renderGeometrySVG(q) {
+      const isOppLabeled = !!state.oppositeLabeled[q.id];
+      if (q.shapeType === 'triangle') {
+        return `
+          <svg width="280" height="170" viewBox="0 0 280 170" aria-label="Triangle diagram">
+            <polygon points="140,22 45,142 235,142" fill="rgba(0,113,227,0.08)" stroke="#0071E3" stroke-width="3" stroke-linejoin="round"/>
+            <text x="68" y="80" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.left}</text>
+            <text x="176" y="80" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.right}</text>
+            <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="700" fill="#FF2D55">${q.svgLabels.bottom}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'rectangle-split') {
+        const bottomLabel = isOppLabeled ? '9 in ✓' : 'Tap to label opposite side!';
+        const bottomColor = isOppLabeled ? '#34C759' : '#0071E3';
+        return `
+          <svg width="320" height="170" viewBox="0 0 320 170" style="cursor:pointer;" onclick="labelOppositeSide('${q.id}')">
+            <rect x="60" y="34" width="200" height="96" rx="6" fill="rgba(88,86,214,0.08)" stroke="#5856D6" stroke-width="3"/>
+            <text x="160" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.top}</text>
+            <text x="160" y="152" text-anchor="middle" font-size="14" font-weight="700" fill="${bottomColor}">${bottomLabel}</text>
+            <text x="32" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#FF2D55">${q.svgLabels.left}</text>
+            <text x="288" y="86" text-anchor="middle" font-size="15" font-weight="700" fill="#FF2D55">${q.svgLabels.right}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'trapezoid') {
+        return `
+          <svg width="300" height="170" viewBox="0 0 300 170">
+            <polygon points="85,36 215,36 250,136 50,136" fill="rgba(0,199,190,0.1)" stroke="#00C7BE" stroke-width="3" stroke-linejoin="round"/>
+            <text x="150" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.top}</text>
+            <text x="44" y="90" text-anchor="end" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.left}</text>
+            <text x="256" y="90" text-anchor="start" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.right}</text>
+            <text x="150" y="158" text-anchor="middle" font-size="16" font-weight="700" fill="#FF2D55">${q.svgLabels.bottom}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'pentagon') {
+        return `
+          <svg width="300" height="180" viewBox="0 0 300 180">
+            <polygon points="150,22 235,74 205,146 95,146 65,74" fill="rgba(255,149,0,0.1)" stroke="#FF9500" stroke-width="3" stroke-linejoin="round"/>
+            <text x="95" y="42" text-anchor="end" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.tl}</text>
+            <text x="205" y="42" text-anchor="start" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.tr}</text>
+            <text x="64" y="122" text-anchor="end" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.bl}</text>
+            <text x="236" y="122" text-anchor="start" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.br}</text>
+            <text x="150" y="168" text-anchor="middle" font-size="16" font-weight="700" fill="#FF2D55">${q.svgLabels.bottom}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'square') {
+        return `
+          <svg width="240" height="175" viewBox="0 0 240 175">
+            <rect x="65" y="28" width="110" height="110" rx="6" fill="rgba(52,199,89,0.1)" stroke="#34C759" stroke-width="3"/>
+            <text x="120" y="20" text-anchor="middle" font-size="15" font-weight="700" fill="#FF2D55">? cm</text>
+            <text x="120" y="158" text-anchor="middle" font-size="15" font-weight="700" fill="#FF2D55">? cm</text>
+            <text x="52" y="88" text-anchor="end" font-size="15" font-weight="700" fill="#FF2D55">? cm</text>
+            <text x="188" y="88" text-anchor="start" font-size="15" font-weight="700" fill="#FF2D55">? cm</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'rectangle-top' || q.shapeType === 'rectangle-pool') {
+        const topColor = q.shapeType === 'rectangle-top' ? '#FF2D55' : '#1D1D1F';
+        return `
+          <svg width="310" height="168" viewBox="0 0 310 168">
+            <rect x="55" y="34" width="200" height="96" rx="6" fill="rgba(0,113,227,0.08)" stroke="#0071E3" stroke-width="3"/>
+            <text x="155" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="${topColor}">${q.svgLabels.top}</text>
+            <text x="155" y="150" text-anchor="middle" font-size="15" font-weight="700" fill="${topColor}">${q.svgLabels.bottom}</text>
+            <text x="44" y="86" text-anchor="end" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.left}</text>
+            <text x="266" y="86" text-anchor="start" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.right}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'l-shape') {
+        return `
+          <svg width="300" height="180" viewBox="0 0 300 180">
+            <polygon points="60,30 220,30 220,145 155,145 155,95 60,95" fill="rgba(88,86,214,0.08)" stroke="#5856D6" stroke-width="3" stroke-linejoin="round"/>
+            <text x="140" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="#1D1D1F">10 ft</text>
+            <text x="230" y="92" text-anchor="start" font-size="14" font-weight="700" fill="#1D1D1F">8 ft</text>
+            <text x="187" y="164" text-anchor="middle" font-size="14" font-weight="700" fill="#1D1D1F">4 ft</text>
+            <text x="145" y="126" text-anchor="end" font-size="14" font-weight="700" fill="#FF2D55">3 ft</text>
+            <text x="105" y="112" text-anchor="middle" font-size="14" font-weight="700" fill="#FF2D55">6 ft</text>
+            <text x="48" y="68" text-anchor="end" font-size="14" font-weight="700" fill="#1D1D1F">5 ft</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'hexagon') {
+        return `
+          <svg width="240" height="175" viewBox="0 0 240 175">
+            <polygon points="90,26 150,26 182,85 150,144 90,144 58,85" fill="rgba(255,45,85,0.09)" stroke="#FF2D55" stroke-width="3" stroke-linejoin="round"/>
+            <text x="120" y="18" text-anchor="middle" font-size="14" font-weight="700" fill="#1D1D1F">7 cm (all 6 sides equal)</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'compare-boxes') {
+        return `
+          <div style="display:flex; gap:28px; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="text-align:center;">
+              <div style="width:96px; height:96px; border:3px solid #0071E3; background:rgba(0,113,227,0.08); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700;">Garden A<br/>8 m × 8 m</div>
+            </div>
+            <div style="text-align:center;">
+              <div style="width:130px; height:72px; border:3px solid #5856D6; background:rgba(88,86,214,0.08); border-radius:8px; display:flex; align-items:center; justify-content:center; font-weight:700;">Garden B<br/>10 m × 5 m</div>
+            </div>
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    function labelOppositeSide(qId) {
+      if (!state.oppositeLabeled[qId]) {
+        state.oppositeLabeled[qId] = true;
+        addPerseveranceStar(1);
+        renderModule(state.activeTab);
+      }
+    }
+
+    function renderStripDiagram(q) {
+      const partsHtml = q.knownSides.map(s => `<div class="strip-part">${s} ${q.unit}</div>`).join('');
+      return `
+        <div class="strip-diagram-box">
+          <div class="strip-label">Part-Part-Whole Perimeter Model</div>
+          <div class="strip-total-bar">Total Perimeter = ${q.totalPerimeter} ${q.unit}</div>
+          <div class="strip-parts-row">
+            ${partsHtml}
+            <div class="strip-part unknown">? ${q.unit}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    function renderGraphVisual(q) {
+      if (q.graphType === 'bar') {
+        const steps = [];
+        for (let v = q.maxScale; v >= 0; v -= q.scaleStep) {
+          steps.push(v);
+        }
+        const barsHtml = q.bars.map((b, idx) => {
+          const key = `${q.id}-bar-${idx}`;
+          const isLocked = !!state.lockedBars[key];
+          const heightPct = Math.round((b.value / q.maxScale) * 100);
+          return `
+            <div style="flex:1; display:flex; flex-direction:column; align-items:center; height:190px; justify-content:flex-end; cursor:pointer;" onclick="lockBarValue('${key}')">
+              <span class="bar-count-pill ${isLocked ? 'locked' : ''}" style="margin-bottom:6px;">
+                ${isLocked ? b.value : 'Tap ?'}
+              </span>
+              <div style="width:44px; height:${heightPct}%; background:${b.color}; border-radius:8px 8px 0 0; transition:height 0.3s ease;"></div>
+              <span style="font-size:13px; font-weight:600; margin-top:8px; color:var(--text-primary);">${b.label}</span>
+            </div>
+          `;
+        }).join('');
+
+        return `
+          <div class="graph-container">
+            <div class="graph-title">${q.title}</div>
+            <div class="graph-subtitle">${q.subtitle}</div>
+            <div style="display:flex; gap:14px; align-items:stretch; padding: 10px 8px 0;">
+              <div style="display:flex; flex-direction:column; justify-content:space-between; height:162px; font-size:12px; font-weight:600; color:var(--text-secondary); padding-bottom:26px; text-align:right; width:28px;">
+                ${steps.map(s => `<span>${s}</span>`).join('')}
+              </div>
+              <div style="flex:1; display:flex; align-items:flex-end; gap:14px; border-left:2px solid rgba(0,0,0,0.15); border-bottom:2px solid rgba(0,0,0,0.15); padding:0 12px;">
+                ${barsHtml}
+              </div>
+            </div>
+          </div>
+        `;
+      }
+
+      if (q.graphType === 'pictograph') {
+        const rowsHtml = q.rows.map((r, idx) => {
+          const key = `${q.id}-row-${idx}`;
+          const isLocked = !!state.lockedBars[key];
+          let iconsMarkup = '';
+          for (let i = 0; i < r.fullIcons; i++) {
+            iconsMarkup += `<span style="font-size:22px; color:#0071E3;">${r.icon}</span>`;
+          }
+          if (r.halfIcon) {
+            iconsMarkup += `<span class="picto-half" style="font-size:22px; color:#0071E3;" title="Half symbol">${r.icon}</span>`;
+          }
+          return `
+            <tr>
+              <td class="picto-label">${r.label}</td>
+              <td><div class="picto-icons">${iconsMarkup}</div></td>
+              <td style="text-align:right;">
+                <button type="button" class="bar-count-pill ${isLocked ? 'locked' : ''}" onclick="lockBarValue('${key}')">
+                  ${isLocked ? `= ${r.value}` : 'Tap Total ?'}
+                </button>
+              </td>
+            </tr>
+          `;
+        }).join('');
+
+        return `
+          <div class="graph-container">
+            <div class="graph-title">${q.title}</div>
+            <div class="graph-subtitle">${q.subtitle}</div>
+            <table class="pictograph-table">
+              <tbody>${rowsHtml}</tbody>
+            </table>
+            <div class="picto-key-box">${q.keyText}</div>
+          </div>
+        `;
+      }
+      return '';
+    }
+
+    function lockBarValue(key) {
+      if (!state.lockedBars[key]) {
+        state.lockedBars[key] = true;
+        addPerseveranceStar(1);
+        renderModule(state.activeTab);
+      }
+    }
+
+    // =========================================================================
+    // STUDIO MODULE RENDERER
+    // =========================================================================
+
+    function getQuestionsForModule(mod) {
+      if (mod === 'missing') return MISSING_SIDES_QUESTIONS;
+      if (mod === 'graphs') return SCALED_GRAPHS_QUESTIONS;
+      return STAMINA_QUESTIONS;
+    }
+
+    function renderModule(mod) {
+      const questions = getQuestionsForModule(mod);
+      const qIdx = state.index[mod];
+      const q = questions[qIdx];
+
+      // Render progress dots
+      const dotsEl = document.getElementById(`dots-${mod}`);
+      dotsEl.innerHTML = questions.map((item, i) => {
+        const isCurrent = i === qIdx ? 'current' : '';
+        const isSolved = state.solved[mod].includes(item.id) ? 'solved' : '';
+        const isStarred = state.starred[mod].includes(item.id) ? 'starred' : '';
+        return `<button class="q-dot ${isCurrent} ${isSolved} ${isStarred}" onclick="jumpToQuestion('${mod}', ${i})" title="Problem ${i + 1}">${i + 1}</button>`;
+      }).join('');
+
+      const isStarredNow = state.starred[mod].includes(q.id);
+      const visualContent = mod === 'graphs'
+        ? renderGraphVisual(q)
+        : `${renderGeometrySVG(q)}${renderStripDiagram(q)}`;
+
+      const cardEl = document.getElementById(`card-${mod}`);
+      cardEl.innerHTML = `
+        <div class="question-meta">
+          <span class="pill-tag ${mod === 'missing' ? 'pink' : mod === 'graphs' ? 'indigo' : 'blue'}">
+            Problem ${qIdx + 1} of ${questions.length} &bull; ${q.tag}
+          </span>
+          <button type="button" class="btn-secondary" onclick="toggleStarQuestion('${mod}', '${q.id}')" style="padding:6px 14px; font-size:13px;">
+            ${isStarredNow ? '★ Starred for Later' : '☆ Star & Come Back'}
+          </button>
+        </div>
+
+        <p class="question-prompt">${q.prompt}</p>
+
+        <div class="visual-stage">
+          ${visualContent}
+        </div>
+
+        <!-- Ms. Otankis Productive Struggle Coach -->
+        <div class="struggle-coach">
+          <div class="coach-header">
+            <div class="coach-title">
+              <span>🧭</span>
+              <span>Productive Struggle Coach — Pick a strategy before guessing:</span>
+            </div>
+            <div class="coach-steps-btns">
+              <button type="button" class="chip-btn" id="btn-step1-${q.id}" onclick="revealCoachStep('${q.id}', 1)">
+                1. What do we know?
+              </button>
+              <button type="button" class="chip-btn" id="btn-step2-${q.id}" onclick="revealCoachStep('${q.id}', 2)">
+                2. Step-by-Step Strategy
+              </button>
+              <button type="button" class="chip-btn" id="btn-step3-${q.id}" onclick="revealCoachStep('${q.id}', 3)">
+                3. Scratchpad Check
+              </button>
+            </div>
+          </div>
+          <div class="coach-drawer" id="drawer-${q.id}"></div>
+        </div>
+
+        <!-- Answer Options -->
+        <div class="options-grid">
+          ${q.options.map((opt, idx) => `
+            <button type="button" class="option-btn" id="opt-${q.id}-${idx}" onclick="checkAnswer('${mod}', '${q.id}', ${idx})">
+              <span>${opt}</span>
+              <span style="font-size:13px; color:var(--text-tertiary);">Select</span>
+            </button>
+          `).join('')}
+        </div>
+
+        <div class="feedback-box" id="feedback-${q.id}"></div>
+
+        <div class="studio-bottom-nav">
+          <button type="button" class="btn-secondary" onclick="prevQuestion('${mod}')" ${qIdx === 0 ? 'disabled style="opacity:0.4; cursor:default;"' : ''}>
+            &larr; Previous
+          </button>
+          <span style="font-size:13px; color:var(--text-tertiary);">
+            ${state.solved[mod].includes(q.id) ? '✓ Completed' : 'Take your time — check all steps'}
+          </span>
+          <button type="button" class="btn-primary" onclick="nextQuestion('${mod}')">
+            ${qIdx === questions.length - 1 ? 'Finish & Review' : 'Next Problem &rarr;'}
+          </button>
+        </div>
+      `;
+    }
+
+    function revealCoachStep(qId, stepNum) {
+      const allQuestions = [...MISSING_SIDES_QUESTIONS, ...SCALED_GRAPHS_QUESTIONS, ...STAMINA_QUESTIONS];
+      const q = allQuestions.find(item => item.id === qId);
+      if (!q) return;
+
+      const btn = document.getElementById(`btn-step${stepNum}-${qId}`);
+      if (btn && !btn.classList.contains('revealed')) {
+        btn.classList.add('revealed');
+        addPerseveranceStar(1);
+      }
+
+      const drawer = document.getElementById(`drawer-${qId}`);
+      drawer.classList.add('open');
+
+      if (stepNum === 1) {
+        drawer.innerHTML = `<strong>Step 1 (Inspect &amp; Label):</strong> ${q.step1Hint}`;
+      } else if (stepNum === 2) {
+        drawer.innerHTML = `<strong>Step 2 (Strategy):</strong> ${q.step2Hint}`;
+      } else {
+        drawer.innerHTML = `
+          <div><strong>Step 3 (Interactive Scratchpad):</strong> Type your two steps here so you don't rush!</div>
+          <div class="scratchpad-row">
+            <span>Step 1 Total:</span>
+            <input type="text" class="scratch-input" placeholder="e.g. ${q.knownSum || ''}" />
+            <span>&rarr; Final Answer:</span>
+            <input type="text" class="scratch-input" placeholder="?" />
+          </div>
+        `;
+      }
+    }
+
+    function checkAnswer(mod, qId, selectedIdx) {
+      const questions = getQuestionsForModule(mod);
+      const q = questions.find(item => item.id === qId);
+      if (!q) return;
+
+      const btn = document.getElementById(`opt-${qId}-${selectedIdx}`);
+      const feedbackEl = document.getElementById(`feedback-${qId}`);
+      feedbackEl.classList.add('show');
+
+      if (selectedIdx === q.correctIndex) {
+        btn.classList.add('selected-correct');
+        feedbackEl.className = 'feedback-box show positive';
+        feedbackEl.innerHTML = `
+          <strong>Awesome job, Sanha! ★</strong> You solved it accurately and checked every step.
+        `;
+        if (!state.solved[mod].includes(qId)) {
+          state.solved[mod].push(qId);
+          state.starred[mod] = state.starred[mod].filter(id => id !== qId);
+          addPerseveranceStar(2);
+        }
+        saveState();
+        // Update progress dots
+        renderDotsOnly(mod);
+      } else {
+        btn.classList.add('selected-try-again');
+        feedbackEl.className = 'feedback-box show nudge';
+        feedbackEl.innerHTML = `
+          <strong>Productive Struggle Pause:</strong> ${q.trapExplanation}
+          <br/><span style="font-size:13.5px; display:inline-block; margin-top:6px;">💡 Click <strong>"2. Step-by-Step Strategy"</strong> above and try another strategy!</span>
+        `;
+      }
+    }
+
+    function renderDotsOnly(mod) {
+      const questions = getQuestionsForModule(mod);
+      const qIdx = state.index[mod];
+      const dotsEl = document.getElementById(`dots-${mod}`);
+      if (!dotsEl) return;
+      dotsEl.innerHTML = questions.map((item, i) => {
+        const isCurrent = i === qIdx ? 'current' : '';
+        const isSolved = state.solved[mod].includes(item.id) ? 'solved' : '';
+        const isStarred = state.starred[mod].includes(item.id) ? 'starred' : '';
+        return `<button class="q-dot ${isCurrent} ${isSolved} ${isStarred}" onclick="jumpToQuestion('${mod}', ${i})">${i + 1}</button>`;
+      }).join('');
+    }
+
+    function toggleStarQuestion(mod, qId) {
+      const arr = state.starred[mod];
+      if (arr.includes(qId)) {
+        state.starred[mod] = arr.filter(id => id !== qId);
+      } else {
+        arr.push(qId);
+      }
+      saveState();
+      renderModule(mod);
+    }
+
+    function jumpToQuestion(mod, idx) {
+      state.index[mod] = idx;
+      renderModule(mod);
+    }
+
+    function prevQuestion(mod) {
+      if (state.index[mod] > 0) {
+        state.index[mod]--;
+        renderModule(mod);
+      }
+    }
+
+    function nextQuestion(mod) {
+      const questions = getQuestionsForModule(mod);
+      if (state.index[mod] < questions.length - 1) {
+        state.index[mod]++;
+        renderModule(mod);
+      } else {
+        switchTab('overview');
+      }
+    }
+
+    // Initialize on load
+    updateOverviewProgress();
+  </script>
+</body>
+</html>

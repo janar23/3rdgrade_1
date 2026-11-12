@@ -1,0 +1,1682 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sanav Math Studio — 3rd Grade Mastery</title>
+  <style>
+    :root {
+      --bg-canvas: #F5F5F7;
+      --bg-surface: #FFFFFF;
+      --bg-glass: rgba(255, 255, 255, 0.78);
+      --bg-subtle: #F2F2F7;
+      --text-primary: #1D1D1F;
+      --text-secondary: #6E6E73;
+      --text-tertiary: #86868B;
+      --accent-blue: #0066CC;
+      --accent-blue-soft: rgba(0, 102, 204, 0.1);
+      --accent-teal: #00857A;
+      --accent-teal-soft: rgba(0, 133, 122, 0.11);
+      --accent-indigo: #5856D6;
+      --accent-indigo-soft: rgba(88, 86, 214, 0.1);
+      --accent-green: #28CD41;
+      --accent-green-soft: rgba(40, 205, 65, 0.12);
+      --accent-amber: #FF9500;
+      --accent-amber-soft: rgba(255, 149, 0, 0.14);
+      --accent-orange: #FF6B00;
+      --accent-orange-soft: rgba(255, 107, 0, 0.11);
+      --border-hairline: rgba(0, 0, 0, 0.07);
+      --shadow-card: 0 10px 36px -10px rgba(0, 0, 0, 0.05), 0 2px 8px -2px rgba(0, 0, 0, 0.03);
+      --shadow-float: 0 20px 48px -12px rgba(0, 0, 0, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.04);
+      --radius-xl: 28px;
+      --radius-lg: 20px;
+      --radius-md: 14px;
+      --radius-pill: 999px;
+      --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+
+    body {
+      font-family: var(--font-sans);
+      background-color: var(--bg-canvas);
+      color: var(--text-primary);
+      line-height: 1.5;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* Sleek Frosted Apple Top Bar */
+    .top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg-glass);
+      backdrop-filter: saturate(180%) blur(20px);
+      -webkit-backdrop-filter: saturate(180%) blur(20px);
+      border-bottom: 1px solid var(--border-hairline);
+      padding: 14px 32px;
+    }
+
+    .top-nav-inner {
+      max-width: 1040px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      text-decoration: none;
+      color: var(--text-primary);
+    }
+
+    .brand-icon {
+      width: 36px;
+      height: 36px;
+      border-radius: 10px;
+      background: linear-gradient(135deg, #0066CC 0%, #00857A 100%);
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 17px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+    }
+
+    .brand-text h1 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+    }
+
+    .brand-text span {
+      display: block;
+      font-size: 12px;
+      color: var(--text-secondary);
+      font-weight: 400;
+    }
+
+    /* Segmented Pill Navigation */
+    .segmented-nav {
+      display: inline-flex;
+      background: var(--bg-subtle);
+      padding: 4px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+      gap: 2px;
+    }
+
+    .seg-btn {
+      border: none;
+      background: transparent;
+      color: var(--text-secondary);
+      font-family: inherit;
+      font-size: 13.5px;
+      font-weight: 500;
+      padding: 7px 16px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .seg-btn:hover {
+      color: var(--text-primary);
+    }
+
+    .seg-btn.active {
+      background: var(--bg-surface);
+      color: var(--text-primary);
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .status-pill {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-secondary);
+    }
+
+    .badge-metric {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: var(--bg-surface);
+      padding: 6px 12px;
+      border-radius: var(--radius-pill);
+      border: 1px solid var(--border-hairline);
+      font-weight: 600;
+      color: var(--text-primary);
+    }
+
+    /* Main Spacious Container */
+    main {
+      flex: 1;
+      max-width: 1040px;
+      width: 100%;
+      margin: 0 auto;
+      padding: 44px 28px 80px;
+    }
+
+    .view-section {
+      display: none;
+    }
+
+    .view-section.active {
+      display: block;
+      @media (prefers-reduced-motion: no-preference) {
+        animation: fadeSlideUp 0.32s cubic-bezier(0.16, 1, 0.3, 1);
+      }
+    }
+
+    @keyframes fadeSlideUp {
+      from {
+        opacity: 0;
+        transform: translateY(10px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Hero Typography */
+    .hero-header {
+      margin-bottom: 40px;
+    }
+
+    .eyebrow {
+      display: inline-block;
+      font-size: 12px;
+      font-weight: 600;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--accent-blue);
+      margin-bottom: 8px;
+    }
+
+    .hero-title {
+      font-size: clamp(28px, 4vw, 40px);
+      font-weight: 700;
+      letter-spacing: -0.03em;
+      line-height: 1.15;
+      color: var(--text-primary);
+      margin-bottom: 12px;
+    }
+
+    .hero-subtitle {
+      font-size: 17px;
+      color: var(--text-secondary);
+      max-width: 700px;
+      font-weight: 400;
+    }
+
+    /* Sleek Apple Cards Grid (Overview) */
+    .overview-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 24px;
+      margin-bottom: 36px;
+    }
+
+    .apple-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 32px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s ease;
+      cursor: pointer;
+    }
+
+    @media (prefers-reduced-motion: no-preference) {
+      .apple-card:hover {
+        transform: translateY(-4px);
+        box-shadow: var(--shadow-float);
+      }
+    }
+
+    .card-top {
+      margin-bottom: 28px;
+    }
+
+    .card-tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 18px;
+    }
+
+    .pill-tag {
+      font-size: 12px;
+      font-weight: 600;
+      padding: 5px 12px;
+      border-radius: var(--radius-pill);
+    }
+
+    .pill-tag.orange { background: var(--accent-orange-soft); color: var(--accent-orange); }
+    .pill-tag.teal { background: var(--accent-teal-soft); color: var(--accent-teal); }
+    .pill-tag.indigo { background: var(--accent-indigo-soft); color: var(--accent-indigo); }
+    .pill-tag.blue { background: var(--accent-blue-soft); color: var(--accent-blue); }
+
+    .score-ring-badge {
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--text-secondary);
+    }
+
+    .score-ring-badge strong {
+      color: var(--text-primary);
+      font-size: 15px;
+    }
+
+    .apple-card h2 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 10px;
+    }
+
+    .apple-card p {
+      font-size: 15px;
+      color: var(--text-secondary);
+      line-height: 1.55;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+
+    .progress-mini {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      flex: 1;
+      margin-right: 16px;
+    }
+
+    .progress-mini-label {
+      font-size: 12px;
+      color: var(--text-tertiary);
+      font-weight: 500;
+    }
+
+    .progress-track {
+      height: 6px;
+      background: var(--bg-subtle);
+      border-radius: 99px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      border-radius: 99px;
+      background: var(--accent-blue);
+      transition: width 0.4s ease;
+    }
+
+    .btn-primary {
+      background: var(--accent-blue);
+      color: #fff;
+      border: none;
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 20px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-primary:hover {
+      background: #0077ED;
+    }
+
+    .btn-secondary {
+      background: var(--bg-subtle);
+      color: var(--text-primary);
+      border: 1px solid var(--border-hairline);
+      font-family: inherit;
+      font-size: 14px;
+      font-weight: 500;
+      padding: 10px 18px;
+      border-radius: var(--radius-pill);
+      cursor: pointer;
+      transition: background-color 0.2s ease;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .btn-secondary:hover {
+      background: #E5E5EA;
+    }
+
+    /* Teacher Insight Banner */
+    .insight-banner {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 28px 34px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+      display: flex;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 28px;
+      flex-wrap: wrap;
+    }
+
+    .insight-col {
+      flex: 1;
+      min-width: 260px;
+    }
+
+    .insight-col h3 {
+      font-size: 17px;
+      font-weight: 600;
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+
+    .insight-col p {
+      font-size: 14.5px;
+      color: var(--text-secondary);
+    }
+
+    .habits-row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 14px;
+    }
+
+    .habit-chip {
+      background: var(--bg-subtle);
+      padding: 8px 14px;
+      border-radius: var(--radius-md);
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+    }
+
+    /* Single-Problem Focused Studio Canvas */
+    .studio-shell {
+      max-width: 840px;
+      margin: 0 auto;
+    }
+
+    .studio-topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 24px;
+      gap: 16px;
+      flex-wrap: wrap;
+    }
+
+    .studio-dots {
+      display: flex;
+      gap: 8px;
+      align-items: center;
+    }
+
+    .q-dot {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      border: 1px solid var(--border-hairline);
+      background: var(--bg-surface);
+      font-size: 12px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .q-dot.current {
+      background: var(--text-primary);
+      color: #fff;
+      border-color: var(--text-primary);
+    }
+
+    .q-dot.solved {
+      background: var(--accent-green-soft);
+      color: #156F2C;
+      border-color: rgba(40, 205, 65, 0.35);
+    }
+
+    .q-dot.starred {
+      background: var(--accent-amber-soft);
+      color: #B26200;
+      border-color: rgba(255, 149, 0, 0.4);
+    }
+
+    .studio-card {
+      background: var(--bg-surface);
+      border-radius: var(--radius-xl);
+      padding: 44px;
+      border: 1px solid var(--border-hairline);
+      box-shadow: var(--shadow-card);
+    }
+
+    @media (max-width: 640px) {
+      .studio-card {
+        padding: 26px 20px;
+      }
+    }
+
+    .question-meta {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 20px;
+      gap: 12px;
+    }
+
+    .question-prompt {
+      font-size: 21px;
+      font-weight: 600;
+      letter-spacing: -0.015em;
+      line-height: 1.45;
+      color: var(--text-primary);
+      margin-bottom: 32px;
+    }
+
+    /* Visual Stage inside Studio Card */
+    .visual-stage {
+      background: var(--bg-canvas);
+      border-radius: var(--radius-lg);
+      padding: 32px 24px;
+      margin-bottom: 32px;
+      border: 1px solid var(--border-hairline);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+
+    /* Interactive Side-Check Pills for Perimeter Architect */
+    .side-check-bar {
+      display: flex;
+      gap: 10px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 18px;
+    }
+
+    .side-pill {
+      background: var(--bg-surface);
+      border: 1.5px dashed rgba(0, 0, 0, 0.2);
+      border-radius: var(--radius-pill);
+      padding: 6px 14px;
+      font-size: 13.5px;
+      font-weight: 600;
+      color: var(--text-secondary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .side-pill.checked {
+      background: var(--accent-teal);
+      color: #fff;
+      border-style: solid;
+      border-color: var(--accent-teal);
+    }
+
+    /* Strip Diagram Interactive Component */
+    .strip-diagram-box {
+      width: 100%;
+      max-width: 540px;
+      margin-top: 18px;
+      background: var(--bg-surface);
+      padding: 18px;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--border-hairline);
+    }
+
+    .strip-label {
+      font-size: 11px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: var(--text-tertiary);
+      margin-bottom: 8px;
+      text-align: center;
+    }
+
+    .strip-total-bar {
+      background: var(--accent-blue-soft);
+      border: 1.5px solid var(--accent-blue);
+      color: var(--accent-blue);
+      font-weight: 700;
+      font-size: 16px;
+      padding: 10px;
+      text-align: center;
+      border-radius: 10px;
+      margin-bottom: 8px;
+    }
+
+    .strip-parts-row {
+      display: flex;
+      gap: 6px;
+    }
+
+    .strip-part {
+      flex: 1;
+      background: var(--bg-subtle);
+      border: 1.5px solid rgba(0, 0, 0, 0.12);
+      padding: 10px 6px;
+      text-align: center;
+      border-radius: 10px;
+      font-weight: 600;
+      font-size: 15px;
+      color: var(--text-primary);
+    }
+
+    .strip-part.unknown {
+      background: var(--accent-orange-soft);
+      border: 1.5px dashed var(--accent-orange);
+      color: var(--accent-orange);
+      font-weight: 700;
+    }
+
+    /* Interactive Stepper / Productive Struggle Coach */
+    .struggle-coach {
+      background: var(--bg-subtle);
+      border-radius: var(--radius-lg);
+      padding: 20px 24px;
+      margin-bottom: 28px;
+      border: 1px solid var(--border-hairline);
+    }
+
+    .coach-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      flex-wrap: wrap;
+    }
+
+    .coach-title {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--text-primary);
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .coach-steps-btns {
+      display: flex;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+
+    .chip-btn {
+      background: var(--bg-surface);
+      border: 1px solid var(--border-hairline);
+      padding: 7px 14px;
+      border-radius: var(--radius-pill);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--text-primary);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .chip-btn:hover {
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+    }
+
+    .chip-btn.revealed {
+      background: var(--accent-blue-soft);
+      border-color: var(--accent-blue);
+      color: var(--accent-blue);
+      font-weight: 600;
+    }
+
+    .coach-drawer {
+      margin-top: 14px;
+      padding-top: 14px;
+      border-top: 1px solid var(--border-hairline);
+      font-size: 14.5px;
+      color: var(--text-primary);
+      display: none;
+    }
+
+    .coach-drawer.open {
+      display: block;
+    }
+
+    /* Answer Choices */
+    .options-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+      margin-bottom: 24px;
+    }
+
+    @media (max-width: 560px) {
+      .options-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .option-btn {
+      background: var(--bg-surface);
+      border: 1.5px solid var(--border-hairline);
+      border-radius: var(--radius-md);
+      padding: 16px 20px;
+      font-family: inherit;
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text-primary);
+      text-align: left;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      transition: border-color 0.2s ease, background-color 0.2s ease;
+    }
+
+    .option-btn:hover {
+      border-color: var(--accent-blue);
+      background: rgba(0, 102, 204, 0.02);
+    }
+
+    .option-btn.selected-correct {
+      background: var(--accent-green-soft);
+      border-color: var(--accent-green);
+      color: #156F2C;
+    }
+
+    .option-btn.selected-try-again {
+      background: var(--accent-amber-soft);
+      border-color: var(--accent-amber);
+      color: #945000;
+    }
+
+    .feedback-box {
+      border-radius: var(--radius-md);
+      padding: 18px 22px;
+      font-size: 15px;
+      margin-bottom: 24px;
+      display: none;
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.positive {
+      background: var(--accent-green-soft);
+      color: #145925;
+      border: 1px solid rgba(40, 205, 65, 0.3);
+    }
+
+    .feedback-box.nudge {
+      background: var(--accent-amber-soft);
+      color: #7A4100;
+      border: 1px solid rgba(255, 149, 0, 0.35);
+    }
+
+    .scratchpad-row {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      flex-wrap: wrap;
+      margin-top: 10px;
+    }
+
+    .scratch-input {
+      width: 104px;
+      padding: 8px 12px;
+      font-size: 15px;
+      font-weight: 600;
+      font-family: inherit;
+      border-radius: 10px;
+      border: 1.5px solid var(--border-hairline);
+      background: var(--bg-surface);
+      text-align: center;
+    }
+
+    .scratch-input:focus {
+      outline: none;
+      border-color: var(--accent-blue);
+    }
+
+    .studio-bottom-nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding-top: 20px;
+      border-top: 1px solid var(--border-hairline);
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Sleek Frosted Apple Top Bar -->
+  <header class="top-nav">
+    <div class="top-nav-inner">
+      <a href="#overview" class="brand" onclick="switchTab('overview'); return false;">
+        <div class="brand-icon">S</div>
+        <div class="brand-text">
+          <h1>Sanav Math Studio</h1>
+          <span>3rd Grade Target Mastery &bull; Ms. Taylor Cortez</span>
+        </div>
+      </a>
+
+      <nav class="segmented-nav" aria-label="Study Modules">
+        <button class="seg-btn active" data-tab="overview" onclick="switchTab('overview')">Overview</button>
+        <button class="seg-btn" data-tab="perimeter" onclick="switchTab('perimeter')">Perimeter Architect</button>
+        <button class="seg-btn" data-tab="missing" onclick="switchTab('missing')">Missing Length</button>
+        <button class="seg-btn" data-tab="wordps" onclick="switchTab('wordps')">2-Step Problem Solving</button>
+      </nav>
+
+      <div class="status-pill">
+        <a href="../index.html" class="btn-secondary" style="text-decoration:none; padding:6px 14px; font-size:13px;">&larr; Main Hub</a>
+        <div class="badge-metric" title="Productive Struggle Perseverance Stars">
+          <span>★</span>
+          <span id="perseveranceCount">0</span>
+          <span style="font-weight:400; color:var(--text-secondary);">Strategy Stars</span>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1. OVERVIEW TAB -->
+    <section id="view-overview" class="view-section active">
+      <div class="hero-header">
+        <span class="eyebrow">Personalized for Sanav Janarthanan</span>
+        <h2 class="hero-title">Precision Beats Speed Traps.</h2>
+        <p class="hero-subtitle">
+          Sanav scored a <strong>94</strong> on the Unit 2 Math Summative, <strong>100</strong> on Different Types of Graphs, and <strong>100</strong> on Subtraction! His only points lost were on <strong>Perimeter (80)</strong>, <strong>Find the Missing Length (83)</strong>, and <strong>Addition/Subtraction Problem Solving (83)</strong>.
+        </p>
+      </div>
+
+      <div class="overview-grid">
+        <!-- Card 1: Perimeter Architect (80 -> 100) -->
+        <article class="apple-card" onclick="switchTab('perimeter')">
+          <div class="card-top">
+            <div class="card-tag-row">
+              <span class="pill-tag orange">Priority #1 &bull; TEKS 3.7B</span>
+              <span class="score-ring-badge">Skyward: <strong>80</strong> &rarr; <strong>100</strong></span>
+            </div>
+            <h2>Perimeter Architect</h2>
+            <p>
+              Fast mental calculators often add only the 2 labeled sides of a rectangle or skip one corner of a 6-sided shape. Use the <strong>Side Check-Off Bar</strong> so every side is counted!
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="progress-mini">
+              <span class="progress-mini-label" id="prog-label-perimeter">0 of 6 Mastered</span>
+              <div class="progress-track">
+                <div class="progress-fill" id="prog-bar-perimeter" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-primary">Practice &rarr;</button>
+          </div>
+        </article>
+
+        <!-- Card 2: Find the Missing Length (83 -> 100) -->
+        <article class="apple-card" onclick="switchTab('missing')">
+          <div class="card-top">
+            <div class="card-tag-row">
+              <span class="pill-tag teal">Priority #2 &bull; TEKS 3.7B</span>
+              <span class="score-ring-badge">Skyward: <strong>83</strong> &rarr; <strong>100</strong></span>
+            </div>
+            <h2>Find the Missing Length</h2>
+            <p>
+              Master finding an unknown side when given the Total Perimeter, splitting the remainder across <strong>two equal unknown sides</strong>, and solving missing L-shape steps.
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="progress-mini">
+              <span class="progress-mini-label" id="prog-label-missing">0 of 6 Mastered</span>
+              <div class="progress-track">
+                <div class="progress-fill" id="prog-bar-missing" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-primary">Practice &rarr;</button>
+          </div>
+        </article>
+
+        <!-- Card 3: Addition & Subtraction Problem Solving (83 -> 100) -->
+        <article class="apple-card" onclick="switchTab('wordps')">
+          <div class="card-top">
+            <div class="card-tag-row">
+              <span class="pill-tag indigo">Priority #3 &bull; TEKS 3.4A / 3.5A</span>
+              <span class="score-ring-badge">Skyward: <strong>83</strong> &rarr; <strong>100</strong></span>
+            </div>
+            <h2>2-Step Problem Solving</h2>
+            <p>
+              Sanav has <strong>100% calculation accuracy</strong>—so the goal here is spotting STAAR 2-step traps: <em>Step-1 distractor choices</em>, <em>Unknown Start</em> stories, and <em>Comparison</em> models.
+            </p>
+          </div>
+          <div class="card-footer">
+            <div class="progress-mini">
+              <span class="progress-mini-label" id="prog-label-wordps">0 of 6 Mastered</span>
+              <div class="progress-track">
+                <div class="progress-fill" id="prog-bar-wordps" style="width: 0%"></div>
+              </div>
+            </div>
+            <button class="btn-primary">Start Workout &rarr;</button>
+          </div>
+        </article>
+      </div>
+
+      <!-- Sanav's Precision Habits Banner -->
+      <div class="insight-banner">
+        <div class="insight-col">
+          <span class="eyebrow" style="color: var(--accent-teal);">Why Sanav's Computation is 100 but P.S. / Perimeter is 80–83</span>
+          <h3>Sanav's 3 "Beat the Trap" Rules</h3>
+          <p>
+            Because Sanav calculates fast in his head, STAAR-style questions try to trick him by putting the <strong>halfway answer (Step 1)</strong> right there as Choice A! Using these 3 quick habits turns every 80/83 into a 100:
+          </p>
+          <div class="habits-row">
+            <span class="habit-chip">1. Count Sides First (4 Sides = 4 Numbers to Add)</span>
+            <span class="habit-chip">2. Beware the "Step-1 Trap" in Multiple Choice</span>
+            <span class="habit-chip">3. Divide by 2 When TWO Opposite Sides Are Missing</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 2. PERIMETER ARCHITECT STUDIO -->
+    <section id="view-perimeter" class="view-section">
+      <div class="studio-shell">
+        <div class="studio-topbar">
+          <div>
+            <span class="eyebrow">Priority #1 &bull; Turning 80 into 100</span>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Perimeter Architect</h2>
+          </div>
+          <div class="studio-dots" id="dots-perimeter"></div>
+        </div>
+
+        <div class="studio-card" id="card-perimeter"></div>
+      </div>
+    </section>
+
+    <!-- 3. FIND THE MISSING LENGTH STUDIO -->
+    <section id="view-missing" class="view-section">
+      <div class="studio-shell">
+        <div class="studio-topbar">
+          <div>
+            <span class="eyebrow">Priority #2 &bull; Turning 83 into 100</span>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Find the Missing Length</h2>
+          </div>
+          <div class="studio-dots" id="dots-missing"></div>
+        </div>
+
+        <div class="studio-card" id="card-missing"></div>
+      </div>
+    </section>
+
+    <!-- 4. ADDITION & SUBTRACTION PROBLEM SOLVING STUDIO -->
+    <section id="view-wordps" class="view-section">
+      <div class="studio-shell">
+        <div class="studio-topbar">
+          <div>
+            <span class="eyebrow">Priority #3 &bull; Turning 83 into 100</span>
+            <h2 style="font-size: 24px; font-weight: 700; letter-spacing: -0.02em;">Addition &amp; Subtraction Problem Solving</h2>
+          </div>
+          <div class="studio-dots" id="dots-wordps"></div>
+        </div>
+
+        <div class="studio-card" id="card-wordps"></div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    // =========================================================================
+    // DATA BANK: TAILORED TO SANAV'S SKYWARD BREAKDOWN
+    // =========================================================================
+
+    const PERIMETER_QUESTIONS = [
+      {
+        id: 'per-1',
+        tag: 'Word-Only Rectangle • No Picture Given!',
+        prompt: 'A rectangular soccer field is 24 yards long and 16 yards wide. Sanav jogs all the way around the boundary line of the field one time. How many yards does he jog?',
+        totalPerimeter: '?',
+        knownSides: ['Top: 24 yd', 'Bottom: 24 yd', 'Left: 16 yd', 'Right: 16 yd'],
+        knownSum: 80,
+        unit: 'yd',
+        shapeType: 'rectangle-word',
+        svgLabels: { top: '24 yd', bottom: '24 yd (Opposite!)', left: '16 yd', right: '16 yd (Opposite!)' },
+        step1Hint: 'Trap Alert! The problem only mentions TWO numbers (24 and 16), so 24 + 16 = 40 is the #1 trap choice! A rectangle has 4 sides.',
+        step2Hint: 'Add Length + Width = 24 + 16 = 40 yards (halfway around). Now double it for all 4 sides: 40 + 40 = 80 yards!',
+        options: ['80 yards', '40 yards', '64 yards', '56 yards'],
+        correctIndex: 0,
+        trapExplanation: '40 yards is only TWO sides (one length + one width)! Always draw the rectangle and label all 4 sides: 24 + 24 + 16 + 16 = 80 yards.'
+      },
+      {
+        id: 'per-2',
+        tag: '6-Sided L-Shape • Don\'t Skip Inside Corners',
+        prompt: 'Look at this 6-sided game room floor plan. Tap each side pill below as you add so no side gets left behind! What is the total perimeter?',
+        totalPerimeter: '?',
+        knownSides: ['Top: 14 ft', 'Right: 10 ft', 'Bottom-R: 6 ft', 'Inner-V: 4 ft', 'Inner-H: 8 ft', 'Left: 6 ft'],
+        knownSum: 48,
+        unit: 'ft',
+        shapeType: 'l-shape',
+        svgLabels: { top: '14 ft', right: '10 ft', bot: '6 ft', inV: '4 ft', inH: '8 ft', left: '6 ft' },
+        step1Hint: 'Count how many sides the L-shape has: 6 sides! That means you must add 6 numbers.',
+        step2Hint: 'Pair friendly 10s! (14 + 6 = 20), plus 10 = 30. Then (8 + 4 + 6 = 18). Total: 30 + 18 = 48 feet!',
+        options: ['48 feet', '44 feet', '40 feet', '38 feet'],
+        correctIndex: 0,
+        trapExplanation: 'If you got 44 or 40, one of the inside corner sides (4 ft or 8 ft) got skipped! Tap all 6 side pills above to verify: 14 + 10 + 6 + 4 + 8 + 6 = 48 ft.'
+      },
+      {
+        id: 'per-3',
+        tag: 'Compare Two Perimeters • 2-Step Geometry',
+        prompt: 'Shape X is an equilateral triangle where each of the 3 sides is 15 cm. Shape Y is a square where each of the 4 sides is 12 cm. What is the difference between the perimeters of Shape Y and Shape X?',
+        totalPerimeter: 'Compare',
+        knownSides: ['Triangle: 15+15+15 = 45 cm', 'Square: 12+12+12+12 = 48 cm'],
+        knownSum: 3,
+        unit: 'cm',
+        shapeType: 'compare-tri-sq',
+        svgLabels: {},
+        step1Hint: 'Find both perimeters first! Triangle X has 3 sides: 15 + 15 + 15 = 45 cm. Square Y has 4 sides: 12 + 12 + 12 + 12 = 48 cm.',
+        step2Hint: 'Now find the difference between the two perimeters: 48 cm - 45 cm = 3 cm!',
+        options: ['3 cm', '27 cm', '93 cm', '12 cm'],
+        correctIndex: 0,
+        trapExplanation: 'Don\'t just subtract 15 - 12! First calculate all 3 sides of the triangle (45 cm) and all 4 sides of the square (48 cm), then subtract 48 - 45 = 3 cm.'
+      },
+      {
+        id: 'per-4',
+        tag: 'Regular Octagon • 8 Equal Sides',
+        prompt: 'A stop sign has 8 equal sides (an octagon). Each side is 6 inches long. What is the total perimeter of the stop sign?',
+        totalPerimeter: '?',
+        knownSides: ['6 in × 8 sides'],
+        knownSum: 48,
+        unit: 'in',
+        shapeType: 'hexagon',
+        svgLabels: { top: '8 Equal Sides • 6 in each' },
+        step1Hint: 'An octagon (like an octopus!) has 8 sides. Every side is 6 inches.',
+        step2Hint: 'Multiply 8 × 6 (or double 4 × 6: 24 + 24 = 48 inches)!',
+        options: ['48 inches', '36 inches', '42 inches', '54 inches'],
+        correctIndex: 0,
+        trapExplanation: 'Octagon = 8 sides (Hexagon = 6 sides). 8 sides × 6 inches = 48 inches!'
+      },
+      {
+        id: 'per-5',
+        tag: 'Composite Frame • Combining Two Rectangles',
+        prompt: 'Sanav builds a rectangular Lego base that is 15 cm long and 9 cm wide. If he doubles the length to 30 cm while keeping the width 9 cm, what is the NEW perimeter?',
+        totalPerimeter: '?',
+        knownSides: ['Top: 30 cm', 'Bottom: 30 cm', 'Left: 9 cm', 'Right: 9 cm'],
+        knownSum: 78,
+        unit: 'cm',
+        shapeType: 'rectangle-word',
+        svgLabels: { top: '30 cm', bottom: '30 cm', left: '9 cm', right: '9 cm' },
+        step1Hint: 'Draw the new rectangle first: Top = 30 cm, Bottom = 30 cm, Left = 9 cm, Right = 9 cm.',
+        step2Hint: 'Add the two lengths (30 + 30 = 60 cm) and the two widths (9 + 9 = 18 cm). Total: 60 + 18 = 78 cm!',
+        options: ['78 cm', '39 cm', '48 cm', '96 cm'],
+        correctIndex: 0,
+        trapExplanation: '39 cm is only 30 + 9 (two sides)! Remember to add all 4 sides: 30 + 30 + 9 + 9 = 78 cm.'
+      },
+      {
+        id: 'per-6',
+        tag: '5-Sided House Pentagon • Careful Addition',
+        prompt: 'A 5-sided pentagon badge has two roof sides measuring 9 cm each, two vertical walls measuring 11 cm each, and a bottom base measuring 14 cm. What is the perimeter of the badge?',
+        totalPerimeter: '?',
+        knownSides: ['Roof L: 9 cm', 'Roof R: 9 cm', 'Wall L: 11 cm', 'Wall R: 11 cm', 'Base: 14 cm'],
+        knownSum: 54,
+        unit: 'cm',
+        shapeType: 'pentagon',
+        svgLabels: { tl: '9 cm', tr: '9 cm', bl: '11 cm', br: '11 cm', bottom: '14 cm' },
+        step1Hint: 'Watch the wording: "two roof sides of 9 cm EACH" (9 and 9) and "two walls of 11 cm EACH" (11 and 11), plus the 14 cm base!',
+        step2Hint: 'Make friendly 20s! (9 + 11 = 20) on the left, plus (9 + 11 = 20) on the right = 40 cm. Now add the base: 40 + 14 = 54 cm!',
+        options: ['54 cm', '34 cm', '43 cm', '45 cm'],
+        correctIndex: 0,
+        trapExplanation: 'If you got 34 cm, you only added 9 + 11 + 14 once! The word "EACH" means there are two 9 cm sides and two 11 cm sides: 9 + 9 + 11 + 11 + 14 = 54 cm.'
+      }
+    ];
+
+    const MISSING_LENGTH_QUESTIONS = [
+      {
+        id: 'ml-1',
+        tag: 'Rectangle • Find the Missing Width (Divide by 2!)',
+        prompt: 'The total perimeter of a rectangular swimming pool is 50 meters. The length of the pool is 17 meters. What is the width (w) of the pool?',
+        totalPerimeter: 50,
+        knownSides: ['Top: 17 m', 'Bottom: 17 m'],
+        knownSum: 34,
+        missingValue: 8,
+        unit: 'm',
+        shapeType: 'rectangle-split',
+        svgLabels: { top: '17 m', bottom: '17 m (Opposite!)', left: 'w = ?', right: 'w = ?' },
+        step1Hint: 'Trap Alert! If the top length is 17 m, the bottom length is ALSO 17 m. Add them first: 17 + 17 = 34 m.',
+        step2Hint: 'Subtract 34 from the total perimeter: 50 - 34 = 16 m. That 16 m is for BOTH widths together! Divide by 2: 16 ÷ 2 = 8 meters.',
+        options: ['8 meters', '16 meters', '33 meters', '34 meters'],
+        correctIndex: 0,
+        trapExplanation: '16 meters is the left width AND right width combined (50 - 34 = 16). Divide 16 by 2 to get a single width: 8 meters!'
+      },
+      {
+        id: 'ml-2',
+        tag: 'L-Shape Detective • Matching Horizontal Sides',
+        prompt: 'Look at this L-shaped patio. The total bottom width is 18 feet, and the top horizontal piece is 11 feet. What is the missing horizontal length (x)?',
+        totalPerimeter: 'Match Horizontal',
+        knownSides: ['Top piece: 11 ft', 'Missing piece: x ft'],
+        knownSum: 11,
+        missingValue: 7,
+        unit: 'ft',
+        shapeType: 'l-shape-missing',
+        svgLabels: { top: '11 ft', right: '9 ft', bot: '18 ft (Total Bottom)', inV: '4 ft', inH: 'x = ? ft', left: '5 ft' },
+        step1Hint: 'Secret L-Shape Trick: You don\'t even need the vertical sides! The two top horizontal steps (11 ft and x) must add up to the full bottom width (18 ft).',
+        step2Hint: '11 ft + x = 18 ft. Subtract: 18 - 11 = 7 feet!',
+        options: ['7 feet', '11 feet', '29 feet', '9 feet'],
+        correctIndex: 0,
+        trapExplanation: 'In any L-shape, the two shorter horizontal pieces (11 ft + x) equal the long horizontal side (18 ft). So 18 - 11 = 7 feet!'
+      },
+      {
+        id: 'ml-3',
+        tag: 'Isosceles Triangle • Two Equal Missing Sides',
+        prompt: 'This triangle has a total perimeter of 32 cm. The bottom base is 12 cm, and the left and right sides are EQUAL in length. How long is each of the equal sides (s)?',
+        totalPerimeter: 32,
+        knownSides: ['Base: 12 cm', 'Left: s', 'Right: s'],
+        knownSum: 12,
+        missingValue: 10,
+        unit: 'cm',
+        shapeType: 'triangle',
+        svgLabels: { left: 's = ? cm', right: 's = ? cm', bottom: '12 cm' },
+        step1Hint: 'First subtract the bottom base from the total perimeter: 32 - 12 = 20 cm left.',
+        step2Hint: 'That 20 cm is shared equally between the 2 matching sides! Split 20 in half: 20 ÷ 2 = 10 cm.',
+        options: ['10 cm', '20 cm', '16 cm', '44 cm'],
+        correctIndex: 0,
+        trapExplanation: '20 cm is the sum of BOTH slanted sides together (32 - 12 = 20). Split 20 in half so each equal side is 10 cm!'
+      },
+      {
+        id: 'ml-4',
+        tag: 'Quadrilateral • Given Total Perimeter',
+        prompt: 'The total perimeter of a 4-sided kite is 64 inches. Three of the sides measure 14 inches, 14 inches, and 18 inches. What is the length of the 4th side?',
+        totalPerimeter: 64,
+        knownSides: ['14 in', '14 in', '18 in'],
+        knownSum: 46,
+        missingValue: 18,
+        unit: 'in',
+        shapeType: 'trapezoid',
+        svgLabels: { top: '14 in', left: '14 in', right: '18 in', bottom: '? in' },
+        step1Hint: 'Total Perimeter = 64 in. First add the 3 known sides: 14 + 14 + 18.',
+        step2Hint: '14 + 14 = 28, and 28 + 18 = 46 inches. Now subtract from the total perimeter: 64 - 46 = 18 inches!',
+        options: ['18 inches', '46 inches', '28 inches', '36 inches'],
+        correctIndex: 0,
+        trapExplanation: '46 inches is the sum of the 3 known sides (Step 1). Subtract 46 from the total perimeter: 64 - 46 = 18 inches!'
+      },
+      {
+        id: 'ml-5',
+        tag: 'Pentagon • Given Total Perimeter of 75 cm',
+        prompt: 'The total perimeter of a 5-sided home plate is 75 cm. Four of the sides measure 17 cm, 12 cm, 12 cm, and 17 cm. What is the length of the 5th side?',
+        totalPerimeter: 75,
+        knownSides: ['17 cm', '12 cm', '12 cm', '17 cm'],
+        knownSum: 58,
+        missingValue: 17,
+        unit: 'cm',
+        shapeType: 'pentagon',
+        svgLabels: { tl: '12 cm', tr: '12 cm', bl: '17 cm', br: '17 cm', bottom: '? cm' },
+        step1Hint: 'Add the 4 known sides in pairs: (17 + 17 = 34) and (12 + 12 = 24).',
+        step2Hint: '34 + 24 = 58 cm for the 4 known sides. Subtract from 75: 75 - 58 = 17 cm!',
+        options: ['17 cm', '58 cm', '27 cm', '15 cm'],
+        correctIndex: 0,
+        trapExplanation: '58 cm is the sum of the 4 known sides. Subtract 58 from the total perimeter: 75 - 58 = 17 cm!'
+      },
+      {
+        id: 'ml-6',
+        tag: 'Square vs Rectangle • Equal Perimeters!',
+        prompt: 'A square has sides of 9 cm each. A rectangle has the EXACT SAME total perimeter as the square. If the rectangle\'s length is 11 cm, what is the rectangle\'s width?',
+        totalPerimeter: 36,
+        knownSides: ['Top: 11 cm', 'Bottom: 11 cm'],
+        knownSum: 22,
+        missingValue: 7,
+        unit: 'cm',
+        shapeType: 'rectangle-split',
+        svgLabels: { top: '11 cm', bottom: '11 cm', left: 'w = ?', right: 'w = ?' },
+        step1Hint: 'Step 1: Find the square\'s perimeter first! 9 × 4 = 36 cm. That means the rectangle\'s total perimeter is ALSO 36 cm.',
+        step2Hint: 'Step 2: Subtract the rectangle\'s top and bottom lengths (11 + 11 = 22 cm) from 36: 36 - 22 = 14 cm. Divide by 2 for one width: 14 ÷ 2 = 7 cm!',
+        options: ['7 cm', '14 cm', '25 cm', '22 cm'],
+        correctIndex: 0,
+        trapExplanation: 'Square perimeter = 36 cm. Subtract both 11 cm lengths (36 - 22 = 14 cm), then divide by 2 for one width: 14 ÷ 2 = 7 cm!'
+      }
+    ];
+
+    const WORD_PS_QUESTIONS = [
+      {
+        id: 'wp-1',
+        tag: '2-Step Comparison Trap • "Fewer Than" + Total',
+        prompt: 'Sanav scored 425 points in a coding game. Rahul scored 138 FEWER points than Sanav. How many points did Sanav and Rahul score COMBINED?',
+        totalPerimeter: '? Combined',
+        knownSides: ['Sanav: 425', 'Rahul: 425 - 138 = 287'],
+        knownSum: 287,
+        missingValue: 712,
+        unit: 'pts',
+        shapeType: 'word-only',
+        svgLabels: {},
+        step1Hint: 'STAAR Trap Alert! Choice A (287) is ONLY Rahul\'s score (Step 1)! The question asks for Sanav AND Rahul COMBINED.',
+        step2Hint: 'Step 1 (Rahul): 425 - 138 = 287 points. Step 2 (Sanav + Rahul Combined): 425 + 287 = 712 points!',
+        options: ['712 points', '287 points', '563 points', '850 points'],
+        correctIndex: 0,
+        trapExplanation: '287 points is only Rahul\'s score (Step 1)! Always re-read the final question: "How many did Sanav and Rahul score COMBINED?" 425 + 287 = 712 points.'
+      },
+      {
+        id: 'wp-2',
+        tag: 'Unknown Start • Working Backwards',
+        prompt: 'A bakery had some muffins this morning. In the morning they sold 165 muffins. In the afternoon they baked 80 MORE muffins. Now there are 215 muffins on the shelf. How many muffins did the bakery START with this morning?',
+        totalPerimeter: '? Start',
+        knownSides: ['Start - 165 + 80 = 215'],
+        knownSum: 135,
+        missingValue: 300,
+        unit: 'muffins',
+        shapeType: 'word-only',
+        svgLabels: {},
+        step1Hint: 'When the START is unknown, work backwards from the end (215) using inverse operations!',
+        step2Hint: 'Before baking 80 more, they had 215 - 80 = 135 muffins. Before selling 165 in the morning, they had 135 + 165 = 300 muffins! (Check: 300 - 165 = 135; 135 + 80 = 215 ✓)',
+        options: ['300 muffins', '135 muffins', '295 muffins', '460 muffins'],
+        correctIndex: 0,
+        trapExplanation: 'Test your answer from the beginning! Start with 300 -> sell 165 (300 - 165 = 135) -> bake 80 more (135 + 80 = 215). It matches!'
+      },
+      {
+        id: 'wp-3',
+        tag: 'Subtracting Across Zeros • 2-Step Goal',
+        prompt: 'A school library wants to collect 1,000 books. Third grade donated 346 books, and fourth grade donated 289 books. How many MORE books does the library still need to reach 1,000?',
+        totalPerimeter: 1000,
+        knownSides: ['346', '289'],
+        knownSum: 635,
+        missingValue: 365,
+        unit: 'books',
+        shapeType: 'word-only',
+        svgLabels: {},
+        step1Hint: 'Step 1: Add the books already donated: 346 + 289 = 635 books.',
+        step2Hint: 'Step 2: Subtract from 1,000 using the "Minus 1 Trick" (subtract 1 from both numbers so there is zero borrowing!): 999 - 634 = 365 books!',
+        options: ['365 books', '635 books', '465 books', '375 books'],
+        correctIndex: 0,
+        trapExplanation: '635 is Step 1 (346 + 289). For Step 2 (1,000 - 635), use the Minus-1 Trick: 999 - 634 = 365 books!'
+      },
+      {
+        id: 'wp-4',
+        tag: 'Multi-Step Money • Change Back from $500',
+        prompt: 'Mr. Janar had $500 to buy robotics kits. He bought a sensor kit for $178 and a motor kit for $145. How much money does he have LEFT?',
+        totalPerimeter: 500,
+        knownSides: ['$178', '$145'],
+        knownSum: 323,
+        missingValue: 177,
+        unit: 'dollars',
+        shapeType: 'word-only',
+        svgLabels: {},
+        step1Hint: 'Step 1: Add the cost of both kits first: $178 + $145 = $323.',
+        step2Hint: 'Step 2: Subtract from $500 (Minus-1 Trick: 499 - 322 = $177)!',
+        options: ['$177', '$323', '$187', '$277'],
+        correctIndex: 0,
+        trapExplanation: '$323 is the total spent (Step 1). Subtract $323 from $500: 499 - 322 = $177 left!'
+      },
+      {
+        id: 'wp-5',
+        tag: '3-Group Comparison • Reading Carefully',
+        prompt: 'There are 610 students at a carnival. 215 are in 3rd grade, and 198 are in 4th grade. The rest are in 5th grade. How many MORE students are in 3rd grade than in 5th grade?',
+        totalPerimeter: 610,
+        knownSides: ['3rd: 215', '4th: 198'],
+        knownSum: 413,
+        missingValue: 18,
+        unit: 'students',
+        shapeType: 'word-only',
+        svgLabels: {},
+        step1Hint: 'First find how many are in 5th grade! Add 3rd + 4th: 215 + 198 = 413. Subtract from 610: 610 - 413 = 197 students in 5th grade.',
+        step2Hint: 'Now read the final question carefully: "How many MORE in 3rd grade (215) than 5th grade (197)?" Subtract: 215 - 197 = 18 students!',
+        options: ['18 students', '197 students', '413 students', '17 students'],
+        correctIndex: 0,
+        trapExplanation: '197 is the number of 5th graders! The final question asks how many MORE 3rd graders (215) than 5th graders (197): 215 - 197 = 18.'
+      },
+      {
+        id: 'wp-6',
+        tag: 'Strip Diagram Equation Match • TEKS 3.5A',
+        prompt: 'Sanav had 260 collector cards. He bought 75 more cards on Saturday, and then gave 48 duplicate cards to his friend. How many cards does Sanav have now?',
+        totalPerimeter: '? Now',
+        knownSides: ['Start: 260', '+ 75 bought', '- 48 given'],
+        knownSum: 335,
+        missingValue: 287,
+        unit: 'cards',
+        shapeType: 'word-only',
+        svgLabels: {},
+        step1Hint: 'Follow the story in order: "bought 75 more" means ADD (+ 75). "gave 48 to his friend" means SUBTRACT (- 48).',
+        step2Hint: 'Step 1: 260 + 75 = 335 cards. Step 2: 335 - 48 = 287 cards!',
+        options: ['287 cards', '335 cards', '383 cards', '233 cards'],
+        correctIndex: 0,
+        trapExplanation: 'Step 1: 260 + 75 = 335 cards. Step 2: Subtract the 48 cards he gave away: 335 - 48 = 287 cards!'
+      }
+    ];
+
+    // =========================================================================
+    // STATE MANAGEMENT & PERSISTENCE
+    // =========================================================================
+    const state = {
+      activeTab: 'overview',
+      index: { perimeter: 0, missing: 0, wordps: 0 },
+      solved: JSON.parse(localStorage.getItem('sanav_solved_v1') || '{"perimeter":[],"missing":[],"wordps":[]}'),
+      starred: JSON.parse(localStorage.getItem('sanav_starred_v1') || '{"perimeter":[],"missing":[],"wordps":[]}'),
+      strategyStars: parseInt(localStorage.getItem('sanav_stars_v1') || '0', 10),
+      checkedSides: {}
+    };
+
+    function saveState() {
+      localStorage.setItem('sanav_solved_v1', JSON.stringify(state.solved));
+      localStorage.setItem('sanav_starred_v1', JSON.stringify(state.starred));
+      localStorage.setItem('sanav_stars_v1', String(state.strategyStars));
+      updateOverviewProgress();
+    }
+
+    function addStrategyStar(amount = 1) {
+      state.strategyStars += amount;
+      document.getElementById('perseveranceCount').textContent = state.strategyStars;
+      saveState();
+    }
+
+    function updateOverviewProgress() {
+      document.getElementById('perseveranceCount').textContent = state.strategyStars;
+      ['perimeter', 'missing', 'wordps'].forEach(mod => {
+        const count = state.solved[mod].length;
+        const pct = Math.round((count / 6) * 100);
+        const labelEl = document.getElementById(`prog-label-${mod}`);
+        const barEl = document.getElementById(`prog-bar-${mod}`);
+        if (labelEl) labelEl.textContent = `${count} of 6 Mastered`;
+        if (barEl) barEl.style.width = `${pct}%`;
+      });
+    }
+
+    function switchTab(tabName) {
+      const updateDOM = () => {
+        state.activeTab = tabName;
+        document.querySelectorAll('.seg-btn').forEach(btn => {
+          btn.classList.toggle('active', btn.dataset.tab === tabName);
+        });
+        document.querySelectorAll('.view-section').forEach(sec => {
+          sec.classList.toggle('active', sec.id === `view-${tabName}`);
+        });
+
+        if (tabName !== 'overview') {
+          renderModule(tabName);
+        } else {
+          updateOverviewProgress();
+        }
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      };
+
+      if (document.startViewTransition) {
+        document.startViewTransition(updateDOM);
+      } else {
+        updateDOM();
+      }
+    }
+
+    // =========================================================================
+    // VISUAL STAGE RENDERERS
+    // =========================================================================
+
+    function renderGeometrySVG(q) {
+      if (q.shapeType === 'rectangle-word' || q.shapeType === 'rectangle-split') {
+        const rightColor = q.shapeType === 'rectangle-split' ? '#FF6B00' : '#00857A';
+        return `
+          <svg width="330" height="170" viewBox="0 0 330 170">
+            <rect x="65" y="34" width="200" height="96" rx="6" fill="rgba(0,102,204,0.08)" stroke="#0066CC" stroke-width="3"/>
+            <text x="165" y="24" text-anchor="middle" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.top}</text>
+            <text x="165" y="152" text-anchor="middle" font-size="14" font-weight="700" fill="#00857A">${q.svgLabels.bottom}</text>
+            <text x="54" y="86" text-anchor="end" font-size="15" font-weight="700" fill="${rightColor}">${q.svgLabels.left}</text>
+            <text x="276" y="86" text-anchor="start" font-size="14" font-weight="700" fill="${rightColor}">${q.svgLabels.right}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'l-shape' || q.shapeType === 'l-shape-missing') {
+        return `
+          <svg width="310" height="182" viewBox="0 0 310 182">
+            <polygon points="60,30 220,30 220,145 155,145 155,95 60,95" fill="rgba(0,133,122,0.09)" stroke="#00857A" stroke-width="3" stroke-linejoin="round"/>
+            <text x="140" y="20" text-anchor="middle" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.top}</text>
+            <text x="230" y="92" text-anchor="start" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.right}</text>
+            <text x="187" y="165" text-anchor="middle" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.bot}</text>
+            <text x="146" y="126" text-anchor="end" font-size="14" font-weight="700" fill="#FF6B00">${q.svgLabels.inV}</text>
+            <text x="105" y="114" text-anchor="middle" font-size="14" font-weight="700" fill="#FF6B00">${q.svgLabels.inH}</text>
+            <text x="48" y="68" text-anchor="end" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.left}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'compare-tri-sq') {
+        return `
+          <div style="display:flex; gap:32px; flex-wrap:wrap; justify-content:center; align-items:center;">
+            <div style="text-align:center;">
+              <svg width="130" height="110" viewBox="0 0 130 110">
+                <polygon points="65,12 15,96 115,96" fill="rgba(0,102,204,0.08)" stroke="#0066CC" stroke-width="3"/>
+                <text x="65" y="78" text-anchor="middle" font-size="12" font-weight="700">15 cm × 3</text>
+              </svg>
+            </div>
+            <div style="text-align:center;">
+              <svg width="120" height="110" viewBox="0 0 120 110">
+                <rect x="20" y="16" width="80" height="80" rx="5" fill="rgba(0,133,122,0.09)" stroke="#00857A" stroke-width="3"/>
+                <text x="60" y="60" text-anchor="middle" font-size="12" font-weight="700">12 cm × 4</text>
+              </svg>
+            </div>
+          </div>
+        `;
+      }
+      if (q.shapeType === 'triangle') {
+        return `
+          <svg width="280" height="170" viewBox="0 0 280 170">
+            <polygon points="140,22 45,142 235,142" fill="rgba(0,102,204,0.08)" stroke="#0066CC" stroke-width="3" stroke-linejoin="round"/>
+            <text x="68" y="80" font-size="15" font-weight="700" fill="#FF6B00">${q.svgLabels.left}</text>
+            <text x="176" y="80" font-size="15" font-weight="700" fill="#FF6B00">${q.svgLabels.right}</text>
+            <text x="140" y="164" text-anchor="middle" font-size="16" font-weight="700" fill="#1D1D1F">${q.svgLabels.bottom}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'trapezoid') {
+        return `
+          <svg width="300" height="170" viewBox="0 0 300 170">
+            <polygon points="85,36 215,36 250,136 50,136" fill="rgba(0,133,122,0.1)" stroke="#00857A" stroke-width="3" stroke-linejoin="round"/>
+            <text x="150" y="25" text-anchor="middle" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.top}</text>
+            <text x="44" y="90" text-anchor="end" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.left}</text>
+            <text x="256" y="90" text-anchor="start" font-size="15" font-weight="700" fill="#1D1D1F">${q.svgLabels.right}</text>
+            <text x="150" y="158" text-anchor="middle" font-size="16" font-weight="700" fill="#FF6B00">${q.svgLabels.bottom}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'pentagon') {
+        return `
+          <svg width="300" height="180" viewBox="0 0 300 180">
+            <polygon points="150,22 235,74 205,146 95,146 65,74" fill="rgba(88,86,214,0.09)" stroke="#5856D6" stroke-width="3" stroke-linejoin="round"/>
+            <text x="95" y="42" text-anchor="end" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.tl}</text>
+            <text x="205" y="42" text-anchor="start" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.tr}</text>
+            <text x="64" y="122" text-anchor="end" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.bl}</text>
+            <text x="236" y="122" text-anchor="start" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.br}</text>
+            <text x="150" y="168" text-anchor="middle" font-size="16" font-weight="700" fill="#FF6B00">${q.svgLabels.bottom}</text>
+          </svg>
+        `;
+      }
+      if (q.shapeType === 'hexagon') {
+        return `
+          <svg width="240" height="165" viewBox="0 0 240 165">
+            <polygon points="90,26 150,26 182,82 150,138 90,138 58,82" fill="rgba(255,107,0,0.09)" stroke="#FF6B00" stroke-width="3" stroke-linejoin="round"/>
+            <text x="120" y="86" text-anchor="middle" font-size="14" font-weight="700" fill="#1D1D1F">${q.svgLabels.top}</text>
+          </svg>
+        `;
+      }
+      return '';
+    }
+
+    function renderSideCheckBar(q) {
+      const pills = q.knownSides.map((s, idx) => {
+        const key = `${q.id}-side-${idx}`;
+        const isChecked = !!state.checkedSides[key];
+        return `
+          <button type="button" class="side-pill ${isChecked ? 'checked' : ''}" onclick="toggleSideCheck('${key}')">
+            ${isChecked ? '✓ ' : '+ '}${s}
+          </button>
+        `;
+      }).join('');
+      return `
+        <div class="side-check-bar">
+          ${pills}
+        </div>
+        <div style="font-size:12.5px; color:var(--text-tertiary); margin-top:10px;">
+          Tap each side badge above as you add it so zero sides get skipped!
+        </div>
+      `;
+    }
+
+    function toggleSideCheck(key) {
+      if (!state.checkedSides[key]) {
+        state.checkedSides[key] = true;
+        addStrategyStar(1);
+      } else {
+        delete state.checkedSides[key];
+      }
+      renderModule(state.activeTab);
+    }
+
+    function renderStripDiagram(q) {
+      const partsHtml = q.knownSides.map(s => `<div class="strip-part">${s}</div>`).join('');
+      return `
+        <div class="strip-diagram-box">
+          <div class="strip-label">2-Step Part-Part-Whole Model</div>
+          <div class="strip-total-bar">Total / Goal = ${q.totalPerimeter} ${q.unit !== 'pts' ? q.unit : ''}</div>
+          <div class="strip-parts-row">
+            ${partsHtml}
+            <div class="strip-part unknown">? (${q.unit})</div>
+          </div>
+        </div>
+      `;
+    }
+
+    // =========================================================================
+    // STUDIO MODULE RENDERER
+    // =========================================================================
+
+    function getQuestionsForModule(mod) {
+      if (mod === 'perimeter') return PERIMETER_QUESTIONS;
+      if (mod === 'missing') return MISSING_LENGTH_QUESTIONS;
+      return WORD_PS_QUESTIONS;
+    }
+
+    function renderModule(mod) {
+      const questions = getQuestionsForModule(mod);
+      const qIdx = state.index[mod];
+      const q = questions[qIdx];
+
+      const dotsEl = document.getElementById(`dots-${mod}`);
+      dotsEl.innerHTML = questions.map((item, i) => {
+        const isCurrent = i === qIdx ? 'current' : '';
+        const isSolved = state.solved[mod].includes(item.id) ? 'solved' : '';
+        const isStarred = state.starred[mod].includes(item.id) ? 'starred' : '';
+        return `<button class="q-dot ${isCurrent} ${isSolved} ${isStarred}" onclick="jumpToQuestion('${mod}', ${i})" title="Problem ${i + 1}">${i + 1}</button>`;
+      }).join('');
+
+      const isStarredNow = state.starred[mod].includes(q.id);
+      const visualContent = mod === 'perimeter'
+        ? `${renderGeometrySVG(q)}${renderSideCheckBar(q)}`
+        : `${renderGeometrySVG(q)}${renderStripDiagram(q)}`;
+
+      const cardEl = document.getElementById(`card-${mod}`);
+      cardEl.innerHTML = `
+        <div class="question-meta">
+          <span class="pill-tag ${mod === 'perimeter' ? 'orange' : mod === 'missing' ? 'teal' : 'indigo'}">
+            Problem ${qIdx + 1} of ${questions.length} &bull; ${q.tag}
+          </span>
+          <button type="button" class="btn-secondary" onclick="toggleStarQuestion('${mod}', '${q.id}')" style="padding:6px 14px; font-size:13px;">
+            ${isStarredNow ? '★ Starred for Later' : '☆ Star & Come Back'}
+          </button>
+        </div>
+
+        <p class="question-prompt">${q.prompt}</p>
+
+        <div class="visual-stage">
+          ${visualContent}
+        </div>
+
+        <!-- Strategy & Trap-Detector Coach -->
+        <div class="struggle-coach">
+          <div class="coach-header">
+            <div class="coach-title">
+              <span>🧭</span>
+              <span>Sanav's Precision Coach — Beat the Step-1 Trap:</span>
+            </div>
+            <div class="coach-steps-btns">
+              <button type="button" class="chip-btn" id="btn-step1-${q.id}" onclick="revealCoachStep('${q.id}', 1)">
+                1. Spot the Trap
+              </button>
+              <button type="button" class="chip-btn" id="btn-step2-${q.id}" onclick="revealCoachStep('${q.id}', 2)">
+                2. 2-Step Strategy
+              </button>
+              <button type="button" class="chip-btn" id="btn-step3-${q.id}" onclick="revealCoachStep('${q.id}', 3)">
+                3. Scratchpad Check
+              </button>
+            </div>
+          </div>
+          <div class="coach-drawer" id="drawer-${q.id}"></div>
+        </div>
+
+        <!-- Answer Options -->
+        <div class="options-grid">
+          ${q.options.map((opt, idx) => `
+            <button type="button" class="option-btn" id="opt-${q.id}-${idx}" onclick="checkAnswer('${mod}', '${q.id}', ${idx})">
+              <span>${opt}</span>
+              <span style="font-size:13px; color:var(--text-tertiary);">Select</span>
+            </button>
+          `).join('')}
+        </div>
+
+        <div class="feedback-box" id="feedback-${q.id}"></div>
+
+        <div class="studio-bottom-nav">
+          <button type="button" class="btn-secondary" onclick="prevQuestion('${mod}')" ${qIdx === 0 ? 'disabled style="opacity:0.4; cursor:default;"' : ''}>
+            &larr; Previous
+          </button>
+          <span style="font-size:13px; color:var(--text-tertiary);">
+            ${state.solved[mod].includes(q.id) ? '✓ Completed' : 'Verify Step 2 before clicking!'}
+          </span>
+          <button type="button" class="btn-primary" onclick="nextQuestion('${mod}')">
+            ${qIdx === questions.length - 1 ? 'Finish & Review' : 'Next Problem &rarr;'}
+          </button>
+        </div>
+      `;
+    }
+
+    function revealCoachStep(qId, stepNum) {
+      const allQuestions = [...PERIMETER_QUESTIONS, ...MISSING_LENGTH_QUESTIONS, ...WORD_PS_QUESTIONS];
+      const q = allQuestions.find(item => item.id === qId);
+      if (!q) return;
+
+      const btn = document.getElementById(`btn-step${stepNum}-${qId}`);
+      if (btn && !btn.classList.contains('revealed')) {
+        btn.classList.add('revealed');
+        addStrategyStar(1);
+      }
+
+      const drawer = document.getElementById(`drawer-${qId}`);
+      drawer.classList.add('open');
+
+      if (stepNum === 1) {
+        drawer.innerHTML = `<strong>Step 1 (Trap Detector):</strong> ${q.step1Hint}`;
+      } else if (stepNum === 2) {
+        drawer.innerHTML = `<strong>Step 2 (2-Step Solution):</strong> ${q.step2Hint}`;
+      } else {
+        drawer.innerHTML = `
+          <div><strong>Step 3 (2-Step Scratchpad):</strong> Write Step 1 first so you don't pick the halfway trap!</div>
+          <div class="scratchpad-row">
+            <span>Step 1 Result:</span>
+            <input type="text" class="scratch-input" placeholder="e.g. ${q.knownSum || ''}" />
+            <span>&rarr; Step 2 Final:</span>
+            <input type="text" class="scratch-input" placeholder="?" />
+          </div>
+        `;
+      }
+    }
+
+    function checkAnswer(mod, qId, selectedIdx) {
+      const questions = getQuestionsForModule(mod);
+      const q = questions.find(item => item.id === qId);
+      if (!q) return;
+
+      const btn = document.getElementById(`opt-${qId}-${selectedIdx}`);
+      const feedbackEl = document.getElementById(`feedback-${qId}`);
+      feedbackEl.classList.add('show');
+
+      if (selectedIdx === q.correctIndex) {
+        btn.classList.add('selected-correct');
+        feedbackEl.className = 'feedback-box show positive';
+        feedbackEl.innerHTML = `
+          <strong>Precision Mastery, Sanav! ★</strong> You beat the trap and solved all steps accurately.
+        `;
+        if (!state.solved[mod].includes(qId)) {
+          state.solved[mod].push(qId);
+          state.starred[mod] = state.starred[mod].filter(id => id !== qId);
+          addStrategyStar(2);
+        }
+        saveState();
+        renderDotsOnly(mod);
+      } else {
+        btn.classList.add('selected-try-again');
+        feedbackEl.className = 'feedback-box show nudge';
+        feedbackEl.innerHTML = `
+          <strong>Watch Out for the Step-1 Trap:</strong> ${q.trapExplanation}
+          <br/><span style="font-size:13.5px; display:inline-block; margin-top:6px;">💡 Click <strong>"2. 2-Step Strategy"</strong> above and finish Step 2!</span>
+        `;
+      }
+    }
+
+    function renderDotsOnly(mod) {
+      const questions = getQuestionsForModule(mod);
+      const qIdx = state.index[mod];
+      const dotsEl = document.getElementById(`dots-${mod}`);
+      if (!dotsEl) return;
+      dotsEl.innerHTML = questions.map((item, i) => {
+        const isCurrent = i === qIdx ? 'current' : '';
+        const isSolved = state.solved[mod].includes(item.id) ? 'solved' : '';
+        const isStarred = state.starred[mod].includes(item.id) ? 'starred' : '';
+        return `<button class="q-dot ${isCurrent} ${isSolved} ${isStarred}" onclick="jumpToQuestion('${mod}', ${i})">${i + 1}</button>`;
+      }).join('');
+    }
+
+    function toggleStarQuestion(mod, qId) {
+      const arr = state.starred[mod];
+      if (arr.includes(qId)) {
+        state.starred[mod] = arr.filter(id => id !== qId);
+      } else {
+        arr.push(qId);
+      }
+      saveState();
+      renderModule(mod);
+    }
+
+    function jumpToQuestion(mod, idx) {
+      state.index[mod] = idx;
+      renderModule(mod);
+    }
+
+    function prevQuestion(mod) {
+      if (state.index[mod] > 0) {
+        state.index[mod]--;
+        renderModule(mod);
+      }
+    }
+
+    function nextQuestion(mod) {
+      const questions = getQuestionsForModule(mod);
+      if (state.index[mod] < questions.length - 1) {
+        state.index[mod]++;
+        renderModule(mod);
+      } else {
+        switchTab('overview');
+      }
+    }
+
+    updateOverviewProgress();
+  </script>
+</body>
+</html>
