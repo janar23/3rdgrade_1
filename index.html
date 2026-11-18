@@ -1223,6 +1223,566 @@
       color: white;
     }
 
+    /* ==========================================================================
+       APPLE-STYLE POWERFUL PATTERNS STUDIO (-LE FINAL STABLE SYLLABLES)
+       ========================================================================== */
+    .apple-studio-launch-btn {
+      border: none;
+      cursor: pointer;
+      background: linear-gradient(135deg, #1D1D1F 0%, #2C2C2E 50%, #0066CC 100%);
+      color: #FFFFFF;
+      padding: 8px 16px;
+      border-radius: 999px;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif;
+      font-size: 0.85rem;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+      display: inline-flex;
+      align-items: center;
+      gap: 7px;
+      box-shadow: 0 6px 18px rgba(0, 102, 204, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+      transition: transform 0.2s cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.2s ease;
+    }
+
+    body.sanha-theme .apple-studio-launch-btn {
+      background: linear-gradient(135deg, #1D1D1F 0%, #3A1C35 50%, #FF2D55 100%);
+      box-shadow: 0 6px 18px rgba(255, 45, 85, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.22);
+    }
+
+    .apple-studio-launch-btn:hover {
+      transform: translateY(-2px) scale(1.02);
+      box-shadow: 0 10px 24px rgba(0, 102, 204, 0.36);
+    }
+
+    .apple-studio-overlay {
+      display: none;
+      position: fixed;
+      inset: 0;
+      z-index: 9500;
+      background: #F5F5F7;
+      color: #1D1D1F;
+      overflow-y: auto;
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+      -webkit-font-smoothing: antialiased;
+      animation: appleStudioFadeIn 0.28s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    .apple-studio-overlay.active {
+      display: block;
+    }
+
+    @keyframes appleStudioFadeIn {
+      from { opacity: 0; transform: scale(0.985) translateY(10px); }
+      to { opacity: 1; transform: scale(1) translateY(0); }
+    }
+
+    .apple-studio-overlay * {
+      font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Helvetica Neue", Arial, sans-serif;
+    }
+
+    .ap-top-nav {
+      position: sticky;
+      top: 0;
+      z-index: 200;
+      background: rgba(255, 255, 255, 0.82);
+      backdrop-filter: saturate(180%) blur(22px);
+      -webkit-backdrop-filter: saturate(180%) blur(22px);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+      padding: 12px 24px;
+    }
+
+    .ap-top-nav-inner {
+      max-width: 1120px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 14px;
+      flex-wrap: wrap;
+    }
+
+    .ap-brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .ap-brand-badge {
+      width: 38px;
+      height: 38px;
+      border-radius: 11px;
+      background: linear-gradient(135deg, #0066CC 0%, #5856D6 100%);
+      color: #FFFFFF;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-weight: 700;
+      font-size: 16px;
+      box-shadow: 0 4px 12px rgba(0, 102, 204, 0.25);
+    }
+
+    body.sanha-theme .ap-brand-badge {
+      background: linear-gradient(135deg, #FF2D55 0%, #AF52DE 100%);
+      box-shadow: 0 4px 12px rgba(255, 45, 85, 0.25);
+    }
+
+    .ap-brand-title h2 {
+      font-size: 17px;
+      font-weight: 600;
+      letter-spacing: -0.02em;
+      color: #1D1D1F;
+      line-height: 1.2;
+    }
+
+    .ap-brand-title span {
+      display: block;
+      font-size: 12px;
+      color: #6E6E73;
+      font-weight: 400;
+    }
+
+    .ap-segmented-nav {
+      display: inline-flex;
+      background: #EFEFF4;
+      padding: 4px;
+      border-radius: 999px;
+      border: 1px solid rgba(0, 0, 0, 0.06);
+      gap: 3px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+
+    .ap-seg-btn {
+      border: none;
+      background: transparent;
+      color: #6E6E73;
+      font-size: 13px;
+      font-weight: 500;
+      padding: 7px 14px;
+      border-radius: 999px;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      white-space: nowrap;
+    }
+
+    .ap-seg-btn:hover {
+      color: #1D1D1F;
+    }
+
+    .ap-seg-btn.active {
+      background: #FFFFFF;
+      color: #1D1D1F;
+      font-weight: 600;
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    }
+
+    .ap-back-btn {
+      border: 1px solid rgba(0, 0, 0, 0.1);
+      background: #FFFFFF;
+      color: #1D1D1F;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 7px 15px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      transition: all 0.2s ease;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+    }
+
+    .ap-back-btn:hover {
+      background: #1D1D1F;
+      color: #FFFFFF;
+    }
+
+    .ap-container {
+      max-width: 1120px;
+      margin: 0 auto;
+      padding: 28px 20px 80px;
+    }
+
+    .ap-hero {
+      background: #FFFFFF;
+      border-radius: 26px;
+      padding: 26px 30px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      box-shadow: 0 12px 36px -10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 24px;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    .ap-eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11.5px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.06em;
+      color: #0066CC;
+      background: rgba(0, 102, 204, 0.1);
+      padding: 5px 12px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    body.sanha-theme .ap-eyebrow {
+      color: #FF2D55;
+      background: rgba(255, 45, 85, 0.1);
+    }
+
+    .ap-hero h1 {
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.025em;
+      color: #1D1D1F;
+      margin-bottom: 6px;
+    }
+
+    .ap-hero p {
+      font-size: 15px;
+      color: #6E6E73;
+      max-width: 680px;
+      line-height: 1.5;
+    }
+
+    .ap-protocol-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      gap: 10px;
+      width: 100%;
+      margin-top: 16px;
+      padding-top: 16px;
+      border-top: 1px solid rgba(0, 0, 0, 0.06);
+    }
+
+    .ap-protocol-step {
+      background: #F5F5F7;
+      border-radius: 14px;
+      padding: 10px 14px;
+      font-size: 12.5px;
+      color: #1D1D1F;
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+    }
+
+    .ap-protocol-num {
+      background: #0066CC;
+      color: #FFFFFF;
+      font-weight: 700;
+      font-size: 11px;
+      width: 22px;
+      height: 22px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    body.sanha-theme .ap-protocol-num {
+      background: #FF2D55;
+    }
+
+    .ap-stage-pane {
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    .ap-stage-pane.active {
+      display: block;
+    }
+
+    .ap-card {
+      background: #FFFFFF;
+      border-radius: 24px;
+      padding: 24px 26px;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      box-shadow: 0 10px 32px -10px rgba(0, 0, 0, 0.05);
+      margin-bottom: 20px;
+    }
+
+    .ap-inspector-card {
+      background: linear-gradient(135deg, #FFFFFF 0%, #F8FAFC 100%);
+      border: 2px solid #0066CC;
+      border-radius: 24px;
+      padding: 24px 28px;
+      box-shadow: 0 16px 40px -12px rgba(0, 102, 204, 0.14);
+      margin-bottom: 22px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      flex-wrap: wrap;
+    }
+
+    body.sanha-theme .ap-inspector-card {
+      border-color: #FF2D55;
+      box-shadow: 0 16px 40px -12px rgba(255, 45, 85, 0.14);
+    }
+
+    .ap-word-grid-5 {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 10px;
+    }
+
+    @media (max-width: 820px) {
+      .ap-word-grid-5 {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    .ap-word-tile {
+      background: #F5F5F7;
+      border: 1.5px solid rgba(0, 0, 0, 0.06);
+      border-radius: 16px;
+      padding: 14px 12px;
+      text-align: center;
+      cursor: pointer;
+      transition: all 0.18s cubic-bezier(0.25, 1, 0.5, 1);
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 4px;
+    }
+
+    .ap-word-tile:hover {
+      background: #FFFFFF;
+      border-color: #0066CC;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(0, 102, 204, 0.12);
+    }
+
+    body.sanha-theme .ap-word-tile:hover {
+      border-color: #FF2D55;
+      box-shadow: 0 8px 20px rgba(255, 45, 85, 0.12);
+    }
+
+    .ap-word-tile.selected {
+      background: #0066CC;
+      color: #FFFFFF;
+      border-color: #0066CC;
+      box-shadow: 0 8px 22px rgba(0, 102, 204, 0.28);
+    }
+
+    body.sanha-theme .ap-word-tile.selected {
+      background: #FF2D55;
+      border-color: #FF2D55;
+      box-shadow: 0 8px 22px rgba(255, 45, 85, 0.28);
+    }
+
+    .ap-word-tile.mastered::after {
+      content: "✓";
+      position: absolute;
+      top: 6px;
+      right: 8px;
+      font-size: 11px;
+      font-weight: 800;
+      color: #28CD41;
+      background: rgba(40, 205, 65, 0.14);
+      width: 18px;
+      height: 18px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+    }
+
+    .ap-word-tile.selected.mastered::after {
+      color: #FFFFFF;
+      background: rgba(255, 255, 255, 0.25);
+    }
+
+    .ap-tile-main {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: -0.01em;
+    }
+
+    .ap-tile-sub {
+      font-size: 11.5px;
+      opacity: 0.72;
+      font-weight: 500;
+    }
+
+    .ap-chunk-pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 10px 20px;
+      border-radius: 14px;
+      font-size: 24px;
+      font-weight: 700;
+      background: #F5F5F7;
+      color: #1D1D1F;
+      border: 2px solid rgba(0, 0, 0, 0.08);
+      cursor: pointer;
+      transition: all 0.18s ease;
+    }
+
+    .ap-chunk-pill.cle-ending {
+      background: rgba(0, 102, 204, 0.1);
+      color: #0066CC;
+      border-color: #0066CC;
+    }
+
+    body.sanha-theme .ap-chunk-pill.cle-ending {
+      background: rgba(255, 45, 85, 0.1);
+      color: #FF2D55;
+      border-color: #FF2D55;
+    }
+
+    .ap-chunk-pill:hover {
+      transform: scale(1.06);
+    }
+
+    .ap-btn-primary {
+      border: none;
+      background: #0066CC;
+      color: #FFFFFF;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 11px 20px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+      box-shadow: 0 4px 14px rgba(0, 102, 204, 0.25);
+    }
+
+    body.sanha-theme .ap-btn-primary {
+      background: #FF2D55;
+      box-shadow: 0 4px 14px rgba(255, 45, 85, 0.25);
+    }
+
+    .ap-btn-primary:hover {
+      transform: translateY(-1px);
+      filter: brightness(1.05);
+    }
+
+    .ap-btn-secondary {
+      border: 1px solid rgba(0, 0, 0, 0.12);
+      background: #F5F5F7;
+      color: #1D1D1F;
+      font-size: 14px;
+      font-weight: 600;
+      padding: 10px 18px;
+      border-radius: 999px;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 7px;
+      transition: all 0.2s ease;
+    }
+
+    .ap-btn-secondary:hover {
+      background: #E5E5EA;
+    }
+
+    .ap-ending-choice-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      justify-content: center;
+      margin: 18px 0;
+    }
+
+    .ap-ending-btn {
+      border: 2px solid rgba(0, 0, 0, 0.1);
+      background: #FFFFFF;
+      color: #1D1D1F;
+      font-size: 20px;
+      font-weight: 700;
+      padding: 14px 24px;
+      border-radius: 16px;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      min-width: 92px;
+    }
+
+    .ap-ending-btn:hover {
+      border-color: #0066CC;
+      transform: translateY(-2px);
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    .ap-ending-btn.correct {
+      background: #28CD41 !important;
+      color: #FFFFFF !important;
+      border-color: #28CD41 !important;
+    }
+
+    .ap-ending-btn.wrong {
+      background: #FF3B30 !important;
+      color: #FFFFFF !important;
+      border-color: #FF3B30 !important;
+    }
+
+    .ap-timed-table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 14px;
+      font-size: 14px;
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .ap-timed-table th {
+      background: #F5F5F7;
+      color: #6E6E73;
+      font-weight: 600;
+      text-align: left;
+      padding: 12px 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.08);
+    }
+
+    .ap-timed-table td {
+      padding: 14px 16px;
+      border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+      color: #1D1D1F;
+      font-weight: 500;
+    }
+
+    .ap-fluency-token {
+      display: inline-block;
+      padding: 6px 11px;
+      margin: 4px;
+      border-radius: 10px;
+      background: #F5F5F7;
+      border: 1px solid rgba(0, 0, 0, 0.07);
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+    }
+
+    .ap-fluency-token:hover {
+      background: #E8F0FE;
+      border-color: #0066CC;
+    }
+
+    .ap-fluency-token.tricky-marked {
+      background: #FFEBEA;
+      border-color: #FF3B30;
+      color: #D70015;
+      text-decoration: underline wavy #FF3B30;
+    }
+
     @media (max-width: 768px) {
       header { flex-direction: column; align-items: stretch; }
       .main-tabs { flex-direction: column; }
@@ -1256,6 +1816,9 @@
 
     <!-- Stats & Audio -->
     <div class="header-stats">
+      <button type="button" class="apple-studio-launch-btn" onclick="openApplePatternsStudio()" title="Launch Apple-Style Powerful Patterns Practice (-le Words)">
+        <span>🍎</span> Powerful Patterns (-le)
+      </button>
       <div class="stat-badge">
         <span>⭐</span>
         <span id="starCounter">0 Stars</span>
@@ -1290,15 +1853,16 @@
     <section class="welcome-banner">
       <div>
         <h2 id="welcomeHeading">Welcome back, Super Sanav! 🌟</h2>
-        <p id="welcomeSubtext"><strong>This Week's Focus (Nov 2–6):</strong> Perimeter & Elapsed Time • Print Features • Everyday Energy • Culture!</p>
+        <p id="welcomeSubtext"><strong>This Week's Focus (Nov 17):</strong> Powerful Patterns (-le Final Stable Syllables) • Perimeter & Elapsed Time • Print Features • Everyday Energy!</p>
       </div>
       <div class="target-boost-tags" id="profilePills">
+        <button type="button" class="apple-studio-launch-btn" onclick="openApplePatternsStudio()">🍎 Powerful Patterns Studio (-le Words)</button>
         <a href="./sanav/index.html" class="boost-pill" style="text-decoration:none; background:#0066CC; color:white; box-shadow:0 4px 12px rgba(0,102,204,0.25);">🚀 Sanav Math Studio</a>
         <a href="./sanha/index.html" class="boost-pill" style="text-decoration:none; background:#FF2D55; color:white; box-shadow:0 4px 12px rgba(255,45,85,0.25);">✨ Sanha Math Studio</a>
         <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('math'); filterMathWeek('nov2');">⏱️ Perimeter & Time</button>
         <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(0);">📑 Print Features</button>
         <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('missions'); selectBook(1);">⚡ Everyday Energy</button>
-        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('reading'); selectPhonicsUnit(0);">✍️ Nov 2–6 Literacy</button>
+        <button type="button" class="boost-pill" style="border:none; cursor:pointer;" onclick="switchTab('reading'); selectPhonicsUnit(0);">✍️ Powerful Patterns Literacy</button>
       </div>
     </section>
 
@@ -1714,6 +2278,9 @@
             </p>
           </div>
           <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+            <button type="button" class="apple-studio-launch-btn" onclick="openApplePatternsStudio()">
+              🍎 Open Powerful Patterns Studio (-le Words) &rarr;
+            </button>
             <div style="background:white; color:#7C3AED; font-weight:800; font-size:0.85rem; padding:6px 14px; border-radius:14px; border:2px solid #DDD6FE;">
               ⚡ <span id="phonicsTotalWordCount">56</span> Target Words
             </div>
@@ -2100,6 +2667,419 @@
         <button class="action-btn" onclick="saveParentApiKey()">💾 Save Settings</button>
         <button class="action-btn secondary" style="width:auto;" onclick="clearParentApiKey()">🗑️ Clear Key</button>
       </div>
+    </div>
+  </div>
+
+  <!-- =========================================================================
+       APPLE-STYLE POWERFUL PATTERNS STUDIO (-LE FINAL STABLE SYLLABLES)
+       ========================================================================= -->
+  <div class="apple-studio-overlay" id="applePatternsStudioOverlay" role="dialog" aria-modal="true" aria-label="Powerful Patterns Practice Studio">
+    <!-- Sticky Apple Frosted Top Navigation -->
+    <nav class="ap-top-nav">
+      <div class="ap-top-nav-inner">
+        <div class="ap-brand">
+          <button type="button" class="ap-back-btn" onclick="closeApplePatternsStudio()">
+            ← Hub
+          </button>
+          <div class="ap-brand-badge" id="apBrandBadge">-le</div>
+          <div class="ap-brand-title">
+            <h2 id="apStudioTitle">Powerful Patterns Studio</h2>
+            <span>Final Stable Syllables (-ble, -ple, -dle, -fle, -tle, -gle, -cle)</span>
+          </div>
+        </div>
+
+        <!-- Stage Segmented Pill Nav -->
+        <div class="ap-segmented-nav" role="tablist">
+          <button type="button" class="ap-seg-btn active" id="apTabBtn0" onclick="switchApplePatternsStage(0)">1. Pattern Grid &amp; Slicer</button>
+          <button type="button" class="ap-seg-btn" id="apTabBtn1" onclick="switchApplePatternsStage(1)">2. C-le Builder</button>
+          <button type="button" class="ap-seg-btn" id="apTabBtn2" onclick="switchApplePatternsStage(2)">3. Meaning &amp; Phrases</button>
+          <button type="button" class="ap-seg-btn" id="apTabBtn3" onclick="switchApplePatternsStage(3)">4. Spelling Studio</button>
+          <button type="button" class="ap-seg-btn" id="apTabBtn4" onclick="switchApplePatternsStage(4)">5. Timed Read &amp; Bookmark</button>
+        </div>
+
+        <!-- Twin Switcher & Mastery Counter -->
+        <div style="display:flex; align-items:center; gap:10px;">
+          <div class="ap-segmented-nav" style="padding:3px;">
+            <button type="button" class="ap-seg-btn active" id="apTwinSanav" onclick="switchProfile('sanav'); syncAppleStudioProfile();">👦 Sanav</button>
+            <button type="button" class="ap-seg-btn" id="apTwinSanha" onclick="switchProfile('sanha'); syncAppleStudioProfile();">👧 Sanha</button>
+          </div>
+          <div style="background:#FEF3C7; color:#92400E; padding:6px 13px; border-radius:999px; font-weight:700; font-size:13px; display:flex; align-items:center; gap:5px;">
+            <span>⭐</span> <span id="apStarCounter">0</span>
+          </div>
+        </div>
+      </div>
+    </nav>
+
+    <div class="ap-container">
+      <!-- Apple Hero Card with 4-Day Classroom Protocol -->
+      <section class="ap-hero">
+        <div style="flex:1; min-width:280px;">
+          <div class="ap-eyebrow">
+            <span>🍎</span> Smotherman 3rd Grade • Powerful Patterns Practice
+          </div>
+          <h1>Master Final Stable Syllables (`Consonant + le`)</h1>
+          <p>
+            <strong>The "Count Back 3" Rule:</strong> When a word ends with a <strong>Consonant + le</strong> (like <code>-ble</code>, <code>-ple</code>, <code>-dle</code>, <code>-fle</code>, <code>-tle</code>, <code>-gle</code>, <code>-cle</code>), count back <strong>3 letters from the end</strong> and slice off that final stable syllable first!
+          </p>
+        </div>
+        <div style="background:#F5F5F7; border-radius:18px; padding:14px 18px; min-width:230px; text-align:right; border:1px solid rgba(0,0,0,0.06);">
+          <div style="font-size:11px; font-weight:700; text-transform:uppercase; letter-spacing:0.05em; color:#6E6E73;">Mastery Progress</div>
+          <div style="font-size:26px; font-weight:700; color:#1D1D1F; margin-top:2px;" id="apMasteryCountLabel">0 / 35 Words</div>
+          <div style="font-size:12px; color:#0066CC; font-weight:600; margin-top:2px;" id="apActiveStudentLabel">Practicing as Sanav</div>
+        </div>
+
+        <div class="ap-protocol-strip">
+          <div class="ap-protocol-step">
+            <span class="ap-protocol-num">1</span>
+            <div><strong>Day 1: Whole Class</strong><br><span style="color:#6E6E73;">Model fluency &amp; automaticity with syllable slicing.</span></div>
+          </div>
+          <div class="ap-protocol-step">
+            <span class="ap-protocol-num">2</span>
+            <div><strong>Day 1 or 2: Solo Practice</strong><br><span style="color:#6E6E73;">Read all 35 words, 10 phrases &amp; 2 sentences on your own.</span></div>
+          </div>
+          <div class="ap-protocol-step">
+            <span class="ap-protocol-num">3</span>
+            <div><strong>Day 2 or 3: Partner Read</strong><br><span style="color:#6E6E73;">Read aloud together with Sanav or Sanha as your partner.</span></div>
+          </div>
+          <div class="ap-protocol-step">
+            <span class="ap-protocol-num">4</span>
+            <div><strong>Day 2 or 3: Timed Challenge</strong><br><span style="color:#6E6E73;">Give partner Feedback Bookmark notes &amp; log 3 Timed Reads!</span></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STAGE 1: INTERACTIVE WORKSHEET GRID & "COUNT BACK 3" SLICER
+           =================================================================== -->
+      <section class="ap-stage-pane active" id="apStage0">
+        <!-- Live Apple Word Inspector -->
+        <div class="ap-inspector-card" id="apWordInspector">
+          <div style="flex:1; min-width:260px;">
+            <div style="display:flex; align-items:center; gap:8px; margin-bottom:8px; flex-wrap:wrap;">
+              <span style="background:#0066CC; color:#fff; font-size:11px; font-weight:700; padding:4px 10px; border-radius:999px; text-transform:uppercase;" id="apInspCategory">2-SYLLABLE • -BLE</span>
+              <span style="font-size:12.5px; color:#6E6E73; font-weight:600;" id="apInspRule">Open 1st Syllable (Long Vowel) + Final Stable Syllable</span>
+            </div>
+            <div style="display:flex; align-items:center; gap:12px; flex-wrap:wrap; margin:12px 0;">
+              <span style="font-size:34px;" id="apInspEmoji">💪</span>
+              <div id="apInspChunksContainer" style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+                <!-- Populated by JS -->
+              </div>
+              <span style="font-size:22px; color:#6E6E73; font-weight:600;">=</span>
+              <span style="font-size:30px; font-weight:800; color:#1D1D1F; letter-spacing:-0.02em;" id="apInspFullWord">able</span>
+            </div>
+            <p style="font-size:15px; color:#1D1D1F; font-weight:500; margin-bottom:4px;" id="apInspMeaning">
+              <strong>Meaning:</strong> Having the power, skill, or means to do something.
+            </p>
+            <p style="font-size:13.5px; color:#6E6E73; font-style:italic;" id="apInspExample">
+              "Sanav and Sanha are able to decode big three-syllable words!"
+            </p>
+          </div>
+          <div style="display:flex; flex-direction:column; gap:8px; min-width:200px;">
+            <button type="button" class="ap-btn-primary" onclick="apSpeakChunksThenBlend()">
+              🔊 Slice &amp; Blend Aloud
+            </button>
+            <button type="button" class="ap-btn-secondary" onclick="apSpeakSelectedWordSentence()">
+              💬 Hear Meaning &amp; Sentence
+            </button>
+            <button type="button" class="ap-btn-secondary" id="apMarkMasteredBtn" onclick="apToggleMasteredCurrentWord()" style="background:#E8F8EE; color:#15803D; border-color:#86EFAC;">
+              ✓ Mark Word Mastered (+1 ⭐)
+            </button>
+          </div>
+        </div>
+
+        <!-- Filter Bar for Ending Families -->
+        <div class="ap-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin-bottom:16px;">
+            <div>
+              <h3 style="font-size:19px; font-weight:700; color:#1D1D1F;">Two-Syllable Words (25 Worksheet Words)</h3>
+              <p style="font-size:13px; color:#6E6E73;">Tap any word in the 5×5 grid to slice its syllables, hear it read aloud, and see its meaning.</p>
+            </div>
+            <div style="display:flex; gap:6px; flex-wrap:wrap;" id="apEndingFilterBar">
+              <button type="button" class="ap-seg-btn active" onclick="apFilterGrid('all', this)">All (35)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-ble', this)">-ble (13)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-ple', this)">-ple (5)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-dle', this)">-dle (6)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-fle', this)">-fle (2)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-tle', this)">-tle (1)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-gle', this)">-gle (3)</button>
+              <button type="button" class="ap-seg-btn" onclick="apFilterGrid('-cle', this)">-cle (5)</button>
+            </div>
+          </div>
+          <div class="ap-word-grid-5" id="apTwoSyllableGrid"></div>
+        </div>
+
+        <!-- Three-Syllable Words (2x5 Grid) -->
+        <div class="ap-card">
+          <div style="margin-bottom:14px;">
+            <h3 style="font-size:19px; font-weight:700; color:#1D1D1F;">Three-Syllable Words (10 Worksheet Words)</h3>
+            <p style="font-size:13px; color:#6E6E73;">Row 1 adds prefixes/compounds to <code>-ble</code>; Row 2 introduces the <code>-cle</code> final stable syllable!</p>
+          </div>
+          <div class="ap-word-grid-5" id="apThreeSyllableGrid"></div>
+        </div>
+
+        <!-- Phrases (2x5 Grid) & Sentences (2 Rows) -->
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(320px, 1fr)); gap:20px;">
+          <div class="ap-card" style="margin-bottom:0;">
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:12px;">
+              <div>
+                <h3 style="font-size:18px; font-weight:700; color:#1D1D1F;">Fluency Phrases (10)</h3>
+                <p style="font-size:12.5px; color:#6E6E73;">Tap any phrase to hear smooth phrasing &amp; spot the target word.</p>
+              </div>
+              <button type="button" class="ap-btn-secondary" style="padding:6px 12px; font-size:12px;" onclick="apReadAllPhrases()">🔊 Read All 10</button>
+            </div>
+            <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(175px, 1fr)); gap:8px;" id="apPhrasesGrid"></div>
+          </div>
+
+          <div class="ap-card" style="margin-bottom:0;">
+            <h3 style="font-size:18px; font-weight:700; color:#1D1D1F; margin-bottom:4px;">Decodable Sentences (2)</h3>
+            <p style="font-size:12.5px; color:#6E6E73; margin-bottom:14px;">Tap any word to sound it out, or read the whole sentence with expression!</p>
+            <div id="apSentencesList" style="display:flex; flex-direction:column; gap:12px;"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STAGE 2: C-LE SYLLABLE BUILDER & 2-TO-3 SYLLABLE TRANSFORMER
+           =================================================================== -->
+      <section class="ap-stage-pane" id="apStage1">
+        <div class="ap-card" style="text-align:center; padding:32px 24px;">
+          <span class="ap-eyebrow">🧩 Count Back 3 • Final Stable Syllable Builder</span>
+          <h3 style="font-size:22px; font-weight:700; margin-bottom:6px;" id="apBuilderProgressLabel">Question 1 of 35</h3>
+          <p style="font-size:14px; color:#6E6E73; margin-bottom:20px;">Listen to the word and look at its meaning clue. Tap the correct <strong>Consonant + le</strong> ending to complete the word!</p>
+
+          <div style="background:#F5F5F7; border-radius:22px; padding:26px 20px; max-width:640px; margin:0 auto 20px; border:1px solid rgba(0,0,0,0.06);">
+            <div style="font-size:38px; margin-bottom:8px;" id="apBuilderEmoji">⛪</div>
+            <div style="font-size:36px; font-weight:800; color:#1D1D1F; letter-spacing:0.01em; margin-bottom:10px;" id="apBuilderStemDisplay">
+              stee · <span style="color:#0066CC; border-bottom:3px dashed #0066CC; padding:0 12px;">?</span>
+            </div>
+            <div style="font-size:15px; font-weight:600; color:#1D1D1F; margin-bottom:12px;" id="apBuilderClueDisplay">
+              "A tall pointed tower on top of a church"
+            </div>
+            <button type="button" class="ap-btn-secondary" onclick="apSpeakBuilderTarget()">
+              🔊 Hear Target Word
+            </button>
+          </div>
+
+          <div class="ap-ending-choice-grid" id="apBuilderChoicesGrid"></div>
+          <div style="min-height:28px; font-size:15px; font-weight:700; margin-top:10px;" id="apBuilderFeedback"></div>
+
+          <div style="display:flex; justify-content:center; gap:12px; margin-top:16px;">
+            <button type="button" class="ap-btn-secondary" onclick="apPrevBuilderQuestion()">← Previous</button>
+            <button type="button" class="ap-btn-primary" onclick="apNextBuilderQuestion()">Next Word →</button>
+          </div>
+        </div>
+
+        <!-- 2-Syllable to 3-Syllable Prefix/Compound Transformer -->
+        <div class="ap-card">
+          <h3 style="font-size:19px; font-weight:700; margin-bottom:4px;">🔬 Power Pattern Discovery: 2 Syllables → 3 Syllables</h3>
+          <p style="font-size:13.5px; color:#6E6E73; margin-bottom:16px;">See how the worksheet builds <strong>Three-Syllable Words</strong> by adding prefixes (<code>un-</code>, <code>dis-</code>, <code>bi-</code>, <code>tri-</code>) or compound roots (<code>time + table</code>)! Tap any card to hear both:</p>
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px;" id="apPrefixMorphGrid"></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STAGE 3: MEANING & PHRASE DETECTIVE (VOCABULARY + PHRASE COMPLETION)
+           =================================================================== -->
+      <section class="ap-stage-pane" id="apStage2">
+        <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(340px, 1fr)); gap:20px;">
+          <!-- Left: Tricky Word Meaning Detective -->
+          <div class="ap-card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span class="ap-eyebrow" style="margin:0;">🕵️ Vocabulary Detective</span>
+                <span style="font-size:12.5px; font-weight:700; color:#6E6E73;" id="apVocabCounter">Clue 1 of 15</span>
+              </div>
+              <h3 style="font-size:20px; font-weight:700; margin-bottom:6px;">Match the Tricky <code>-le</code> Word!</h3>
+              <p style="font-size:13.5px; color:#6E6E73; margin-bottom:16px;">Read the definition clue and pick the exact word from the worksheet.</p>
+
+              <div style="background:#F5F5F7; border-radius:18px; padding:20px; margin-bottom:16px; border-left:4px solid #0066CC;">
+                <div style="font-size:28px; margin-bottom:6px;" id="apVocabQuizEmoji">🎺</div>
+                <div style="font-size:16px; font-weight:600; color:#1D1D1F; line-height:1.45;" id="apVocabQuizPrompt">
+                  Which word means "a brass horn like a small trumpet played by soldiers"?
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;" id="apVocabOptionsGrid"></div>
+              <div style="min-height:28px; font-size:14px; font-weight:700; margin-top:12px;" id="apVocabFeedback"></div>
+            </div>
+            <button type="button" class="ap-btn-primary" style="width:100%; margin-top:14px;" onclick="apNextVocabQuestion()">Next Vocabulary Clue →</button>
+          </div>
+
+          <!-- Right: Worksheet Phrase Completion Lab -->
+          <div class="ap-card" style="margin-bottom:0; display:flex; flex-direction:column; justify-content:space-between;">
+            <div>
+              <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:10px;">
+                <span class="ap-eyebrow" style="margin:0;">🔗 Phrase Completion</span>
+                <span style="font-size:12.5px; font-weight:700; color:#6E6E73;" id="apPhraseQuizCounter">Phrase 1 of 10</span>
+              </div>
+              <h3 style="font-size:20px; font-weight:700; margin-bottom:6px;">Complete the Worksheet Phrase</h3>
+              <p style="font-size:13.5px; color:#6E6E73; margin-bottom:16px;">Pick the missing word that completes each phrase from the worksheet!</p>
+
+              <div style="background:#F5F5F7; border-radius:18px; padding:20px; margin-bottom:16px; text-align:center;">
+                <div style="font-size:22px; font-weight:800; color:#1D1D1F; margin-bottom:8px;" id="apPhraseBlankDisplay">
+                  stifle the _______
+                </div>
+                <div style="font-size:13.5px; color:#6E6E73;" id="apPhraseMeaningHint">
+                  Clue: Quiet or muffle the sound of the brass horn!
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns:1fr 1fr; gap:10px;" id="apPhraseOptionsGrid"></div>
+              <div style="min-height:28px; font-size:14px; font-weight:700; margin-top:12px;" id="apPhraseFeedback"></div>
+            </div>
+            <button type="button" class="ap-btn-primary" style="width:100%; margin-top:14px;" onclick="apNextPhraseQuestion()">Next Phrase Challenge →</button>
+          </div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STAGE 4: AUDIO DICTATION & SPELLING STUDIO
+           =================================================================== -->
+      <section class="ap-stage-pane" id="apStage3">
+        <div class="ap-card" style="max-width:720px; margin:0 auto; text-align:center; padding:32px 26px;">
+          <span class="ap-eyebrow">✍️ Audio Dictation &amp; Encoding Studio</span>
+          <h3 style="font-size:22px; font-weight:700; margin-bottom:4px;" id="apSpellCounterLabel">Word 1 of 35</h3>
+          <p style="font-size:14px; color:#6E6E73; margin-bottom:18px;">Listen to the word, picture its syllables (remember the final <code>le</code>!), and type the exact spelling.</p>
+
+          <div style="display:flex; justify-content:center; gap:10px; flex-wrap:wrap; margin-bottom:18px;">
+            <button type="button" class="ap-btn-primary" onclick="apSpeakSpellTarget()">
+              🔊 Listen to Word &amp; Clue
+            </button>
+            <button type="button" class="ap-btn-secondary" onclick="apToggleSpellHint()">
+              💡 Show Syllable Chunks Hint
+            </button>
+          </div>
+
+          <div style="background:#F5F5F7; border-radius:18px; padding:18px; margin-bottom:16px;">
+            <div style="font-size:32px; margin-bottom:4px;" id="apSpellEmoji">🦅</div>
+            <div style="font-size:15px; font-weight:600; color:#1D1D1F;" id="apSpellClueText">
+              Meaning: A large, powerful bird of prey with keen eyesight.
+            </div>
+            <div id="apSpellHintBox" style="display:none; margin-top:10px; padding:8px 14px; background:#FFFFFF; border-radius:12px; font-weight:700; color:#0066CC; font-size:15px;">
+              Syllable Chunks: ea · gle (Vowel team 'ea' + '-gle')
+            </div>
+          </div>
+
+          <div style="max-width:420px; margin:0 auto 14px;">
+            <input type="text" id="apSpellInput" placeholder="Type spelling here..." autocomplete="off" autocorrect="off" autocapitalize="off" spellcheck="false" style="width:100%; padding:14px 18px; font-size:22px; font-weight:700; text-align:center; border-radius:16px; border:2px solid rgba(0,0,0,0.15); outline:none;" onkeydown="if(event.key==='Enter') apCheckSpelling();" />
+          </div>
+
+          <div style="display:flex; justify-content:center; gap:10px; max-width:420px; margin:0 auto;">
+            <button type="button" class="ap-btn-primary" style="flex:2;" onclick="apCheckSpelling()">Check Spelling ✨</button>
+            <button type="button" class="ap-btn-secondary" style="flex:1;" onclick="apNextSpellWord()">Skip →</button>
+          </div>
+
+          <div style="min-height:30px; font-size:15px; font-weight:700; margin-top:14px;" id="apSpellFeedback"></div>
+        </div>
+      </section>
+
+      <!-- ===================================================================
+           STAGE 5: LIVE WPM TIMED READ & TWIN PARTNER FEEDBACK BOOKMARK
+           =================================================================== -->
+      <section class="ap-stage-pane" id="apStage4">
+        <!-- Stopwatch & Reading Sheet Card -->
+        <div class="ap-card">
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px; padding-bottom:18px; border-bottom:1px solid rgba(0,0,0,0.08);">
+            <div>
+              <span class="ap-eyebrow" style="margin-bottom:6px;">⏱️ Days 2–3 Partner &amp; Timed Read Challenge</span>
+              <h3 style="font-size:22px; font-weight:700; color:#1D1D1F;">Live Fluency Timer &amp; Words-Per-Minute (WPM) Calculator</h3>
+              <p style="font-size:13.5px; color:#6E6E73;">Press <strong>Start Timer</strong> and read aloud! If a word is tricky, tap it to mark it for practice. Press <strong>Finish &amp; Calculate WPM</strong> when done.</p>
+            </div>
+
+            <div style="display:flex; align-items:center; gap:14px; background:#F5F5F7; padding:12px 18px; border-radius:20px; border:1px solid rgba(0,0,0,0.07);">
+              <div style="text-align:center; min-width:85px;">
+                <div style="font-size:11px; font-weight:700; color:#6E6E73; text-transform:uppercase;">Elapsed</div>
+                <div style="font-size:28px; font-weight:800; font-variant-numeric:tabular-nums; color:#1D1D1F;" id="apTimerDisplay">00:00</div>
+              </div>
+              <div style="text-align:center; min-width:85px; border-left:1px solid rgba(0,0,0,0.1); padding-left:14px;">
+                <div style="font-size:11px; font-weight:700; color:#6E6E73; text-transform:uppercase;">Live WPM</div>
+                <div style="font-size:28px; font-weight:800; color:#0066CC;" id="apWpmDisplay">--</div>
+              </div>
+              <div style="display:flex; flex-direction:column; gap:6px;">
+                <button type="button" class="ap-btn-primary" id="apTimerStartStopBtn" onclick="apToggleTimedRead()">
+                  ▶ Start Timed Read
+                </button>
+                <button type="button" class="ap-btn-secondary" style="padding:6px 12px; font-size:12px;" onclick="apResetTimedRead()">
+                  ↺ Reset
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Reading Deck Selector -->
+          <div style="display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:10px; margin:14px 0;">
+            <div style="display:flex; align-items:center; gap:8px; flex-wrap:wrap;">
+              <span style="font-size:12.5px; font-weight:700; color:#6E6E73;">READING PASSAGE:</span>
+              <button type="button" class="ap-seg-btn active" id="apDeckAll" onclick="apSelectFluencyDeck('all')">Full Worksheet (86 Words)</button>
+              <button type="button" class="ap-seg-btn" id="apDeckWords" onclick="apSelectFluencyDeck('words')">35 Target Words Only</button>
+              <button type="button" class="ap-seg-btn" id="apDeckPhrases" onclick="apSelectFluencyDeck('phrases')">Phrases &amp; Sentences (51 Words)</button>
+            </div>
+            <div style="font-size:13px; font-weight:600; color:#6E6E73;" id="apTrickyCountLabel">
+              Tricky Words Marked: 0 (100% Accuracy)
+            </div>
+          </div>
+
+          <!-- Interactive Fluency Reading Sheet -->
+          <div id="apFluencySheetArea" style="background:#FFFFFF; border:1.5px solid rgba(0,0,0,0.08); border-radius:18px; padding:20px; line-height:2.1;">
+            <!-- Populated by JS -->
+          </div>
+        </div>
+
+        <!-- Partner Feedback Bookmark & Official Timed Read #1, #2, #3 Table -->
+        <div class="ap-card">
+          <h3 style="font-size:20px; font-weight:700; margin-bottom:4px;">🔖 Partner Feedback Bookmark &amp; Official Timed Read Log</h3>
+          <p style="font-size:13.5px; color:#6E6E73; margin-bottom:16px;">Just like Day 2 &amp; 3 on your worksheet: choose your partner, pick a comment from your <strong>Feedback Bookmark</strong>, and log <strong>Timed Read #1, #2, and #3</strong>!</p>
+
+          <div style="display:grid; grid-template-columns:repeat(auto-fit, minmax(220px, 1fr)); gap:12px; background:#F5F5F7; padding:16px; border-radius:18px; margin-bottom:16px;">
+            <div>
+              <label style="font-size:11.5px; font-weight:700; color:#6E6E73; display:block; margin-bottom:4px;">WHICH TIMED READ SLOT?</label>
+              <select id="apLogSlotSelect" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,0,0,0.15); font-size:14px; font-weight:600; background:#fff;">
+                <option value="0">Timed Read #1</option>
+                <option value="1">Timed Read #2</option>
+                <option value="2">Timed Read #3</option>
+              </select>
+            </div>
+            <div>
+              <label style="font-size:11.5px; font-weight:700; color:#6E6E73; display:block; margin-bottom:4px;">WORDS PER MIN (WPM):</label>
+              <input type="number" id="apLogWpmInput" placeholder="e.g. 92" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,0,0,0.15); font-size:14px; font-weight:700; background:#fff;" />
+            </div>
+            <div>
+              <label style="font-size:11.5px; font-weight:700; color:#6E6E73; display:block; margin-bottom:4px;">PARTNER NAME:</label>
+              <input type="text" id="apLogPartnerInput" value="Sanha" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,0,0,0.15); font-size:14px; font-weight:600; background:#fff;" />
+            </div>
+            <div>
+              <label style="font-size:11.5px; font-weight:700; color:#6E6E73; display:block; margin-bottom:4px;">FEEDBACK BOOKMARK COMMENT:</label>
+              <select id="apLogBookmarkSelect" style="width:100%; padding:10px 12px; border-radius:12px; border:1px solid rgba(0,0,0,0.15); font-size:13.5px; font-weight:600; background:#fff;">
+                <option value="🌟 Smooth automaticity &amp; Count-Back-3 chunking!">🌟 Smooth automaticity &amp; Count-Back-3 chunking!</option>
+                <option value="🎯 Nailed both 2-syllable and 3-syllable -le words!">🎯 Nailed both 2-syllable and 3-syllable -le words!</option>
+                <option value="🎭 Awesome expression on the 10 phrases &amp; 2 sentences!">🎭 Awesome expression on the 10 phrases &amp; 2 sentences!</option>
+                <option value="💪 Great productive struggle — self-corrected tricky words!">💪 Great productive struggle — self-corrected tricky words!</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display:flex; justify-content:flex-end; gap:10px; margin-bottom:12px;">
+            <button type="button" class="ap-btn-primary" onclick="apSaveTimedReadSlot()">
+              💾 Save Timed Read to Worksheet Table (+2 ⭐)
+            </button>
+          </div>
+
+          <table class="ap-timed-table">
+            <thead>
+              <tr>
+                <th>Attempt</th>
+                <th>Words per min</th>
+                <th>Date</th>
+                <th>Partner Name</th>
+                <th>Partner Feedback Bookmark</th>
+              </tr>
+            </thead>
+            <tbody id="apTimedReadTableBody">
+              <!-- Populated by JS -->
+            </tbody>
+          </table>
+        </div>
+      </section>
     </div>
   </div>
 
@@ -2964,6 +3944,8 @@
 
     function updateUI() {
       document.getElementById('starCounter').textContent = `${stars[currentChild]} Stars`;
+      const apStarEl = document.getElementById('apStarCounter');
+      if (apStarEl) apStarEl.textContent = `${stars[currentChild]} Stars`;
     }
 
     /* ==========================================================================
@@ -3094,8 +4076,10 @@
     function generateElapsedTimeQuestion() {
       const item = elapsedTimeQuestions[currentElapsedTimeIdx % elapsedTimeQuestions.length];
       currentElapsedTimeIdx++;
-      document.getElementById('elapsedTimeVisual').textContent = item.visual;
-      document.getElementById('elapsedTimePrompt').textContent = item.q;
+      const visEl = document.getElementById('elapsedTimeVisualBox') || document.getElementById('elapsedTimeVisual');
+      const qEl = document.getElementById('elapsedTimeQuestion') || document.getElementById('elapsedTimePrompt');
+      if (visEl) visEl.textContent = item.visual;
+      if (qEl) qEl.textContent = item.q;
       document.getElementById('elapsedTimeFeedback').textContent = '';
       
       const optsContainer = document.getElementById('elapsedTimeOptions');
@@ -3524,6 +4508,101 @@
        ========================================================================== */
     const weeklyPhonicsUnits = [
       {
+        id: "powerful_patterns_cle",
+        unitTitle: "Powerful Patterns • Final Stable Syllables (-le)",
+        targetSkills: "Count Back 3 Rule • Two-Syllable (-ble, -ple, -dle, -fle, -tle, -gle) • Three-Syllable (-ble & -cle) • Fluency Phrases & Timed Reads",
+        categories: [
+          {
+            id: "all",
+            name: "🌟 All 35 Worksheet Words",
+            rule: "Count back 3 letters from the end to slice the Final Stable Syllable (Consonant + le)!",
+            badge: "ALL 35 WORDS",
+            words: []
+          },
+          {
+            id: "two_syl_ble",
+            name: "🟦 2-Syllable (-ble)",
+            rule: "Open or Vowel-Team first syllable + Final Stable Syllable '-ble'.",
+            badge: "2-SYLLABLE • -BLE",
+            words: [
+              { word: "able", chunks: ["a", "ble"], pattern: "Open long /a/ 'a' + final stable syllable '-ble'", hint: "2 syllables: a + ble" },
+              { word: "cable", chunks: ["ca", "ble"], pattern: "Open long /a/ 'ca' + final stable syllable '-ble' — thick wire or rope", hint: "2 syllables: ca + ble" },
+              { word: "fable", chunks: ["fa", "ble"], pattern: "Open long /a/ 'fa' + final stable syllable '-ble' — a short story with a moral", hint: "2 syllables: fa + ble" },
+              { word: "table", chunks: ["ta", "ble"], pattern: "Open long /a/ 'ta' + final stable syllable '-ble'", hint: "2 syllables: ta + ble" },
+              { word: "stable", chunks: ["sta", "ble"], pattern: "Blend 'st-' in open 'sta' + '-ble' — steady, or a home for horses", hint: "2 syllables: sta + ble" },
+              { word: "gable", chunks: ["ga", "ble"], pattern: "Open long /a/ 'ga' + '-ble' — the triangle wall under a pitched roof", hint: "2 syllables: ga + ble" },
+              { word: "feeble", chunks: ["fee", "ble"], pattern: "Vowel team 'ee' (long /e/) + '-ble' — weak or lacking strength", hint: "Vowel team 'ee': fee + ble" },
+              { word: "noble", chunks: ["no", "ble"], pattern: "Open long /o/ 'no' + '-ble' — royal, honorable, and brave", hint: "2 syllables: no + ble" }
+            ]
+          },
+          {
+            id: "two_syl_ple_dle",
+            name: "🟩 2-Syllable (-ple & -dle)",
+            rule: "Count back 3 to slice '-ple' or '-dle', then read the first syllable!",
+            badge: "2-SYLLABLE • -PLE / -DLE",
+            words: [
+              { word: "people", chunks: ["peo", "ple"], pattern: "Heart vowel team 'eo' (long /e/) + '-ple' — human beings", hint: "Spelled p-e-o-p-l-e: peo + ple" },
+              { word: "scruple", chunks: ["scru", "ple"], pattern: "3-letter blend 'scr-' in open 'scru' + '-ple' — a feeling of conscience", hint: "2 syllables: scru + ple" },
+              { word: "maple", chunks: ["ma", "ple"], pattern: "Open long /a/ 'ma' + '-ple' — a tree known for autumn leaves and syrup", hint: "2 syllables: ma + ple" },
+              { word: "staple", chunks: ["sta", "ple"], pattern: "Blend 'st-' in open 'sta' + '-ple' — a metal fastener for paper", hint: "2 syllables: sta + ple" },
+              { word: "steeple", chunks: ["stee", "ple"], pattern: "Vowel team 'ee' in 'stee' + '-ple' — a tall pointed tower on a church", hint: "Double 'e': stee + ple" },
+              { word: "cradle", chunks: ["cra", "dle"], pattern: "Blend 'cr-' in open 'cra' + '-dle' — a small rocking bed for a baby", hint: "2 syllables: cra + dle" },
+              { word: "ladle", chunks: ["la", "dle"], pattern: "Open long /a/ 'la' + '-dle' — a deep long-handled spoon for serving soup", hint: "2 syllables: la + dle" },
+              { word: "needle", chunks: ["nee", "dle"], pattern: "Vowel team 'ee' in 'nee' + '-dle' — a thin pointed tool for sewing thread", hint: "Double 'e': nee + dle" },
+              { word: "noodle", chunks: ["noo", "dle"], pattern: "Vowel team 'oo' in 'noo' + '-dle' — a ribbon of pasta", hint: "Double 'o': noo + dle" },
+              { word: "poodle", chunks: ["poo", "dle"], pattern: "Vowel team 'oo' in 'poo' + '-dle' — a curly-haired dog breed", hint: "Double 'o': poo + dle" },
+              { word: "bridle", chunks: ["bri", "dle"], pattern: "Blend 'br-' in open long /i/ 'bri' + '-dle' — headgear used to guide a horse", hint: "Spelled b-r-i-d-l-e: bri + dle" }
+            ]
+          },
+          {
+            id: "two_syl_fle_tle_gle",
+            name: "🟧 2-Syllable (-fle, -tle, -gle)",
+            rule: "Count back 3 to slice '-fle', '-tle', or '-gle'!",
+            badge: "2-SYLLABLE • -FLE / -TLE / -GLE",
+            words: [
+              { word: "stifle", chunks: ["sti", "fle"], pattern: "Blend 'st-' in open long /i/ 'sti' + '-fle' — to hold back or muffle a sound", hint: "2 syllables: sti + fle" },
+              { word: "trifle", chunks: ["tri", "fle"], pattern: "Blend 'tr-' in open long /i/ 'tri' + '-fle' — something very small or a layered dessert", hint: "2 syllables: tri + fle" },
+              { word: "beetle", chunks: ["bee", "tle"], pattern: "Vowel team 'ee' in 'bee' + '-tle' — a hard-shelled insect", hint: "Double 'e': bee + tle" },
+              { word: "eagle", chunks: ["ea", "gle"], pattern: "Vowel team 'ea' (long /e/) + '-gle' — a large powerful bird of prey", hint: "Starts with 'e-a': ea + gle" },
+              { word: "beagle", chunks: ["bea", "gle"], pattern: "Vowel team 'ea' in 'bea' + '-gle' — a friendly hound dog with floppy ears", hint: "Vowel team 'ea': bea + gle" },
+              { word: "bugle", chunks: ["bu", "gle"], pattern: "Open long /u/ 'bu' + '-gle' — a brass horn like a small trumpet", hint: "2 syllables: bu + gle" }
+            ]
+          },
+          {
+            id: "three_syl_ble_cle",
+            name: "🟪 3-Syllable (-ble & -cle)",
+            rule: "Three-Syllable Words with prefixes/compounds on '-ble' and roots ending in '-cle'!",
+            badge: "3-SYLLABLE • -BLE / -CLE",
+            words: [
+              { word: "unable", chunks: ["un", "a", "ble"], pattern: "Prefix 'un-' (not) + 'a' + '-ble' — not able to do something", hint: "3 syllables: un + a + ble" },
+              { word: "unstable", chunks: ["un", "sta", "ble"], pattern: "Prefix 'un-' (not) + 'sta' + '-ble' — wobbly or not steady", hint: "3 syllables: un + sta + ble" },
+              { word: "disable", chunks: ["dis", "a", "ble"], pattern: "Prefix 'dis-' + 'a' + '-ble' — to turn off or make inactive", hint: "3 syllables: dis + a + ble" },
+              { word: "timetable", chunks: ["time", "ta", "ble"], pattern: "Compound word: 'time' + 'ta' + '-ble' — a schedule of times", hint: "3 syllables: time + ta + ble" },
+              { word: "capable", chunks: ["ca", "pa", "ble"], pattern: "3 Syllables: 'ca' + 'pa' + '-ble' — having the skill and ability to succeed", hint: "3 syllables: ca + pa + ble" },
+              { word: "vehicle", chunks: ["ve", "hi", "cle"], pattern: "3 Syllables with silent/soft 'h': 've' + 'hi' + '-cle' — a car, bus, bike, or truck", hint: "Has a silent 'h': ve + hi + cle" },
+              { word: "cubicle", chunks: ["cu", "bi", "cle"], pattern: "3 Syllables: 'cu' + 'bi' + '-cle' — a small walled workspace or desk area", hint: "3 syllables: cu + bi + cle" },
+              { word: "bicycle", chunks: ["bi", "cy", "cle"], pattern: "Prefix 'bi-' (two) + 'cy' + '-cle' — a two-wheeled vehicle you pedal", hint: "3 syllables: bi + cy + cle" },
+              { word: "icicle", chunks: ["i", "ci", "cle"], pattern: "Open long /i/ 'i' + soft 'ci' + '-cle' — a hanging spike of frozen ice", hint: "3 syllables: i + ci + cle" },
+              { word: "tricycle", chunks: ["tri", "cy", "cle"], pattern: "Prefix 'tri-' (three) + 'cy' + '-cle' — a three-wheeled vehicle", hint: "3 syllables: tri + cy + cle" }
+            ]
+          }
+        ],
+        sentences: [
+          {
+            id: 0,
+            text: "Why does the beagle chase the poodle?",
+            targetWords: ["beagle", "poodle"],
+            tip: "💡 Worksheet Sentence #1: Count back 3 on 'bea·gle' (-gle with vowel team 'ea') and 'poo·dle' (-dle with vowel team 'oo')!"
+          },
+          {
+            id: 1,
+            text: "A noble queen was featured in the fable.",
+            targetWords: ["noble", "featured", "fable"],
+            tip: "💡 Worksheet Sentence #2: Count back 3 on 'no·ble' and 'fa·ble' (open 1st syllables + '-ble'), plus '-ture' in 'featured'!"
+          }
+        ]
+      },
+      {
         id: "nov2_print_energy",
         unitTitle: "Nov 2–6 • Print Features & Energy",
         targetSkills: "Print Features • Everyday Energy (M.E.L.T.S.) • Elapsed Time & Perimeter • Prefixes & Suffixes",
@@ -3634,6 +4713,20 @@
           {
             text: "On our timeline schedule, forty-five minutes of elapsed time passed during our cultural heritage and Veterans Day assembly.",
             focusWords: ["timeline", "schedule", "elapsed", "heritage", "veteran"]
+          }
+        ],
+        sentences: [
+          {
+            id: 0,
+            text: "Use the bold heading, the labeled diagram, and the glossary to learn how a closed electrical circuit makes thermal and light energy.",
+            targetWords: ["heading", "diagram", "glossary", "electrical", "circuit", "thermal"],
+            tip: "💡 Spotlight: 'heading', 'diagram', and 'glossary' (Print Features) + 'electrical', 'circuit', and 'thermal' (M.E.L.T.S. Energy)!"
+          },
+          {
+            id: 1,
+            text: "On our timeline schedule, forty-five minutes of elapsed time passed during our cultural heritage and Veterans Day assembly.",
+            targetWords: ["timeline", "schedule", "elapsed", "heritage", "veteran"],
+            tip: "💡 Spotlight: 'timeline', 'schedule', and 'elapsed' (Math Time) + 'heritage' and 'veteran' (Social Studies)!"
           }
         ]
       },
@@ -4830,7 +5923,768 @@
     }
 
     /* ==========================================================================
-       8. ON LOAD INITIALIZATION
+       8. APPLE-STYLE POWERFUL PATTERNS STUDIO ENGINE (-LE WORDS)
+       ========================================================================== */
+    const applePatternsWords = [
+      // 25 Two-Syllable Words (Exact 5x5 order from screenshot)
+      { word: "able", syllables: 2, chunks: ["a", "ble"], ending: "-ble", emoji: "💪", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-ble'", meaning: "Having the power, skill, or means to do something.", sentence: "Sanav and Sanha are able to solve tricky 3rd-grade puzzles!" },
+      { word: "cable", syllables: 2, chunks: ["ca", "ble"], ending: "-ble", emoji: "🔌", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-ble'", meaning: "A thick, strong rope of wire or cord that carries electricity or signals.", sentence: "Please unwind the cable so we can plug in the computer." },
+      { word: "fable", syllables: 2, chunks: ["fa", "ble"], ending: "-ble", emoji: "🦊", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-ble'", meaning: "A short story (often with animal characters) that teaches a moral lesson.", sentence: "A noble queen was featured in the fable." },
+      { word: "table", syllables: 2, chunks: ["ta", "ble"], ending: "-ble", emoji: "🪑", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-ble'", meaning: "A piece of furniture with a flat top and legs, or a chart of data.", sentence: "We set our books and pencils on the kitchen table." },
+      { word: "stable", syllables: 2, chunks: ["sta", "ble"], ending: "-ble", emoji: "🐴", rule: "Blend 'st-' in open 1st syllable (long /a/) + '-ble'", meaning: "Firm and steady (not wobbly), OR a building where horses are kept.", sentence: "The brown horse rested inside the warm wooden stable." },
+
+      { word: "gable", syllables: 2, chunks: ["ga", "ble"], ending: "-ble", emoji: "🏠", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-ble'", meaning: "The triangular upper part of a wall at the end of a pitched roof.", sentence: "Sunlight shone on the high pointed gable of the house." },
+      { word: "feeble", syllables: 2, chunks: ["fee", "ble"], ending: "-ble", emoji: "🕯️", rule: "Vowel team 'ee' (long /e/) + Final Stable Syllable '-ble'", meaning: "Very weak, faint, or lacking physical strength.", sentence: "The tiny newborn puppy gave a feeble little bark." },
+      { word: "noble", syllables: 2, chunks: ["no", "ble"], ending: "-ble", emoji: "👑", rule: "Open 1st syllable (long /o/) + Final Stable Syllable '-ble'", meaning: "Having high moral character, courage, and honor (or royal rank).", sentence: "A noble queen was featured in the fable." },
+      { word: "people", syllables: 2, chunks: ["peo", "ple"], ending: "-ple", emoji: "👨‍👩‍👧‍👦", rule: "Special vowel team 'eo' (long /e/) + Final Stable Syllable '-ple'", meaning: "Human beings in a group or community (plural of person).", sentence: "Many friendly people gathered for our school festival." },
+      { word: "scruple", syllables: 2, chunks: ["scru", "ple"], ending: "-ple", emoji: "⚖️", rule: "3-letter blend 'scr-' in open 'scru' (long /u/) + '-ple'", meaning: "A feeling of conscience or honesty that stops you from doing something wrong.", sentence: "An honest student has a scruple against cheating on a game." },
+
+      { word: "maple", syllables: 2, chunks: ["ma", "ple"], ending: "-ple", emoji: "🍁", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-ple'", meaning: "A leafy shade tree famous for bright autumn leaves and sweet syrup.", sentence: "Bright red leaves fell from the tall maple tree." },
+      { word: "staple", syllables: 2, chunks: ["sta", "ple"], ending: "-ple", emoji: "📎", rule: "Blend 'st-' in open 1st syllable (long /a/) + '-ple'", meaning: "A small U-shaped metal clip used to fasten papers together.", sentence: "Use one metal staple to keep your worksheet pages together." },
+      { word: "steeple", syllables: 2, chunks: ["stee", "ple"], ending: "-ple", emoji: "⛪", rule: "Vowel team 'ee' (long /e/) + Final Stable Syllable '-ple'", meaning: "A tall, pointed tower rising above the roof of a church or building.", sentence: "The tall white steeple is a feature of the town square." },
+      { word: "cradle", syllables: 2, chunks: ["cra", "dle"], ending: "-dle", emoji: "👶", rule: "Blend 'cr-' in open 1st syllable (long /a/) + '-dle'", meaning: "A small bed for a baby that rocks gently from side to side.", sentence: "The baby slept peacefully in the rocking wooden cradle." },
+      { word: "ladle", syllables: 2, chunks: ["la", "dle"], ending: "-dle", emoji: "🥣", rule: "Open 1st syllable (long /a/) + Final Stable Syllable '-dle'", meaning: "A large, deep spoon with a long handle used for serving soup or stew.", sentence: "Amma used a silver ladle to pour warm noodle soup into bowls." },
+
+      { word: "needle", syllables: 2, chunks: ["nee", "dle"], ending: "-dle", emoji: "🪡", rule: "Vowel team 'ee' (long /e/) + Final Stable Syllable '-dle'", meaning: "A very thin, pointed steel tool with an eye for sewing thread (or a compass pointer).", sentence: "Grandma showed us how to thread the needle carefully." },
+      { word: "noodle", syllables: 2, chunks: ["noo", "dle"], ending: "-dle", emoji: "🍜", rule: "Vowel team 'oo' (/oo/) + Final Stable Syllable '-dle'", meaning: "A long, thin strip or ribbon of pasta cooked in boiling water or soup.", sentence: "Sanav slurped a long curly noodle from his bowl." },
+      { word: "poodle", syllables: 2, chunks: ["poo", "dle"], ending: "-dle", emoji: "🐩", rule: "Vowel team 'oo' (/oo/) + Final Stable Syllable '-dle'", meaning: "A smart, energetic dog breed with thick, curly fur.", sentence: "Why does the beagle chase the poodle?" },
+      { word: "bridle", syllables: 2, chunks: ["bri", "dle"], ending: "-dle", emoji: "🏇", rule: "Blend 'br-' in open 1st syllable (long /i/) + '-dle'", meaning: "The leather headgear and reins put on a horse to help the rider guide it.", sentence: "The rider learned how to handle the bridle gently." },
+      { word: "stifle", syllables: 2, chunks: ["sti", "fle"], ending: "-fle", emoji: "🤫", rule: "Blend 'st-' in open 1st syllable (long /i/) + '-fle'", meaning: "To hold back, muffle, or keep a sound (like a yawn, laugh, or horn) quiet.", sentence: "Try to stifle the bugle so you do not wake the neighbors!" },
+
+      { word: "trifle", syllables: 2, chunks: ["tri", "fle"], ending: "-fle", emoji: "🍰", rule: "Blend 'tr-' in open 1st syllable (long /i/) + '-fle'", meaning: "Something very small or of little importance (or a layered fruit sponge dessert).", sentence: "Do not argue over a tiny trifle when playing with friends." },
+      { word: "beetle", syllables: 2, chunks: ["bee", "tle"], ending: "-tle", emoji: "🪲", rule: "Vowel team 'ee' (long /e/) + Final Stable Syllable '-tle'", meaning: "An insect with a hard, shiny outer wing shell.", sentence: "A shiny green beetle crawled across the garden leaf." },
+      { word: "eagle", syllables: 2, chunks: ["ea", "gle"], ending: "-gle", emoji: "🦅", rule: "Vowel team 'ea' (long /e/) + Final Stable Syllable '-gle'", meaning: "A large, powerful bird of prey with sharp vision and strong wings.", sentence: "A bald eagle soared high above the mountain peaks." },
+      { word: "beagle", syllables: 2, chunks: ["bea", "gle"], ending: "-gle", emoji: "🐶", rule: "Vowel team 'ea' (long /e/) + Final Stable Syllable '-gle'", meaning: "A small, friendly hound dog with long floppy ears and a great sense of smell.", sentence: "Why does the beagle chase the poodle?" },
+      { word: "bugle", syllables: 2, chunks: ["bu", "gle"], ending: "-gle", emoji: "🎺", rule: "Open 1st syllable (long /u/) + Final Stable Syllable '-gle'", meaning: "A brass wind instrument like a small trumpet without valves, used for military calls.", sentence: "The scout played a morning song on his shiny brass bugle." },
+
+      // 10 Three-Syllable Words (Exact 2x5 order from screenshot)
+      { word: "unable", syllables: 3, chunks: ["un", "a", "ble"], ending: "-ble", emoji: "🚫", rule: "Prefix 'un-' (not) + open 'a' + Final Stable Syllable '-ble'", meaning: "Not able to do something; lacking the power or time.", sentence: "He was unable to go outside while the rainstorm poured." },
+      { word: "unstable", syllables: 3, chunks: ["un", "sta", "ble"], ending: "-ble", emoji: "⚖️", rule: "Prefix 'un-' (not) + open 'sta' + Final Stable Syllable '-ble'", meaning: "Not steady or firm; likely to wobble, tip over, or change.", sentence: "The tall tower of blocks looked wobbly and unstable." },
+      { word: "disable", syllables: 3, chunks: ["dis", "a", "ble"], ending: "-ble", emoji: "🔕", rule: "Prefix 'dis-' (reverse/not) + open 'a' + '-ble'", meaning: "To turn off a machine or alarm so it stops working.", sentence: "Press the code to disable the noisy alarm clock." },
+      { word: "timetable", syllables: 3, chunks: ["time", "ta", "ble"], ending: "-ble", emoji: "🗓️", rule: "Compound V-e 'time' + open 'ta' + '-ble'", meaning: "A schedule or chart showing the exact times when events or trains happen.", sentence: "Always check the timetable before boarding the train." },
+      { word: "capable", syllables: 3, chunks: ["ca", "pa", "ble"], ending: "-ble", emoji: "🏆", rule: "Open 'ca' (long /a/) + schwa 'pa' + '-ble'", meaning: "Having the skill, intelligence, and ability to do something well.", sentence: "Sanav and Sanha are capable of reading every word on this page!" },
+
+      { word: "vehicle", syllables: 3, chunks: ["ve", "hi", "cle"], ending: "-cle", emoji: "🚗", rule: "Open 've' (long /e/) + silent-h 'hi' + Final Stable Syllable '-cle'", meaning: "A machine with wheels or an engine (like a car, bus, truck, or bike) that carries people.", sentence: "An electric car is a quiet vehicle on the road." },
+      { word: "cubicle", syllables: 3, chunks: ["cu", "bi", "cle"], ending: "-cle", emoji: "🖥️", rule: "Open 'cu' (long /u/) + 'bi' + Final Stable Syllable '-cle'", meaning: "A small desk workspace separated from others by low walls in an office.", sentence: "Each engineer had a computer inside a neat office cubicle." },
+      { word: "bicycle", syllables: 3, chunks: ["bi", "cy", "cle"], ending: "-cle", emoji: "🚲", rule: "Prefix 'bi-' (two) + 'cy' + Final Stable Syllable '-cle'", meaning: "A vehicle with two wheels that you ride by pushing pedals with your feet.", sentence: "Put on your helmet before you ride the bicycle!" },
+      { word: "icicle", syllables: 3, chunks: ["i", "ci", "cle"], ending: "-cle", emoji: "🧊", rule: "Open 'i' (long /i/) + soft-c 'ci' + Final Stable Syllable '-cle'", meaning: "A pointed hanging spike of ice formed when dripping water freezes.", sentence: "A sparkling crystal icicle hung from the edge of the roof." },
+      { word: "tricycle", syllables: 3, chunks: ["tri", "cy", "cle"], ending: "-cle", emoji: "🛴", rule: "Prefix 'tri-' (three) + 'cy' + Final Stable Syllable '-cle'", meaning: "A pedal vehicle with three wheels (one in front and two in the back).", sentence: "The little toddler pedaled happily on a red tricycle." }
+    ];
+
+    const applePatternsPhrases = [
+      { text: "stifle the bugle", blank: "stifle the _______", ans: "bugle", options: ["bugle", "beetle", "bridle", "cradle"], clue: "Quiet or muffle the sound of the brass horn!" },
+      { text: "pet a beagle", blank: "pet a _______", ans: "beagle", options: ["beagle", "bugle", "staple", "table"], clue: "Gently stroke a friendly floppy-eared hound dog!" },
+      { text: "in the future", blank: "in the _______", ans: "future", options: ["future", "fable", "feeble", "feature"], clue: "Time that is still to come (tomorrow or years ahead)!" },
+      { text: "steeple is a feature", blank: "_______ is a feature", ans: "steeple", options: ["steeple", "staple", "scruple", "noodle"], clue: "The tall pointed tower on a church roof is a special part!" },
+      { text: "unwind the cable", blank: "unwind the _______", ans: "cable", options: ["cable", "cradle", "table", "gable"], clue: "Uncoil the thick electrical wire or cord!" },
+      { text: "handle the bridle", blank: "handle the _______", ans: "bridle", options: ["bridle", "beetle", "bugle", "ladle"], clue: "Hold the horse's leather headgear and reins carefully!" },
+      { text: "thread the needle", blank: "thread the _______", ans: "needle", options: ["needle", "noodle", "poodle", "ladle"], clue: "Pass sewing string through the tiny eye of the pointed sewing tool!" },
+      { text: "ride the bicycle", blank: "ride the _______", ans: "bicycle", options: ["bicycle", "icicle", "cubicle", "timetable"], clue: "Pedal the two-wheeled vehicle down the path!" },
+      { text: "paint the steeple", blank: "paint the _______", ans: "steeple", options: ["steeple", "people", "maple", "scruple"], clue: "Put fresh white paint on the tall pointed church tower!" },
+      { text: "check the timetable", blank: "check the _______", ans: "timetable", options: ["timetable", "tricycle", "icicle", "trifle"], clue: "Look at the schedule chart to see what time the train arrives!" }
+    ];
+
+    const applePatternsSentences = [
+      {
+        text: "Why does the beagle chase the poodle?",
+        targets: ["beagle", "poodle"],
+        note: "Question sentence (?) — Notice how 'bea·gle' (-gle) and 'poo·dle' (-dle) both have vowel teams before the final stable syllable!"
+      },
+      {
+        text: "A noble queen was featured in the fable.",
+        targets: ["noble", "featured", "fable"],
+        note: "Declarative sentence (.) — 'no·ble' and 'fa·ble' both have open long-vowel 1st syllables before '-ble'!"
+      }
+    ];
+
+    const applePrefixMorphs = [
+      { twoSyl: "a · ble (2)", threeSyl: "un · a · ble (3)", rule: "Add prefix 'un-' (not) → not able", speak: "able, becomes, unable" },
+      { twoSyl: "sta · ble (2)", threeSyl: "un · sta · ble (3)", rule: "Add prefix 'un-' (not) → wobbly / not steady", speak: "stable, becomes, unstable" },
+      { twoSyl: "a · ble (2)", threeSyl: "dis · a · ble (3)", rule: "Add prefix 'dis-' → turn off / make inactive", speak: "able, becomes, disable" },
+      { twoSyl: "ta · ble (2)", threeSyl: "time · ta · ble (3)", rule: "Compound 'time' + 'table' → schedule of times", speak: "table, becomes, timetable" },
+      { twoSyl: "cy · cle (2)", threeSyl: "bi · cy · cle (3)", rule: "Prefix 'bi-' (2 wheels) + '-cle'", speak: "cycle, becomes, bicycle" },
+      { twoSyl: "cy · cle (2)", threeSyl: "tri · cy · cle (3)", rule: "Prefix 'tri-' (3 wheels) + '-cle'", speak: "cycle, becomes, tricycle" }
+    ];
+
+    let apSelectedWordIdx = 0;
+    let apCurrentGridFilter = 'all';
+    let apBuilderIdx = 0;
+    let apVocabIdx = 0;
+    let apPhraseQuizIdx = 0;
+    let apSpellIdx = 0;
+    let apMasteredWords = {
+      sanav: JSON.parse(localStorage.getItem('ap_mastered_sanav') || '[]'),
+      sanha: JSON.parse(localStorage.getItem('ap_mastered_sanha') || '[]')
+    };
+    let apTimedReadLogs = {
+      sanav: JSON.parse(localStorage.getItem('ap_timed_logs_sanav') || '[{"wpm":"","date":"","partner":"Sanha","comment":""},{"wpm":"","date":"","partner":"Sanha","comment":""},{"wpm":"","date":"","partner":"Sanha","comment":""}]'),
+      sanha: JSON.parse(localStorage.getItem('ap_timed_logs_sanha') || '[{"wpm":"","date":"","partner":"Sanav","comment":""},{"wpm":"","date":"","partner":"Sanav","comment":""},{"wpm":"","date":"","partner":"Sanav","comment":""}]')
+    };
+
+    // Timed Read State
+    let apTimerInterval = null;
+    let apTimerSeconds = 0;
+    let apTimerRunning = false;
+    let apCurrentFluencyDeck = 'all';
+    let apTrickyMarkedSet = new Set();
+
+    function openApplePatternsStudio() {
+      const overlay = document.getElementById('applePatternsStudioOverlay');
+      if (!overlay) return;
+      overlay.classList.add('active');
+      document.body.style.overflow = 'hidden';
+      syncAppleStudioProfile();
+      playSound('pop');
+    }
+
+    function closeApplePatternsStudio() {
+      const overlay = document.getElementById('applePatternsStudioOverlay');
+      if (!overlay) return;
+      overlay.classList.remove('active');
+      document.body.style.overflow = '';
+      if (apTimerRunning) apStopTimerOnly();
+      playSound('pop');
+    }
+
+    function switchApplePatternsStage(stageIdx) {
+      for (let i = 0; i < 5; i++) {
+        const btn = document.getElementById(`apTabBtn${i}`);
+        const pane = document.getElementById(`apStage${i}`);
+        if (btn) btn.classList.toggle('active', i === stageIdx);
+        if (pane) pane.classList.toggle('active', i === stageIdx);
+      }
+      playSound('pop');
+    }
+
+    function syncAppleStudioProfile() {
+      const isSanav = currentChild === 'sanav';
+      const btnSanav = document.getElementById('apTwinSanav');
+      const btnSanha = document.getElementById('apTwinSanha');
+      if (btnSanav) btnSanav.classList.toggle('active', isSanav);
+      if (btnSanha) btnSanha.classList.toggle('active', !isSanav);
+
+      const starEl = document.getElementById('apStarCounter');
+      if (starEl) starEl.textContent = `${stars[currentChild]} Stars`;
+
+      const studentEl = document.getElementById('apActiveStudentLabel');
+      if (studentEl) {
+        studentEl.textContent = isSanav ? '👦 Practicing as Sanav' : '👧 Practicing as Sanha';
+        studentEl.style.color = isSanav ? '#0066CC' : '#FF2D55';
+      }
+
+      const partnerInput = document.getElementById('apLogPartnerInput');
+      if (partnerInput) partnerInput.value = isSanav ? 'Sanha' : 'Sanav';
+
+      apUpdateMasteryCount();
+      apRenderWordGrids();
+      apRenderInspector();
+      apRenderTimedReadTable();
+    }
+
+    function apUpdateMasteryCount() {
+      const list = apMasteredWords[currentChild] || [];
+      const el = document.getElementById('apMasteryCountLabel');
+      if (el) el.textContent = `${list.length} / 35 Words`;
+    }
+
+    function initApplePatternsStudio() {
+      apRenderWordGrids();
+      apRenderInspector();
+      apRenderPhrasesAndSentences();
+      apRenderPrefixMorphs();
+      apRenderBuilderQuestion();
+      apRenderVocabQuestion();
+      apRenderPhraseQuizQuestion();
+      apRenderSpellQuestion();
+      apRenderFluencySheet();
+      apRenderTimedReadTable();
+      syncAppleStudioProfile();
+    }
+
+    // --- STAGE 1: PATTERN GRID & SLICER ---
+    function apFilterGrid(ending, btnEl) {
+      apCurrentGridFilter = ending;
+      const bar = document.getElementById('apEndingFilterBar');
+      if (bar && btnEl) {
+        bar.querySelectorAll('.ap-seg-btn').forEach(b => b.classList.remove('active'));
+        btnEl.classList.add('active');
+      }
+      apRenderWordGrids();
+      playSound('pop');
+    }
+
+    function apRenderWordGrids() {
+      const grid2 = document.getElementById('apTwoSyllableGrid');
+      const grid3 = document.getElementById('apThreeSyllableGrid');
+      if (!grid2 || !grid3) return;
+      grid2.innerHTML = '';
+      grid3.innerHTML = '';
+
+      const masteredList = apMasteredWords[currentChild] || [];
+
+      applePatternsWords.forEach((item, idx) => {
+        if (apCurrentGridFilter !== 'all' && item.ending !== apCurrentGridFilter) return;
+
+        const tile = document.createElement('button');
+        tile.type = 'button';
+        const isMastered = masteredList.includes(item.word);
+        const isSelected = idx === apSelectedWordIdx;
+        tile.className = `ap-word-tile ${isSelected ? 'selected' : ''} ${isMastered ? 'mastered' : ''}`;
+        tile.innerHTML = `
+          <span class="ap-tile-main">${item.word}</span>
+          <span class="ap-tile-sub">${item.chunks.join(' · ')}</span>
+        `;
+        tile.onclick = () => {
+          apSelectedWordIdx = idx;
+          apRenderWordGrids();
+          apRenderInspector();
+          playSound('pop');
+          speakText(item.word);
+        };
+
+        if (item.syllables === 2) {
+          grid2.appendChild(tile);
+        } else {
+          grid3.appendChild(tile);
+        }
+      });
+    }
+
+    function apRenderInspector() {
+      const item = applePatternsWords[apSelectedWordIdx];
+      if (!item) return;
+
+      document.getElementById('apInspCategory').textContent = `${item.syllables}-SYLLABLE • ${item.ending.toUpperCase()}`;
+      document.getElementById('apInspRule').textContent = item.rule;
+      document.getElementById('apInspEmoji').textContent = item.emoji;
+      document.getElementById('apInspFullWord').textContent = item.word;
+      document.getElementById('apInspMeaning').innerHTML = `<strong>Meaning:</strong> ${item.meaning}`;
+      document.getElementById('apInspExample').textContent = `"${item.sentence}"`;
+
+      const chunksBox = document.getElementById('apInspChunksContainer');
+      chunksBox.innerHTML = '';
+      item.chunks.forEach((ch, cIdx) => {
+        const isLast = cIdx === item.chunks.length - 1;
+        const pill = document.createElement('button');
+        pill.type = 'button';
+        pill.className = `ap-chunk-pill ${isLast ? 'cle-ending' : ''}`;
+        pill.textContent = ch;
+        pill.title = isLast ? `Final Stable Syllable (${ch}) — Count back 3!` : `Syllable ${cIdx + 1}: Tap to sound out`;
+        pill.onclick = () => {
+          playSound('pop');
+          speakText(ch);
+        };
+        chunksBox.appendChild(pill);
+        if (!isLast) {
+          const dot = document.createElement('span');
+          dot.style.cssText = 'font-size:22px; font-weight:800; color:#86868B;';
+          dot.textContent = '·';
+          chunksBox.appendChild(dot);
+        }
+      });
+
+      const masteredList = apMasteredWords[currentChild] || [];
+      const isMastered = masteredList.includes(item.word);
+      const markBtn = document.getElementById('apMarkMasteredBtn');
+      if (markBtn) {
+        markBtn.textContent = isMastered ? '✓ Mastered! (Tap to Undo)' : '✓ Mark Word Mastered (+1 ⭐)';
+        markBtn.style.background = isMastered ? '#15803D' : '#E8F8EE';
+        markBtn.style.color = isMastered ? '#FFFFFF' : '#15803D';
+      }
+    }
+
+    function apSpeakChunksThenBlend() {
+      const item = applePatternsWords[apSelectedWordIdx];
+      if (!item) return;
+      speakText(`${item.chunks.join(', ')}. ${item.word}!`);
+    }
+
+    function apSpeakSelectedWordSentence() {
+      const item = applePatternsWords[apSelectedWordIdx];
+      if (!item) return;
+      speakText(`${item.word}. ${item.meaning} Example: ${item.sentence}`);
+    }
+
+    function apToggleMasteredCurrentWord() {
+      const item = applePatternsWords[apSelectedWordIdx];
+      if (!item) return;
+      const list = apMasteredWords[currentChild];
+      const pos = list.indexOf(item.word);
+      if (pos === -1) {
+        list.push(item.word);
+        addStars(1);
+      } else {
+        list.splice(pos, 1);
+        playSound('pop');
+      }
+      localStorage.setItem(`ap_mastered_${currentChild}`, JSON.stringify(list));
+      syncAppleStudioProfile();
+    }
+
+    function apRenderPhrasesAndSentences() {
+      const pGrid = document.getElementById('apPhrasesGrid');
+      if (pGrid) {
+        pGrid.innerHTML = '';
+        applePatternsPhrases.forEach(p => {
+          const btn = document.createElement('button');
+          btn.type = 'button';
+          btn.className = 'ap-word-tile';
+          btn.style.padding = '12px 14px';
+          btn.innerHTML = `<span style="font-size:15px; font-weight:600;">${p.text}</span><span style="font-size:11px; color:#0066CC;">🔊 Tap to read</span>`;
+          btn.onclick = () => {
+            playSound('pop');
+            speakText(p.text);
+          };
+          pGrid.appendChild(btn);
+        });
+      }
+
+      const sList = document.getElementById('apSentencesList');
+      if (sList) {
+        sList.innerHTML = '';
+        applePatternsSentences.forEach((s, idx) => {
+          const box = document.createElement('div');
+          box.style.cssText = 'background:#F5F5F7; border-radius:16px; padding:16px; border:1px solid rgba(0,0,0,0.06);';
+          const wordsHtml = s.text.split(' ').map(w => {
+            const clean = w.replace(/[^a-zA-Z]/g, '');
+            const isTarget = s.targets.some(t => t.toLowerCase() === clean.toLowerCase());
+            return `<span onclick="playSound('pop'); speakText('${clean}');" style="display:inline-block; padding:3px 8px; margin:2px; border-radius:8px; cursor:pointer; font-size:17px; font-weight:${isTarget ? '700' : '500'}; background:${isTarget ? 'rgba(0,102,204,0.12)' : 'transparent'}; color:${isTarget ? '#0066CC' : '#1D1D1F'};">${w}</span>`;
+          }).join(' ');
+
+          box.innerHTML = `
+            <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:6px;">
+              <span style="font-size:11px; font-weight:700; color:#6E6E73; text-transform:uppercase;">Worksheet Sentence #${idx + 1}</span>
+              <button type="button" class="ap-btn-secondary" style="padding:4px 10px; font-size:12px;" onclick="speakText('${s.text.replace(/'/g, "\\'")}')">🔊 Read Sentence</button>
+            </div>
+            <div style="margin-bottom:6px;">${wordsHtml}</div>
+            <div style="font-size:12px; color:#6E6E73;">${s.note}</div>
+          `;
+          sList.appendChild(box);
+        });
+      }
+    }
+
+    function apReadAllPhrases() {
+      const allText = applePatternsPhrases.map(p => p.text).join('. ');
+      speakText(allText);
+    }
+
+    function apRenderPrefixMorphs() {
+      const grid = document.getElementById('apPrefixMorphGrid');
+      if (!grid) return;
+      grid.innerHTML = '';
+      applePrefixMorphs.forEach(m => {
+        const card = document.createElement('div');
+        card.className = 'ap-word-tile';
+        card.style.padding = '16px';
+        card.innerHTML = `
+          <div style="font-size:14px; color:#6E6E73; font-weight:600;">${m.twoSyl}</div>
+          <div style="font-size:18px; color:#0066CC; font-weight:800; margin:4px 0;">↓ ${m.threeSyl}</div>
+          <div style="font-size:12px; color:#1D1D1F;">${m.rule}</div>
+        `;
+        card.onclick = () => {
+          playSound('pop');
+          speakText(m.speak);
+        };
+        grid.appendChild(card);
+      });
+    }
+
+    // --- STAGE 2: C-LE SYLLABLE BUILDER ---
+    const allCleEndings = ["-ble", "-ple", "-dle", "-fle", "-tle", "-gle", "-cle"];
+
+    function apRenderBuilderQuestion() {
+      const item = applePatternsWords[apBuilderIdx];
+      if (!item) return;
+
+      document.getElementById('apBuilderProgressLabel').textContent = `Word ${apBuilderIdx + 1} of ${applePatternsWords.length} (${item.syllables} Syllables)`;
+      document.getElementById('apBuilderEmoji').textContent = item.emoji;
+      const prefixChunks = item.chunks.slice(0, item.chunks.length - 1).join(' · ');
+      document.getElementById('apBuilderStemDisplay').innerHTML = `${prefixChunks} · <span id="apBuilderBlankSlot" style="color:#0066CC; border-bottom:3px dashed #0066CC; padding:0 12px;">?</span>`;
+      document.getElementById('apBuilderClueDisplay').textContent = `"${item.meaning}"`;
+      document.getElementById('apBuilderFeedback').textContent = '';
+
+      const grid = document.getElementById('apBuilderChoicesGrid');
+      grid.innerHTML = '';
+      allCleEndings.forEach(ending => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ap-ending-btn';
+        btn.textContent = ending.replace('-', '');
+        btn.onclick = () => apCheckBuilderChoice(ending, btn);
+        grid.appendChild(btn);
+      });
+    }
+
+    function apCheckBuilderChoice(chosenEnding, btnEl) {
+      const item = applePatternsWords[apBuilderIdx];
+      const feedback = document.getElementById('apBuilderFeedback');
+      const slot = document.getElementById('apBuilderBlankSlot');
+
+      if (chosenEnding === item.ending) {
+        btnEl.classList.add('correct');
+        if (slot) {
+          slot.textContent = item.ending.replace('-', '');
+          slot.style.color = '#28CD41';
+          slot.style.borderBottom = '3px solid #28CD41';
+        }
+        feedback.textContent = `🌟 Spot on! ${item.chunks.join(' · ')} = ${item.word.toUpperCase()}! (${item.rule}) (+1 ⭐)`;
+        feedback.style.color = '#15803D';
+        addStars(1);
+        speakText(item.word);
+      } else {
+        btnEl.classList.add('wrong');
+        feedback.textContent = `💡 Listen closely to the final stable syllable in "${item.word}" — count back 3 letters!`;
+        feedback.style.color = '#D70015';
+        playSound('wrong');
+      }
+    }
+
+    function apSpeakBuilderTarget() {
+      const item = applePatternsWords[apBuilderIdx];
+      if (item) speakText(`${item.word}. ${item.meaning}`);
+    }
+
+    function apNextBuilderQuestion() {
+      apBuilderIdx = (apBuilderIdx + 1) % applePatternsWords.length;
+      apRenderBuilderQuestion();
+      playSound('pop');
+    }
+
+    function apPrevBuilderQuestion() {
+      apBuilderIdx = (apBuilderIdx - 1 + applePatternsWords.length) % applePatternsWords.length;
+      apRenderBuilderQuestion();
+      playSound('pop');
+    }
+
+    // --- STAGE 3: MEANING & PHRASE DETECTIVE ---
+    const apVocabQuizzes = [
+      { word: "bugle", emoji: "🎺", q: "Which word means 'a brass wind instrument like a small trumpet played for military calls'?", opts: ["bugle", "beagle", "beetle", "bridle"] },
+      { word: "bridle", emoji: "🏇", q: "Which word means 'the leather headgear and reins used to guide a horse'?", opts: ["bridle", "cradle", "ladle", "needle"] },
+      { word: "steeple", emoji: "⛪", q: "Which word means 'a tall pointed tower rising on the roof of a church'?", opts: ["steeple", "staple", "scruple", "people"] },
+      { word: "ladle", emoji: "🥣", q: "Which word means 'a large, deep long-handled spoon used for serving soup'?", opts: ["ladle", "cradle", "table", "gable"] },
+      { word: "stifle", emoji: "🤫", q: "Which word means 'to hold back, muffle, or quiet a sound or yawn'?", opts: ["stifle", "trifle", "stable", "staple"] },
+      { word: "feeble", emoji: "🕯️", q: "Which word is the opposite of strong and means 'faint or lacking strength'?", opts: ["feeble", "noble", "capable", "stable"] },
+      { word: "gable", emoji: "🏠", q: "Which word means 'the triangular upper part of a wall at the end of a pitched roof'?", opts: ["gable", "fable", "cable", "table"] },
+      { word: "scruple", emoji: "⚖️", q: "Which word means 'a feeling of conscience or honesty that keeps you from doing wrong'?", opts: ["scruple", "steeple", "trifle", "maple"] },
+      { word: "noble", emoji: "👑", q: "Which word describes a queen or knight with high moral character, honor, and courage?", opts: ["noble", "feeble", "unstable", "unable"] },
+      { word: "timetable", emoji: "🗓️", q: "Which 3-syllable word means 'a schedule chart showing when trains or school classes happen'?", opts: ["timetable", "tricycle", "cubicle", "vehicle"] },
+      { word: "cubicle", emoji: "🖥️", q: "Which 3-syllable word means 'a small walled desk workspace inside an office'?", opts: ["cubicle", "icicle", "bicycle", "vehicle"] },
+      { word: "vehicle", emoji: "🚗", q: "Which 3-syllable word with a silent 'h' means 'a machine like a car, bus, or truck that carries people'?", opts: ["vehicle", "icicle", "tricycle", "capable"] },
+      { word: "trifle", emoji: "🍰", q: "Which word means 'something very small of little importance (or a layered fruit dessert)'?", opts: ["trifle", "stifle", "bridle", "beetle"] },
+      { word: "fable", emoji: "🦊", q: "Which word means 'a short fiction story that teaches a moral lesson'?", opts: ["fable", "gable", "cable", "stable"] },
+      { word: "icicle", emoji: "🧊", q: "Which 3-syllable word means 'a hanging pointed spike of frozen dripping water'?", opts: ["icicle", "bicycle", "tricycle", "cubicle"] }
+    ];
+
+    function apRenderVocabQuestion() {
+      const qObj = apVocabQuizzes[apVocabIdx];
+      document.getElementById('apVocabCounter').textContent = `Clue ${apVocabIdx + 1} of ${apVocabQuizzes.length}`;
+      document.getElementById('apVocabQuizEmoji').textContent = qObj.emoji;
+      document.getElementById('apVocabQuizPrompt').textContent = qObj.q;
+      document.getElementById('apVocabFeedback').textContent = '';
+
+      const grid = document.getElementById('apVocabOptionsGrid');
+      grid.innerHTML = '';
+      qObj.opts.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ap-ending-btn';
+        btn.style.fontSize = '16px';
+        btn.style.padding = '12px 14px';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          const fb = document.getElementById('apVocabFeedback');
+          if (opt === qObj.word) {
+            btn.classList.add('correct');
+            fb.textContent = `🌟 Spot on! "${qObj.word.toUpperCase()}" matches the clue! (+1 ⭐)`;
+            fb.style.color = '#15803D';
+            addStars(1);
+            speakText(qObj.word);
+          } else {
+            btn.classList.add('wrong');
+            fb.textContent = `💡 Not quite! Re-read the clue carefully and try another word.`;
+            fb.style.color = '#D70015';
+            playSound('wrong');
+          }
+        };
+        grid.appendChild(btn);
+      });
+    }
+
+    function apNextVocabQuestion() {
+      apVocabIdx = (apVocabIdx + 1) % apVocabQuizzes.length;
+      apRenderVocabQuestion();
+      playSound('pop');
+    }
+
+    function apRenderPhraseQuizQuestion() {
+      const pObj = applePatternsPhrases[apPhraseQuizIdx];
+      document.getElementById('apPhraseQuizCounter').textContent = `Phrase ${apPhraseQuizIdx + 1} of ${applePatternsPhrases.length}`;
+      document.getElementById('apPhraseBlankDisplay').textContent = pObj.blank;
+      document.getElementById('apPhraseMeaningHint').textContent = `Clue: ${pObj.clue}`;
+      document.getElementById('apPhraseFeedback').textContent = '';
+
+      const grid = document.getElementById('apPhraseOptionsGrid');
+      grid.innerHTML = '';
+      pObj.options.forEach(opt => {
+        const btn = document.createElement('button');
+        btn.type = 'button';
+        btn.className = 'ap-ending-btn';
+        btn.style.fontSize = '16px';
+        btn.style.padding = '12px 14px';
+        btn.textContent = opt;
+        btn.onclick = () => {
+          const fb = document.getElementById('apPhraseFeedback');
+          if (opt === pObj.ans) {
+            btn.classList.add('correct');
+            document.getElementById('apPhraseBlankDisplay').textContent = pObj.text;
+            fb.textContent = `🌟 Awesome phrase fluency: "${pObj.text}"! (+1 ⭐)`;
+            fb.style.color = '#15803D';
+            addStars(1);
+            speakText(pObj.text);
+          } else {
+            btn.classList.add('wrong');
+            fb.textContent = `💡 Check the meaning clue: ${pObj.clue}`;
+            fb.style.color = '#D70015';
+            playSound('wrong');
+          }
+        };
+        grid.appendChild(btn);
+      });
+    }
+
+    function apNextPhraseQuestion() {
+      apPhraseQuizIdx = (apPhraseQuizIdx + 1) % applePatternsPhrases.length;
+      apRenderPhraseQuizQuestion();
+      playSound('pop');
+    }
+
+    // --- STAGE 4: AUDIO SPELLING STUDIO ---
+    function apRenderSpellQuestion() {
+      const item = applePatternsWords[apSpellIdx];
+      document.getElementById('apSpellCounterLabel').textContent = `Word ${apSpellIdx + 1} of ${applePatternsWords.length} (${item.syllables} Syllables)`;
+      document.getElementById('apSpellEmoji').textContent = item.emoji;
+      document.getElementById('apSpellClueText').textContent = `Meaning: ${item.meaning}`;
+      const hintBox = document.getElementById('apSpellHintBox');
+      hintBox.textContent = `Syllable Chunks: ${item.chunks.join(' · ')} (${item.rule})`;
+      hintBox.style.display = 'none';
+      const input = document.getElementById('apSpellInput');
+      if (input) input.value = '';
+      document.getElementById('apSpellFeedback').textContent = '';
+    }
+
+    function apSpeakSpellTarget() {
+      const item = applePatternsWords[apSpellIdx];
+      speakText(`Spell the word: ${item.word}. ${item.sentence}`);
+    }
+
+    function apToggleSpellHint() {
+      const hintBox = document.getElementById('apSpellHintBox');
+      hintBox.style.display = hintBox.style.display === 'none' ? 'block' : 'none';
+      playSound('pop');
+    }
+
+    function apCheckSpelling() {
+      const item = applePatternsWords[apSpellIdx];
+      const inputEl = document.getElementById('apSpellInput');
+      const typed = (inputEl ? inputEl.value : '').trim().toLowerCase();
+      const fb = document.getElementById('apSpellFeedback');
+
+      if (typed === item.word.toLowerCase()) {
+        fb.textContent = `🌟 Perfect spelling! ${item.chunks.join(' · ')} = ${item.word.toUpperCase()}! (+1 ⭐)`;
+        fb.style.color = '#15803D';
+        if (!apMasteredWords[currentChild].includes(item.word)) {
+          apMasteredWords[currentChild].push(item.word);
+          localStorage.setItem(`ap_mastered_${currentChild}`, JSON.stringify(apMasteredWords[currentChild]));
+        }
+        addStars(1);
+        syncAppleStudioProfile();
+        setTimeout(() => apNextSpellWord(), 1400);
+      } else {
+        fb.textContent = `💡 Almost! Slice the syllables: ${item.chunks.join(' - ')} (remember the final "${item.ending.replace('-', '')}")!`;
+        fb.style.color = '#D70015';
+        playSound('wrong');
+      }
+    }
+
+    function apNextSpellWord() {
+      apSpellIdx = (apSpellIdx + 1) % applePatternsWords.length;
+      apRenderSpellQuestion();
+      playSound('pop');
+    }
+
+    // --- STAGE 5: LIVE WPM TIMED READ & PARTNER FEEDBACK BOOKMARK ---
+    function apGetDeckTokens() {
+      const wordsOnly = applePatternsWords.map(w => w.word);
+      const phrasesWords = applePatternsPhrases.flatMap(p => p.text.split(' '));
+      const sentencesWords = applePatternsSentences.flatMap(s => s.text.split(' '));
+      if (apCurrentFluencyDeck === 'words') return wordsOnly;
+      if (apCurrentFluencyDeck === 'phrases') return [...phrasesWords, ...sentencesWords];
+      return [...wordsOnly, ...phrasesWords, ...sentencesWords];
+    }
+
+    function apSelectFluencyDeck(deck) {
+      apCurrentFluencyDeck = deck;
+      document.getElementById('apDeckAll').classList.toggle('active', deck === 'all');
+      document.getElementById('apDeckWords').classList.toggle('active', deck === 'words');
+      document.getElementById('apDeckPhrases').classList.toggle('active', deck === 'phrases');
+      apResetTimedRead();
+      apRenderFluencySheet();
+      playSound('pop');
+    }
+
+    function apRenderFluencySheet() {
+      const container = document.getElementById('apFluencySheetArea');
+      if (!container) return;
+      container.innerHTML = '';
+      apTrickyMarkedSet.clear();
+      apUpdateTrickyLabel();
+
+      let tokenCounter = 0;
+      const createTokenSpan = (wordText) => {
+        const idx = tokenCounter++;
+        const span = document.createElement('span');
+        span.className = 'ap-fluency-token';
+        span.textContent = wordText;
+        span.onclick = () => {
+          if (apTrickyMarkedSet.has(idx)) {
+            apTrickyMarkedSet.delete(idx);
+            span.classList.remove('tricky-marked');
+          } else {
+            apTrickyMarkedSet.add(idx);
+            span.classList.add('tricky-marked');
+            speakText(wordText.replace(/[^a-zA-Z]/g, ''));
+          }
+          apUpdateTrickyLabel();
+        };
+        return span;
+      };
+
+      if (apCurrentFluencyDeck === 'all' || apCurrentFluencyDeck === 'words') {
+        const h2 = document.createElement('div');
+        h2.style.cssText = 'font-size:12px; font-weight:700; color:#6E6E73; text-transform:uppercase; margin:4px 0 6px;';
+        h2.textContent = 'Two-Syllable & Three-Syllable Words (35 Words)';
+        container.appendChild(h2);
+        const wordWrap = document.createElement('div');
+        wordWrap.style.marginBottom = '14px';
+        applePatternsWords.forEach(w => wordWrap.appendChild(createTokenSpan(w.word)));
+        container.appendChild(wordWrap);
+      }
+
+      if (apCurrentFluencyDeck === 'all' || apCurrentFluencyDeck === 'phrases') {
+        const hp = document.createElement('div');
+        hp.style.cssText = 'font-size:12px; font-weight:700; color:#6E6E73; text-transform:uppercase; margin:10px 0 6px;';
+        hp.textContent = 'Fluency Phrases (10 Phrases) & Sentences (2 Sentences)';
+        container.appendChild(hp);
+
+        applePatternsPhrases.forEach(p => {
+          const phraseChip = document.createElement('div');
+          phraseChip.style.cssText = 'display:inline-block; background:#F9F9FB; border:1px dashed rgba(0,0,0,0.12); border-radius:12px; padding:4px 8px; margin:4px;';
+          p.text.split(' ').forEach(w => phraseChip.appendChild(createTokenSpan(w)));
+          container.appendChild(phraseChip);
+        });
+
+        applePatternsSentences.forEach(s => {
+          const sentRow = document.createElement('div');
+          sentRow.style.cssText = 'margin-top:8px; padding-top:8px; border-top:1px solid rgba(0,0,0,0.06);';
+          s.text.split(' ').forEach(w => sentRow.appendChild(createTokenSpan(w)));
+          container.appendChild(sentRow);
+        });
+      }
+    }
+
+    function apUpdateTrickyLabel() {
+      const total = apGetDeckTokens().length;
+      const tricky = apTrickyMarkedSet.size;
+      const acc = Math.max(0, Math.round(((total - tricky) / total) * 100));
+      const el = document.getElementById('apTrickyCountLabel');
+      if (el) el.textContent = `Tricky Words Marked: ${tricky} (${acc}% Accuracy across ${total} words)`;
+    }
+
+    function apToggleTimedRead() {
+      const btn = document.getElementById('apTimerStartStopBtn');
+      if (!apTimerRunning) {
+        apTimerRunning = true;
+        apTimerSeconds = 0;
+        btn.textContent = '⏹ Finish & Calculate WPM';
+        btn.style.background = '#FF3B30';
+        apTimerInterval = setInterval(() => {
+          apTimerSeconds++;
+          const mins = String(Math.floor(apTimerSeconds / 60)).padStart(2, '0');
+          const secs = String(apTimerSeconds % 60).padStart(2, '0');
+          document.getElementById('apTimerDisplay').textContent = `${mins}:${secs}`;
+          const totalWords = Math.max(1, apGetDeckTokens().length - apTrickyMarkedSet.size);
+          const liveWpm = Math.round((totalWords / Math.max(1, apTimerSeconds)) * 60);
+          document.getElementById('apWpmDisplay').textContent = liveWpm;
+        }, 1000);
+        playSound('pop');
+      } else {
+        apStopTimerOnly();
+        const totalWords = Math.max(1, apGetDeckTokens().length - apTrickyMarkedSet.size);
+        const finalWpm = Math.round((totalWords / Math.max(1, apTimerSeconds)) * 60);
+        document.getElementById('apWpmDisplay').textContent = finalWpm;
+        document.getElementById('apLogWpmInput').value = finalWpm;
+        addStars(2);
+      }
+    }
+
+    function apStopTimerOnly() {
+      apTimerRunning = false;
+      if (apTimerInterval) clearInterval(apTimerInterval);
+      const btn = document.getElementById('apTimerStartStopBtn');
+      if (btn) {
+        btn.textContent = '▶ Start Timed Read';
+        btn.style.background = '';
+      }
+    }
+
+    function apResetTimedRead() {
+      apStopTimerOnly();
+      apTimerSeconds = 0;
+      document.getElementById('apTimerDisplay').textContent = '00:00';
+      document.getElementById('apWpmDisplay').textContent = '--';
+      apRenderFluencySheet();
+    }
+
+    function apSaveTimedReadSlot() {
+      const slotIdx = parseInt(document.getElementById('apLogSlotSelect').value || '0', 10);
+      const wpmVal = document.getElementById('apLogWpmInput').value.trim() || document.getElementById('apWpmDisplay').textContent;
+      const partnerVal = document.getElementById('apLogPartnerInput').value.trim() || (currentChild === 'sanav' ? 'Sanha' : 'Sanav');
+      const commentVal = document.getElementById('apLogBookmarkSelect').value;
+      const todayStr = new Date().toLocaleDateString('en-US', { month: 'short', day: 'numeric', year: 'numeric' });
+
+      apTimedReadLogs[currentChild][slotIdx] = {
+        wpm: wpmVal && wpmVal !== '--' ? `${wpmVal} WPM` : 'Completed',
+        date: todayStr,
+        partner: partnerVal,
+        comment: commentVal
+      };
+      localStorage.setItem(`ap_timed_logs_${currentChild}`, JSON.stringify(apTimedReadLogs[currentChild]));
+      apRenderTimedReadTable();
+      addStars(2);
+    }
+
+    function apRenderTimedReadTable() {
+      const tbody = document.getElementById('apTimedReadTableBody');
+      if (!tbody) return;
+      tbody.innerHTML = '';
+      const logs = apTimedReadLogs[currentChild] || [];
+      [0, 1, 2].forEach(idx => {
+        const row = logs[idx] || { wpm: '', date: '', partner: '', comment: '' };
+        const tr = document.createElement('tr');
+        tr.innerHTML = `
+          <td style="font-weight:700;">Timed Read #${idx + 1}</td>
+          <td style="font-weight:800; color:#0066CC;">${row.wpm || '<span style="color:#86868B;">Not recorded yet</span>'}</td>
+          <td>${row.date || '—'}</td>
+          <td>${row.partner || '—'}</td>
+          <td>${row.comment || '—'}</td>
+        `;
+        tbody.appendChild(tr);
+      });
+    }
+
+    /* ==========================================================================
+       9. ON LOAD INITIALIZATION
        ========================================================================== */
     window.addEventListener('DOMContentLoaded', () => {
       switchProfile('sanav');
@@ -4845,6 +6699,7 @@
       generateSwatChallenge();
       rollFiveDice();
       initPhonicsHub();
+      initApplePatternsStudio();
       
       // Initialize AI Lab
       renderTrafficScenario();

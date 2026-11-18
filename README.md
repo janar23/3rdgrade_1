@@ -74,6 +74,19 @@ Based on 3rd Grade TX TEKS & Weekly Classroom Focus:
 
 ## 📅 Weekly Smore Curriculum Updates & Changelog
 
+### November 17, 2026 — Apple-Style Powerful Patterns Studio (`-le` Final Stable Syllables)
+* **Source:** Classroom *Powerful Patterns Practice* Phonics & Fluency Sheet
+* **Modules Added / Updated:**
+  1. **🍎 Dedicated Apple-Style Powerful Patterns Studio (`#applePatternsStudioOverlay`):**
+     * Launched via dedicated `🍎 Powerful Patterns Studio (-le Words)` buttons in the Top Header, Profile Welcome Banner, and Literacy Tools Hero Card.
+     * **Stage 1 (Pattern Grid & "Count Back 3" Slicer):** Interactive 5×5 Two-Syllable grid (`able`, `cable`, `fable`, `table`, `stable`, `gable`, `feeble`, `noble`, `people`, `scruple`, `maple`, `staple`, `steeple`, `cradle`, `ladle`, `needle`, `noodle`, `poodle`, `bridle`, `stifle`, `trifle`, `beetle`, `eagle`, `beagle`, `bugle`), 2×5 Three-Syllable grid (`unable`, `unstable`, `disable`, `timetable`, `capable`, `vehicle`, `cubicle`, `bicycle`, `icicle`, `tricycle`), 10 Fluency Phrases, and 2 Decodable Sentences with live Apple Word Inspector.
+     * **Stage 2 (`C-le` Syllable Builder & 2-to-3 Syllable Transformer):** Interactive `-ble, -ple, -dle, -fle, -tle, -gle, -cle` ending builder and prefix/compound morph cards.
+     * **Stage 3 (Meaning & Phrase Detective):** 15 vocabulary meaning quests + 10 worksheet phrase-completion challenges.
+     * **Stage 4 (Audio Spelling Studio):** Audio dictation and syllable-chunk encoding across all 35 words.
+     * **Stage 5 (Live WPM Timed Read & Twin Partner Feedback Bookmark):** Built-in stopwatch, tap-to-mark tricky words, automatic WPM & accuracy calculator, digital Partner Feedback Bookmark, and persistent `Timed Read #1, #2, #3` log table for Sanav & Sanha.
+  2. **✍️ Weekly Literacy (`weeklyPhonicsUnits`):**
+     * Prepended `Powerful Patterns • Final Stable Syllables (-le)` as the active unit in the main Literacy Tools tab as well.
+
 ### Week of November 2–6, 2026
 * **Smore Newsletter Source:** [`https://app.smore.com/n/gsh1e`](https://app.smore.com/n/gsh1e)
 * **Important November Dates:**
